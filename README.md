@@ -5,5 +5,6 @@ ThemaOpdracht5
 #swag
 #yolo
 #het werkt gvd eindelijk
+#Met Eclipse?
 2510 - 18:06 | de readme aangepast (Thomas)
 2810 - 10:39 | de readme aangepast (leon)
