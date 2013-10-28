@@ -6,7 +6,7 @@ public class JUnitLoginTest {
 		allUsers = (ArrayList<User>) getServletContext().getAttribute("users");
 	}
 	
-	// testcase inloggen A1.1/A1.2
+	// testcase inloggen A1.1
 	@Test
 	public void testLoginSucces() {
 		User u = new User("123", "123", "123@gmail.com");
@@ -22,6 +22,7 @@ public class JUnitLoginTest {
 		}
 
 	}
+	// testcase inloggen A1.2
 	@Test(expected=Exception)
 	public void testLoginFail() {
 		User u = new User("564675", "123", "123@gmail.com");
