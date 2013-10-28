@@ -22,5 +22,20 @@ public class JUnitLoginTest {
 		}
 
 	}
+	@Test(expected=Exception)
+	public void testLoginFail() {
+		User u = new User("564675", "123", "123@gmail.com");
+		boolean loginsucces = false;
+		try {
+			for (User us : allUsers) {
+				if (u.equals(us)) {
+					loginsucces = true;
+				}
+			}
+		} catch (Exception e) {
+			fail("Onjuiste gebruikersnaam/wachtwoord combinatie");
+		}
+
+	}
 
 }
