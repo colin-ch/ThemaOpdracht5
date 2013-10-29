@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true">  
   <class id="1" language="java" name="com.appspot.Accent.model.StageOpleider" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/StageOpleider.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="160" y="822"/>    
+    <position height="135" width="130" x="902" y="1345"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="com.appspot.Accent.model.Competentie" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/Competentie.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-8" y="474"/>    
+    <position height="189" width="216" x="568" y="1345"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="com.appspot.Accent.model.Beoordeling" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/Beoordeling.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-3" y="269"/>    
+    <position height="207" width="158" x="568" y="810"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="com.appspot.Accent.model.Leerling" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/Leerling.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="612" y="509"/>    
+    <position height="495" width="438" x="-129" y="810"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="com.appspot.Accent.model.Docent" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/Docent.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="983" y="260"/>    
+    <position height="81" width="158" x="370" y="810"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="com.appspot.Accent.model.Stage" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/Stage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="261" y="13"/>    
+    <position height="333" width="282" x="463" y="437"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="com.appspot.Accent.model.StageBegeleider" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/StageBegeleider.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="960" y="795"/>    
+    <position height="81" width="203" x="-129" y="1345"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="com.appspot.Accent.model.StageBedrijf" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/StageBedrijf.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="242" y="314"/>    
+    <position height="189" width="245" x="766" y="810"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="com.appspot.Accent.model.School" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/School.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-14" y="-5"/>    
+    <position height="477" width="265" x="370" y="-80"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="com.appspot.Accent.model.User" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/User.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="939" y="-32"/>    
+    <position height="243" width="150" x="-89" y="437"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -92,79 +92,124 @@
     </display>  
   </class>  
   <generalization id="11">    
-    <bendpoint x="873" y="220"/>    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="12">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="13" name="begeleider"/>      
-      <multiplicity id="14" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="15">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="16" name="hetBedrijf"/>      
-      <multiplicity id="17" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="18">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="19" name="opleiders"/>      
-      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="21">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="22" name="competenties"/>      
-      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="24">    
-    <bendpoint x="89" y="220"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="25" name="deOpleider"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="27">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="29">    
+  <association id="12">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="30" name="deLeerling"/>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
+      <attribute id="13" name="deLeerling"/>      
+      <multiplicity id="14" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="32">    
+  <association id="15">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="16" name="competenties"/>      
+      <multiplicity id="17" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="18">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <association id="20">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="33" name="beoordelingen"/>      
-      <multiplicity id="34" minimum="0" maximum="2147483647"/>    
+      <attribute id="21" name="hetBedrijf"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="23">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="24" name="Stages"/>      
+      <multiplicity id="25" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="27" name="opleiders"/>      
+      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <bendpoint x="775" y="437"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="30" name="bedrijven"/>      
+      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="32">    
+    <bendpoint x="-160" y="810"/>    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <association id="33">    
+    <bendpoint x="339" y="437"/>    
+    <bendpoint x="339" y="810"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="34" name="begeleiders"/>      
+      <multiplicity id="35" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
+    <bendpoint x="1041" y="810"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="37" name="deOpleider"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="39">    
+    <bendpoint x="-120" y="437"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="40" name="leerlingen"/>      
+      <multiplicity id="41" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="42">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="43" name="begeleider"/>      
+      <multiplicity id="44" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="45">    
+    <bendpoint x="379" y="437"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="46" name="docenten"/>      
+      <multiplicity id="47" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="49" name="beoordelingen"/>      
+      <multiplicity id="50" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="35">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
