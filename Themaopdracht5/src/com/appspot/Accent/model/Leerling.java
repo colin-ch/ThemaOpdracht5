@@ -13,9 +13,16 @@ public class Leerling extends User{
 	private String naam;
 	
 
-	public Leerling(String us, String pw, String em, String kl) {
+	public Leerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, Docent doc) {
 		super(us, pw, em);
 		klas = kl;
+		docent = doc;
+		geboortedatum = gebdat;
+		leeftijd = age;
+		roepnaam = call;
+		tussenvoegsel = tussen;
+		achternaam = achternm;
+		naam = nm;
 		// TODO Auto-generated constructor stub
 	}
 
