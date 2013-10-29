@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Competentie {
 	private String titel;
-	private ArrayList<String> beschrijving = new ArrayList<String>();
+	private ArrayList<String> deStellingen = new ArrayList<String>();
 
 	
 	public Competentie(String ti){
@@ -17,6 +17,14 @@ public class Competentie {
 
 	public void setTitel(String titel) {
 		this.titel = titel;
+	}
+
+	public ArrayList<String> getDeStellingen() {
+		return deStellingen;
+	}
+
+	public void setDeStellingen(ArrayList<String> deStellingen) {
+		this.deStellingen = deStellingen;
 	}
 
 
