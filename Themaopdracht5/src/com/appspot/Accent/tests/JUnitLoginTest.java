@@ -1,20 +1,30 @@
+package com.appspot.Accent.tests;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.appspot.Accent.model.User;
+
 public class JUnitLoginTest {
-	
-	@Before
-	public void setup(){
-		ArrayList<User> allUsers = new ArrayList<User>();
-		allUsers = (ArrayList<User>) getServletContext().getAttribute("users");
-	}
-	
+
 	// testcase inloggen A1.1
 	@Test
 	public void testLoginSucces() {
+		ArrayList<User> allUsers = new ArrayList<User>();
+		User user = new User("123","123","123@gmail.com");
+		allUsers.add(user);
 		User u = new User("123", "123", "123@gmail.com");
-		boolean loginsucces = false;
+
 		try {
 			for (User us : allUsers) {
 				if (u.equals(us)) {
-					loginsucces = true;
+				}
+				else{
+					fail("gebruiker niet bekend");
 				}
 			}
 		} catch (Exception e) {
@@ -23,14 +33,17 @@ public class JUnitLoginTest {
 
 	}
 	// testcase inloggen A1.2
-	@Test(expected=Exception)
+	@Test
 	public void testLoginFail() {
+		ArrayList<User> allUsers = new ArrayList<User>();
+		User user = new User("123","123","123@gmail.com");
+		allUsers.add(user);
 		User u = new User("564675", "123", "123@gmail.com");
-		boolean loginsucces = false;
+
 		try {
 			for (User us : allUsers) {
 				if (u.equals(us)) {
-					loginsucces = true;
+					fail("Deze gebruiker is bekend");
 				}
 			}
 		} catch (Exception e) {

@@ -8,7 +8,7 @@ public class Leerling extends User{
 	private Date geboortedatum;
 	private int leeftijd;
 	private String roepnaam;
-	private St
+	private String naam;
 	
 
 	public Leerling(String us, String pw, String em, String kl) {
