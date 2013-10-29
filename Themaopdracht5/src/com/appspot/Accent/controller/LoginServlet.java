@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
 		boolean loginsucces = false;
 		String username = req.getParameter("username");
 		String pass = req.getParameter("password");
-		String hoi;
+		
 		String naam = null;
 		String ww = null;
 		String em = null;
