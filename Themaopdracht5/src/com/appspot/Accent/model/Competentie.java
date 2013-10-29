@@ -1,21 +1,22 @@
 package com.appspot.Accent.model;
 
+import java.util.ArrayList;
+
 public class Competentie {
-	private String beschrijving;
+	private String titel;
+	private ArrayList<String> beschrijving = new ArrayList<String>();
 
 	
-	public Competentie(String be){
-		beschrijving = be;
+	public Competentie(String ti){
+		setTitel(ti);
 	}
 
-
-	public String getBeschrijving() {
-		return beschrijving;
+	public String getTitel() {
+		return titel;
 	}
 
-
-	public void setBeschrijving(String beschrijving) {
-		this.beschrijving = beschrijving;
+	public void setTitel(String titel) {
+		this.titel = titel;
 	}
 
 
