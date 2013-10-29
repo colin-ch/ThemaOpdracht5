@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Leerling extends User{
 	private String klas;
-	private Docent docent;
+	private StageBegeleider begeleider;
 	private Date geboortedatum;
 	private int leeftijd;
 	private String roepnaam;
@@ -13,10 +13,10 @@ public class Leerling extends User{
 	private String naam;
 	
 
-	public Leerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, Docent doc) {
+	public Leerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, StageBegeleider doc) {
 		super(us, pw, em);
 		klas = kl;
-		docent = doc;
+		setBegeleider(doc);
 		geboortedatum = gebdat;
 		leeftijd = age;
 		roepnaam = call;
@@ -87,16 +87,6 @@ public class Leerling extends User{
 	}
 
 
-	public Docent getDocent() {
-		return docent;
-	}
-
-
-	public void setDocent(Docent docent) {
-		this.docent = docent;
-	}
-
-
 	public String getRoepnaam() {
 		return roepnaam;
 	}
@@ -104,6 +94,16 @@ public class Leerling extends User{
 
 	public void setRoepnaam(String roepnaam) {
 		this.roepnaam = roepnaam;
+	}
+
+
+	public StageBegeleider getBegeleider() {
+		return begeleider;
+	}
+
+
+	public void setBegeleider(StageBegeleider begeleider) {
+		this.begeleider = begeleider;
 	}
 
 }
