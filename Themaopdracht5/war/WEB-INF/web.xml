@@ -16,6 +16,16 @@
 		<servlet-name>RegisterServlet</servlet-name>
 		<url-pattern>/RegisterServlet.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>OverzichtServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.OverzichtServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>OverzichtServlet</servlet-name>
+		<url-pattern>/OverzichtServlet.do</url-pattern>
+	</servlet-mapping>
 
 	
 	<servlet>

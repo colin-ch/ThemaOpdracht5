@@ -31,4 +31,5 @@ public class Beoordeling {
 		this.opmerking = opmerking;
 	}
 
+
 }
