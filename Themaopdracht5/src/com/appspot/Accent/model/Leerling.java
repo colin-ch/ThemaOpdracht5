@@ -8,6 +8,8 @@ public class Leerling extends User{
 	private Date geboortedatum;
 	private int leeftijd;
 	private String roepnaam;
+	private String tussenvoegsel;
+	private String achternaam;
 	private String naam;
 	
 
@@ -15,6 +17,86 @@ public class Leerling extends User{
 		super(us, pw, em);
 		klas = kl;
 		// TODO Auto-generated constructor stub
+	}
+
+
+	public String getNaam() {
+		return naam;
+	}
+
+
+	public String getKlas() {
+		return klas;
+	}
+
+
+	public void setKlas(String klas) {
+		this.klas = klas;
+	}
+
+
+	public Date getGeboortedatum() {
+		return geboortedatum;
+	}
+
+
+	public void setGeboortedatum(Date geboortedatum) {
+		this.geboortedatum = geboortedatum;
+	}
+
+
+	public int getLeeftijd() {
+		return leeftijd;
+	}
+
+
+	public void setLeeftijd(int leeftijd) {
+		this.leeftijd = leeftijd;
+	}
+
+
+	public String getTussenvoegsel() {
+		return tussenvoegsel;
+	}
+
+
+	public void setTussenvoegsel(String tussenvoegsel) {
+		this.tussenvoegsel = tussenvoegsel;
+	}
+
+
+	public String getAchternaam() {
+		return achternaam;
+	}
+
+
+	public void setAchternaam(String achternaam) {
+		this.achternaam = achternaam;
+	}
+
+
+	public void setNaam(String naam) {
+		this.naam = naam;
+	}
+
+
+	public Docent getDocent() {
+		return docent;
+	}
+
+
+	public void setDocent(Docent docent) {
+		this.docent = docent;
+	}
+
+
+	public String getRoepnaam() {
+		return roepnaam;
+	}
+
+
+	public void setRoepnaam(String roepnaam) {
+		this.roepnaam = roepnaam;
 	}
 
 }
