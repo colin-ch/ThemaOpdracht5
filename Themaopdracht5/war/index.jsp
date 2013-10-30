@@ -121,6 +121,12 @@
 		<div class="spacer"></div>
 	</section>
 
+<% 
+Object msgs = request.getAttribute("msgs");
+if (msgs != null) { 
+out.println(msgs);
+}
+%>
 
 </body>
 
