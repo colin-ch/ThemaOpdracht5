@@ -24,14 +24,14 @@ public class UserContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		User u = new User("123", "123", "123@gmail.com");
+		User ugfgf = new User("123", "123", "123@gmail.com");
 		User u1 = new User("12345", "12345", "12345@gmail.com");
 		Date date = new Date();
 		StageBegeleider stagebeg = new StageBegeleider("stage", "begeleider", "yahoo@gmail.com");
-	Leerling stud = new Leerling("123", "123", "123@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", stagebeg );	
+	Leerling u = new Leerling("123", "123", "123@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", stagebeg );	
 	StageBedrijf bedrijf1 = new StageBedrijf("bedrijf1", "123","bedrijf@gmail.com", "utrecht", "123456");
 	StageOpleider opleider = new StageOpleider("jopie");
-		Stage stage = new Stage(stud, opleider, bedrijf1, date, date);
+		Stage stage = new Stage(u, opleider, bedrijf1, date, date);
 	
 	
 	ArrayList<User> allUsers = new ArrayList<User>();
