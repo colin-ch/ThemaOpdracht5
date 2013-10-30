@@ -24,7 +24,6 @@ public class UserContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		User ugfgf = new User("123", "123", "123@gmail.com");
 		User u1 = new User("12345", "12345", "12345@gmail.com");
 		Date date = new Date();
 		StageBegeleider stagebeg = new StageBegeleider("stage", "begeleider", "yahoo@gmail.com");

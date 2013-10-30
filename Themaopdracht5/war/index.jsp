@@ -77,7 +77,7 @@
 		<h3>Competenties</h3>
 		<ul class="toggle">
 			<li class="icn_new_article"><a href="#">Nieuwe competentie</a></li>
-			<li class="icn_edit_article"><a href="#">Beoordelen</a></li>
+			<li class="icn_edit_article"><a href="/BeoordeelServlet.do">Beoordelen</a></li>
 			<li class="icn_categories"><a href="#">Competenties bekijken</a></li>
 			<li class="icn_tags"><a href="/Overzicht.do">Overzicht beoordelingen</a></li>
 		</ul>

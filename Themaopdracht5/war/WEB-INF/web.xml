@@ -27,6 +27,15 @@
 		<url-pattern>/Overzicht.do</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>BeoordeelServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.BeoordeelServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>BeoordeelServlet</servlet-name>
+		<url-pattern>/BeoordeelServlet.do</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>LoginServlet</servlet-name>
