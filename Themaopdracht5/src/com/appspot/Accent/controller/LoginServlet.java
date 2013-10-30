@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
 		boolean loginsucces = false;
 		String username = req.getParameter("username");
 		String pass = req.getParameter("password");
-		
+		User user = null;
 		String naam = null;
 		String ww = null;
 		String em = null;
@@ -38,11 +38,13 @@ public class LoginServlet extends HttpServlet {
 				ww = u.getPassword();
 				em = u.getEmail();
 				loginsucces = true;
+				user = u;
 			}
 		}
 		
 		RequestDispatcher rd = null;
 		if (loginsucces) {
+			req.getSession().setAttribute("userobject", user);
 			rd = req.getRequestDispatcher("MainPage.jsp");
 			req.setAttribute("msgs", "Succesvol Ingelogd <br/><label>Uw gegevens:</label><br/> Username: " + naam + "<br/>Wachtwoord: " + ww + "<br/>email: "+ em);
 		
