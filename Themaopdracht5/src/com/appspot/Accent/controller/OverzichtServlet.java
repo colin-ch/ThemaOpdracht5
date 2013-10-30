@@ -2,6 +2,7 @@ package com.appspot.Accent.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +16,8 @@ import com.appspot.Accent.model.School;
 import com.appspot.Accent.model.Stage;
 
 public class OverzichtServlet extends HttpServlet{
+	private static final Logger log = Logger.getLogger(OverzichtServlet.class.getName());
+	
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
 		
@@ -26,12 +29,15 @@ public class OverzichtServlet extends HttpServlet{
 		
 		for(Stage st : stages){
 			if(st.getDeLeerling().equals(l)){
+				log.info("1");
 				ArrayList<Beoordeling>beoordelingen = new ArrayList<Beoordeling>();
 				beoordelingen = st.getBeoordelingen();
 				if(beoordelingen != null){
+					log.info("2");
 					String bericht = null;
 					for(Beoordeling b : beoordelingen){
 						bericht = bericht + b;
+						log.info(bericht);
 						req.setAttribute("msgs", bericht);
 					}
 					succes = true;
@@ -47,9 +53,11 @@ public class OverzichtServlet extends HttpServlet{
 		RequestDispatcher rd = null;
 		if(succes){
 			rd = req.getRequestDispatcher("overzicht.jsp");
+			log.info("3");
 		}
 		else{
 			rd = req.getRequestDispatcher("overzicht.jsp");
+			log.info("4");
 		}
 		rd.forward(req, resp);
 	}
