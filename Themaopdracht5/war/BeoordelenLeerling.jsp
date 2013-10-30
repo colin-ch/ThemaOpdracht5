@@ -129,8 +129,9 @@
 					stellingen = c.getDeStellingen();
 					out.println("</br><h2>"+  c.getTitel() +"</h2></br>");
 					for(Stelling s : stellingen){
-						out.println("<h4>" + s.getDeStelling() + "</h4></br>");
-					
+						out.println("<h4>" + s.getDeStelling() + "</h4>");
+						out.println("<input type="radio" name="waarde" value="1"><input type="radio" name="waarde" value="2">
+						<input type="radio" name="waarde" value="3"><input type="radio" name="waarde" value="4"></br>");
 
 					}
 				}
