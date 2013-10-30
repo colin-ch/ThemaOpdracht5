@@ -18,8 +18,9 @@ $(document).ready(function() {
 
 </head>
 
-<body style="background-color: rgb(57, 78, 47);">
+<body>
 <div id="bg"></div>
+<div id="bg2"></div>
 	<div id="login">
 
 		<h2>

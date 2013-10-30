@@ -16,6 +16,16 @@ background-size: cover;
 position: absolute;
 top: 0;
 left: 0;
+z-index: 99;
+
+}
+#bg2 {
+height: 100%;
+width: 100%;
+background-color: rgb(57, 78, 47);
+position: absolute;
+top: 0;
+left: 0;
 
 }
 
@@ -34,6 +44,7 @@ input {
 	margin: 50px auto;
 	width: 400px;
 	position: relative;
+	z-index: 9999999;
 }
 
 #login h2 {
