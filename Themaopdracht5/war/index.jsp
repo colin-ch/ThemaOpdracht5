@@ -61,6 +61,7 @@
 	
 	<section id="secondary_bar">
 		<div class="user">
+			<p>Welkom, Cor Kok</p>
 			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
 		</div>
 		<div class="breadcrumbs_container">
@@ -78,7 +79,7 @@
 			<li class="icn_new_article"><a href="#">Nieuwe competentie</a></li>
 			<li class="icn_edit_article"><a href="#">Beoordelen</a></li>
 			<li class="icn_categories"><a href="#">Competenties bekijken</a></li>
-			<li class="icn_tags"><a href="/Overzicht.do">Overzicht beoordelingen</a></li>
+			<li class="icn_tags"><a href="#">Overzicht beoordelingen</a></li>
 		</ul>
 		<h3>Leerlingen</h3>
 		<ul class="toggle">
@@ -105,57 +106,15 @@
 		
 		<h4 class="alert_info">Welkom, dit is het competentie beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
 		
-		<article class="module width_full">
-			<header><h3>Stats</h3></header>
-			<div class="module_content">
-				<article class="stats_graph">
-					<img src="http://chart.apis.google.com/chart?chxr=0,0,3000&chxt=y&chs=520x140&cht=lc&chco=76A4FB,80C65A&chd=s:Tdjpsvyvttmiihgmnrst,OTbdcfhhggcTUTTUadfk&chls=2|2&chma=40,20,20,30" width="520" height="140" alt="" />
-				</article>
-				
-				<article class="stats_overview">
-					<div class="overview_today">
-						<p class="overview_day">Totale score</p>
-						<p class="overview_count">84/100</p>
-						<p class="overview_type">Bedrijf</p>
-						<p class="overview_count">72/100</p>
-						<p class="overview_type">Jijzelf</p>
-					</div>
-					<div class="overview_previous">
-						<p class="overview_day">Gemiddeld</p>
-						<p class="overview_count">78/100</p>
-						<p class="overview_type">punten</p>
-						<p class="overview_count">6</p>
-						<p class="overview_type">Te behalen</p>
-					</div>
-				</article>
-				<div class="clear"></div>
-			</div>
-		</article><!-- end of stats article -->
 		
 		
-		<h4 class="alert_warning">Je hebt 3 afspraken</h4>
 		
-		<h4 class="alert_error">Er is een veld niet ingevuld</h4>
-		
-		<h4 class="alert_success">Competentie succesvol beoordeeld</h4>
 		
 		<article class="module width_full">
 			<header><h3>Basic Styles</h3></header>
 				<div class="module_content">
-					<h1>Header 1</h1>
-					<h2>Header 2</h2>
-					<h3>Header 3</h3>
-					<h4>Header 4</h4>
-					<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-
-<p>Donec id elit non mi porta <a href="#">link text</a> gravida at eget metus. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-
-					<ul>
-						<li>Donec ullamcorper nulla non metus auctor fringilla. </li>
-						<li>Cras mattis consectetur purus sit amet fermentum.</li>
-						<li>Donec ullamcorper nulla non metus auctor fringilla. </li>
-						<li>Cras mattis consectetur purus sit amet fermentum.</li>
-					</ul>
+					<h1>Paard </h1>
+					<img src="http://www.t-ros-beyaert.nl/_/rsrc/1339318606598/over-ons/onze-paarden/RosSite%20Annet,%20Kocky%20Boy%20foto_069%20klein.jpg" />
 				</div>
 		</article><!-- end of styles article -->
 		<div class="spacer"></div>
