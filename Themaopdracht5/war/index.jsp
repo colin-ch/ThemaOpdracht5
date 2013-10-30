@@ -114,6 +114,7 @@
 			<header><h3>Basic Styles</h3></header>
 				<div class="module_content">
 					<h1>Paard </h1>
+					<h2>Deze leerling heeft zijn zaakjes netjes op orde en alle competenties ingevuld</h2>
 					<img src="http://www.t-ros-beyaert.nl/_/rsrc/1339318606598/over-ons/onze-paarden/RosSite%20Annet,%20Kocky%20Boy%20foto_069%20klein.jpg" />
 				</div>
 		</article><!-- end of styles article -->
