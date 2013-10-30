@@ -1,8 +1,9 @@
 package com.appspot.Accent.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Leerling extends User{
+public class Leerling extends User implements Serializable{
 	private String klas;
 	private StageBegeleider begeleider;
 	private Date geboortedatum;

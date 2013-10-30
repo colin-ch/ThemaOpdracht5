@@ -1,8 +1,9 @@
 package com.appspot.Accent.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class StageBedrijf extends User{
+public class StageBedrijf extends User implements Serializable{
 	private ArrayList<StageOpleider> opleiders = new ArrayList<StageOpleider>();
 	private String plaats;
 	private String code;
@@ -26,6 +27,16 @@ public class StageBedrijf extends User{
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+
+	public ArrayList<StageOpleider> getOpleiders() {
+		return opleiders;
+	}
+
+
+	public void setOpleiders(ArrayList<StageOpleider> opleiders) {
+		this.opleiders = opleiders;
 	}
 
 }

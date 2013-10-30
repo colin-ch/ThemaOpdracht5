@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Stage {
+private int id;	
 private Leerling deLeerling;
 private StageOpleider deOpleider;
 private StageBedrijf hetBedrijf;
@@ -12,7 +13,8 @@ private Date einddatum;
 private ArrayList<Beoordeling> beoordelingen = new ArrayList<Beoordeling>();
 
 
-public Stage(Leerling lrl, StageOpleider opl, StageBedrijf bedr, Date begin, Date eind){
+public Stage(int idee, Leerling lrl, StageOpleider opl, StageBedrijf bedr, Date begin, Date eind){
+	id = idee;
 	deLeerling = lrl;
 	deOpleider = opl;
 	hetBedrijf = bedr;
@@ -78,5 +80,15 @@ public ArrayList<Beoordeling> getBeoordelingen() {
 
 public void setBeoordelingen(ArrayList<Beoordeling> beoordelingen) {
 	this.beoordelingen = beoordelingen;
+}
+
+
+public int getId() {
+	return id;
+}
+
+
+public void setId(int id) {
+	this.id = id;
 }
 }

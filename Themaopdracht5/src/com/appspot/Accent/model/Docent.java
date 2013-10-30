@@ -1,6 +1,8 @@
 package com.appspot.Accent.model;
 
-public class Docent extends User{
+import java.io.Serializable;
+
+public class Docent extends User implements Serializable{
 
 	public Docent(String us, String pw, String em) {
 		super(us, pw, em);
