@@ -20,30 +20,35 @@ public class OverzichtServlet extends HttpServlet{
 	
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
-		
-		Leerling l = (Leerling) req.getSession().getAttribute("userobject");
-		ArrayList<Stage>stages = new ArrayList<Stage>();
 		School s = new School("Accent", "Nijkerk", "Nijkerk", "0000AS");
-		stages = s.getStages();
+		Object o = req.getSession().getAttribute("userobject");
+		ArrayList<Stage>stages = new ArrayList<Stage>();
+		stages = (ArrayList<Stage>) getServletContext().getAttribute("stages");
 		boolean succes = false;
 		
 		for(Stage st : stages){
-			if(st.getDeLeerling().equals(l)){
+			log.info("1");
+			if(o instanceof Leerling ){
 				log.info("1");
-				ArrayList<Beoordeling>beoordelingen = new ArrayList<Beoordeling>();
-				beoordelingen = st.getBeoordelingen();
-				if(beoordelingen != null){
-					log.info("2");
-					String bericht = null;
-					for(Beoordeling b : beoordelingen){
-						bericht = bericht + b;
-						log.info(bericht);
-						req.setAttribute("msgs", bericht);
+				if (st.getDeLeerling().getUsername().equals( ((Leerling) o).getUsername())){
+			
+					log.info("1");
+					ArrayList<Beoordeling>beoordelingen = new ArrayList<Beoordeling>();
+					beoordelingen = st.getBeoordelingen();
+					if(beoordelingen != null){
+						log.info("2");
+						String bericht = "Datum Waarde opmerking <br/>";
+						for(Beoordeling b : beoordelingen){
+							bericht = bericht + b.getDatum() + " " +  b.getWaarde() + " " + b.getOpmerking() + "<br/> ";
+							log.info(bericht);
+							System.out.println();
+							req.setAttribute("msgs", bericht);
+						}
+						succes = true;
 					}
-					succes = true;
-				}
-				else{
-					req.setAttribute("msgs", "Er zijn nog geen beoordelingen gedaan");
+					else{
+						req.setAttribute("msgs", "Er zijn nog geen beoordelingen gedaan");
+					}
 				}
 			}
 			else{
