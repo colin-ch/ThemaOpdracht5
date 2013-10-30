@@ -50,6 +50,7 @@ public class OverzichtServlet extends HttpServlet{
 		}
 		else{
 			req.setAttribute("msgs", "Er zijn nog geen beoordelingen gedaan");
+			rd = req.getRequestDispatcher("overzicht.jsp");
 		}
 		rd.forward(req, resp);
 	}
