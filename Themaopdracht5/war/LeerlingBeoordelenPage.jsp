@@ -69,15 +69,7 @@
 		</div>
 	</section><!-- end of secondary bar -->
 	<div   style="width: 1410px;">
-<<<<<<< HEAD
-<<<<<<< HEAD
 	<aside id="sidebar" class="column" style="min-width: 250px; width: 288px!important; height: 100%!important; min-height: 600px!important;">
-=======
-	<aside id="sidebar" class="column" style="min-width: 250px; width: 288px!important">
->>>>>>> f60bcfffaf87b8ed9acda24a20ec7d822ff653bb
-=======
-	<aside id="sidebar" class="column" style="min-width: 250px; width: 288px!important">
->>>>>>> f60bcfffaf87b8ed9acda24a20ec7d822ff653bb
 		<form class="quick_search">
 			<input type="text" value="Zoeken" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
 		</form>
@@ -110,15 +102,7 @@
 		</footer>
 	</aside><!-- end of sidebar -->
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
 	<section id="main" class="column"   style="min-width: 1110px; min-height: 600px!important;">
-=======
-	<section id="main" class="column"   style="min-width: 1110px;">
->>>>>>> f60bcfffaf87b8ed9acda24a20ec7d822ff653bb
-=======
-	<section id="main" class="column"   style="min-width: 1110px;">
->>>>>>> f60bcfffaf87b8ed9acda24a20ec7d822ff653bb
 		
 		<h4 class="alert_info">Welkom, dit is het competentie beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
 		
@@ -129,8 +113,6 @@
 		<article class="module width_full">
 			<header><h3>Home</h3></header>
 				<div class="module_content">
-<<<<<<< HEAD
-<<<<<<< HEAD
 					<h1>Kies een leerling </h1>
 					<form>
 					<select onchange="this.form.submit()">
@@ -152,14 +134,6 @@
 					</div>
 					
 					</form>
-=======
-=======
->>>>>>> f60bcfffaf87b8ed9acda24a20ec7d822ff653bb
-					<h1>Dit is de homepage van het competentie beoordelings systeem </h1>
-					<h2>Kies links in het menu een optie om meteen te beginnen</h2>
-					<img src="http://placehold.it/370x370/CCFF99/33CC33/&text=Accent+nijkerk+placehold" />
-				</div>
->>>>>>> f60bcfffaf87b8ed9acda24a20ec7d822ff653bb
 		</article><!-- end of styles article -->
 		<div class="spacer"></div>
 	</section>
