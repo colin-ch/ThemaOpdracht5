@@ -8,9 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.appspot.Accent.model.Leerling;
+
 public class BeoordeelServlet extends HttpServlet{
 	protected void doPost( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
+		
+		Leerling userobject = (Leerling) req.getSession().getAttribute("userobject");
 		
 		
 	}
