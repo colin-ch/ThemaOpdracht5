@@ -19,22 +19,24 @@ public class BeoordeelServlet extends HttpServlet{
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
 		RequestDispatcher rd = null;
-		User userobject = (User) req.getSession().getAttribute("userobject");
-		Leerling leerlingObject = null;
+		User o = (User) req.getSession().getAttribute("userobject");
+		
 		
 		ArrayList<Stage> allStages = (ArrayList<Stage>) getServletContext().getAttribute("stages");
 		
 		
-		if(userobject instanceof Leerling){
-			leerlingObject = (Leerling) userobject;
-		}
+
 		
 		for(Stage s : allStages){
+			req.setAttribute("msgs",  o.getUsername());
+			rd = req.getRequestDispatcher("MainPage.jsp");
+//			if(s.getDeLeerling().getUsername() != null && leerlingObject.getUsername() != null){
+//			if(s.getDeLeerling().getUsername().equals(leerlingObject.getUsername())){
+//				rd = req.getRequestDispatcher("MainPage.jsp");
+//			}
+//			}
 			
-			if(s.getDeLeerling().getUsername().equals(leerlingObject.getUsername())){
-				rd = req.getRequestDispatcher("www.google.com");
 
-			}
 			
 		}
 		rd.forward(req, resp);
