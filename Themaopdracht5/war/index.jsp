@@ -52,14 +52,14 @@
 
 <body>
 
-	<header id="header">
+	<header id="header"  style="min-width: 850px;">
 		<hgroup>
-			<h1 class="site_title"><a href="index.html">Website Admin</a></h1>
-			<h2 class="section_title">Dashboard</h2>
+			<h1 class="site_title" style="min-width: 250px;"><a href="index.html">Website Admin</a></h1>
+			<h2 class="section_title" style="min-width: 250px;">Dashboard</h2>
 		</hgroup>
 	</header> <!-- end of header bar -->
 	
-	<section id="secondary_bar">
+	<section id="secondary_bar"  style="min-width: 850px;">
 		<div class="user">
 			<p>Welkom, Cor Kok</p>
 			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
@@ -68,8 +68,8 @@
 			<article class="breadcrumbs"><a href="index.html">Website Admin</a> <div class="breadcrumb_divider"></div> <a class="current">Dashboard</a></article>
 		</div>
 	</section><!-- end of secondary bar -->
-	
-	<aside id="sidebar" class="column">
+	<div   style="width: 1410px;">
+	<aside id="sidebar" class="column" style="min-width: 250px; width: 282px!important">
 		<form class="quick_search">
 			<input type="text" value="Zoeken" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
 		</form>
@@ -102,7 +102,7 @@
 		</footer>
 	</aside><!-- end of sidebar -->
 	
-	<section id="main" class="column">
+	<section id="main" class="column"   style="min-width: 1110px;">
 		
 		<h4 class="alert_info">Welkom, dit is het competentie beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
 		
@@ -114,19 +114,14 @@
 			<header><h3>Basic Styles</h3></header>
 				<div class="module_content">
 					<h1>Paard </h1>
-					<h2>Deze leerling heeft zijn zaakjes netjes op orde en alle competenties ingevuld</h2>
+					<h2>hoi</h2>
 					<img src="http://www.t-ros-beyaert.nl/_/rsrc/1339318606598/over-ons/onze-paarden/RosSite%20Annet,%20Kocky%20Boy%20foto_069%20klein.jpg" />
 				</div>
 		</article><!-- end of styles article -->
 		<div class="spacer"></div>
 	</section>
 
-<% 
-Object msgs = request.getAttribute("msgs");
-if (msgs != null) { 
-out.println(msgs);
-}
-%>
+</div>
 
 </body>
 
