@@ -61,7 +61,6 @@
 	
 	<section id="secondary_bar">
 		<div class="user">
-			<p>Cor Kok (<a href="#">3 Berichten</a>)</p>
 			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
 		</div>
 		<div class="breadcrumbs_container">
@@ -79,7 +78,7 @@
 			<li class="icn_new_article"><a href="#">Nieuwe competentie</a></li>
 			<li class="icn_edit_article"><a href="#">Beoordelen</a></li>
 			<li class="icn_categories"><a href="#">Competenties bekijken</a></li>
-			<li class="icn_tags"><a href="#">Overzicht beoordelingen</a></li>
+			<li class="icn_tags"><a href="/Overzicht.do">Overzicht beoordelingen</a></li>
 		</ul>
 		<h3>Leerlingen</h3>
 		<ul class="toggle">

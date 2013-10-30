@@ -24,7 +24,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>OverzichtServlet</servlet-name>
-		<url-pattern>/OverzichtServlet.do</url-pattern>
+		<url-pattern>/Overzicht.do</url-pattern>
 	</servlet-mapping>
 
 	
