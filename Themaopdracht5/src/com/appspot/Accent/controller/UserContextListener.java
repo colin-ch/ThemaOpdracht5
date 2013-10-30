@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import com.appspot.Accent.model.Beoordeling;
 import com.appspot.Accent.model.User;
 
 public class UserContextListener implements ServletContextListener {
@@ -23,6 +24,7 @@ public class UserContextListener implements ServletContextListener {
 		allUsers.add(u);
 		allUsers.add(u1);
 		sce.getServletContext().setAttribute("users", allUsers);
+		Beoordeling b = new Beoordeling("01/01/2013", 5, "Eerste competentie");
 		
 	}
 
