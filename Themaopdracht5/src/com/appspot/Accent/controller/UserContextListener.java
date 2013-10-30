@@ -32,7 +32,6 @@ public class UserContextListener implements ServletContextListener {
 	StageOpleider opleider = new StageOpleider("jopie");
 		Stage stage = new Stage(1, u, opleider, bedrijf1, date, date);
 	
-	
 	ArrayList<User> allUsers = new ArrayList<User>();
 		allUsers.add(u);
 		allUsers.add(u1);
@@ -42,10 +41,15 @@ public class UserContextListener implements ServletContextListener {
 		
 		
 		
-		ArrayList<Stage> allStages = new ArrayList<Stage>();
-		allStages.add(stage);
+		
 		ArrayList<Beoordeling> allBeoordelingen = new ArrayList<Beoordeling>();
 		allBeoordelingen.add(b);
+		
+		 stage.getBeoordelingen().add(b);
+
+		
+		ArrayList<Stage> allStages = new ArrayList<Stage>();
+		allStages.add(stage);
 		sce.getServletContext().setAttribute("stages", allStages);
 
 		

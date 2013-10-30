@@ -33,17 +33,13 @@ public class BeoordeelServlet extends HttpServlet{
 			
 			if(o instanceof Leerling ){
 				if (s.getDeLeerling().getUsername().equals( ((Leerling) o).getUsername())){
-					log.info("klop");
+			log.info("arraylist"+ s.getBeoordelingen());
+					
+					
 				}
 			}
-			req.setAttribute("msgs",  "null");
 			rd = req.getRequestDispatcher("MainPage.jsp");
-//			if(s.getDeLeerling().getUsername() != null && leerlingObject.getUsername() != null){
-//			if(s.getDeLeerling().getUsername().equals(leerlingObject.getUsername())){
-//				rd = req.getRequestDispatcher("MainPage.jsp");
-//			}
-//			}
-			
+
 
 			
 		}
