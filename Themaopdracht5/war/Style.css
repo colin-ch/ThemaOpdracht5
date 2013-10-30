@@ -1,10 +1,22 @@
 body {
-	background-color: #C0C0C0;
+	background-color: #00000!important;
 	color: #000;
 	font-family: "Varela Round", Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	line-height: 1.5em;
-	margin: 0;
+	margin: 0!important;
+}
+
+#bg {
+height: 100%;
+width: 100%;
+display:none;
+background: url("http://preview.tonybogdanov.com/project/blurry/assets/background.jpg");
+background-size: cover;
+position: absolute;
+top: 0;
+left: 0;
+
 }
 
 input {
@@ -21,6 +33,7 @@ input {
 #login {
 	margin: 50px auto;
 	width: 400px;
+	position: relative;
 }
 
 #login h2 {

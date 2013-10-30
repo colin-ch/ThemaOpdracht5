@@ -7,12 +7,19 @@
 
 <link rel="stylesheet" href="Style.css">
 <link rel="stylesheet" href="css/layout.css">
+<script src="js/jquery-1.5.2.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#bg').fadeIn("slow");
+});	
+
+</script>
 
 
 </head>
 
-<body>
-
+<body style="background-color: rgb(57, 78, 47);">
+<div id="bg"></div>
 	<div id="login">
 
 		<h2>
