@@ -132,7 +132,7 @@
 					for(Stelling s : stellingen){
 						teller++;
 						out.println("<h4>" + s.getDeStelling() + "</h4>");
-						out.println("<input type='radio' name='waarde"+ teller+ "' value='1'><input type='radio' name='waarde"+ teller+ "' value='2'><input type='radio' name='waarde"+ teller+ "' value='3'><input type='radio' name='waarde"+ teller+ "' value='4'></br>");
+						out.println("1<input type='radio' name='waarde"+ teller+ "' value='1'>2<input type='radio' name='waarde"+ teller+ "' value='2'>3<input type='radio' name='waarde"+ teller+ "' value='3'>4<input type='radio' name='waarde"+ teller+ "' value='4'></br>");
 					
 					}
 				}
