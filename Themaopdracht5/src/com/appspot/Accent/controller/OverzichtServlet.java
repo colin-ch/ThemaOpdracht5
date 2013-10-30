@@ -49,7 +49,6 @@ public class OverzichtServlet extends HttpServlet{
 			rd = req.getRequestDispatcher("overzicht.jsp");
 		}
 		else{
-			req.setAttribute("msgs", "Er zijn nog geen beoordelingen gedaan");
 			rd = req.getRequestDispatcher("overzicht.jsp");
 		}
 		rd.forward(req, resp);
