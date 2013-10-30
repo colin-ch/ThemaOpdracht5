@@ -69,7 +69,7 @@
 		</div>
 	</section><!-- end of secondary bar -->
 	<div   style="width: 1410px;">
-	<aside id="sidebar" class="column" style="min-width: 250px; width: 285px!important">
+	<aside id="sidebar" class="column" style="min-width: 250px; width: 288px!important">
 		<form class="quick_search">
 			<input type="text" value="Zoeken" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
 		</form>
