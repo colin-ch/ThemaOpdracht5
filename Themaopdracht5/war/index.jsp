@@ -69,7 +69,7 @@
 		</div>
 	</section><!-- end of secondary bar -->
 	<div   style="width: 1410px;">
-	<aside id="sidebar" class="column" style="min-width: 250px; width: 288px!important">
+	<aside id="sidebar" class="column" style="min-width: 250px; width: 288px!important; height: 100%!important; min-height: 600px!important;">
 		<form class="quick_search">
 			<input type="text" value="Zoeken" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
 		</form>
@@ -102,7 +102,7 @@
 		</footer>
 	</aside><!-- end of sidebar -->
 	
-	<section id="main" class="column"   style="min-width: 1110px;">
+	<section id="main" class="column"   style="min-width: 1110px; min-height: 600px!important;">
 		
 		<h4 class="alert_info">Welkom, dit is het competentie beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
 		
