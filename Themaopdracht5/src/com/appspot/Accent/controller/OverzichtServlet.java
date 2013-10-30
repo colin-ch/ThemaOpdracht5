@@ -14,7 +14,7 @@ import com.appspot.Accent.model.School;
 import com.appspot.Accent.model.Stage;
 
 public class OverzichtServlet extends HttpServlet{
-	protected void doPost( HttpServletRequest req, HttpServletResponse resp) 
+	protected void doGet( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
 		
 		Leerling l = (Leerling) req.getSession().getAttribute("userobject");

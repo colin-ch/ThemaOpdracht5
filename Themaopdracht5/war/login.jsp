@@ -16,39 +16,38 @@
 	<div id="login">
 
 		<h2>
-			<span class="fontawesome-lock"></span>Sign In
+			<span class="fontawesome-lock"></span>Accent Nijkerk Login
 		</h2>
 
 		<form action="LoginServlet.do" method="POST">
 
 			<fieldset>
 
-				<p>
+				<div id="roww">
 					<label for="text">Username:</label>
-				</p>
-				<p>
+				</div>
+				<div id="roww">
 					<input type="text" name="username" value="username"
 						onBlur="if(this.value=='')this.value='username'"
 						onFocus="if(this.value=='username')this.value=''" autofocus>
-				</p>
+				</div>
 				
 
-				<p>
+				<div id="roww">
 					<label for="password">Password</label>
-				</p>
-				<p>
+				</div>
+				<div id="roww">
 					<input type="password" name="password" value="password"
 						onBlur="if(this.value=='')this.value='password'"
 						onFocus="if(this.value=='password')this.value=''">
-				</p>
+				</div>
 				
 
-				<p>
-				<a href="#" class="btn btn-success"><i class="icon-white icon-circle-arrow-right"></i> Login</a>
-		
-					<input type="submit" value="Sign In">
+				<div id="roww">
+				
+					<input type="submit" class="btn btn-success" value="Login">
 					<a href="register.jsp" value="Register">Register</a>
-				</p>
+				</div>
 		
 			</fieldset>
 
