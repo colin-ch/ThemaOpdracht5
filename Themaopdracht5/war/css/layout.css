@@ -536,7 +536,7 @@ html ul.tabs li:last-child, html ul.tabs li:last-child a {
  .message {
     border-bottom: 1px dotted #cccccc;
 }
-input[type=submit] {
+/*input[type=submit] {
     background: #D0D1D4 url(../images/btn_submit.png) repeat-x;
     border: 1px solid #A8A9A8;
     -webkit-box-shadow: 0 1px 0 #fff;
@@ -551,7 +551,7 @@ input[type=submit] {
     color: #666;
     text-shadow: 0 1px 0 #fff;
     cursor: pointer;
-}
+}*/
 input[type=submit]:hover {
     color: #333333;
 }
@@ -640,8 +640,7 @@ fieldset label {
     line-height: 25px;
     text-shadow: 0 1px 0 #fff;
     font-weight: bold;
-    padding-left: 10px;
-    margin: -5px 0 5px 0;
+	margin: 0;
     text-transform: uppercase;
 }
 fieldset input[type=text], input[type=password] {
