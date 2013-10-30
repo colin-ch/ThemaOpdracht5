@@ -45,9 +45,7 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher rd = null;
 		if (loginsucces) {
 			req.getSession().setAttribute("userobject", user);
-			rd = req.getRequestDispatcher("MainPage.jsp");
-			req.setAttribute("msgs", "Succesvol Ingelogd <br/><label>Uw gegevens:</label><br/> Username: " + naam + "<br/>Wachtwoord: " + ww + "<br/>email: "+ em);
-		
+			rd = req.getRequestDispatcher("index.jsp");
 		}
 		else {
 			rd = req.getRequestDispatcher("login.jsp");
