@@ -51,7 +51,7 @@ public class OverzichtServlet extends HttpServlet{
 		else{
 			req.setAttribute("msgs", "Er zijn nog geen beoordelingen gedaan");
 		}
-		
+		rd.forward(req, resp);
 	}
 
 }
