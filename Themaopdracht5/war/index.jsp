@@ -115,7 +115,7 @@
 				<div class="module_content">
 					<h1>Paard </h1>
 					<h2>hoi</h2>
-					<img src="http://www.t-ros-beyaert.nl/_/rsrc/1339318606598/over-ons/onze-paarden/RosSite%20Annet,%20Kocky%20Boy%20foto_069%20klein.jpg" />
+					<img src="http://placehold.it/370x370/CCFF99/33CC33/&text=Accent+nijkerk+placehold" />
 				</div>
 		</article><!-- end of styles article -->
 		<div class="spacer"></div>
