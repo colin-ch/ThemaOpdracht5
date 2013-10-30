@@ -52,24 +52,24 @@
 
 <body>
 
-	<header id="header">
+	<header id="header"  style="min-width: 850px;">
 		<hgroup>
-			<h1 class="site_title"><a href="index.html">Website Admin</a></h1>
-			<h2 class="section_title">Dashboard</h2>
+			<h1 class="site_title" style="min-width: 250px;"><a href="index.html">Website Admin</a></h1>
+			<h2 class="section_title" style="min-width: 250px;">Dashboard</h2>
 		</hgroup>
 	</header> <!-- end of header bar -->
 	
-	<section id="secondary_bar">
+	<section id="secondary_bar"  style="min-width: 850px;">
 		<div class="user">
-			<p>Cor Kok (<a href="#">3 Berichten</a>)</p>
+			<p>Welkom, Cor Kok</p>
 			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
 		</div>
 		<div class="breadcrumbs_container">
 			<article class="breadcrumbs"><a href="index.html">Website Admin</a> <div class="breadcrumb_divider"></div> <a class="current">Dashboard</a></article>
 		</div>
 	</section><!-- end of secondary bar -->
-	
-	<aside id="sidebar" class="column">
+	<div   style="width: 1410px;">
+	<aside id="sidebar" class="column" style="min-width: 250px; width: 288px!important">
 		<form class="quick_search">
 			<input type="text" value="Zoeken" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
 		</form>
@@ -77,9 +77,9 @@
 		<h3>Competenties</h3>
 		<ul class="toggle">
 			<li class="icn_new_article"><a href="#">Nieuwe competentie</a></li>
-			<li class="icn_edit_article"><a href="#">Beoordelen</a></li>
+			<li class="icn_edit_article"><a href="/BeoordeelServlet.do">Beoordelen</a></li>
 			<li class="icn_categories"><a href="#">Competenties bekijken</a></li>
-			<li class="icn_tags"><a href="#">Overzicht beoordelingen</a></li>
+			<li class="icn_tags"><a href="/Overzicht.do">Overzicht beoordelingen</a></li>
 		</ul>
 		<h3>Leerlingen</h3>
 		<ul class="toggle">
@@ -102,66 +102,26 @@
 		</footer>
 	</aside><!-- end of sidebar -->
 	
-	<section id="main" class="column">
+	<section id="main" class="column"   style="min-width: 1110px;">
 		
 		<h4 class="alert_info">Welkom, dit is het competentie beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
 		
-		<article class="module width_full">
-			<header><h3>Stats</h3></header>
-			<div class="module_content">
-				<article class="stats_graph">
-					<img src="http://chart.apis.google.com/chart?chxr=0,0,3000&chxt=y&chs=520x140&cht=lc&chco=76A4FB,80C65A&chd=s:Tdjpsvyvttmiihgmnrst,OTbdcfhhggcTUTTUadfk&chls=2|2&chma=40,20,20,30" width="520" height="140" alt="" />
-				</article>
-				
-				<article class="stats_overview">
-					<div class="overview_today">
-						<p class="overview_day">Totale score</p>
-						<p class="overview_count">84/100</p>
-						<p class="overview_type">Bedrijf</p>
-						<p class="overview_count">72/100</p>
-						<p class="overview_type">Jijzelf</p>
-					</div>
-					<div class="overview_previous">
-						<p class="overview_day">Gemiddeld</p>
-						<p class="overview_count">78/100</p>
-						<p class="overview_type">punten</p>
-						<p class="overview_count">6</p>
-						<p class="overview_type">Te behalen</p>
-					</div>
-				</article>
-				<div class="clear"></div>
-			</div>
-		</article><!-- end of stats article -->
 		
 		
-		<h4 class="alert_warning">Je hebt 3 afspraken</h4>
 		
-		<h4 class="alert_error">Er is een veld niet ingevuld</h4>
-		
-		<h4 class="alert_success">Competentie succesvol beoordeeld</h4>
 		
 		<article class="module width_full">
-			<header><h3>Basic Styles</h3></header>
+			<header><h3>Home</h3></header>
 				<div class="module_content">
-					<h1>Header 1</h1>
-					<h2>Header 2</h2>
-					<h3>Header 3</h3>
-					<h4>Header 4</h4>
-					<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-
-<p>Donec id elit non mi porta <a href="#">link text</a> gravida at eget metus. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-
-					<ul>
-						<li>Donec ullamcorper nulla non metus auctor fringilla. </li>
-						<li>Cras mattis consectetur purus sit amet fermentum.</li>
-						<li>Donec ullamcorper nulla non metus auctor fringilla. </li>
-						<li>Cras mattis consectetur purus sit amet fermentum.</li>
-					</ul>
+					<h1>Dit is de homepage van het competentie beoordelings systeem </h1>
+					<h2>Kies links in het menu een optie om meteen te beginnen</h2>
+					<img src="http://placehold.it/370x370/CCFF99/33CC33/&text=Accent+nijkerk+placehold" />
 				</div>
 		</article><!-- end of styles article -->
 		<div class="spacer"></div>
 	</section>
 
+</div>
 
 </body>
 

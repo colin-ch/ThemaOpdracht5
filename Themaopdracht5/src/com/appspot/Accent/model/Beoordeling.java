@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Beoordeling {
+	
 	private ArrayList<Competentie> competenties = new ArrayList<Competentie>();
 	private String datum;
 	private int waarde;	
