@@ -47,6 +47,15 @@
 		<url-pattern>/LoginServlet.do</url-pattern>
 	</servlet-mapping>
 	
+		<servlet>
+		<servlet-name>BeoordelingOphalenServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.BeoordelingOphalenServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>BeoordelingOphalenServlet</servlet-name>
+		<url-pattern>/BeoordelingOphalenServlet.do</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>

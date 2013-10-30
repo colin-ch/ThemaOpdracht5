@@ -37,14 +37,22 @@ public class OverzichtServlet extends HttpServlet{
 					beoordelingen = st.getBeoordelingen();
 					if(beoordelingen != null){
 						log.info("2");
-						String bericht = "Datum Waarde opmerking <br/>";
+						String bericht = "<select name='dropdown'>";
+					
+						int teller=0;
 						for(Beoordeling b : beoordelingen){
-							bericht = bericht + b.getDatum() + " " +  b.getWaarde() + " " + b.getOpmerking() + "<br/> ";
+							teller++;
+						
+							
+							
+							bericht = bericht + "<option value="+b.getDatum()+">"+b.getDatum()+"</option>";
 							log.info(bericht);
-							System.out.println();
-							req.setAttribute("msgs", bericht);
+					//		System.out.println();
+							
 						}
+						bericht = bericht+"</select>";
 						succes = true;
+						req.setAttribute("msgs", bericht);
 					}
 					else{
 						req.setAttribute("msgs", "Er zijn nog geen beoordelingen gedaan");
