@@ -6,6 +6,8 @@
 <title>Login</title>
 
 <link rel="stylesheet" href="Style.css">
+<link rel="stylesheet" href="css/layout.css">
+
 
 </head>
 
@@ -29,7 +31,7 @@
 						onBlur="if(this.value=='')this.value='username'"
 						onFocus="if(this.value=='username')this.value=''" autofocus>
 				</p>
-				<!-- JS because of IE support; better: placeholder="mail@address.com" -->
+				
 
 				<p>
 					<label for="password">Password</label>
@@ -39,18 +41,15 @@
 						onBlur="if(this.value=='')this.value='password'"
 						onFocus="if(this.value=='password')this.value=''">
 				</p>
-				<!-- JS because of IE support; better: placeholder="password" -->
+				
 
 				<p>
+				<a href="#" class="btn btn-success"><i class="icon-white icon-circle-arrow-right"></i> Login</a>
+		
 					<input type="submit" value="Sign In">
 					<a href="register.jsp" value="Register">Register</a>
 				</p>
-			<% 
-			Object msgs = request.getAttribute("msgs");
-			if (msgs != null) { 
-			out.println(msgs);
-			}
-			%>
+		
 			</fieldset>
 
 		</form>

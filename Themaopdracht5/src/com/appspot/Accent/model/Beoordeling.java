@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Beoordeling {
 	private ArrayList<Competentie> competenties = new ArrayList<Competentie>();
-	private Date datum;
+	private String datum;
 	private int waarde;	
 	private String opmerking;
 	
@@ -17,16 +17,16 @@ public class Beoordeling {
 		this.competenties = competenties;
 	}
 
-	public Date getDatum() {
+	public String getDatum() {
 		return datum;
 	}
 
-	public void setDatum(Date datum) {
+	public void setDatum(String datum) {
 		this.datum = datum;
 	}
 
 
-	public Beoordeling(Date dt, int wa, String op){
+	public Beoordeling(String dt, int wa, String op){
 		datum = dt;
 		waarde = wa;
 		opmerking = op;
