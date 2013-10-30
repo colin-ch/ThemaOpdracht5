@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Competentie {
 	private String titel;
-	private ArrayList<String> deStellingen = new ArrayList<String>();
+	private ArrayList<Stelling> deStellingen = new ArrayList<Stelling>();
 
 	
 	public Competentie(String ti){
@@ -19,11 +19,11 @@ public class Competentie {
 		this.titel = titel;
 	}
 
-	public ArrayList<String> getDeStellingen() {
+	public ArrayList<Stelling> getDeStellingen() {
 		return deStellingen;
 	}
 
-	public void setDeStellingen(ArrayList<String> deStellingen) {
+	public void setDeStellingen(ArrayList<Stelling> deStellingen) {
 		this.deStellingen = deStellingen;
 	}
 
