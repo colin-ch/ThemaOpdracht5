@@ -10,11 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hamcrest.core.IsInstanceOf;
-
+import com.appspot.Accent.model.Competentie;
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.Stage;
-import com.appspot.Accent.model.User;
 
 public class BeoordeelServlet extends HttpServlet{
 	private static final Logger log = Logger.getLogger(BeoordeelServlet.class.getName());
@@ -33,7 +31,27 @@ public class BeoordeelServlet extends HttpServlet{
 			
 			if(o instanceof Leerling ){
 				if (s.getDeLeerling().getUsername().equals( ((Leerling) o).getUsername())){
-			log.info("arraylist"+ s.getBeoordelingen());
+//					ArrayList<Beoordeling> allBeoordelingen = s.getBeoordelingen();
+					
+					// Te aant e passen na de core
+					Competentie nr1 = new Competentie("1. Samenwerken en overleggen");
+					Competentie nr2 = new Competentie("2. Aandacht en begrip tonen");
+					
+				String stelling1 = "de leerling gedraagt zich zo dat samenwerking makkelijk gaat";
+				String stelling2 = "De leerling past zich aan de groep aan";
+				String stelling3 = "De leerling houdt zich aan de regels van het bedrijf";
+				String stelling4 = "de leerling luister naar een ander";
+				String stelling5 = "de leerling laat de ander uitpraten";
+
+				
+				nr1.getDeStellingen().add(stelling1);
+				nr1.getDeStellingen().add(stelling2);
+				nr1.getDeStellingen().add(stelling3);
+				nr2.getDeStellingen().add(stelling4);
+				nr2.getDeStellingen().add(stelling5);
+					
+				
+					
 					
 					
 				}
