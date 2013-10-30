@@ -123,16 +123,17 @@
 					ArrayList<Competentie> competenties = new ArrayList<Competentie>();
 				
 				competenties =(ArrayList<Competentie>) request.getAttribute("competenties");
-					
+				int teller = 0;
 				for(Competentie c : competenties){
 					ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
 					stellingen = c.getDeStellingen();
 					out.println("</br><h2>"+  c.getTitel() +"</h2></br>");
+					
 					for(Stelling s : stellingen){
+						teller++;
 						out.println("<h4>" + s.getDeStelling() + "</h4>");
-						out.println("<input type="radio" name="waarde" value="1"><input type="radio" name="waarde" value="2">
-						<input type="radio" name="waarde" value="3"><input type="radio" name="waarde" value="4"></br>");
-
+						out.println("<input type='radio' name='waarde"+ teller+ "' value='1'><input type='radio' name='waarde"+ teller+ "' value='2'><input type='radio' name='waarde"+ teller+ "' value='3'><input type='radio' name='waarde"+ teller+ "' value='4'></br>");
+					
 					}
 				}
 				
