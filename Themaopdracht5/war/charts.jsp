@@ -7,17 +7,20 @@
       google.setOnLoadCallback(drawChart);
       
       
-      <% sce.getServletContext().setAttribute("stellingen", alleStellingen); %>
+      <% 
+		ArrayList<Stelling> alleStellingenLijst = sce.getServletContext().setAttribute("stellingen", alleStellingen);
+		 %>
       
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Beoordeling', 'Stage Opleider', 'Student'],
       
           
-          <% for(alleStellingen : s){
+          <% for(alleStellingenLijst : s){
           %>[1, <% s.getDeStelling() %> , <% s.getDeWaarde() %>]
           
           <% } %>
+          
           ['1',  1,      4],
           
           
