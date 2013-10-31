@@ -43,6 +43,7 @@ public class UserContextListener implements ServletContextListener {
 		allUsers.add(u);
 		allUsers.add(u1);
 		sce.getServletContext().setAttribute("users", allUsers);
+		
 		Beoordeling b = new Beoordeling("01/01/2013", 5, "Eerste competentie");
 		ArrayList<Beoordeling> allBeoordelingen = new ArrayList<Beoordeling>();
 		allBeoordelingen.add(b);
@@ -69,6 +70,14 @@ public class UserContextListener implements ServletContextListener {
 				"de leerling luister naar een ander", null);
 		Stelling stelling5 = new Stelling(
 				"de leerling laat de ander uitpraten", null);
+		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
+		alleStellingen.add(stelling1);
+		alleStellingen.add(stelling2);
+		alleStellingen.add(stelling3);
+		alleStellingen.add(stelling4);
+		alleStellingen.add(stelling5);
+		sce.getServletContext().setAttribute("stellingen", alleStellingen);
+		
 
 		nr1.getDeStellingen().add(stelling1);
 		nr1.getDeStellingen().add(stelling2);

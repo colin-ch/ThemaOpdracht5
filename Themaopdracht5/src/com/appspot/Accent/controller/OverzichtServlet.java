@@ -66,11 +66,11 @@ public class OverzichtServlet extends HttpServlet{
 		}
 		RequestDispatcher rd = null;
 		
-		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
-		alleStellingen.add(new Stelling("3","1"));
-		alleStellingen.add(new Stelling("2","2"));
-		alleStellingen.add(new Stelling("1","3"));
-		req.setAttribute("stellingen", alleStellingen);
+//		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
+//		alleStellingen.add(new Stelling("Stelling1 in overzichtservlet","1"));
+//		alleStellingen.add(new Stelling("Stelling2 in overzichtservlet","2"));
+//		alleStellingen.add(new Stelling("Stelling3 in overzichtservlet","3"));
+//		req.setAttribute("stellingen", alleStellingen);
 		
 		if(succes){
 			rd = req.getRequestDispatcher("grafieken.jsp");
