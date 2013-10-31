@@ -2,11 +2,15 @@ package com.appspot.Accent.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.appspot.Accent.model.Beoordeling;
+import com.appspot.Accent.model.Competentie;
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.StageBedrijf;
@@ -16,12 +20,14 @@ import com.appspot.Accent.model.Stelling;
 import com.appspot.Accent.model.User;
 
 public class UserContextListener implements ServletContextListener {
-
+	private static final Logger log = Logger.getLogger(UserContextListener.class.getName());
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
@@ -37,27 +43,53 @@ public class UserContextListener implements ServletContextListener {
 		allUsers.add(u);
 		allUsers.add(u1);
 		sce.getServletContext().setAttribute("users", allUsers);
+		
 		Beoordeling b = new Beoordeling("01/01/2013", 5, "Eerste competentie");
-
-		
-		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
-		Stelling s = new Stelling("Optijd", "3");
-		Stelling s2 = new Stelling("JA", "2");
-		Stelling s3 = new Stelling("Goed werk", "1");
-		alleStellingen.add(s);
-		alleStellingen.add(s2);
-		alleStellingen.add(s3);
-		sce.getServletContext().setAttribute("stellingen", alleStellingen);
-		
 		ArrayList<Beoordeling> allBeoordelingen = new ArrayList<Beoordeling>();
 		allBeoordelingen.add(b);
-		
 		 stage.getBeoordelingen().add(b);
-
-		
 		ArrayList<Stage> allStages = new ArrayList<Stage>();
 		allStages.add(stage);
 		sce.getServletContext().setAttribute("stages", allStages);
+		
+		// Te aant e passen na de core
+		Competentie nr1 = new Competentie(
+				"1. Samenwerken en overleggen");
+		Competentie nr2 = new Competentie(
+				"2. Aandacht en begrip tonen");
+
+		Stelling stelling1 = new Stelling(
+				"de leerling gedraagt zich zo dat samenwerking makkelijk gaat",
+				null);
+		Stelling stelling2 = new Stelling(
+				"De leerling past zich aan de groep aan", null);
+		Stelling stelling3 = new Stelling(
+				"De leerling houdt zich aan de regels van het bedrijf",
+				null);
+		Stelling stelling4 = new Stelling(
+				"de leerling luister naar een ander", null);
+		Stelling stelling5 = new Stelling(
+				"de leerling laat de ander uitpraten", null);
+		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
+		alleStellingen.add(stelling1);
+		alleStellingen.add(stelling2);
+		alleStellingen.add(stelling3);
+		alleStellingen.add(stelling4);
+		alleStellingen.add(stelling5);
+		sce.getServletContext().setAttribute("stellingen", alleStellingen);
+		
+
+		nr1.getDeStellingen().add(stelling1);
+		nr1.getDeStellingen().add(stelling2);
+		nr1.getDeStellingen().add(stelling3);
+		nr2.getDeStellingen().add(stelling4);
+		nr2.getDeStellingen().add(stelling5);
+
+		ArrayList<Competentie> competenties = new ArrayList<Competentie>();
+		competenties.add(nr1);
+		competenties.add(nr2);
+		sce.getServletContext().setAttribute("competenties", competenties);
+
 
 		
 	}
