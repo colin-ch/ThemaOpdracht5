@@ -8,7 +8,7 @@
           
           
           
-    <script type="text/javascript">
+    <script>
     
     
       google.load("visualization", "1", {packages:["corechart"]});
@@ -23,15 +23,19 @@
         var data = google.visualization.arrayToDataTable([
           ['Beoordeling', 'Stage Opleider', 'Student'],
       	  
-          ['1', '1', '4'],
+          ['1', 1, 4],
 
           <%
-        	ArrayList<Stelling> alleStellingenLijst2 = new ArrayList<Stelling>();
-        	alleStellingenLijst2 =(ArrayList<Stelling>) request.getAttribute("stellingen");
+        	
+//         	ArrayList<Stelling> alleStellingenLijst1 =(ArrayList<Stelling>) getServletContext().getAttribute("stellingen");
+            ArrayList<Stelling> alleStellingenLijst2 = new ArrayList<Stelling>();
+            Stelling st = new Stelling("test", "test");
+            alleStellingenLijst2.add(st);
 			for (Stelling s : alleStellingenLijst2) {
-        		out.println("['1', '" + s.getDeStelling() + "' , '" + s.getDeWaarde() + "'],");       
+        		out.println("['1', " + s.getDeStelling() + " , " + s.getDeWaarde() + "],");       
          	}   
-           %>
+        %> 
+        ['2', 2, 2]
         ]);
         var options = {
           title: 'Laatste competenties',

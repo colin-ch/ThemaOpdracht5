@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.appspot.Accent.model.Beoordeling;
 import com.appspot.Accent.model.Leerling;
@@ -22,6 +24,8 @@ public class UserContextListener implements ServletContextListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
@@ -40,16 +44,19 @@ public class UserContextListener implements ServletContextListener {
 		Beoordeling b = new Beoordeling("01/01/2013", 5, "Eerste competentie");
 
 		
+	
 		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
-		
-  		
-		Stelling s = new Stelling("Optijd", "3");
+		Stelling s = new Stelling("1","1");
+		s.setDeStelling("naam");
+		s.setDeWaarde("2");
 		Stelling s2 = new Stelling("JA", "2");
 		Stelling s3 = new Stelling("Goed werk", "1");
 		alleStellingen.add(s);
 		alleStellingen.add(s2);
 		alleStellingen.add(s3);
 		sce.getServletContext().setAttribute("stellingen", alleStellingen);
+		
+		
 		
 		ArrayList<Beoordeling> allBeoordelingen = new ArrayList<Beoordeling>();
 		allBeoordelingen.add(b);
