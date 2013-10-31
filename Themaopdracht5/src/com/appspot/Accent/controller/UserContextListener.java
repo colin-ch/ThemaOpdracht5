@@ -41,6 +41,8 @@ public class UserContextListener implements ServletContextListener {
 
 		
 		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
+		
+  		
 		Stelling s = new Stelling("Optijd", "3");
 		Stelling s2 = new Stelling("JA", "2");
 		Stelling s3 = new Stelling("Goed werk", "1");

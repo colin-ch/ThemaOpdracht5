@@ -1,7 +1,13 @@
 <html>
   <head>
+  	      <%@ page import="java.util.ArrayList"%>
+          <%@ page import="javax.servlet.ServletContextEvent"%>
+          <%@ page import="com.appspot.Accent.model.Stelling"%>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-   
+       
+          
+          
+          
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
@@ -15,17 +21,21 @@
         var data = google.visualization.arrayToDataTable([
           ['Beoordeling', 'Stage Opleider', 'Student'],
       	  
-          <%@page import="java.util.ArrayList" %>
-          <%@page import="javax.servlet.ServletContextEvent" %>
-          <%@page import="com.appspot.Accent.model.Stelling" %>
+          
+          
+         
+      
           
           <%
-          
-          ArrayList<Stelling> alleStellingenLijst = (ArrayList<Stelling>) request.getServletContext().getAttribute("stellingen"); 
-  		
+
+
+
+          ArrayList<Stelling> alleStellingenLijst = getServletContext().getAttribute("stellingen"); 
+          %>
+          <%
   		for (Stelling s : alleStellingenLijst) {
   			
-          println("[1, "+s.getDeStelling()+" , " + s.getDeWaarde()+"]");
+          out.println("[1, "+s.getDeStelling()+" , " + s.getDeWaarde()+"]");
           
            } %>
           
@@ -60,6 +70,7 @@
     </script>
   </head>
   <body>
+  	
     <div id="chart_div" style="width: 900px; height: 500px;"></div>
     <div id="chart2_div" style="width: 900px; height: 500px;"></div>
   </body>
