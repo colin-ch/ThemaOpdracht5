@@ -14,7 +14,7 @@
 	<script src="js/hideshow.js" type="text/javascript"></script>
 	<script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
 	<script src="js/add2home.js" type="text/javascript"></script>
-		<script src="js/add2home.css" type="text/javascript"></script>
+		<link rel="stylesheet" href="js/add2home.css" type="text/css" media="screen"></link>
 	<link rel="apple-touch-icon" href="images/iphonee.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="images/ipadd.png" />
 <link rel="apple-touch-icon" sizes="114x114" href="images/iphone4.png" />

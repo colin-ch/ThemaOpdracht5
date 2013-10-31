@@ -12,6 +12,7 @@ import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.StageBedrijf;
 import com.appspot.Accent.model.StageBegeleider;
 import com.appspot.Accent.model.StageOpleider;
+import com.appspot.Accent.model.Stelling;
 import com.appspot.Accent.model.User;
 
 public class UserContextListener implements ServletContextListener {
@@ -39,8 +40,14 @@ public class UserContextListener implements ServletContextListener {
 		Beoordeling b = new Beoordeling("01/01/2013", 5, "Eerste competentie");
 
 		
-		
-		
+		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
+		Stelling s = new Stelling("Optijd", "3");
+		Stelling s2 = new Stelling("JA", "2");
+		Stelling s3 = new Stelling("Goed werk", "1");
+		alleStellingen.add(s);
+		alleStellingen.add(s2);
+		alleStellingen.add(s3);
+		sce.getServletContext().setAttribute("stellingen", alleStellingen);
 		
 		ArrayList<Beoordeling> allBeoordelingen = new ArrayList<Beoordeling>();
 		allBeoordelingen.add(b);
