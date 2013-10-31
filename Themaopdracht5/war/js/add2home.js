@@ -32,7 +32,7 @@ var addToHome = (function (w) {
 			bottomOffset: 14,			// Distance of the balloon from bottom
 			expire: 0,					// Minutes to wait before showing the popup again (0 = always displayed)
 			message: '',				// Customize your message or force a language ('' = automatic)
-			touchIcon: false,			// Display the touch icon
+			touchIcon: true,			// Display the touch icon
 			arrow: true,				// Display the balloon arrow
 			hookOnLoad: true,			// Should we hook to onload event? (really advanced usage)
 			closeButton: true,			// Let the user close the balloon
@@ -40,34 +40,34 @@ var addToHome = (function (w) {
 		},
 
 		intl = {
-			ar:    '<span dir="rtl">قم بتثبيت هذا التطبيق على <span dir="ltr">%device:</span>انقر<span dir="ltr">%icon</span> ،<strong>ثم اضفه الى الشاشة الرئيسية.</strong></span>',
-			ca_es: 'Per instal·lar aquesta aplicació al vostre %device premeu %icon i llavors <strong>Afegir a pantalla d\'inici</strong>.',
-			cs_cz: 'Pro instalaci aplikace na Váš %device, stiskněte %icon a v nabídce <strong>Přidat na plochu</strong>.',
-			da_dk: 'Tilføj denne side til din %device: tryk på %icon og derefter <strong>Føj til hjemmeskærm</strong>.',
+			ar:    '<span dir="rtl">Ù‚Ù… Ø¨ØªØ«Ø¨ÙŠØª Ù‡Ø°Ø§ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ Ø¹Ù„Ù‰ <span dir="ltr">%device:</span>Ø§Ù†Ù‚Ø±<span dir="ltr">%icon</span> ØŒ<strong>Ø«Ù… Ø§Ø¶Ù�Ù‡ Ø§Ù„Ù‰ Ø§Ù„Ø´Ø§Ø´Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©.</strong></span>',
+			ca_es: 'Per instalÂ·lar aquesta aplicaciÃ³ al vostre %device premeu %icon i llavors <strong>Afegir a pantalla d\'inici</strong>.',
+			cs_cz: 'Pro instalaci aplikace na VÃ¡Å¡ %device, stisknÄ›te %icon a v nabÃ­dce <strong>PÅ™idat na plochu</strong>.',
+			da_dk: 'TilfÃ¸j denne side til din %device: tryk pÃ¥ %icon og derefter <strong>FÃ¸j til hjemmeskÃ¦rm</strong>.',
 			de_de: 'Installieren Sie diese App auf Ihrem %device: %icon antippen und dann <strong>Zum Home-Bildschirm</strong>.',
-			el_gr: 'Εγκαταστήσετε αυτήν την Εφαρμογή στήν συσκευή σας %device: %icon μετά πατάτε <strong>Προσθήκη σε Αφετηρία</strong>.',
+			el_gr: 'Î•Î³ÎºÎ±Ï„Î±ÏƒÏ„Î®ÏƒÎµÏ„Îµ Î±Ï…Ï„Î®Î½ Ï„Î·Î½ Î•Ï†Î±Ï�Î¼Î¿Î³Î® ÏƒÏ„Î®Î½ ÏƒÏ…ÏƒÎºÎµÏ…Î® ÏƒÎ±Ï‚ %device: %icon Î¼ÎµÏ„Î¬ Ï€Î±Ï„Î¬Ï„Îµ <strong>Î Ï�Î¿ÏƒÎ¸Î®ÎºÎ· ÏƒÎµ Î‘Ï†ÎµÏ„Î·Ï�Î¯Î±</strong>.',
 			en_us: 'Install this web app on your %device: tap %icon and then <strong>Add to Home Screen</strong>.',
-			es_es: 'Para instalar esta app en su %device, pulse %icon y seleccione <strong>Añadir a pantalla de inicio</strong>.',
-			fi_fi: 'Asenna tämä web-sovellus laitteeseesi %device: paina %icon ja sen jälkeen valitse <strong>Lisää Koti-valikkoon</strong>.',
-			fr_fr: 'Ajoutez cette application sur votre %device en cliquant sur %icon, puis <strong>Ajouter à l\'écran d\'accueil</strong>.',
-			he_il: '<span dir="rtl">התקן אפליקציה זו על ה-%device שלך: הקש %icon ואז <strong>הוסף למסך הבית</strong>.</span>',
-			hr_hr: 'Instaliraj ovu aplikaciju na svoj %device: klikni na %icon i odaberi <strong>Dodaj u početni zaslon</strong>.',
-			hu_hu: 'Telepítse ezt a web-alkalmazást az Ön %device-jára: nyomjon a %icon-ra majd a <strong>Főképernyőhöz adás</strong> gombra.',
+			es_es: 'Para instalar esta app en su %device, pulse %icon y seleccione <strong>AÃ±adir a pantalla de inicio</strong>.',
+			fi_fi: 'Asenna tÃ¤mÃ¤ web-sovellus laitteeseesi %device: paina %icon ja sen jÃ¤lkeen valitse <strong>LisÃ¤Ã¤ Koti-valikkoon</strong>.',
+			fr_fr: 'Ajoutez cette application sur votre %device en cliquant sur %icon, puis <strong>Ajouter Ã  l\'Ã©cran d\'accueil</strong>.',
+			he_il: '<span dir="rtl">×”×ª×§×Ÿ ×�×¤×œ×™×§×¦×™×” ×–×• ×¢×œ ×”-%device ×©×œ×š: ×”×§×© %icon ×•×�×– <strong>×”×•×¡×£ ×œ×ž×¡×š ×”×‘×™×ª</strong>.</span>',
+			hr_hr: 'Instaliraj ovu aplikaciju na svoj %device: klikni na %icon i odaberi <strong>Dodaj u poÄ�etni zaslon</strong>.',
+			hu_hu: 'TelepÃ­tse ezt a web-alkalmazÃ¡st az Ã–n %device-jÃ¡ra: nyomjon a %icon-ra majd a <strong>FÅ‘kÃ©pernyÅ‘hÃ¶z adÃ¡s</strong> gombra.',
 			it_it: 'Installa questa applicazione sul tuo %device: premi su %icon e poi <strong>Aggiungi a Home</strong>.',
-			ja_jp: 'このウェブアプリをあなたの%deviceにインストールするには%iconをタップして<strong>ホーム画面に追加</strong>を選んでください。',
-			ko_kr: '%device에 웹앱을 설치하려면 %icon을 터치 후 "홈화면에 추가"를 선택하세요',
-			nb_no: 'Installer denne appen på din %device: trykk på %icon og deretter <strong>Legg til på Hjem-skjerm</strong>',
+			ja_jp: 'ã�“ã�®ã‚¦ã‚§ãƒ–ã‚¢ãƒ—ãƒªã‚’ã�‚ã�ªã�Ÿã�®%deviceã�«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã�™ã‚‹ã�«ã�¯%iconã‚’ã‚¿ãƒƒãƒ—ã�—ã�¦<strong>ãƒ›ãƒ¼ãƒ ç”»é�¢ã�«è¿½åŠ </strong>ã‚’é�¸ã‚“ã�§ã��ã� ã�•ã�„ã€‚',
+			ko_kr: '%deviceì—� ì›¹ì•±ì�„ ì„¤ì¹˜í•˜ë ¤ë©´ %iconì�„ í„°ì¹˜ í›„ "í™ˆí™”ë©´ì—� ì¶”ê°€"ë¥¼ ì„ íƒ�í•˜ì„¸ìš”',
+			nb_no: 'Installer denne appen pÃ¥ din %device: trykk pÃ¥ %icon og deretter <strong>Legg til pÃ¥ Hjem-skjerm</strong>',
 			nl_nl: 'Installeer deze webapp op uw %device: tik %icon en dan <strong>Voeg toe aan beginscherm</strong>.',
-			pl_pl: 'Aby zainstalować tę aplikacje na %device: naciśnij %icon a następnie <strong>Dodaj jako ikonę</strong>.',
-			pt_br: 'Instale este aplicativo em seu %device: aperte %icon e selecione <strong>Adicionar à Tela Inicio</strong>.',
-			pt_pt: 'Para instalar esta aplicação no seu %device, prima o %icon e depois em <strong>Adicionar ao ecrã principal</strong>.',
-			ru_ru: 'Установите это веб-приложение на ваш %device: нажмите %icon, затем <strong>Добавить в «Домой»</strong>.',
-			sv_se: 'Lägg till denna webbapplikation på din %device: tryck på %icon och därefter <strong>Lägg till på hemskärmen</strong>.',
-			th_th: 'ติดตั้งเว็บแอพฯ นี้บน %device ของคุณ: แตะ %icon และ <strong>เพิ่มที่หน้าจอโฮม</strong>',
-			tr_tr: 'Bu uygulamayı %device\'a eklemek için %icon simgesine sonrasında <strong>Ana Ekrana Ekle</strong> düğmesine basın.',
-			uk_ua: 'Встановіть цей веб сайт на Ваш %device: натисніть %icon, а потім <strong>На початковий екран</strong>.',
-			zh_cn: '您可以将此应用程式安装到您的 %device 上。请按 %icon 然后点选<strong>添加至主屏幕</strong>。',
-			zh_tw: '您可以將此應用程式安裝到您的 %device 上。請按 %icon 然後點選<strong>加入主畫面螢幕</strong>。'
+			pl_pl: 'Aby zainstalowaÄ‡ tÄ™ aplikacje na %device: naciÅ›nij %icon a nastÄ™pnie <strong>Dodaj jako ikonÄ™</strong>.',
+			pt_br: 'Instale este aplicativo em seu %device: aperte %icon e selecione <strong>Adicionar Ã  Tela Inicio</strong>.',
+			pt_pt: 'Para instalar esta aplicaÃ§Ã£o no seu %device, prima o %icon e depois em <strong>Adicionar ao ecrÃ£ principal</strong>.',
+			ru_ru: 'Ð£Ñ�Ñ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ Ñ�Ñ‚Ð¾ Ð²ÐµÐ±-Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð½Ð° Ð²Ð°Ñˆ %device: Ð½Ð°Ð¶Ð¼Ð¸Ñ‚Ðµ %icon, Ð·Ð°Ñ‚ÐµÐ¼ <strong>Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð² Â«Ð”Ð¾Ð¼Ð¾Ð¹Â»</strong>.',
+			sv_se: 'LÃ¤gg till denna webbapplikation pÃ¥ din %device: tryck pÃ¥ %icon och dÃ¤refter <strong>LÃ¤gg till pÃ¥ hemskÃ¤rmen</strong>.',
+			th_th: 'à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡à¹€à¸§à¹‡à¸šà¹�à¸­à¸žà¸¯ à¸™à¸µà¹‰à¸šà¸™ %device à¸‚à¸­à¸‡à¸„à¸¸à¸“: à¹�à¸•à¸° %icon à¹�à¸¥à¸° <strong>à¹€à¸žà¸´à¹ˆà¸¡à¸—à¸µà¹ˆà¸«à¸™à¹‰à¸²à¸ˆà¸­à¹‚à¸®à¸¡</strong>',
+			tr_tr: 'Bu uygulamayÄ± %device\'a eklemek iÃ§in %icon simgesine sonrasÄ±nda <strong>Ana Ekrana Ekle</strong> dÃ¼ÄŸmesine basÄ±n.',
+			uk_ua: 'Ð’Ñ�Ñ‚Ð°Ð½Ð¾Ð²Ñ–Ñ‚ÑŒ Ñ†ÐµÐ¹ Ð²ÐµÐ± Ñ�Ð°Ð¹Ñ‚ Ð½Ð° Ð’Ð°Ñˆ %device: Ð½Ð°Ñ‚Ð¸Ñ�Ð½Ñ–Ñ‚ÑŒ %icon, Ð° Ð¿Ð¾Ñ‚Ñ–Ð¼ <strong>Ð�Ð° Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÐ¾Ð²Ð¸Ð¹ ÐµÐºÑ€Ð°Ð½</strong>.',
+			zh_cn: 'æ‚¨å�¯ä»¥å°†æ­¤åº”ç”¨ç¨‹å¼�å®‰è£…åˆ°æ‚¨çš„ %device ä¸Šã€‚è¯·æŒ‰ %icon ç„¶å�Žç‚¹é€‰<strong>æ·»åŠ è‡³ä¸»å±�å¹•</strong>ã€‚',
+			zh_tw: 'æ‚¨å�¯ä»¥å°‡æ­¤æ‡‰ç”¨ç¨‹å¼�å®‰è£�åˆ°æ‚¨çš„ %device ä¸Šã€‚è«‹æŒ‰ %icon ç„¶å¾Œé»žé�¸<strong>åŠ å…¥ä¸»ç•«é�¢èž¢å¹•</strong>ã€‚'
 		};
 
 	function init () {
