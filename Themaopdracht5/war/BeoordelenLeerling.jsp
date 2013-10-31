@@ -136,11 +136,18 @@
 					
 					}
 				}
-				
-				
+				out.println("<input type='hidden' value="+teller+" name='stellingTeller' />");
+			
 				%>
+				
 				<input type="submit" value="Opslaan"/>
 				</form>
+				<% 
+				Object msgs = request.getAttribute("msgs");
+				if (msgs != null) { 
+				out.println(msgs);
+				}
+				%>
 					</div>
 					
 					
