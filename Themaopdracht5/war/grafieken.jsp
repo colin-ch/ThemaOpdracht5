@@ -38,7 +38,7 @@
 			for (Stelling s : alleStellingenLijst1) {
         		out.println("['1', " + s.getDeStelling() + " , " + s.getDeWaarde() + "],");       
          	}   
-        %> 
+         %>  
         
         
         
@@ -63,5 +63,7 @@
   </head>
   <body>
     <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    
+
   </body>
 </html>

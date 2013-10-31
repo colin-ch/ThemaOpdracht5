@@ -14,6 +14,7 @@ import com.appspot.Accent.model.Beoordeling;
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.School;
 import com.appspot.Accent.model.Stage;
+import com.appspot.Accent.model.Stelling;
 
 public class OverzichtServlet extends HttpServlet{
 	private static final Logger log = Logger.getLogger(OverzichtServlet.class.getName());
@@ -64,14 +65,24 @@ public class OverzichtServlet extends HttpServlet{
 			}
 		}
 		RequestDispatcher rd = null;
+		
+		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
+		alleStellingen.add(new Stelling("3","1"));
+		alleStellingen.add(new Stelling("2","2"));
+		alleStellingen.add(new Stelling("1","3"));
+		req.setAttribute("stellingen", alleStellingen);
+		
 		if(succes){
-			rd = req.getRequestDispatcher("overzicht.jsp");
+			rd = req.getRequestDispatcher("grafieken.jsp");
 			log.info("3");
 		}
 		else{
-			rd = req.getRequestDispatcher("overzicht.jsp");
+			rd = req.getRequestDispatcher("grafieken.jsp");
 			log.info("4");
 		}
+		
+		
+	
 		rd.forward(req, resp);
 	}
 

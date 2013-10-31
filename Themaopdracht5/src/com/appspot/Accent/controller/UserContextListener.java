@@ -46,15 +46,8 @@ public class UserContextListener implements ServletContextListener {
 
 		
 	
-		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
-		Stelling s = new Stelling("1","1");
-		Stelling s2 = new Stelling("3", "2");
-		Stelling s3 = new Stelling("5", "1");
-		alleStellingen.add(s);
-		alleStellingen.add(s2);
-		alleStellingen.add(s3);
-		sce.getServletContext().setAttribute("stellingen", alleStellingen);
-		log.info((String) sce.getServletContext().getAttribute("stellingen"));
+		
+	
 		
 		
 		

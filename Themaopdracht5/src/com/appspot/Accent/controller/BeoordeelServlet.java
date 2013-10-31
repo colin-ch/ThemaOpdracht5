@@ -21,6 +21,8 @@ public class BeoordeelServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
+		
 		RequestDispatcher rd = null;
 		Object o = req.getSession().getAttribute("userobject");
 

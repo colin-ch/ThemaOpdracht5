@@ -30,5 +30,9 @@ public void setDeWaarde(String deWaarde) {
 	this.deWaarde = deWaarde;
 }
 
+public String toString(){
+	String s = "test";
+	return s;
+}
 
 }
