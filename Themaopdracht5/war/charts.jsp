@@ -7,25 +7,24 @@
       google.setOnLoadCallback(drawChart);
       
       
-      <%@
+
       
-      page import="java.util.*";
-      
-      page import="com.appspot.Accent.model.Stelling.java";
-      
-		 @%>
+     
       
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Beoordeling', 'Stage Opleider', 'Student'],
-      
+      	  
+          <%@page import="java.util.ArrayList" %>
+          <%@page import="javax.servlet.ServletContextEvent" %>
+          <%@page import="com.appspot.Accent.model.Stelling" %>
           
-          <% 
+          <%
           
-          ArrayList<Stelling> alleStellingenLijst = getServletContext().getAttribute("stellingen");
-  	    
-          for(Stelling s : alleStellingenLijst)
-          {
+          ArrayList<Stelling> alleStellingenLijst = (ArrayList<Stelling>) request.getServletContext().getAttribute("stellingen"); 
+  		
+  		for (Stelling s : alleStellingenLijst) {
+  			
           println("[1, "+s.getDeStelling()+" , " + s.getDeWaarde()+"]");
           
            } %>
