@@ -139,6 +139,7 @@
 				
 				
 				%>
+				<input type="submit" value="Opslaan"/>
 				</form>
 					</div>
 					
