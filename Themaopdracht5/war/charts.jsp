@@ -26,9 +26,9 @@
   	    
           for(Stelling s : alleStellingenLijst)
           {
-          %>[1, <% s.getDeStelling(); %> , <% s.getDeWaarde(); %>]
+          println("[1, "+s.getDeStelling()+" , " + s.getDeWaarde()+"]");
           
-          <% } %>
+           } %>
           
           ['1',  1,      4],
           
