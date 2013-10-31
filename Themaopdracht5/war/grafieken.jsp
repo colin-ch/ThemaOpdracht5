@@ -3,6 +3,7 @@
   	      <%@ page import="java.util.ArrayList"%>
           <%@ page import="javax.servlet.ServletContextEvent"%>
           <%@ page import="com.appspot.Accent.model.Stelling"%>
+       
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
        
           
@@ -25,18 +26,28 @@
       	  
           ['1', 1, 4],
 
-          <%
+          
         	
-//         	ArrayList<Stelling> alleStellingenLijst1 =(ArrayList<Stelling>) getServletContext().getAttribute("stellingen");
-            ArrayList<Stelling> alleStellingenLijst2 = new ArrayList<Stelling>();
-            Stelling st = new Stelling("test", "test");
-            alleStellingenLijst2.add(st);
-			for (Stelling s : alleStellingenLijst2) {
+       
+		
+       <% 
+       
+       
+       ArrayList<Stelling> alleStellingenLijst1 =((ArrayList<Stelling>) request.getAttribute("stellingen"));
+          
+			for (Stelling s : alleStellingenLijst1) {
         		out.println("['1', " + s.getDeStelling() + " , " + s.getDeWaarde() + "],");       
          	}   
         %> 
+        
+        
+        
+        
+        
         ['2', 2, 2]
+        
         ]);
+        
         var options = {
           title: 'Laatste competenties',
           hAxis: {title: 'Score', titleTextStyle: {color: 'green'}},

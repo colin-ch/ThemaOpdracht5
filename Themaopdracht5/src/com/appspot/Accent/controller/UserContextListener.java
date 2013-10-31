@@ -2,6 +2,7 @@ package com.appspot.Accent.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -18,7 +19,7 @@ import com.appspot.Accent.model.Stelling;
 import com.appspot.Accent.model.User;
 
 public class UserContextListener implements ServletContextListener {
-
+	private static final Logger log = Logger.getLogger(UserContextListener.class.getName());
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
 		// TODO Auto-generated method stub
@@ -47,14 +48,14 @@ public class UserContextListener implements ServletContextListener {
 	
 		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
 		Stelling s = new Stelling("1","1");
-		s.setDeStelling("naam");
-		s.setDeWaarde("2");
-		Stelling s2 = new Stelling("JA", "2");
-		Stelling s3 = new Stelling("Goed werk", "1");
+		Stelling s2 = new Stelling("3", "2");
+		Stelling s3 = new Stelling("5", "1");
 		alleStellingen.add(s);
 		alleStellingen.add(s2);
 		alleStellingen.add(s3);
 		sce.getServletContext().setAttribute("stellingen", alleStellingen);
+		log.info((String) sce.getServletContext().getAttribute("stellingen"));
+		
 		
 		
 		
