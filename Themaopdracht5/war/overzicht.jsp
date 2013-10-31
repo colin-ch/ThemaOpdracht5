@@ -30,10 +30,8 @@
         	
        
 		
-       <% 
-       
-       
-       ArrayList<Stelling> alleStellingenLijst1 =((ArrayList<Stelling>) request.getAttribute("stellingen"));
+       <%        
+       ArrayList<Stelling> alleStellingenLijst1 =(ArrayList<Stelling>) request.getAttribute("stellingen");
           
 			for (Stelling s : alleStellingenLijst1) {
         		out.println("['1', " + s.getDeStelling() + " , " + s.getDeWaarde() + "],");       

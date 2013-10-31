@@ -118,7 +118,7 @@
 	<%@ page import="com.appspot.Accent.model.Stelling" %>
 	<%@ page import="java.util.ArrayList" %>
 				
-				<form>
+				<form action="BeoordeelServlet.do">
 				<% 
 					ArrayList<Competentie> competenties = new ArrayList<Competentie>();
 				

@@ -23,6 +23,12 @@ public class BeoordeelServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		
+		int waarde1 = Integer.parseInt(req.getParameter("waarde1"));
+		int waarde2 = Integer.parseInt(req.getParameter("waarde2"));
+		int waarde3 = Integer.parseInt(req.getParameter("waarde3"));
+		int waarde4 = Integer.parseInt(req.getParameter("waarde4"));
+		int waarde5 = Integer.parseInt(req.getParameter("waarde5"));
+		
 		RequestDispatcher rd = null;
 		Object o = req.getSession().getAttribute("userobject");
 
@@ -37,36 +43,7 @@ public class BeoordeelServlet extends HttpServlet {
 					// ArrayList<Beoordeling> allBeoordelingen =
 					// s.getBeoordelingen();
 
-					// Te aant e passen na de core
-					Competentie nr1 = new Competentie(
-							"1. Samenwerken en overleggen");
-					Competentie nr2 = new Competentie(
-							"2. Aandacht en begrip tonen");
-
-					Stelling stelling1 = new Stelling(
-							"de leerling gedraagt zich zo dat samenwerking makkelijk gaat",
-							null);
-					Stelling stelling2 = new Stelling(
-							"De leerling past zich aan de groep aan", null);
-					Stelling stelling3 = new Stelling(
-							"De leerling houdt zich aan de regels van het bedrijf",
-							null);
-					Stelling stelling4 = new Stelling(
-							"de leerling luister naar een ander", null);
-					Stelling stelling5 = new Stelling(
-							"de leerling laat de ander uitpraten", null);
-
-					nr1.getDeStellingen().add(stelling1);
-					nr1.getDeStellingen().add(stelling2);
-					nr1.getDeStellingen().add(stelling3);
-					nr2.getDeStellingen().add(stelling4);
-					nr2.getDeStellingen().add(stelling5);
-
-					ArrayList<Competentie> competenties = new ArrayList<Competentie>();
-					competenties.add(nr1);
-					competenties.add(nr2);
-					req.setAttribute("competenties", competenties);
-
+					
 				}
 			}
 			rd = req.getRequestDispatcher("BeoordelenLeerling.jsp");
