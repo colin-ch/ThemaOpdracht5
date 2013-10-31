@@ -34,6 +34,7 @@
        
        
        ArrayList<Stelling> alleStellingenLijst1 =((ArrayList<Stelling>) request.getAttribute("stellingen"));
+          System.out.println(alleStellingenLijst1);
           
 			for (Stelling s : alleStellingenLijst1) {
         		out.println("['1', " + s.getDeStelling() + " , " + s.getDeWaarde() + "],");       
