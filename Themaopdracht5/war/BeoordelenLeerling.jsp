@@ -149,6 +149,8 @@
 					}
 				}
 		}
+		out.println("eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
+		
 				%>
 				
 				<input type="submit" value="Opslaan" name="Opslaan"/>

@@ -95,10 +95,19 @@ for(Beoordeling be : allBeoordelingen){
 				}
 				}
 			}
+			be.setOpmerking(req.getParameter("opmerking"));
+			log.info(be.getOpmerking());
 }
 			}	
 				}
 			}
+			
+			
+			
+			String msgs = "<h4 class='alert_success'>U heeft de beoordeling successvol ingevuld.</h4>";
+
+			req.setAttribute("msgs", msgs);
+
 			getServletContext().setAttribute("stages", allStages);
 			rd = req.getRequestDispatcher("index.jsp");
 		}
