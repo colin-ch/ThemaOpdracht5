@@ -44,7 +44,7 @@ public class UserContextListener implements ServletContextListener {
 		allUsers.add(u1);
 		sce.getServletContext().setAttribute("users", allUsers);
 		
-		Beoordeling b = new Beoordeling("01/01/2013", 5, "Eerste competentie");
+		Beoordeling b = new Beoordeling(null, 5, "Eerste competentie");
 		ArrayList<Beoordeling> allBeoordelingen = new ArrayList<Beoordeling>();
 		allBeoordelingen.add(b);
 		 stage.getBeoordelingen().add(b);
@@ -53,42 +53,42 @@ public class UserContextListener implements ServletContextListener {
 		sce.getServletContext().setAttribute("stages", allStages);
 		
 		// Te aant e passen na de core
-		Competentie nr1 = new Competentie(
-				"1. Samenwerken en overleggen");
-		Competentie nr2 = new Competentie(
-				"2. Aandacht en begrip tonen");
-
-		Stelling stelling1 = new Stelling(
-				"de leerling gedraagt zich zo dat samenwerking makkelijk gaat",
-				null);
-		Stelling stelling2 = new Stelling(
-				"De leerling past zich aan de groep aan", null);
-		Stelling stelling3 = new Stelling(
-				"De leerling houdt zich aan de regels van het bedrijf",
-				null);
-		Stelling stelling4 = new Stelling(
-				"de leerling luister naar een ander", null);
-		Stelling stelling5 = new Stelling(
-				"de leerling laat de ander uitpraten", null);
-		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
-		alleStellingen.add(stelling1);
-		alleStellingen.add(stelling2);
-		alleStellingen.add(stelling3);
-		alleStellingen.add(stelling4);
-		alleStellingen.add(stelling5);
-		sce.getServletContext().setAttribute("stellingen", alleStellingen);
-		
-
-		nr1.getDeStellingen().add(stelling1);
-		nr1.getDeStellingen().add(stelling2);
-		nr1.getDeStellingen().add(stelling3);
-		nr2.getDeStellingen().add(stelling4);
-		nr2.getDeStellingen().add(stelling5);
-
-		ArrayList<Competentie> competenties = new ArrayList<Competentie>();
-		competenties.add(nr1);
-		competenties.add(nr2);
-		sce.getServletContext().setAttribute("competenties", competenties);
+//		Competentie nr1 = new Competentie(
+//				"1. Samenwerken en overleggen");
+//		Competentie nr2 = new Competentie(
+//				"2. Aandacht en begrip tonen");
+//
+//		Stelling stelling1 = new Stelling(
+//				"de leerling gedraagt zich zo dat samenwerking makkelijk gaat",
+//				null);
+//		Stelling stelling2 = new Stelling(
+//				"De leerling past zich aan de groep aan", null);
+//		Stelling stelling3 = new Stelling(
+//				"De leerling houdt zich aan de regels van het bedrijf",
+//				null);
+//		Stelling stelling4 = new Stelling(
+//				"de leerling luister naar een ander", null);
+//		Stelling stelling5 = new Stelling(
+//				"de leerling laat de ander uitpraten", null);
+//		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
+//		alleStellingen.add(stelling1);
+//		alleStellingen.add(stelling2);
+//		alleStellingen.add(stelling3);
+//		alleStellingen.add(stelling4);
+//		alleStellingen.add(stelling5);
+//		sce.getServletContext().setAttribute("stellingen", alleStellingen);
+//		
+//
+//		nr1.getDeStellingen().add(stelling1);
+//		nr1.getDeStellingen().add(stelling2);
+//		nr1.getDeStellingen().add(stelling3);
+//		nr2.getDeStellingen().add(stelling4);
+//		nr2.getDeStellingen().add(stelling5);
+//
+//		ArrayList<Competentie> competenties = new ArrayList<Competentie>();
+//		competenties.add(nr1);
+//		competenties.add(nr2);
+//		sce.getServletContext().setAttribute("competenties", competenties);
 
 
 		

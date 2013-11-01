@@ -114,33 +114,44 @@
 		<article class="module width_full">
 			<header><h3>Home</h3></header>
 				<div class="module_content">
+					<%@ page import="com.appspot.Accent.model.Stage" %>
+								<%@ page import="com.appspot.Accent.model.Beoordeling" %>
+				
 				<%@ page import="com.appspot.Accent.model.Competentie" %>
 	<%@ page import="com.appspot.Accent.model.Stelling" %>
 	<%@ page import="java.util.ArrayList" %>
 				
 				<form action="/BeoordeelServlet.do" methode="GET">
-				<% 
-					ArrayList<Competentie> competenties = new ArrayList<Competentie>();
+				<%
 				
-				competenties =(ArrayList<Competentie>) request.getAttribute("competenties");
+				Stage s= (Stage) request.getAttribute("competenties");	
+
+					ArrayList<Beoordeling> beoordelingen = s.getBeoordelingen();
+
+		for(Beoordeling be : beoordelingen){
+			
+			if(be.getDatum() == null){
+			ArrayList<Competentie> competenties = be.getCompetenties();
 				int teller = 0;
 				for(Competentie c : competenties){
 					ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
 					stellingen = c.getDeStellingen();
+					System.out.println("test");
 					out.println("</br><h2>"+  c.getTitel() +"</h2></br>");
 					
-					for(Stelling s : stellingen){
+					for(Stelling stel : stellingen){
+						System.out.println("stelling");
+
 						teller++;
-						out.println("<h4>" + s.getDeStelling() + "</h4>");
+						out.println("<h4>" + stel.getDeStelling() + "</h4>");
 						out.println("1<input type='radio' name='waarde"+ teller+ "' value='1'>2<input type='radio' name='waarde"+ teller+ "' value='2'>3<input type='radio' name='waarde"+ teller+ "' value='3'>4<input type='radio' name='waarde"+ teller+ "' value='4'></br>");
-					
+					}
 					}
 				}
-				out.println("<input type='hidden' value="+teller+" name='stellingTeller' />");
-			
+		}
 				%>
 				
-				<input type="submit" value="Opslaan"/>
+				<input type="submit" value="Opslaan" name="Opslaan"/>
 				</form>
 				<% 
 				Object msgs = request.getAttribute("msgs");
