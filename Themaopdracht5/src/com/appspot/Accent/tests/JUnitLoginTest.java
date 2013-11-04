@@ -15,13 +15,13 @@ public class JUnitLoginTest {
 	@Test
 	public void testLoginSucces() {
 		ArrayList<User> allUsers = new ArrayList<User>();
-		User user = new User("123","123","123@gmail.com");
+		User user = new User("123", "123", "123@gmail.com");
 		allUsers.add(user);
 		User u = new User("123", "123", "123@gmail.com");
 
 		try {
 			for (User us : allUsers) {
-				if (u.equals(us)) {
+				if (u.getUsername().equals(us.getUsername())) {
 				}
 				else{
 					fail("gebruiker niet bekend");
@@ -42,7 +42,7 @@ public class JUnitLoginTest {
 
 		try {
 			for (User us : allUsers) {
-				if (u.equals(us)) {
+				if (u.getUsername().equals(us.getUsername())) {
 					fail("Deze gebruiker is bekend");
 				}
 			}

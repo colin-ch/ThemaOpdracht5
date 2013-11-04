@@ -1,0 +1,57 @@
+package com.appspot.Accent.tests;
+
+import static org.junit.Assert.fail;
+
+import java.util.Date;
+
+import javax.persistence.Id;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.appspot.Accent.model.Beoordeling;
+import com.appspot.Accent.model.Leerling;
+import com.appspot.Accent.model.Stage;
+import com.appspot.Accent.model.StageBedrijf;
+import com.appspot.Accent.model.StageBegeleider;
+import com.appspot.Accent.model.StageOpleider;
+
+public class JUnitStageTest {
+	private Id id;
+	private StageBegeleider stagebeg;
+	private Leerling u;
+	private StageBedrijf bedrijf1;
+	private StageOpleider opleider;
+	private Stage stage;
+	private Date date;
+	private Beoordeling beoordeling;
+	
+	@Before
+	public void setUp() throws Exception {
+		date = new Date();
+		stagebeg = new StageBegeleider("stage", "begeleider", "yahoo@gmail.com");
+		u = new Leerling("123", "123", "123@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", stagebeg );	
+		bedrijf1 = new StageBedrijf("bedrijf1", "123","bedrijf@gmail.com", "utrecht", "123456");
+		opleider = new StageOpleider("jopie");
+		stage = new Stage(1, u, opleider, bedrijf1, date, date);
+		beoordeling = new Beoordeling(null, null);
+	}
+
+	@Test
+	public void testSetStage() {
+		try{
+			stage.setDeLeerling(u);
+			stage.setDeOpleider(opleider);
+			stage.setHetBedrijf(bedrijf1);
+			stage.setBegindatum(date);
+			stage.setEinddatum(date);
+			stage.setBeoordelingen(null);
+			stage.setId(0);
+		}
+		catch(Exception e){
+			fail("fail op try sets");
+		}
+		
+	}
+
+}

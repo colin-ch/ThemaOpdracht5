@@ -8,6 +8,11 @@ public class Beoordeling {
 	private ArrayList<Competentie> competenties = new ArrayList<Competentie>();
 	private String datum;
 	private String opmerking;
+
+	public Beoordeling(String dt, String op){
+		datum = dt;
+		opmerking = op;
+	}
 	
 	public ArrayList<Competentie> getCompetenties() {
 		return competenties;
@@ -23,16 +28,7 @@ public class Beoordeling {
 
 	public void setDatum(String datum) {
 		this.datum = datum;
-	}
-
-
-	public Beoordeling(String dt, int wa, String op){
-		datum = dt;
-	
-		opmerking = op;
-	}
-	
-	
+	}	
 
 	public String getOpmerking() {
 		return opmerking;
