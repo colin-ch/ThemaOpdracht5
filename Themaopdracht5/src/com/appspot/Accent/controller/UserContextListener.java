@@ -1,5 +1,7 @@
 package com.appspot.Accent.controller;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Logger;
@@ -18,13 +20,18 @@ import com.appspot.Accent.model.StageBegeleider;
 import com.appspot.Accent.model.StageOpleider;
 import com.appspot.Accent.model.Stelling;
 import com.appspot.Accent.model.User;
+import com.googlecode.objectify.Objectify;
+import com.googlecode.objectify.ObjectifyService;
 
 public class UserContextListener implements ServletContextListener {
 	private static final Logger log = Logger.getLogger(UserContextListener.class.getName());
+    private PreparedStatement preparedStatement = null;
+  
+    private ResultSet resultSet = null;
+	
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	
@@ -51,6 +58,11 @@ public class UserContextListener implements ServletContextListener {
 		ArrayList<Stage> allStages = new ArrayList<Stage>();
 		allStages.add(stage);
 		sce.getServletContext().setAttribute("stages", allStages);
+		
+		Objectify ofy = ObjectifyService.begin();
+		ObjectifyService.register(Leerling.class);
+		ofy.put(u);
+//		((Leerling) ofy).createLeerling("Thomas", "degroot", "tdegroot@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", stagebeg );
 		
 		// Te aant e passen na de core
 //		Competentie nr1 = new Competentie(

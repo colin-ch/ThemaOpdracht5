@@ -5,12 +5,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Id;
+
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Objectify;
 
 public class Leerling extends User implements Serializable{
-	   private Objectify ofy;
 
+	  @Id Long id;
+    private Objectify ofy;
 	private String klas;
 	private StageBegeleider begeleider;
 	private Date geboortedatum;
@@ -23,6 +26,7 @@ public class Leerling extends User implements Serializable{
 
 	public Leerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, StageBegeleider doc) {
 		super(us, pw, em);
+		
 		klas = kl;
 		setBegeleider(doc);
 		geboortedatum = gebdat;
@@ -119,10 +123,11 @@ public class Leerling extends User implements Serializable{
 	 
 	   public void deleteLeerling(Leerling lu) {
 		  //TODO delete user ofy
+		   ofy.delete((lu));
 	   }
 	   
 	   
-	   public void createLocalUser(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, StageBegeleider doc){
+	   public void createLeerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, StageBegeleider doc){
 	       ofy.put(new Leerling( us,  pw,  em, call, tussen,  achternm,  nm,  age,  gebdat,  kl,  doc));
 
 		   
