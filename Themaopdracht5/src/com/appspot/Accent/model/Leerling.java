@@ -9,6 +9,7 @@ import javax.persistence.Id;
 
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Objectify;
+import com.googlecode.objectify.ObjectifyService;
 
 public class Leerling implements Serializable{
 
@@ -26,7 +27,10 @@ public class Leerling implements Serializable{
 	private String achternaam;
 	private String naam;
 	
+	
+	
 	public Leerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, String doc) {
+
 		username = us;
 		password =pw;
 		email =em;
