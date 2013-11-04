@@ -1,9 +1,16 @@
 package com.appspot.Accent.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import com.googlecode.objectify.Key;
+import com.googlecode.objectify.Objectify;
 
 public class Leerling extends User implements Serializable{
+	   private Objectify ofy;
+
 	private String klas;
 	private StageBegeleider begeleider;
 	private Date geboortedatum;
@@ -106,5 +113,50 @@ public class Leerling extends User implements Serializable{
 	public void setBegeleider(StageBegeleider begeleider) {
 		this.begeleider = begeleider;
 	}
+	
+	
+	
+	 
+	   public void deleteLeerling(Leerling lu) {
+		  //TODO delete user ofy
+	   }
+	   
+	   
+	   public void createLocalUser(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, StageBegeleider doc){
+	       ofy.put(new Leerling( us,  pw,  em, call, tussen,  achternm,  nm,  age,  gebdat,  kl,  doc));
+
+		   
+	   }
+
+	   
+	   public List<Leerling> getAllLeerlingen() {
+	      ArrayList<Leerling> result = new ArrayList<Leerling>();
+	      Iterable<Key<Leerling>> allKeys= ofy.query(Leerling.class).fetchKeys();
+	      for (Key k : allKeys){
+	    	  Leerling lu = ofy.get(Leerling.class, k.getId());
+	    	  result.add(lu);
+	      }
+		   return result;
+	   }
+
+	   public Leerling getLeerling(String username) {
+		   Leerling result = null;
+		   ArrayList<Leerling> leerlingen = (ArrayList<Leerling>) getAllLeerlingen();
+	      for (Leerling lu : leerlingen){
+	    	  if (lu.getUsername().equals(username)){
+	    		  result = lu;
+	    	  }
+	      }
+	      return result;
+	   }
+
+	   
+	   public void updateLeerling(Leerling lu) {
+			  //TODO update user ofy
+
+	      System.out.println("LocalUser: " + lu.getUsername() +", activated in the database");
+	   }
+	
+	
 
 }

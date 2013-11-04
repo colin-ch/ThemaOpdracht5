@@ -111,6 +111,10 @@ for(Beoordeling be : allBeoordelingen){
 			getServletContext().setAttribute("stages", allStages);
 			rd = req.getRequestDispatcher("index.jsp");
 		}
+		
+		
+		
+		
 		else{
 		
 	
