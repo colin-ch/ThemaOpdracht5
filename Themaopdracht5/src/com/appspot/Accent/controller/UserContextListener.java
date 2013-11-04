@@ -41,13 +41,12 @@ public class UserContextListener implements ServletContextListener {
 		User u1 = new User("12345", "12345", "12345@gmail.com");
 		Date date = new Date();
 		StageBegeleider stagebeg = new StageBegeleider("stage", "begeleider", "yahoo@gmail.com");
-	Leerling u = new Leerling("123", "123", "123@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", stagebeg );	
+	Leerling u = new Leerling("123", "123", "123@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", stagebeg.getEmail() );	
 	StageBedrijf bedrijf1 = new StageBedrijf("bedrijf1", "123","bedrijf@gmail.com", "utrecht", "123456");
 	StageOpleider opleider = new StageOpleider("jopie");
 		Stage stage = new Stage(1, u, opleider, bedrijf1, date, date);
 	
 	ArrayList<User> allUsers = new ArrayList<User>();
-		allUsers.add(u);
 		allUsers.add(u1);
 		sce.getServletContext().setAttribute("users", allUsers);
 		

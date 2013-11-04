@@ -10,12 +10,15 @@ import javax.persistence.Id;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Objectify;
 
-public class Leerling extends User implements Serializable{
+public class Leerling implements Serializable{
 
 	  @Id Long id;
     private Objectify ofy;
+    private String username;
+    private String password;
+    private String email;
 	private String klas;
-	private StageBegeleider begeleider;
+	private String begeleider;
 	private Date geboortedatum;
 	private int leeftijd;
 	private String roepnaam;
@@ -23,10 +26,10 @@ public class Leerling extends User implements Serializable{
 	private String achternaam;
 	private String naam;
 	
-
-	public Leerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, StageBegeleider doc) {
-		super(us, pw, em);
-		
+	public Leerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, String doc) {
+		username = us;
+		password =pw;
+		email =em;
 		klas = kl;
 		setBegeleider(doc);
 		geboortedatum = gebdat;
@@ -38,6 +41,26 @@ public class Leerling extends User implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
+	public Leerling(){}
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public String getNaam() {
 		return naam;
@@ -109,25 +132,25 @@ public class Leerling extends User implements Serializable{
 	}
 
 
-	public StageBegeleider getBegeleider() {
-		return begeleider;
-	}
 
-
-	public void setBegeleider(StageBegeleider begeleider) {
-		this.begeleider = begeleider;
-	}
-	
 	
 	
 	 
-	   public void deleteLeerling(Leerling lu) {
+	   public String getBegeleider() {
+		return begeleider;
+	}
+
+	public void setBegeleider(String begeleider) {
+		this.begeleider = begeleider;
+	}
+
+	public void deleteLeerling(Leerling lu) {
 		  //TODO delete user ofy
 		   ofy.delete((lu));
 	   }
 	   
 	   
-	   public void createLeerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, StageBegeleider doc){
+	   public void createLeerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, String doc){
 	       ofy.put(new Leerling( us,  pw,  em, call, tussen,  achternm,  nm,  age,  gebdat,  kl,  doc));
 
 		   
