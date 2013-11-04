@@ -46,8 +46,9 @@ public class UserContextListener implements ServletContextListener {
 	StageOpleider opleider = new StageOpleider("jopie");
 		Stage stage = new Stage(1, u, opleider, bedrijf1, date, date);
 	
-	ArrayList<User> allUsers = new ArrayList<User>();
+	ArrayList<Object> allUsers = new ArrayList<Object>();
 		allUsers.add(u1);
+		allUsers.add(u);
 		sce.getServletContext().setAttribute("users", allUsers);
 		
 		Beoordeling b = new Beoordeling(null, "Eerste competentie");
