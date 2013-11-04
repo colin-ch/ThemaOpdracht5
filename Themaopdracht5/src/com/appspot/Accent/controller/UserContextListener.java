@@ -8,18 +8,16 @@ import java.util.logging.Logger;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import com.appspot.Accent.model.Beoordeling;
-import com.appspot.Accent.model.Competentie;
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.StageBedrijf;
 import com.appspot.Accent.model.StageBegeleider;
 import com.appspot.Accent.model.StageOpleider;
-import com.appspot.Accent.model.Stelling;
 import com.appspot.Accent.model.User;
+import com.appspot.Accent.model.service.LeerlingOfyDAO;
+import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
@@ -62,7 +60,11 @@ public class UserContextListener implements ServletContextListener {
 		Objectify ofy = ObjectifyService.begin();
 		ObjectifyService.register(Leerling.class);
 		ofy.put(u);
-//		((Leerling) ofy).createLeerling("Thomas", "degroot", "tdegroot@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", stagebeg );
+//		((Leerling) ofy).createLeerling("Thomas", "degroot", "tdegroot@gmail.com", "leerling1", "yolo ", "Student", "leerling1", 16, date, "V1IE", stagebeg.getEmail() );
+		LeerlingOfyDAO lu3 = new LeerlingOfyDAOImpl();
+	log.info(" " + lu3.getAllLeerlingen());	
+
+		  
 		
 		// Te aant e passen na de core
 //		Competentie nr1 = new Competentie(
