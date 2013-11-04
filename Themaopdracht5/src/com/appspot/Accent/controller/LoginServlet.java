@@ -1,9 +1,7 @@
 package com.appspot.Accent.controller;
 
 import java.io.IOException;
-import java.net.InetSocketAddress;
 import java.util.ArrayList;
-import java.util.concurrent.Executor;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.User;
 
 
@@ -31,8 +30,10 @@ public class LoginServlet extends HttpServlet {
 		
 		ArrayList<User> allUsers = new ArrayList<User>();
 		allUsers = (ArrayList<User>) getServletContext().getAttribute("users");
+		Leerling l = new Leerling();
+		System.out.println(l.getAllLeerlingen());
 		
-		for(User u : allUsers){
+		/*for(User u : allUsers){
 			if(username.equals(u.getUsername()) && pass.equals(u.getPassword())){
 				naam = u.getUsername();
 				ww = u.getPassword();
@@ -41,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 				user = u;
 			}
 		}
-		
+		*/
 		RequestDispatcher rd = null;
 		if (loginsucces) {
 			req.getSession().setAttribute("userobject", user);
