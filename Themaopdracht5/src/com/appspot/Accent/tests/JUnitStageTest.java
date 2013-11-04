@@ -2,6 +2,7 @@ package com.appspot.Accent.tests;
 
 import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Id;
@@ -25,6 +26,7 @@ public class JUnitStageTest {
 	private Stage stage;
 	private Date date;
 	private Beoordeling beoordeling;
+	private ArrayList<Beoordeling> beoordelingen;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -34,22 +36,34 @@ public class JUnitStageTest {
 		bedrijf1 = new StageBedrijf("bedrijf1", "123","bedrijf@gmail.com", "utrecht", "123456");
 		opleider = new StageOpleider("jopie");
 		stage = new Stage(1, u, opleider, bedrijf1, date, date);
-		beoordeling = new Beoordeling(null, null);
+		beoordeling = new Beoordeling("datum hier", "Opmerking hier");
+		beoordelingen = new ArrayList<Beoordeling>();
+		beoordelingen.add(beoordeling);
 	}
 
 	@Test
-	public void testSetStage() {
+	public void testSetGetStage() {
 		try{
 			stage.setDeLeerling(u);
 			stage.setDeOpleider(opleider);
 			stage.setHetBedrijf(bedrijf1);
 			stage.setBegindatum(date);
 			stage.setEinddatum(date);
-			stage.setBeoordelingen(null);
+			stage.setBeoordelingen(beoordelingen);
 			stage.setId(0);
 		}
 		catch(Exception e){
-			fail("fail op try sets");
+			fail("fail op try setters");
+		}
+		try{
+			if(stage.getBegindatum() != null && stage.getEinddatum() != null && stage.getId() == 0){
+			}
+			else{
+				fail("fail invoer try getters");
+			}
+		}
+		catch(Exception e){
+			fail("fail op try getters");
 		}
 		
 	}
