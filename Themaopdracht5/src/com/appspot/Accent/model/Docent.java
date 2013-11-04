@@ -2,11 +2,39 @@ package com.appspot.Accent.model;
 
 import java.io.Serializable;
 
-public class Docent extends User implements Serializable{
-
+public class Docent implements Serializable{
+	private String username;
+	private String password;
+	private String email;
+	
 	public Docent(String us, String pw, String em) {
-		super(us, pw, em);
-		// TODO Auto-generated constructor stub
+		username = us;
+		password = pw;
+		email = em;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 }
