@@ -2,7 +2,10 @@ package com.appspot.Accent.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Id;
+
 public class StageBegeleider implements Serializable{
+	@Id Long id;
 	private String username;
 	private String password;
 	private String email;
@@ -13,7 +16,9 @@ public class StageBegeleider implements Serializable{
 		email =em;
 		// TODO Auto-generated constructor stub
 	}
-
+	public StageBegeleider(){}
+	
+	
 	public String getUsername() {
 		return username;
 	}

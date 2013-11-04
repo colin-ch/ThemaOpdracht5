@@ -18,6 +18,10 @@ import com.appspot.Accent.model.StageOpleider;
 import com.appspot.Accent.model.User;
 import com.appspot.Accent.model.service.LeerlingOfyDAO;
 import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
+import com.appspot.Accent.model.service.StageBedrijfOfyDAO;
+import com.appspot.Accent.model.service.StageBedrijfOfyDAOImpl;
+import com.appspot.Accent.model.service.StageBegeleiderOfyDAO;
+import com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
@@ -59,10 +63,22 @@ public class UserContextListener implements ServletContextListener {
 		
 		Objectify ofy = ObjectifyService.begin();
 		ObjectifyService.register(Leerling.class);
+		ObjectifyService.register(StageBegeleider.class);
+		ObjectifyService.register(StageBedrijf.class);
 		ofy.put(u);
-//		((Leerling) ofy).createLeerling("Thomas", "degroot", "tdegroot@gmail.com", "leerling1", "yolo ", "Student", "leerling1", 16, date, "V1IE", stagebeg.getEmail() );
+//		((LeerlingOfyDAO) ofy).createLeerling("Thomas", "degroot", "tdegroot@gmail.com", "leerling1", "yolo ", "Student", "leerling1", 16, date, "V1IE", stagebeg.getEmail() );
 		LeerlingOfyDAO lu3 = new LeerlingOfyDAOImpl();
-	log.info(" " + lu3.getAllLeerlingen());	
+	System.out.println("alle leerlingen " + lu3.getAllLeerlingen());	
+	ofy.put(stagebeg);
+	StageBegeleiderOfyDAO beg = new StageBegeleiderOfyDAOImpl();
+	
+	System.out.println("alle begeleiders " + beg.getAllBegeleiders());	
+
+	ofy.put(bedrijf1);
+	StageBedrijfOfyDAO bedr = new StageBedrijfOfyDAOImpl();
+	
+	System.out.println("alle bedrijven " + bedr.getAllStageBedrijven());	
+	
 
 		  
 		
