@@ -32,7 +32,7 @@ public class JUnitStageTest {
 	public void setUp() throws Exception {
 		date = new Date();
 		stagebeg = new StageBegeleider("stage", "begeleider", "yahoo@gmail.com");
-		u = new Leerling("123", "123", "123@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", stagebeg );	
+		u = new Leerling("123", "123", "123@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", "stagebeg" );	
 		bedrijf1 = new StageBedrijf("bedrijf1", "123","bedrijf@gmail.com", "utrecht", "123456");
 		opleider = new StageOpleider("jopie");
 		stage = new Stage(1, u, opleider, bedrijf1, date, date);

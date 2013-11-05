@@ -16,14 +16,15 @@ import com.appspot.Accent.model.Competentie;
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.Stelling;
+import com.googlecode.objectify.Objectify;
 
 public class BeoordeelServlet extends HttpServlet {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final Logger log = Logger.getLogger(BeoordeelServlet.class
-			.getName());
+	private static final Logger log = Logger.getLogger(BeoordeelServlet.class.getName());
+	private Objectify ofy;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -65,8 +66,7 @@ public class BeoordeelServlet extends HttpServlet {
 								.equals(((Leerling) o).getUsername())) {
 							log.info("de juiste leerling");
 		
-							allBeoordelingen =
-							 s.getBeoordelingen();
+							allBeoordelingen =  s.getBeoordelingen();
 								log.info("beoordelingen " + allBeoordelingen);
 		
 								for(Beoordeling be : allBeoordelingen){
@@ -75,7 +75,7 @@ public class BeoordeelServlet extends HttpServlet {
 										if(be.getDatum() == null){
 											log.info("geen datum");
 								
-										ArrayList<Competentie> competenties = be.getCompetenties() ;
+										ArrayList<Competentie> competenties = be.getCompetenties();
 										
 										log.info("competenite " + competenties);
 								
@@ -89,6 +89,8 @@ public class BeoordeelServlet extends HttpServlet {
 								
 												stel.setDeWaarde(req.getParameter("waarde"+ teller));
 												log.info("waardes is" + req.getParameter("waarde"+ stel.getDeWaarde()) );
+												
+												ofy.put(stel);
 											}
 											}
 										}
@@ -169,6 +171,7 @@ public class BeoordeelServlet extends HttpServlet {
 		rate.getCompetenties().add(nr1);
 		rate.getCompetenties().add(nr2);					 				
 				deStage.setBeoordelingen(allBeoordelingen);
+				req.setAttribute("competenties", null);
 				req.setAttribute("competenties", deStage);
 		
 			rd = req.getRequestDispatcher("BeoordelenLeerling.jsp");

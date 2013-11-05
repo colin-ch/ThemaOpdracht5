@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.User;
+import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
 
 
 @SuppressWarnings("serial")
@@ -30,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 		
 		ArrayList<User> allUsers = new ArrayList<User>();
 		allUsers = (ArrayList<User>) getServletContext().getAttribute("users");
-		Leerling l = new Leerling();
+		LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
 		System.out.println(l.getAllLeerlingen());
 		
 		/*for(User u : allUsers){
