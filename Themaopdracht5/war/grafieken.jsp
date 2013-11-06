@@ -162,7 +162,7 @@
 		<article class="module width_full">
 			<header><h3>Home</h3></header>
 				<div class="module_content">
-					 <div id="chart_div" style="width: 1200px; height: 700px"></div>
+					 <div id="chart_div" style="width: 80%; height: 700px"></div>
 				</div>
 		</article><!-- end of styles article -->
 		<div class="spacer"></div>
