@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.googlecode.objectify.Objectify;
 
+
+
 public class Beoordeling {
 	
 	private ArrayList<Competentie> competenties = new ArrayList<Competentie>();
