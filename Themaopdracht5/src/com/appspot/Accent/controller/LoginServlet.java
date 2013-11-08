@@ -9,9 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.appspot.Accent.model.Docent;
 import com.appspot.Accent.model.Leerling;
+import com.appspot.Accent.model.StageBedrijf;
+import com.appspot.Accent.model.StageBegeleider;
 import com.appspot.Accent.model.User;
+import com.appspot.Accent.model.service.DocentOfyDAOImpl;
 import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
+import com.appspot.Accent.model.service.StageBedrijfOfyDAOImpl;
+import com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl;
 
 
 @SuppressWarnings("serial")
@@ -24,30 +30,61 @@ public class LoginServlet extends HttpServlet {
 		boolean loginsucces = false;
 		String username = req.getParameter("username");
 		String pass = req.getParameter("password");
-		User user = null;
-		String naam = null;
-		String ww = null;
-		String em = null;
+		Object user = null;
 		
-		ArrayList<User> allUsers = new ArrayList<User>();
-		allUsers = (ArrayList<User>) getServletContext().getAttribute("users");
+		//ArrayList<User> allUsers = new ArrayList<User>();
+		//allUsers = (ArrayList<User>) getServletContext().getAttribute("users");
 		LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
-		System.out.println(l.getAllLeerlingen());
+		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
+		StageBedrijfOfyDAOImpl sb = new StageBedrijfOfyDAOImpl();
+		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl();
 		
-		/*for(User u : allUsers){
-			if(username.equals(u.getUsername()) && pass.equals(u.getPassword())){
-				naam = u.getUsername();
-				ww = u.getPassword();
-				em = u.getEmail();
+		for(Leerling le : l.getAllLeerlingen()){
+			if(username.equals(le.getUsername()) && pass.equals(le.getPassword())){
 				loginsucces = true;
-				user = u;
+				System.out.println("Is een leerling");
+				user = le;
+			}
+			else{
+				System.out.println("Is geen leerling");
 			}
 		}
-		*/
+		for(Docent de : d.getAllDocenten()){
+			if(username.equals(de.getUsername()) && pass.equals(de.getPassword()) && loginsucces == false){
+				loginsucces = true;
+				System.out.println("Is een docent");
+				user = de;
+			}
+			else{
+				System.out.println("Is geen docent");
+			}
+		}
+		for(StageBedrijf sbe : sb.getAllStageBedrijven()){
+			if(username.equals(sbe.getUsername()) && pass.equals(sbe.getPassword()) && loginsucces == false){
+				loginsucces = true;
+				System.out.println("Is een stagebedrijf");
+				user = sbe;
+			}
+			else{
+				System.out.println("Is geen stagebedrijf");
+			}
+		}
+		for(StageBegeleider sbge : sbg.getAllBegeleiders()){
+			if(username.equals(sbge.getUsername()) && pass.equals(sbge.getPassword()) && loginsucces == false){
+				loginsucces = true;
+				System.out.println("Is een stagebegeleider");
+				user = sbge;
+			}
+			else{
+				System.out.println("Is geen stagebegeleider");
+			}
+		}
+		
 		RequestDispatcher rd = null;
 		if (loginsucces) {
 			req.getSession().setAttribute("userobject", user);
 			rd = req.getRequestDispatcher("index.jsp");
+			System.out.println(user);
 		}
 		else {
 			rd = req.getRequestDispatcher("login.jsp");
