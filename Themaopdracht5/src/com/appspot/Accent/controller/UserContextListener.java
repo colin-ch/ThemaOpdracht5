@@ -40,7 +40,7 @@ public class UserContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		User u1 = new User("12345", "12345", "12345@gmail.com");
+//		User u1 = new User("12345", "12345", "12345@gmail.com");
 		Date date = new Date();
 		StageBegeleider stagebeg = new StageBegeleider("stage", "begeleider", "yahoo@gmail.com");
 	Leerling u = new Leerling("123", "123", "123@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", stagebeg.getEmail() );	
@@ -48,8 +48,8 @@ public class UserContextListener implements ServletContextListener {
 	StageOpleider opleider = new StageOpleider("jopie");
 		Stage stage = new Stage(1, u, opleider, bedrijf1, date, date);
 	
-	ArrayList<Object> allUsers = new ArrayList<Object>();
-		allUsers.add(u1);
+	ArrayList<Leerling> allUsers = new ArrayList<Leerling>();
+//		allUsers.add(u1);
 		allUsers.add(u);
 		sce.getServletContext().setAttribute("users", allUsers);
 		

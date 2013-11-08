@@ -127,13 +127,15 @@
 				Stage s= (Stage) request.getAttribute("competenties");	
 
 					ArrayList<Beoordeling> beoordelingen = s.getBeoordelingen();
-
 		for(Beoordeling be : beoordelingen){
-			
-			if(be.getDatum() == null){
+
+			//if(be.getDatum() == null){
+				
 			ArrayList<Competentie> competenties = be.getCompetenties();
 				int teller = 0;
 				for(Competentie c : competenties){
+					System.out.println(" "  + c.getTitel());
+
 					ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
 					stellingen = c.getDeStellingen();
 					System.out.println("test");
@@ -141,14 +143,16 @@
 					
 					for(Stelling stel : stellingen){
 						System.out.println("stelling");
+						System.out.println(" "  + stel.getDeStelling());
 
 						teller++;
 						out.println("<h4>" + stel.getDeStelling() + "</h4>");
 						out.println("1<input type='radio' name='waarde"+ teller+ "' value='1'>2<input type='radio' name='waarde"+ teller+ "' value='2'>3<input type='radio' name='waarde"+ teller+ "' value='3'>4<input type='radio' name='waarde"+ teller+ "' value='4'></br>");
 					}
-					}
+					} 
+			//}
 				}
-		}
+		
 		out.println("eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
 		
 				%>

@@ -90,7 +90,7 @@ public class BeoordeelServlet extends HttpServlet {
 												stel.setDeWaarde(req.getParameter("waarde"+ teller));
 												log.info("waardes is" + req.getParameter("waarde"+ stel.getDeWaarde()) );
 												
-												ofy.put(stel);
+//												ofy.put(stel);
 											}
 											}
 										}
@@ -98,7 +98,7 @@ public class BeoordeelServlet extends HttpServlet {
 											log.info(be.getOpmerking());
 											Date d = new Date();
 											String datum = d.toString();
-											be.createBeoordeling(datum, be.getOpmerking());
+										//	be.createBeoordeling(datum, be.getOpmerking());
 								}
 							}	
 						}
@@ -130,7 +130,8 @@ public class BeoordeelServlet extends HttpServlet {
 						 
 						 for(Beoordeling be : allBeoordelingen){
 								log.info("beoordeling");
-								
+								if(be.getDatum() == null){
+
 		
 						 					// Te aant e passen na de core
 						 					nr1 = new Competentie(
@@ -150,26 +151,40 @@ public class BeoordeelServlet extends HttpServlet {
 						 							"de leerling luister naar een ander", null);
 						 					 stelling5 = new Stelling(
 						 						"de leerling laat de ander uitpraten", null);
-						 
+						String datum = "pp";
+						 				be.setDatum(datum);
 						 				
-						 					rate= be;
-						 					deStage = s;
+						 					
+						 					
+						 					nr1.getDeStellingen().add(stelling1);
+						 					nr1.getDeStellingen().add(stelling2);
+						 					nr1.getDeStellingen().add(stelling3);
+						 					nr2.getDeStellingen().add(stelling4);
+						 					nr2.getDeStellingen().add(stelling5);
+						 					log.info("YOLO");
+						 			
+						 						
+						 			be.getCompetenties().add(nr1);
+						 			be.getCompetenties().add(nr2);		
 		
 						 }
+								rate= be;
+			 					deStage = s;
+}
 					}
 				}
 			}
 			
-			nr1.getDeStellingen().add(stelling1);
-				nr1.getDeStellingen().add(stelling2);
-				nr1.getDeStellingen().add(stelling3);
-				nr2.getDeStellingen().add(stelling4);
-				nr2.getDeStellingen().add(stelling5);
-				log.info("YOLO");
-		
-					
-		rate.getCompetenties().add(nr1);
-		rate.getCompetenties().add(nr2);					 				
+//			nr1.getDeStellingen().add(stelling1);
+//				nr1.getDeStellingen().add(stelling2);
+//				nr1.getDeStellingen().add(stelling3);
+//				nr2.getDeStellingen().add(stelling4);
+//				nr2.getDeStellingen().add(stelling5);
+//				log.info("YOLO");
+//		
+//					
+//		rate.getCompetenties().add(nr1);
+//		rate.getCompetenties().add(nr2);					 				
 				deStage.setBeoordelingen(allBeoordelingen);
 				req.setAttribute("competenties", null);
 				req.setAttribute("competenties", deStage);
