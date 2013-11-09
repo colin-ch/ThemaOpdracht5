@@ -118,37 +118,46 @@
 								<%@ page import="com.appspot.Accent.model.Beoordeling" %>
 				
 				<%@ page import="com.appspot.Accent.model.Competentie" %>
-	<%@ page import="com.appspot.Accent.model.Stelling" %>
-	<%@ page import="java.util.ArrayList" %>
+				<%@ page import="com.appspot.Accent.model.Stelling" %>
+				<%@ page import="java.util.ArrayList" %>
+				<%@ page import="com.googlecode.objectify.Objectify" %>
+				<%@ page import="com.googlecode.objectify.ObjectifyService" %>
+				<%@ page import="com.appspot.Accent.model.service.*" %>
 				
-				<form action="/BeoordeelServlet.do" methode="GET">
+				<form action="/BeoordeelServlet.do" method="GET">
 				<%
+				Objectify ofy = ObjectifyService.begin();
 				
 				Stage s= (Stage) request.getAttribute("competenties");	
-
-					ArrayList<Beoordeling> beoordelingen = s.getBeoordelingen();
-		for(Beoordeling be : beoordelingen){
+				BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
+				CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
+				StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
+				
+				ArrayList<Beoordeling> beoordelingen = (ArrayList<Beoordeling>) bod.getAllBeoordelingen();
+				for(Beoordeling be : beoordelingen){
 
 			//if(be.getDatum() == null){
 				
-			ArrayList<Competentie> competenties = be.getCompetenties();
+				ArrayList<Competentie> competenties = (ArrayList<Competentie>) cod.getAllCompetenties();
 				int teller = 0;
 				for(Competentie c : competenties){
-					System.out.println(" "  + c.getTitel());
-
-					ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
-					stellingen = c.getDeStellingen();
-					System.out.println("test");
-					out.println("</br><h2>"+  c.getTitel() +"</h2></br>");
+					//System.out.println(" "  + c.getTitel());
 					
-					for(Stelling stel : stellingen){
-						System.out.println("stelling");
-						System.out.println(" "  + stel.getDeStelling());
-
-						teller++;
-						out.println("<h4>" + stel.getDeStelling() + "</h4>");
-						out.println("1<input type='radio' name='waarde"+ teller+ "' value='1'>2<input type='radio' name='waarde"+ teller+ "' value='2'>3<input type='radio' name='waarde"+ teller+ "' value='3'>4<input type='radio' name='waarde"+ teller+ "' value='4'></br>");
-					}
+					out.println("<h2>"+  c.getTitel() +"</h2></br>");
+					
+					ArrayList<Stelling> stellingen = (ArrayList<Stelling>) sod.getAllStellingen();
+					for(Stelling st : stellingen){							
+						if(st.getEigenId() == c.getEigenId()){
+							System.out.println("stelling");
+							System.out.println(" "  + st.getDeStelling());
+							teller++;
+							out.println("<h4>" + st.getDeStelling() + "</h4>");
+							out.println("1<input type='radio' name='waarde"+ teller+ "' value='1'>2<input type='radio' name='waarde"+ teller+ "' value='2'>3<input type='radio' name='waarde"+ teller+ "' value='3'>4<input type='radio' name='waarde"+ teller+ "' value='4'></br>");
+							
+						}
+						System.out.println("test");	
+	
+						}
 					} 
 			//}
 				}

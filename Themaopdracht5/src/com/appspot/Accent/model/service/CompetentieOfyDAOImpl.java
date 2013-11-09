@@ -34,12 +34,12 @@ public class CompetentieOfyDAOImpl implements CompetentieOfyDAO {
 		ofy.delete(c);
 	}
 	@Override
-	public void createCompetentie(String titel) {
-		ofy.put(new Competentie(titel));
+	public void createCompetentie(int idee, String titel) {
+		ofy.put(new Competentie(idee, titel));
 	}
 
 	@Override
-	public Competentie getCompetentie(String titel) {
+	public Competentie getCompetentie(int idee, String titel) {
 		  Competentie result = null;
 		  ArrayList<Competentie> Competenties = (ArrayList<Competentie>) getAllCompetenties();
 	      for (Competentie c : Competenties){

@@ -16,7 +16,10 @@ import com.appspot.Accent.model.Competentie;
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.Stelling;
+import com.appspot.Accent.model.service.CompetentieOfyDAOImpl;
+import com.appspot.Accent.model.service.StellingOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
+import com.googlecode.objectify.ObjectifyService;
 
 public class BeoordeelServlet extends HttpServlet {
 	/**
@@ -31,6 +34,7 @@ public class BeoordeelServlet extends HttpServlet {
 		//		boolean succes = false;
 		RequestDispatcher rd = null;
 		Object o = req.getSession().getAttribute("userobject");
+		ofy = ObjectifyService.begin();
 		Beoordeling rate =null;
 		Stage deStage = null;
 		Competentie nr1 = null;
@@ -116,10 +120,10 @@ public class BeoordeelServlet extends HttpServlet {
 			}
 			
 			
-			
+		
 			
 			else{
-			
+		/*	
 		
 			for (Stage s : allStages) {
 				log.info("stage");
@@ -131,8 +135,15 @@ public class BeoordeelServlet extends HttpServlet {
 						 for(Beoordeling be : allBeoordelingen){
 								log.info("beoordeling");
 								if(be.getDatum() == null){
-
-		
+									System.out.println("groot deel is weg gecomment, check code");
+									CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
+									StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
+									ArrayList<Competentie> competenties = (ArrayList<Competentie>) cod.getAllCompetenties();
+									for(Competentie c : competenties){
+										sod.getStelling(c.getEigenId());
+									}
+									/* vervangen door DAO hierboven
+									 
 						 					// Te aant e passen na de core
 						 					nr1 = new Competentie(
 						 							"1. Samenwerken en overleggen");
@@ -151,26 +162,26 @@ public class BeoordeelServlet extends HttpServlet {
 						 							"de leerling luister naar een ander", null);
 						 					 stelling5 = new Stelling(
 						 						"de leerling laat de ander uitpraten", null);
-						String datum = "pp";
+										String datum = "pp";
 						 				be.setDatum(datum);
 						 				
 						 					
 						 					
-						 					nr1.getDeStellingen().add(stelling1);
-						 					nr1.getDeStellingen().add(stelling2);
-						 					nr1.getDeStellingen().add(stelling3);
-						 					nr2.getDeStellingen().add(stelling4);
-						 					nr2.getDeStellingen().add(stelling5);
+//						 					nr1.getDeStellingen().add(stelling1);
+//						 					nr1.getDeStellingen().add(stelling2);
+//						 					nr1.getDeStellingen().add(stelling3);
+//						 					nr2.getDeStellingen().add(stelling4);
+//						 					nr2.getDeStellingen().add(stelling5);
 						 					log.info("YOLO");
 						 			
 						 						
 						 			be.getCompetenties().add(nr1);
 						 			be.getCompetenties().add(nr2);		
 		
-						 }
+								}
 								rate= be;
 			 					deStage = s;
-}
+						 }
 					}
 				}
 			}
@@ -185,10 +196,10 @@ public class BeoordeelServlet extends HttpServlet {
 //					
 //		rate.getCompetenties().add(nr1);
 //		rate.getCompetenties().add(nr2);					 				
-				deStage.setBeoordelingen(allBeoordelingen);
-				req.setAttribute("competenties", null);
-				req.setAttribute("competenties", deStage);
-		
+//				deStage.setBeoordelingen(allBeoordelingen);
+//				req.setAttribute("competenties", null);
+//				req.setAttribute("competenties", deStage);
+		*/
 			rd = req.getRequestDispatcher("BeoordelenLeerling.jsp");
 			}
 			

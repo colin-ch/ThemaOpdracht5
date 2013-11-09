@@ -37,16 +37,16 @@ public class StellingOfyDAOImpl implements StellingOfyDAO {
 		ofy.delete(s);
 	}
 	@Override
-	public void createStelling(String stel, String wd) {
+	public void createStelling(int idee, String stel, String wd) {
 		ofy.put(new Beoordeling(stel, wd));
 	}
 
 	@Override
-	public Stelling getStelling(String stel) {
+	public Stelling getStelling(int idee) {
 		  Stelling result = null;
 		  ArrayList<Stelling> stellingen = (ArrayList<Stelling>) getAllStellingen();
 	      for (Stelling s : stellingen){
-	    	  if (s.getDeStelling().equals(stel)){
+	    	  if (s.getEigenId() == idee){
 	    		  result = s;
 	    	  }
 	      }

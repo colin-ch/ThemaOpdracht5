@@ -6,11 +6,13 @@ import javax.persistence.Id;
 
 public class Competentie {
 	@Id Long id;
+	private int eigenId;
 	private String titel;
 	private ArrayList<Stelling> deStellingen = new ArrayList<Stelling>();
 
 	
-	public Competentie(String ti){
+	public Competentie(int idee, String ti){
+		eigenId = idee;
 		setTitel(ti);
 	}
 	public Competentie(){}
@@ -28,6 +30,14 @@ public class Competentie {
 
 	public void setDeStellingen(ArrayList<Stelling> deStellingen) {
 		this.deStellingen = deStellingen;
+	}
+
+	public int getEigenId() {
+		return eigenId;
+	}
+
+	public void setEigenId(int eigenId) {
+		this.eigenId = eigenId;
 	}
 
 

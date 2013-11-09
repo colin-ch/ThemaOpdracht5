@@ -47,13 +47,13 @@ public class UserContextListener implements ServletContextListener {
 		StageOpleider opleider = new StageOpleider("jopie");
 		Stage stage = new Stage(1, u.getUsername(), opleider.getNaam(), bedrijf1.getUsername(), date, date);
 		Docent d = new Docent("docent", "pass", "email@gmail.com");
-		Stelling stelling1 = new Stelling("de leerling gedraagt zich zo dat samenwerking makkelijk gaat", null);
-		Stelling stelling2 = new Stelling("De leerling past zich aan de groep aan", null);
-		Stelling stelling3 = new Stelling("De leerling houdt zich aan de regels van het bedrijf",null);
-		Stelling stelling4 = new Stelling("de leerling luister naar een ander", null);
-		Stelling stelling5 = new Stelling("de leerling laat de ander uitpraten", null);
-		Competentie nr1 = new Competentie("1. Samenwerken en overleggen");
-		Competentie nr2 = new Competentie("2. Aandacht en begrip tonen");
+		Stelling stelling1 = new Stelling(1, "de leerling gedraagt zich zo dat samenwerking makkelijk gaat", null);
+		Stelling stelling2 = new Stelling(1, "De leerling past zich aan de groep aan", null);
+		Stelling stelling3 = new Stelling(1, "De leerling houdt zich aan de regels van het bedrijf",null);
+		Stelling stelling4 = new Stelling(2, "de leerling luister naar een ander", null);
+		Stelling stelling5 = new Stelling(2, "de leerling laat de ander uitpraten", null);
+		Competentie nr1 = new Competentie(1, "1. Samenwerken en overleggen");
+		Competentie nr2 = new Competentie(2, "2. Aandacht en begrip tonen");
 		Beoordeling b = new Beoordeling("01/01/2013", "opmerking");
 	
 		
@@ -92,9 +92,9 @@ public class UserContextListener implements ServletContextListener {
 		ofy.put(stage);
 		ofy.put(stelling1);
 		ofy.put(stelling2);
-		ofy.put(stelling3);	//Een malig runnen, dit staat in GAE. Laatste update was 9-11-13
+		ofy.put(stelling3);	//Een malig runnen, dit staat in GAE. Laatste update was 9-11-13 11:00
 		ofy.put(stelling4);	//dit is het toevoegen van testwaardes
-		ofy.put(stelling5);
+		ofy.put(stelling5); // moet nog geupdate worden op GAE
 		ofy.put(nr1);
 		ofy.put(nr2);
 		ofy.put(b);*/

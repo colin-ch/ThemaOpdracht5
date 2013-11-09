@@ -4,13 +4,15 @@ import javax.persistence.Id;
 
 public class Stelling {
 	@Id Long id;
+	private int eigenId;
 private String deStelling;
 private String deWaarde;
 
 
-public Stelling(String stel, String val){
-	setDeStelling(stel);
-	setDeWaarde(val);
+public Stelling(int idee, String stel, String val){
+	deStelling = stel;
+	deWaarde = val;
+	eigenId = idee;
 }
 public Stelling(){}
 
@@ -36,6 +38,13 @@ public void setDeWaarde(String deWaarde) {
 public String toString(){
 	String s = "test";
 	return s;
+}
+public int getEigenId() {
+	return eigenId;
+}
+
+public void setEigenId(int eigenId) {
+	this.eigenId = eigenId;
 }
 
 }

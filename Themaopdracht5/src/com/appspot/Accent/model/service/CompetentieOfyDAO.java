@@ -7,10 +7,10 @@ import com.appspot.Accent.model.Competentie;
 
 public interface CompetentieOfyDAO {
 	   public List<Competentie> getAllCompetenties();
-	   public Competentie getCompetentie(String titel);
+	   public Competentie getCompetentie(int idee, String titel);
 	   public void updateCompetentie(Competentie c);
 	   public void deleteCompetentie(Competentie c);
-	   public void createCompetentie(String titel);
+	   public void createCompetentie(int idee, String titel);
 	}
 
 
