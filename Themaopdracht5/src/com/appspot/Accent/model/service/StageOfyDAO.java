@@ -14,7 +14,7 @@ public interface StageOfyDAO {
 	   public Stage getStage(int id);
 	   public void updateStage(Stage s);
 	   public void deleteStage(Stage s);
-	   public void createStage(int id, Leerling deLeerling, StageOpleider opl, StageBedrijf bedr, Date begin, Date eind);
+	   public void createStage(int id, String deLeerling, String opl, String bedr, Date begin, Date eind);
 	}
 
 

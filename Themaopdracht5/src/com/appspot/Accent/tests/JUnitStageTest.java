@@ -35,7 +35,7 @@ public class JUnitStageTest {
 		u = new Leerling("123", "123", "123@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", "stagebeg" );	
 		bedrijf1 = new StageBedrijf("bedrijf1", "123","bedrijf@gmail.com", "utrecht", "123456");
 		opleider = new StageOpleider("jopie");
-		stage = new Stage(1, u, opleider, bedrijf1, date, date);
+		stage = new Stage(1, u.getUsername(), opleider.getNaam(), bedrijf1.getUsername(), date, date);
 		beoordeling = new Beoordeling("datum hier", "Opmerking hier");
 		beoordelingen = new ArrayList<Beoordeling>();
 		beoordelingen.add(beoordeling);
@@ -44,9 +44,9 @@ public class JUnitStageTest {
 	@Test
 	public void testSetGetStage() {
 		try{
-			stage.setDeLeerling(u);
-			stage.setDeOpleider(opleider);
-			stage.setHetBedrijf(bedrijf1);
+			stage.setDeLeerling(u.getUsername());
+			stage.setDeOpleider(opleider.getNaam());
+			stage.setHetBedrijf(bedrijf1.getUsername());
 			stage.setBegindatum(date);
 			stage.setEinddatum(date);
 			stage.setBeoordelingen(beoordelingen);
