@@ -3,52 +3,55 @@ package com.appspot.Accent.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Id;
+
 public class Stage {
-private int id;	
-private Leerling deLeerling;
-private StageOpleider deOpleider;
-private StageBedrijf hetBedrijf;
+	@Id Long id;
+private int eigenid;	
+private String deLeerling;
+private String deOpleider;
+private String hetBedrijf;
 private Date begindatum;
 private Date einddatum;
 private ArrayList<Beoordeling> beoordelingen = new ArrayList<Beoordeling>();
 
 
-public Stage(int idee, Leerling lrl, StageOpleider opl, StageBedrijf bedr, Date begin, Date eind){
-	id = idee;
+public Stage(int idee, String lrl, String opl, String bedr, Date begin, Date eind){
+	eigenid = idee;
 	deLeerling = lrl;
 	deOpleider = opl;
 	hetBedrijf = bedr;
 	begindatum = begin;
 	einddatum = eind;
 }
+public Stage(){}
 
-
-public Leerling getDeLeerling() {
+public String getDeLeerling() {
 	return deLeerling;
 }
 
 
-public void setDeLeerling(Leerling deLeerling) {
+public void setDeLeerling(String deLeerling) {
 	this.deLeerling = deLeerling;
 }
 
 
-public StageOpleider getDeOpleider() {
+public String getDeOpleider() {
 	return deOpleider;
 }
 
 
-public void setDeOpleider(StageOpleider deOpleider) {
+public void setDeOpleider(String deOpleider) {
 	this.deOpleider = deOpleider;
 }
 
 
-public StageBedrijf getHetBedrijf() {
+public String getHetBedrijf() {
 	return hetBedrijf;
 }
 
 
-public void setHetBedrijf(StageBedrijf hetBedrijf) {
+public void setHetBedrijf(String hetBedrijf) {
 	this.hetBedrijf = hetBedrijf;
 }
 
@@ -84,11 +87,11 @@ public void setBeoordelingen(ArrayList<Beoordeling> beoordelingen) {
 
 
 public int getId() {
-	return id;
+	return eigenid;
 }
 
 
 public void setId(int id) {
-	this.id = id;
+	this.eigenid = id;
 }
 }

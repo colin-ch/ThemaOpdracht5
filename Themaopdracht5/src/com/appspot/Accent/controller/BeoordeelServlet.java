@@ -62,7 +62,7 @@ public class BeoordeelServlet extends HttpServlet {
 					if (o instanceof Leerling) {
 						log.info("ingelogd als leerling");
 		
-						if (s.getDeLeerling().getUsername()
+						if (s.getDeLeerling()
 								.equals(((Leerling) o).getUsername())) {
 							log.info("de juiste leerling");
 		
@@ -124,7 +124,7 @@ public class BeoordeelServlet extends HttpServlet {
 			for (Stage s : allStages) {
 				log.info("stage");
 				if (o instanceof Leerling) {
-					if (s.getDeLeerling().getUsername()
+					if (s.getDeLeerling()
 							.equals(((Leerling) o).getUsername())) {
 						 allBeoordelingen = s.getBeoordelingen();
 						 

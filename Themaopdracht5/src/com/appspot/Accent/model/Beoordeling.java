@@ -2,6 +2,8 @@ package com.appspot.Accent.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.Id;
+
 import com.googlecode.objectify.Objectify;
 
 
@@ -9,6 +11,7 @@ import com.googlecode.objectify.Objectify;
 public class Beoordeling {
 	
 	private ArrayList<Competentie> competenties = new ArrayList<Competentie>();
+	@Id Long id;
 	private String datum;
 	private String opmerking;
 	private Objectify ofy;
@@ -17,6 +20,7 @@ public class Beoordeling {
 		datum = dt;
 		opmerking = op;
 	}
+	public Beoordeling(){}
 	
 	public ArrayList<Competentie> getCompetenties() {
 		return competenties;

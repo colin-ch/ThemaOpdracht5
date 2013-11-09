@@ -41,7 +41,7 @@ private static final Logger log = Logger.getLogger(OverzichtServlet.class.getNam
 		
 		if(o instanceof Leerling ){//kijkt of het een leerling is
 			for(Stage st : stages){// haalt alle stages op
-				if (st.getDeLeerling().getUsername().equals( ((Leerling) o).getUsername())){ // hier kijkt hij welke stage bij de leerlinge hoort
+				if (st.getDeLeerling().equals( ((Leerling) o).getUsername())){ // hier kijkt hij welke stage bij de leerlinge hoort
 					ArrayList<Beoordeling>beoordelingen = new ArrayList<Beoordeling>();
 					beoordelingen = st.getBeoordelingen();
 					for(Beoordeling b:beoordelingen){ //alle beoordelingen ophalen

@@ -2,7 +2,10 @@ package com.appspot.Accent.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Id;
+
 public class Docent implements Serializable{
+	@Id Long id;
 	private String username;
 	private String password;
 	private String email;
@@ -12,6 +15,7 @@ public class Docent implements Serializable{
 		password = pw;
 		email = em;
 	}
+	public Docent(){}
 
 	public String getUsername() {
 		return username;

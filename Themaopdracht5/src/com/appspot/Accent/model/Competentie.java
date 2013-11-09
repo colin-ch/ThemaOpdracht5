@@ -2,7 +2,10 @@ package com.appspot.Accent.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.Id;
+
 public class Competentie {
+	@Id Long id;
 	private String titel;
 	private ArrayList<Stelling> deStellingen = new ArrayList<Stelling>();
 
@@ -10,7 +13,7 @@ public class Competentie {
 	public Competentie(String ti){
 		setTitel(ti);
 	}
-
+	public Competentie(){}
 	public String getTitel() {
 		return titel;
 	}

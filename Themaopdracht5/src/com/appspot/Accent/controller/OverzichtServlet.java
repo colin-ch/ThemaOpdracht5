@@ -31,7 +31,7 @@ public class OverzichtServlet extends HttpServlet{
 			log.info("1");
 			if(o instanceof Leerling ){
 				log.info("1");
-				if (st.getDeLeerling().getUsername().equals( ((Leerling) o).getUsername())){
+				if (st.getDeLeerling().equals( ((Leerling) o).getUsername())){
 			
 					log.info("1");
 					ArrayList<Beoordeling>beoordelingen = new ArrayList<Beoordeling>();
