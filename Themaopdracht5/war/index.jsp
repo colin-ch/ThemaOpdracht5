@@ -132,6 +132,22 @@
 	</section>
 
 </div>
+<a href=".scroll">Klik hier</a>
+<div style="height:3000px; width:1000px;">
+<img src="http://www.insidefortlauderdale.com/photos/yolo_logo.jpg" style="margin-top:1000px;"/>
+</div>
+<script>
+$('a').click(function(e) {
+    e.preventDefault();
+
+    var scrollto = $(this).attr('href');
+    $('html, body').animate({
+            scrollTop: $(scrollto).offset().top
+        }, 1500);
+})</script>
+<div class="scroll">
+<h1>#yolo</h1>
+</div>
 
 </body>
 
