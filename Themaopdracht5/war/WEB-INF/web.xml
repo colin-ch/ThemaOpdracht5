@@ -46,8 +46,18 @@
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/LoginServlet.do</url-pattern>
 	</servlet-mapping>
-	
+
 		<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.LogoutServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/LogoutServlet.do</url-pattern>
+	</servlet-mapping>
+		
+	<servlet>
 		<servlet-name>BeoordelingOphalenServlet</servlet-name>
 		<servlet-class>com.appspot.Accent.controller.BeoordelingOphalenServlet</servlet-class>
 	</servlet>

@@ -97,7 +97,7 @@
 		<ul class="toggle">
 			<li class="icn_settings"><a href="#">Opties</a></li>
 			<li class="icn_security"><a href="#">Beveiliging</a></li>
-			<li class="icn_jump_back"><a href="#">Loguit</a></li>
+			<li class="icn_jump_back"><a href="/LogoutServlet.do">Loguit</a></li>
 		</ul>
 		
 		<footer>
