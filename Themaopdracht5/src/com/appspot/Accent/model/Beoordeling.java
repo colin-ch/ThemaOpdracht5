@@ -11,7 +11,7 @@ import com.googlecode.objectify.Objectify;
 public class Beoordeling {
 	private ArrayList<Competentie> competenties = new ArrayList<Competentie>();
 
-	private ArrayList<String> array = new ArrayList<String>();
+	private ArrayList<Integer> deCompetenties = new ArrayList<Integer>();
 	@Id Long id;
 	private String datum;
 	private String opmerking;
@@ -20,16 +20,16 @@ public class Beoordeling {
 	public Beoordeling(String dt, String op, ArrayList c){
 		datum = dt;
 		opmerking = op;
-		array = c;
+		deCompetenties = c;
 	}
 	public Beoordeling(){}
 	
-	public ArrayList<Competentie> getCompetenties() {
-		return competenties;
+	public ArrayList<Integer> getCompetenties() {
+		return deCompetenties;
 	}
 
-	public void setCompetenties(ArrayList<Competentie> competenties) {
-		this.competenties = competenties;
+	public void setCompetenties(ArrayList<Integer> array) {
+		this.deCompetenties = array;
 	}
 
 	public String getDatum() {

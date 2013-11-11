@@ -64,7 +64,7 @@ public class BeoordeelServlet extends HttpServlet {
 		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 		
-		
+		ArrayList<Integer> ints = new ArrayList<Integer>();
 		
 			ArrayList<Stage> allStages = (ArrayList<Stage>) stod.getAllStages() ;
 			
@@ -78,7 +78,7 @@ public class BeoordeelServlet extends HttpServlet {
 								.equals(((Leerling) o).getUsername())) {
 							log.info("de juiste leerling");
 		
-							allBeoordelingen =  s.getBeoordelingen();
+							allBeoordelingen =  (ArrayList<Beoordeling>) bod.getAllBeoordelingen();
 								log.info("beoordelingen " + allBeoordelingen);
 		
 								for(Beoordeling be : allBeoordelingen){
@@ -86,23 +86,33 @@ public class BeoordeelServlet extends HttpServlet {
 								
 										if(be.getDatum() == null){
 											log.info("geen datum");
-								
-										ArrayList<Competentie> competenties = be.getCompetenties();
-										
+											rate = be;
+										ints = be.getCompetenties();
+										ArrayList<Competentie> competenties = new ArrayList<Competentie>();
+										for(Integer inter : ints){
+											ArrayList<Competentie> allCompetenties = (ArrayList<Competentie>) cod.getAllCompetenties();
+											for(Competentie allc : allCompetenties){
+												if(allc.getEigenId() == inter){
+													competenties.add(allc);
+												}
+											}
+										}
 										log.info("competenite " + competenties);
 								
 										int teller = 0;
 										for(Competentie c : competenties){
 											ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
-											stellingen = c.getDeStellingen();
+											stellingen = (ArrayList<Stelling>) sod.getAllStellingen();
 											
 											for(Stelling stel : stellingen){
+												if(c.getEigenId() == stel.getEigenId()){
 												teller++;
 								
 												stel.setDeWaarde(req.getParameter("waarde"+ teller));
 												log.info("waardes is" + req.getParameter("waarde"+ stel.getDeWaarde()) );
 												
 //												ofy.put(stel);
+												}
 											}
 											}
 										}
@@ -110,7 +120,8 @@ public class BeoordeelServlet extends HttpServlet {
 											log.info(be.getOpmerking());
 											Date d = new Date();
 											String datum = d.toString();
-										//	be.createBeoordeling(datum, be.getOpmerking());
+											be.setDatum(datum);
+										ofy.put(rate);
 								}
 							}	
 						}

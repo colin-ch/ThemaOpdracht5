@@ -53,12 +53,15 @@ public class UserContextListener implements ServletContextListener {
 		Stelling stelling3 = new Stelling(1, "De leerling houdt zich aan de regels van het bedrijf",null);
 		Stelling stelling4 = new Stelling(2, "de leerling luister naar een ander", null);
 		Stelling stelling5 = new Stelling(2, "de leerling laat de ander uitpraten", null);
+		
+		
+		
 		Competentie nr1 = new Competentie(1, "1. Samenwerken en overleggen");
 		Competentie nr2 = new Competentie(2, "2. Aandacht en begrip tonen");
 		ArrayList<Integer> array = new ArrayList<Integer>();
 array.add(nr1.getEigenId());
 array.add(nr2.getEigenId());
-		Beoordeling b = new Beoordeling("01/01/2013", "opmerking", array);
+		Beoordeling b = new Beoordeling(null, "opmerking", array);
 	
 		
 		
@@ -100,9 +103,9 @@ array.add(nr2.getEigenId());
 		ofy.put(stelling4);	//dit is het toevoegen van testwaardes
 		ofy.put(stelling5); // moet nog geupdate worden op GAE
 		ofy.put(nr1);
-		ofy.put(nr2);*/
+		ofy.put(nr2);
 		ofy.put(b);
-		
+		*/
 /*		LeerlingOfyDAO lu3 = new LeerlingOfyDAOImpl();
 		System.out.println("alle leerlingen " + lu3.getAllLeerlingen());	
 		
