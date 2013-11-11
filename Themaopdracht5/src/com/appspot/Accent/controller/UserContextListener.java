@@ -1,5 +1,6 @@
 package com.appspot.Accent.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Logger;
 
@@ -42,7 +43,7 @@ public class UserContextListener implements ServletContextListener {
 //		User u1 = new User("12345", "12345", "12345@gmail.com");
 		Date date = new Date();
 		StageBegeleider stagebeg = new StageBegeleider("stage", "begeleider", "yahoo@gmail.com");
-		Leerling u = new Leerling("123", "123", "123@gmail.com", "leerling1", " ", "Student", "leerling1", 16, date, "V1IE", stagebeg.getEmail() );	
+		Leerling u = new Leerling("123", "123", "123@gmail.com", "leerling1", "Student", date, "V1IE", stagebeg.getEmail() );	
 		StageBedrijf bedrijf1 = new StageBedrijf("bedrijf1", "123","bedrijf@gmail.com", "utrecht", "123456");
 		StageOpleider opleider = new StageOpleider("jopie");
 		Stage stage = new Stage(1, u.getUsername(), opleider.getNaam(), bedrijf1.getUsername(), date, date);
@@ -54,7 +55,10 @@ public class UserContextListener implements ServletContextListener {
 		Stelling stelling5 = new Stelling(2, "de leerling laat de ander uitpraten", null);
 		Competentie nr1 = new Competentie(1, "1. Samenwerken en overleggen");
 		Competentie nr2 = new Competentie(2, "2. Aandacht en begrip tonen");
-		Beoordeling b = new Beoordeling("01/01/2013", "opmerking");
+		ArrayList<Integer> array = new ArrayList<Integer>();
+array.add(nr1.getEigenId());
+array.add(nr2.getEigenId());
+		Beoordeling b = new Beoordeling("01/01/2013", "opmerking", array);
 	
 		
 		
@@ -96,8 +100,8 @@ public class UserContextListener implements ServletContextListener {
 		ofy.put(stelling4);	//dit is het toevoegen van testwaardes
 		ofy.put(stelling5); // moet nog geupdate worden op GAE
 		ofy.put(nr1);
-		ofy.put(nr2);
-		ofy.put(b);*/
+		ofy.put(nr2);*/
+		ofy.put(b);
 		
 /*		LeerlingOfyDAO lu3 = new LeerlingOfyDAOImpl();
 		System.out.println("alle leerlingen " + lu3.getAllLeerlingen());	

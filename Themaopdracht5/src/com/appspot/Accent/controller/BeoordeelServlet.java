@@ -16,7 +16,9 @@ import com.appspot.Accent.model.Competentie;
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.Stelling;
+import com.appspot.Accent.model.service.BeoordelingOfyDAOImpl;
 import com.appspot.Accent.model.service.CompetentieOfyDAOImpl;
+import com.appspot.Accent.model.service.StageOfyDAOImpl;
 import com.appspot.Accent.model.service.StellingOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
@@ -56,9 +58,15 @@ public class BeoordeelServlet extends HttpServlet {
 		//			teller++;
 		//			allWaardes.add(Integer.parseInt(req.getParameter("waarde"+teller)));
 			
+		StageOfyDAOImpl stod = new StageOfyDAOImpl();
+
+		BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
+		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
+		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 		
-			ArrayList<Stage> allStages = (ArrayList<Stage>) getServletContext().getAttribute("stages");
-			log.info("begin!");
+		
+		
+			ArrayList<Stage> allStages = (ArrayList<Stage>) stod.getAllStages() ;
 			
 			if (req.getParameter("Opslaan") != null){
 				log.info("knop opslaan");

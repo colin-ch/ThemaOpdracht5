@@ -13,7 +13,7 @@ public interface LeerlingOfyDAO {
 	   public Leerling getLeerling(String username);
 	   public void updateLeerling(Leerling lu);
 	   public void deleteLeerling(Leerling lu);
-	   public void createLeerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, String doc);
+	   public void createLeerling(String us, String pw, String em, String achternm, String nm, Date gebdat, String kl, String doc);
 	}
 
 

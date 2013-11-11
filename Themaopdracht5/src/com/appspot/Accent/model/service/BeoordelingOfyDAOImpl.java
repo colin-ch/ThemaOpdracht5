@@ -48,8 +48,8 @@ public class BeoordelingOfyDAOImpl implements BeoordelingOfyDAO {
 		ofy.delete(b);
 	}
 	@Override
-	public void createBeoordeling(String dt, String opm) {
-		ofy.put(new Beoordeling(dt, opm));
+	public void createBeoordeling(String dt, String opm, ArrayList c) {
+		ofy.put(new Beoordeling(dt, opm, c));
 	}
 
 
