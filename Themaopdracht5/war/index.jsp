@@ -132,7 +132,7 @@
 	</section>
 
 </div>
-<a href=".scroll">Klik hier</a>
+<h1><a href=".scroll">Klik hier</a></h1>
 <div style="height:3000px; width:1000px;">
 <img src="http://www.insidefortlauderdale.com/photos/yolo_logo.jpg" style="margin-top:1000px;"/>
 </div>
