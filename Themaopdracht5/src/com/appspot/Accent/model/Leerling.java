@@ -21,15 +21,13 @@ public class Leerling implements Serializable{
 	private String klas;
 	private String begeleider;
 	private Date geboortedatum;
-	private int leeftijd;
 	private String roepnaam;
-	private String tussenvoegsel;
 	private String achternaam;
-	private String naam;
+
 	
 	
 	
-	public Leerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, String doc) {
+	public Leerling(String us, String pw, String em, String call, String achternm, Date gebdat, String kl, String doc) {
 
 		username = us;
 		password =pw;
@@ -37,11 +35,9 @@ public class Leerling implements Serializable{
 		klas = kl;
 		setBegeleider(doc);
 		geboortedatum = gebdat;
-		leeftijd = age;
 		roepnaam = call;
-		tussenvoegsel = tussen;
 		achternaam = achternm;
-		naam = nm;
+	
 		// TODO Auto-generated constructor stub
 	}
 
@@ -66,9 +62,7 @@ public class Leerling implements Serializable{
 		this.email = email;
 	}
 
-	public String getNaam() {
-		return naam;
-	}
+
 
 
 	public String getKlas() {
@@ -91,24 +85,6 @@ public class Leerling implements Serializable{
 	}
 
 
-	public int getLeeftijd() {
-		return leeftijd;
-	}
-
-
-	public void setLeeftijd(int leeftijd) {
-		this.leeftijd = leeftijd;
-	}
-
-
-	public String getTussenvoegsel() {
-		return tussenvoegsel;
-	}
-
-
-	public void setTussenvoegsel(String tussenvoegsel) {
-		this.tussenvoegsel = tussenvoegsel;
-	}
 
 
 	public String getAchternaam() {
@@ -121,9 +97,6 @@ public class Leerling implements Serializable{
 	}
 
 
-	public void setNaam(String naam) {
-		this.naam = naam;
-	}
 
 
 	public String getRoepnaam() {

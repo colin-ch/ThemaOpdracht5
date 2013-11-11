@@ -24,8 +24,8 @@ public class LeerlingOfyDAOImpl implements LeerlingOfyDAO {
 	   }
 	   
 	   
-	   public void createLeerling(String us, String pw, String em, String call, String tussen, String achternm, String nm, int age, Date gebdat, String kl, String doc){
-	       ofy.put(new Leerling( us,  pw,  em, call, tussen,  achternm,  nm,  age,  gebdat,  kl,  doc));
+	   public void createLeerling(String us, String pw, String em, String call, String tussen, String achternm, Date gebdat, String kl, String doc){
+	       ofy.put(new Leerling( us,  pw,  em, call,  achternm,  gebdat,  kl,  doc));
 
 		   
 	   }
