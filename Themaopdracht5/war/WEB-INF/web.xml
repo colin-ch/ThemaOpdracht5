@@ -2,8 +2,7 @@
 
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee;http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 	
 	
@@ -66,6 +65,26 @@
 		<servlet-name>BeoordelingOphalenServlet</servlet-name>
 		<url-pattern>/BeoordelingOphalenServlet.do</url-pattern>
 	</servlet-mapping>
+	
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.appspot.Accent.controller.LoginFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/Overzicht.do</url-pattern>
+		<url-pattern>/BeoordeelServlet.do</url-pattern>
+		<url-pattern>/BeoordelingOphalenServlet.do</url-pattern>
+		<url-pattern>/index.jsp</url-pattern>
+		<url-pattern>/BeoordelenLeerling.jsp</url-pattern>
+		<url-pattern>/BeerdelingAanmaken.jsp</url-pattern>
+		<url-pattern>/grafieken.jsp</url-pattern>		
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	
 	
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>
