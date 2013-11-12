@@ -10,7 +10,7 @@ import com.googlecode.objectify.Objectify;
 
 public class Beoordeling {
 	private ArrayList<Competentie> competenties = new ArrayList<Competentie>();
-
+	
 	private ArrayList<Integer> deCompetenties = new ArrayList<Integer>();
 	@Id Long id;
 	private String datum;

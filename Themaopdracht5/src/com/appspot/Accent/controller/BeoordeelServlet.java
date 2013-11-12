@@ -3,6 +3,7 @@ package com.appspot.Accent.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -107,8 +108,7 @@ public class BeoordeelServlet extends HttpServlet {
 											for(Stelling stel : stellingen){
 												if(c.getEigenId() == stel.getEigenId()){
 												teller++;
-								
-												stel.setDeWaarde(req.getParameter("waarde"+ teller));
+												
 												log.info("waardes is" + req.getParameter("waarde"+ stel.getDeWaarde()) );
 												
 //												ofy.put(stel);
@@ -121,7 +121,6 @@ public class BeoordeelServlet extends HttpServlet {
 											Date d = new Date();
 											String datum = d.toString();
 											be.setDatum(datum);
-										ofy.put(rate);
 								}
 							}	
 						}
