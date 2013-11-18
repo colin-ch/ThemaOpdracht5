@@ -103,9 +103,9 @@ array.add(nr2.getEigenId());
 		ofy.put(stelling4);	//dit is het toevoegen van testwaardes
 		ofy.put(stelling5); // moet nog geupdate worden op GAE
 		ofy.put(nr1);
-		ofy.put(nr2);*/
+		ofy.put(nr2);
 		ofy.put(b);
-		
+		*/
 /*		LeerlingOfyDAO lu3 = new LeerlingOfyDAOImpl();
 		System.out.println("alle leerlingen " + lu3.getAllLeerlingen());	
 		
