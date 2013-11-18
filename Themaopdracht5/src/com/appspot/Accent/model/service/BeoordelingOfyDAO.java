@@ -11,7 +11,7 @@ public interface BeoordelingOfyDAO {
 	   public Beoordeling getBeoordeling(String datum);
 	   public void updateBeoordeling(Beoordeling b);
 	   public void deleteBeoordeling(Beoordeling b);
-	   public void createBeoordeling(String dt, String opm, ArrayList c);
+	   public void createBeoordeling(String dt, String opm, ArrayList c, ArrayList l);
 	}
 
 
