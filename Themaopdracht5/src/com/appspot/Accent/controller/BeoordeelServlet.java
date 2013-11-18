@@ -120,15 +120,16 @@ public class BeoordeelServlet extends HttpServlet {
 											}
 											}
 										}
-										be.setOpmerking(req.getParameter("opmerking"));
-											log.info(be.getOpmerking());
-											Date d = new Date();
-											String datum = d.toString();
-											be.setDatum(datum);
-											
-											be.setDeWaardesLeerling(waardesl);
-											ofy.put(be);
+										
 								}
+								be.setOpmerking(req.getParameter("opmerking"));
+								log.info(be.getOpmerking());
+								Date d = new Date();
+								String datum = d.toString();
+								be.setDatum(datum);
+								
+								be.setDeWaardesLeerling(waardesl);
+								ofy.put(be);
 							}	
 						}
 					}
