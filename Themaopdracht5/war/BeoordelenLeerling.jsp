@@ -103,9 +103,29 @@
 							System.out.println("stelling");
 							System.out.println(" "  + st.getDeStelling());
 							teller++;
+							String waarde = st.getDeWaarde();
+							if (st.getDeWaarde().equals("") && st.getDeWaarde() != null) {
+								waarde = "";
+							}
 							out.println("<h4>" + st.getDeStelling() + "</h4>");
-							out.println("1<input type='radio' name='waarde"+ teller+ "' value='1'>2<input type='radio' name='waarde"+ teller+ "' value='2'>3<input type='radio' name='waarde"+ teller+ "' value='3'>4<input type='radio' name='waarde"+ teller+ "' value='4'></br>");
 							
+							if(waarde == null || waarde.equals("")){
+							out.println("1<input type='radio' name='"+ st.getEigenId()+ "' value='1'>2<input type='radio' name='"+ st.getEigenId()+ "' value='2'>3<input type='radio' name='"+ st.getEigenId()+ "' value='3'>4<input type='radio' name='"+ st.getEigenId()+ "' value='4'></br>");
+							}
+							
+							if(waarde.equals("1")){
+								out.println("1<input type='radio' name='"+ st.getEigenId()+ "' checked='checked' value='1'>2<input type='radio' name='"+ st.getEigenId()+ "' value='2'>3<input type='radio' name='"+ st.getEigenId()+ "' value='3'>4<input type='radio' name='"+ st.getEigenId()+ "' value='4'></br>");
+						    }
+							
+							if(waarde.equals("2")){
+								out.println("1<input type='radio' name='"+ st.getEigenId()+ "' value='1'>2<input checked='checked' type='radio' name='"+ st.getEigenId()+ "' value='2'>3<input type='radio' name='"+ st.getEigenId()+ "' value='3'>4<input type='radio' name='"+ st.getEigenId()+ "' value='4'></br>");
+								}
+							if(waarde.equals("3")){
+								out.println("1<input type='radio' name='"+ st.getEigenId()+ "' value='1'>2<input  type='radio' name='"+ st.getEigenId()+ "' value='2'>3<input checked='checked' type='radio' name='"+ st.getEigenId()+ "' value='3'>4<input type='radio' name='"+ st.getEigenId()+ "' value='4'></br>");
+								}
+							if(waarde.equals("4")){
+								out.println("1<input type='radio' name='"+ st.getEigenId()+ "' value='1'>2<input type='radio' name='"+ st.getEigenId()+ "' value='2'>3<input checked='checked' type='radio' name='"+ st.getEigenId()+ "' value='3'>4<input type='radio' name='"+ st.getEigenId()+ "' value='4'></br>");
+								}
 						}
 						System.out.println("test");	
 	
