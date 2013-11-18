@@ -21,7 +21,7 @@ public class Beoordeling {
 		datum = dt;
 		opmerking = op;
 		deCompetenties = c;
-		setDeWaardesLeerling(l);
+		deWaardesLeerling = l;
 	}
 	public Beoordeling(){}
 	
@@ -48,15 +48,11 @@ public class Beoordeling {
 	public void setOpmerking(String opmerking) {
 		this.opmerking = opmerking;
 	}
-	/**
-	 * @return the deWaardesLeerling
-	 */
+
 	public ArrayList<Integer> getDeWaardesLeerling() {
 		return deWaardesLeerling;
 	}
-	/**
-	 * @param deWaardesLeerling the deWaardesLeerling to set
-	 */
+
 	public void setDeWaardesLeerling(ArrayList<Integer> deWaardesLeerling) {
 		this.deWaardesLeerling = deWaardesLeerling;
 	}
