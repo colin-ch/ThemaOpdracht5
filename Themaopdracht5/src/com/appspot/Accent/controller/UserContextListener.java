@@ -81,15 +81,15 @@ array.add(nr2.getEigenId());
 		sce.getServletContext().setAttribute("stages", allStages);*/
 		
 		Objectify ofy = ObjectifyService.begin();
-//		ObjectifyService.register(Leerling.class);
-//		ObjectifyService.register(Docent.class);
-//		ObjectifyService.register(Beoordeling.class);
-//		ObjectifyService.register(Competentie.class);
-//		ObjectifyService.register(StageOpleider.class);
-//		ObjectifyService.register(StageBegeleider.class);
-//		ObjectifyService.register(StageBedrijf.class);
-//		ObjectifyService.register(Stage.class);
-//		ObjectifyService.register(Stelling.class);
+		ObjectifyService.register(Leerling.class);
+		ObjectifyService.register(Docent.class);
+		ObjectifyService.register(Beoordeling.class);
+		ObjectifyService.register(Competentie.class);
+		ObjectifyService.register(StageOpleider.class);
+		ObjectifyService.register(StageBegeleider.class);
+		ObjectifyService.register(StageBedrijf.class);
+		ObjectifyService.register(Stage.class);
+		ObjectifyService.register(Stelling.class);
 		
 /*		ofy.put(u);
 		ofy.put(d);
