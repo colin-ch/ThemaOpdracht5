@@ -88,7 +88,7 @@
 				ArrayList<Beoordeling> beoordelingen = (ArrayList<Beoordeling>) bod.getAllBeoordelingen();
 				for(Beoordeling be : beoordelingen){
 
-			//if(be.getDatum() == null){
+			if(be.getDatum() == null){
 				
 				ArrayList<Competentie> competenties = (ArrayList<Competentie>) cod.getAllCompetenties();
 				int teller = 0;
@@ -129,7 +129,7 @@
 	
 						}
 					} 
-			//}
+			}
 				}
 		
 		out.println("eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
