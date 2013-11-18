@@ -37,7 +37,7 @@ public class StellingOfyDAOImpl implements StellingOfyDAO {
 		ofy.delete(s);
 	}
 	@Override
-	public void createStelling(int idee, String stel, String wd) {
+	public void createStelling(int idee, String stel, String wd, int uniek) {
 		ofy.put(new Beoordeling(stel, wd, null));
 	}
 

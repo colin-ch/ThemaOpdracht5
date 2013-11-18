@@ -7,12 +7,14 @@ public class Stelling {
 	private int eigenId;
 private String deStelling;
 private String deWaarde;
+private int uniekID;
 
 
-public Stelling(int idee, String stel, String val){
+public Stelling(int idee, String stel, String val, int uniq){
 	deStelling = stel;
 	deWaarde = val;
 	eigenId = idee;
+	setUniekID(uniq);
 }
 public Stelling(){}
 
@@ -45,6 +47,12 @@ public int getEigenId() {
 
 public void setEigenId(int eigenId) {
 	this.eigenId = eigenId;
+}
+public int getUniekID() {
+	return uniekID;
+}
+public void setUniekID(int uniekID) {
+	this.uniekID = uniekID;
 }
 
 }

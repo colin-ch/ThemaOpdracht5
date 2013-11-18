@@ -67,9 +67,9 @@ public class OverzichtServlet extends HttpServlet{
 		RequestDispatcher rd = null;
 		
 		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
-		alleStellingen.add(new Stelling(4, "Stelling1 in overzichtservlet","1"));
-		alleStellingen.add(new Stelling(5, "Stelling2 in overzichtservlet","2"));
-		alleStellingen.add(new Stelling(6, "Stelling3 in overzichtservlet","3"));
+		alleStellingen.add(new Stelling(4, "Stelling1 in overzichtservlet","1", 4));
+		alleStellingen.add(new Stelling(5, "Stelling2 in overzichtservlet","2", 3));
+		alleStellingen.add(new Stelling(6, "Stelling3 in overzichtservlet","3", 2));
 		getServletContext().setAttribute("stellingen", alleStellingen);
 		//System.out.println(alleStellingen);
 		
