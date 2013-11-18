@@ -86,7 +86,7 @@
         var options = {
           title: 'Laatste competenties',
           hAxis: {title: 'Score', titleTextStyle: {color: 'green'}},
-          vAxis: {title: 'Beoordeling nummer', titleTextStyle: {color: 'green'}},
+         
           // Allow multiple simultaneous selections.
           selectionMode: 'multiple',
           colors: ['#BEF781','green']		
