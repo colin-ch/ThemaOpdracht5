@@ -1,5 +1,5 @@
 package com.appspot.Accent.tests;
-
+/*
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -52,4 +52,4 @@ public class JUnitLoginTest {
 
 	}
 
-}
+}*/

@@ -1,5 +1,5 @@
 package com.appspot.Accent.tests;
-
+/*
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -72,4 +72,4 @@ public class JUnitUserTest {
 		}
 	}
 
-}
+}*/
