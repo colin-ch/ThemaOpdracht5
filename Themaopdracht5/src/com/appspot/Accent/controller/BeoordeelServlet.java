@@ -121,6 +121,7 @@ public class BeoordeelServlet extends HttpServlet {
 											Date d = new Date();
 											String datum = d.toString();
 											be.setDatum(datum);
+											ofy.put(be);
 								}
 							}	
 						}
