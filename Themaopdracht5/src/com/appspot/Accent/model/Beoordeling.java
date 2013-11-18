@@ -12,6 +12,7 @@ public class Beoordeling {
 	private ArrayList<Competentie> competenties = new ArrayList<Competentie>();
 	
 	private ArrayList<Integer> deCompetenties = new ArrayList<Integer>();
+	private ArrayList<Integer> deWaardesLeerling = new ArrayList<Integer>();
 	@Id Long id;
 	private String datum;
 	private String opmerking;
@@ -45,6 +46,14 @@ public class Beoordeling {
 
 	public void setOpmerking(String opmerking) {
 		this.opmerking = opmerking;
+	}
+
+	public ArrayList<Integer> getDeWaardesLeerling() {
+		return deWaardesLeerling;
+	}
+
+	public void setDeWaardesLeerling(ArrayList<Integer> deWaardesLeerling) {
+		this.deWaardesLeerling = deWaardesLeerling;
 	}
 
 
