@@ -104,9 +104,7 @@
 							System.out.println(" "  + st.getDeStelling());
 							teller++;
 							String waarde = st.getDeWaarde();
-							if (st.getDeWaarde().equals("") && st.getDeWaarde() != null) {
-								waarde = "";
-							}
+							
 							out.println("<h4>" + st.getDeStelling() + "</h4>");
 							
 							if(waarde == null || waarde.equals("")){
