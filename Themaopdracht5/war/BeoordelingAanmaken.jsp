@@ -86,8 +86,8 @@
 					
 		for(Beoordeling be : beoordelingen){
 			
-			if(be.getDatum() == null){
-			ArrayList<Competentie> competenties = be.getCompetenties();
+		/*	if(be.getDatum() == null){
+			ArrayList<Integer> competenties = be.getCompetenties();
 				int teller = 0;
 				for(Competentie c : competenties){
 					ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
@@ -103,7 +103,7 @@
 						out.println("1<input type='radio' name='waarde"+ teller+ "' value='1'>2<input type='radio' name='waarde"+ teller+ "' value='2'>3<input type='radio' name='waarde"+ teller+ "' value='3'>4<input type='radio' name='waarde"+ teller+ "' value='4'></br>");
 					}
 					}
-				}
+				}*/
 		}
 		out.println("eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
 		
