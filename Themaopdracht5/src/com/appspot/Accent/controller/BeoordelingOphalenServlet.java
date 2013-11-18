@@ -39,29 +39,29 @@ private static final Logger log = Logger.getLogger(OverzichtServlet.class.getNam
 		ArrayList<Stage>stages = new ArrayList<Stage>();
 		stages = (ArrayList<Stage>) getServletContext().getAttribute("stages");
 		
-		if(o instanceof Leerling ){//kijkt of het een leerling is
-			for(Stage st : stages){// haalt alle stages op
-				if (st.getDeLeerling().equals( ((Leerling) o).getUsername())){ // hier kijkt hij welke stage bij de leerlinge hoort
-					ArrayList<Beoordeling>beoordelingen = new ArrayList<Beoordeling>();
-					beoordelingen = st.getBeoordelingen();
-					for(Beoordeling b:beoordelingen){ //alle beoordelingen ophalen
-						System.out.println(b.getDatum());//datums niet gelijk
-						System.out.println(d);//d = tue jan 01 00:00:00 CET 2013 en b.getDatum = 01/01/2013
-						if(b.getDatum().equals(d));{//datums vergelijken
-							ArrayList<Competentie>competenties = new ArrayList<Competentie>();
-							competenties = b.getCompetenties();
-							for(Competentie c: competenties){//competenties doorlopen
-								ArrayList<Stelling> deStellingen = new ArrayList<Stelling>();
-								deStellingen = c.getDeStellingen();
-								for(Stelling s : deStellingen){ //stellingen door lopen
-									System.out.println(s.getDeWaarde());
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+//		if(o instanceof Leerling ){//kijkt of het een leerling is
+//			for(Stage st : stages){// haalt alle stages op
+//				if (st.getDeLeerling().equals( ((Leerling) o).getUsername())){ // hier kijkt hij welke stage bij de leerlinge hoort
+//					ArrayList<Beoordeling>beoordelingen = new ArrayList<Beoordeling>();
+//					beoordelingen = st.getBeoordelingen();
+//					for(Beoordeling b:beoordelingen){ //alle beoordelingen ophalen
+//						System.out.println(b.getDatum());//datums niet gelijk
+//						System.out.println(d);//d = tue jan 01 00:00:00 CET 2013 en b.getDatum = 01/01/2013
+//						if(b.getDatum().equals(d));{//datums vergelijken
+//							ArrayList<Competentie>competenties = new ArrayList<Competentie>();
+//							competenties = b.getCompetenties();
+//							for(Competentie c: competenties){//competenties doorlopen
+//								ArrayList<Stelling> deStellingen = new ArrayList<Stelling>();
+//								deStellingen = c.getDeStellingen();
+//								for(Stelling s : deStellingen){ //stellingen door lopen
+//									System.out.println(s.getDeWaarde());
+//								}
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
 		
 		
 		RequestDispatcher rd = null;
