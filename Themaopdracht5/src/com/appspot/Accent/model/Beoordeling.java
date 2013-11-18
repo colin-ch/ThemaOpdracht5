@@ -15,7 +15,6 @@ public class Beoordeling {
 	@Id Long id;
 	private String datum;
 	private String opmerking;
-	private Objectify ofy;
 
 	public Beoordeling(String dt, String op, ArrayList c){
 		datum = dt;
@@ -47,10 +46,7 @@ public class Beoordeling {
 	public void setOpmerking(String opmerking) {
 		this.opmerking = opmerking;
 	}
-	public void createBeoordeling(String d, String opm, ArrayList c){
-	       ofy.put(new Beoordeling(d, opm, c));
 
-	}
 
 
 }
