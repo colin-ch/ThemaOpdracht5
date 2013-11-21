@@ -65,6 +65,7 @@ public class BeoordeelServlet extends HttpServlet {
 		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 		ArrayList<Integer> waardesl = new ArrayList<Integer>();
+		ArrayList<Integer> waardesIDs = new ArrayList<Integer>();
 		ArrayList<Integer> ints = new ArrayList<Integer>();
 		
 			ArrayList<Stage> allStages = (ArrayList<Stage>) stod.getAllStages() ;
@@ -78,7 +79,7 @@ public class BeoordeelServlet extends HttpServlet {
 						if (s.getDeLeerling()
 								.equals(((Leerling) o).getUsername())) {
 							log.info("de juiste leerling");
-		
+							
 							allBeoordelingen =  (ArrayList<Beoordeling>) bod.getAllBeoordelingen();
 								log.info("beoordelingen " + allBeoordelingen);
 		
@@ -111,7 +112,9 @@ public class BeoordeelServlet extends HttpServlet {
 												
 												log.info("waardes is" + req.getParameter("waarde"+ stel.getDeWaarde()) );
 												String s2 = req.getParameter("" +stel.getUniekID());
+												int id = stel.getUniekID();
 												int i2 = Integer.parseInt(s2);
+												waardesIDs.add(id);
 												waardesl.add(i2);
 												
 												
@@ -128,7 +131,7 @@ public class BeoordeelServlet extends HttpServlet {
 								Date d = new Date();
 								String datum = d.toString();
 								rate.setDatum(datum);
-								
+								rate.setDeIDsPerWaarde(waardesIDs);
 								rate.setDeWaardesLeerling(waardesl);
 								ofy.put(rate);
 							}	

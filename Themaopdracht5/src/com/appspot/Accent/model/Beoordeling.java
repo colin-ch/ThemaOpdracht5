@@ -13,15 +13,17 @@ public class Beoordeling {
 	
 	private ArrayList<Integer> deCompetenties = new ArrayList<Integer>();
 	private ArrayList<Integer> deWaardesLeerling = new ArrayList<Integer>();
+	private ArrayList<Integer> deIDsPerWaarde = new ArrayList<Integer>();
 	@Id Long id;
 	private String datum;
 	private String opmerking;
 
-	public Beoordeling(String dt, String op, ArrayList c, ArrayList l){
+	public Beoordeling(String dt, String op, ArrayList c, ArrayList l, ArrayList w){
 		datum = dt;
 		opmerking = op;
 		deCompetenties = c;
 		deWaardesLeerling = l;
+		deIDsPerWaarde = w;
 	}
 	public Beoordeling(){}
 	
@@ -55,6 +57,12 @@ public class Beoordeling {
 
 	public void setDeWaardesLeerling(ArrayList<Integer> deWaardesLeerling) {
 		this.deWaardesLeerling = deWaardesLeerling;
+	}
+	public ArrayList<Integer> getDeIDsPerWaarde() {
+		return deIDsPerWaarde;
+	}
+	public void setDeIDsPerWaarde(ArrayList<Integer> deIDsPerWaarde) {
+		this.deIDsPerWaarde = deIDsPerWaarde;
 	}
 
 

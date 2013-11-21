@@ -59,9 +59,9 @@ public class UserContextListener implements ServletContextListener {
 		Competentie nr1 = new Competentie(1, "1. Samenwerken en overleggen");
 		Competentie nr2 = new Competentie(2, "2. Aandacht en begrip tonen");
 		ArrayList<Integer> array = new ArrayList<Integer>();
-array.add(nr1.getEigenId());
-array.add(nr2.getEigenId());
-		Beoordeling b = new Beoordeling(null, "opmerking", array, null);
+		array.add(nr1.getEigenId());
+		array.add(nr2.getEigenId());
+		Beoordeling b = new Beoordeling(null, "opmerking", array, null, null);
 	
 		
 		

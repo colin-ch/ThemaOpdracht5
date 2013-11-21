@@ -15,6 +15,7 @@ import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.School;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.Stelling;
+import com.appspot.Accent.model.service.StellingOfyDAOImpl;
 
 public class OverzichtServlet extends HttpServlet{
 	private static final Logger log = Logger.getLogger(OverzichtServlet.class.getName());
@@ -25,6 +26,10 @@ public class OverzichtServlet extends HttpServlet{
 		Object o = req.getSession().getAttribute("userobject");
 		ArrayList<Stage>stages = new ArrayList<Stage>();
 		stages = (ArrayList<Stage>) getServletContext().getAttribute("stages");
+		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
+		
+		ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
+		stellingen = (ArrayList<Stelling>) sod.getAllStellingen();
 		boolean succes = false;
 		
 		for(Stage st : stages){
@@ -45,7 +50,28 @@ public class OverzichtServlet extends HttpServlet{
 							teller++;
 						
 							
+							int teller1 = 0;
 							
+							ArrayList<Integer> waardes = b.getDeWaardesLeerling();
+							ArrayList<Integer> waardeIDs = b.getDeIDsPerWaarde();
+							for (Stelling stel : stellingen){
+								
+								for (int i : waardes){
+									
+									for(int i2 : waardeIDs){
+										
+										if(i2 == stel.getUniekID()){
+											
+											stel.setDeWaarde("" + i);
+											
+										}
+										
+										
+									}
+									
+								}
+								
+							}
 							bericht = bericht + "<option value="+b.getDatum()+">"+b.getDatum()+"</option>";
 							log.info(bericht);
 					//		System.out.println();
@@ -66,11 +92,9 @@ public class OverzichtServlet extends HttpServlet{
 		}
 		RequestDispatcher rd = null;
 		
-		ArrayList<Stelling> alleStellingen = new ArrayList<Stelling>();
-		alleStellingen.add(new Stelling(4, "Stelling1 in overzichtservlet","1", 4));
-		alleStellingen.add(new Stelling(5, "Stelling2 in overzichtservlet","2", 3));
-		alleStellingen.add(new Stelling(6, "Stelling3 in overzichtservlet","3", 2));
-		getServletContext().setAttribute("stellingen", alleStellingen);
+		
+	
+		getServletContext().setAttribute("stellingen", stellingen);
 		//System.out.println(alleStellingen);
 		
 		if(succes){
