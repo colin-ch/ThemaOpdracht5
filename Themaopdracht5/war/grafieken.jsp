@@ -71,10 +71,9 @@
        <% 
        
 	      ArrayList<Stelling> alleStellingenLijst1 = (ArrayList<Stelling>) getServletContext().getAttribute("stellingen");
-	         System.out.println(alleStellingenLijst1);
+	         
 				for (Stelling s : alleStellingenLijst1) {
-					System.out.println(s.getDeStelling());
-					System.out.println(s.getDeWaarde());//waarde is nog null zie contextlistener
+					
 	        		out.println("['"+s.getDeStelling() +"', " + "2" + " , " + s.getDeWaarde() + "],");       
 	         	}
 		
