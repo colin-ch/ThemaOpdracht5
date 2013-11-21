@@ -48,11 +48,11 @@ public class UserContextListener implements ServletContextListener {
 		StageOpleider opleider = new StageOpleider("jopie");
 		Stage stage = new Stage(1, u.getUsername(), opleider.getNaam(), bedrijf1.getUsername(), date, date);
 		Docent d = new Docent("docent", "pass", "email@gmail.com");
-		Stelling stelling1 = new Stelling(1, "de leerling gedraagt zich zo dat samenwerking makkelijk gaat", "1", 1);
-		Stelling stelling2 = new Stelling(1, "De leerling past zich aan de groep aan", null, 2);
-		Stelling stelling3 = new Stelling(1, "De leerling houdt zich aan de regels van het bedrijf",null, 3);
-		Stelling stelling4 = new Stelling(2, "de leerling luister naar een ander", null, 4);
-		Stelling stelling5 = new Stelling(2, "de leerling laat de ander uitpraten", null, 5);
+		Stelling stelling1 = new Stelling(1, "de leerling gedraagt zich zo dat samenwerking makkelijk gaat", 1, 1);
+		Stelling stelling2 = new Stelling(1, "De leerling past zich aan de groep aan", 0, 2);
+		Stelling stelling3 = new Stelling(1, "De leerling houdt zich aan de regels van het bedrijf",0, 3);
+		Stelling stelling4 = new Stelling(2, "de leerling luister naar een ander", 0, 4);
+		Stelling stelling5 = new Stelling(2, "de leerling laat de ander uitpraten", 0, 5);
 		
 		
 		

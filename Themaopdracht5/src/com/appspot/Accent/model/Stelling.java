@@ -6,11 +6,11 @@ public class Stelling {
 	@Id Long id;
 	private int eigenId;
 private String deStelling;
-private String deWaarde;
+private int deWaarde;
 private int uniekID;
 
 
-public Stelling(int idee, String stel, String val, int uniq){
+public Stelling(int idee, String stel, int val, int uniq){
 	deStelling = stel;
 	deWaarde = val;
 	eigenId = idee;
@@ -28,12 +28,12 @@ public void setDeStelling(String deStelling) {
 }
 
 
-public String getDeWaarde() {
+public int getDeWaarde() {
 	return deWaarde;
 }
 
 
-public void setDeWaarde(String deWaarde) {
+public void setDeWaarde(int deWaarde) {
 	this.deWaarde = deWaarde;
 }
 
