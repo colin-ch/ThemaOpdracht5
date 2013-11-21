@@ -54,6 +54,7 @@ public class OverzichtServlet extends HttpServlet{
 						String bericht = "<select name='dropdown'>";
 					
 						int teller=0;
+						System.out.println("iets random");
 						for(Beoordeling b : beoordelingen){
 							teller++;
 						
