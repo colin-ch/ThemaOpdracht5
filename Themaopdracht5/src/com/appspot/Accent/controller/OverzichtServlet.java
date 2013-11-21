@@ -16,12 +16,17 @@ import com.appspot.Accent.model.School;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.Stelling;
 import com.appspot.Accent.model.service.StellingOfyDAOImpl;
+import com.googlecode.objectify.Objectify;
+import com.googlecode.objectify.ObjectifyService;
 
 public class OverzichtServlet extends HttpServlet{
 	private static final Logger log = Logger.getLogger(OverzichtServlet.class.getName());
+	private Objectify ofy;
 	
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
+		
+		ofy = ObjectifyService.begin();
 		School s = new School("Accent", "Nijkerk", "Nijkerk", "0000AS");
 		Object o = req.getSession().getAttribute("userobject");
 		ArrayList<Stage>stages = new ArrayList<Stage>();
