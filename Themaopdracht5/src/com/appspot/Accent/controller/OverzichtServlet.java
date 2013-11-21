@@ -15,6 +15,7 @@ import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.School;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.Stelling;
+import com.appspot.Accent.model.service.StageOfyDAOImpl;
 import com.appspot.Accent.model.service.StellingOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
@@ -29,10 +30,12 @@ public class OverzichtServlet extends HttpServlet{
 		ofy = ObjectifyService.begin();
 		School s = new School("Accent", "Nijkerk", "Nijkerk", "0000AS");
 		Object o = req.getSession().getAttribute("userobject");
-		ArrayList<Stage>stages = new ArrayList<Stage>();
-		stages = (ArrayList<Stage>) getServletContext().getAttribute("stages");
-		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 		
+		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
+		StageOfyDAOImpl std = new StageOfyDAOImpl();
+		
+		ArrayList<Stage>stages = new ArrayList<Stage>();
+		stages = (ArrayList<Stage>) std.getAllStages();
 		ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
 		stellingen = (ArrayList<Stelling>) sod.getAllStellingen();
 		boolean succes = false;
