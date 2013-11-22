@@ -27,24 +27,18 @@
 		<hr/>
 		<h3>Competenties</h3>
 		<ul class="toggle">
-			<li class="icn_new_article"><a href="#">Nieuwe competentie</a></li>
+			<li class="icn_new_article"><a href="#">Nieuwe competentie missing</a></li>
 			<li class="icn_edit_article"><a href="/BeoordeelServlet.do">Beoordelen</a></li>
-			<li class="icn_categories"><a href="#">Competenties bekijken</a></li>
+			<li class="icn_categories"><a href="#">Competenties bekijken missing</a></li>
 			<li class="icn_tags"><a href="/Overzicht.do">Overzicht beoordelingen</a></li>
 		</ul>
 		<h3>Leerlingen</h3>
 		<ul class="toggle">
-			<li class="icn_add_user"><a href="#">Leerlingen toevoegen</a></li>
-			<li class="icn_view_users"><a href="#">Bekijk leerlingen</a></li>
-			<li class="icn_profile"><a href="#">Zoek leerling</a></li>
-		</ul>
-		
-		<h3>Instellingen</h3>
-		<ul class="toggle">
-			<li class="icn_settings"><a href="#">Opties</a></li>
-			<li class="icn_security"><a href="#">Beveiliging</a></li>
+			<li class="icn_add_user"><a href="#">Leerlingen toevoegen missing</a></li>
+			<li class="icn_view_users"><a href="overzichtgebruikers.jsp">Beoordelingen bekijken</a></li>
 			<li class="icn_jump_back"><a href="/LogoutServlet.do">Loguit</a></li>
 		</ul>
+
 		
 		<footer>
 			<hr />

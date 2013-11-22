@@ -68,8 +68,8 @@
           ['Beoordeling', 'Stage Opleider', 'Student'],
       	         
 		['2', 1, 4],
-       <% 
-       
+       <% {}
+      /* 
 	      ArrayList<Stelling> alleStellingenLijst1 = (ArrayList<Stelling>) getServletContext().getAttribute("stellingen");
 	         
 				for (Stelling s : alleStellingenLijst1) {
@@ -77,7 +77,7 @@
 	        		out.println("['"+s.getDeStelling() +"', " + "2" + " , " + s.getDeWaarde() + "],");       
 	         	}
 		
-			
+			*/
          %>  
         ['2', 2, 2]
         ]);
