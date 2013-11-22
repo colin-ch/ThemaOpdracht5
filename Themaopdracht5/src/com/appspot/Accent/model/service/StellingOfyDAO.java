@@ -10,7 +10,7 @@ public interface StellingOfyDAO {
 	   public Stelling getStelling(int idee);
 	   public void updateStelling(Stelling s);
 	   public void deleteStelling(Stelling s);
-	   public void createStelling(int idee, String stel, int wd, int uniek);
+	   public void createStelling(int idee, String stel, String wd, int uniek);
 	}
 
 

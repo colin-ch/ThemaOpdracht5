@@ -63,7 +63,6 @@ public class OverzichtServlet extends HttpServlet{
 							
 							ArrayList<Integer> waardes = b.getDeWaardesLeerling();
 							ArrayList<Integer> waardeIDs = b.getDeIDsPerWaarde();
-							
 							for (Stelling stel : stellingen){
 								
 								for (int i : waardes){
@@ -72,11 +71,15 @@ public class OverzichtServlet extends HttpServlet{
 										
 										if(i2 == stel.getUniekID()){
 											
-											stel.setDeWaarde(i);
+											stel.setDeWaarde("" + i);
 											
-										}	
-									}	
-								}	
+										}
+										
+										
+									}
+									
+								}
+								
 							}
 							bericht = bericht + "<option value="+b.getDatum()+">"+b.getDatum()+"</option>";
 							log.info(bericht);
