@@ -51,8 +51,8 @@ public class StageOfyDAOImpl implements StageOfyDAO {
 		ofy.delete(s);		
 	}
 	@Override
-	public void createStage(int id, String deLeerling, String opl, String bedr, java.util.Date begin,
+	public void createStage(int id, String deLeerling, String beg, String opl, String bedr, java.util.Date begin,
 			java.util.Date eind) {
-			ofy.put(new Stage(id, deLeerling, opl, bedr, begin, eind));
+			ofy.put(new Stage(id, deLeerling, beg, opl, bedr, begin, eind));
 	}	
 }

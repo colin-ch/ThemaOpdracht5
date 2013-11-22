@@ -9,6 +9,7 @@ public class Stage {
 	@Id Long id;
 private int eigenid;	
 private String deLeerling;
+private String deBegeleider;
 private String deOpleider;
 private String hetBedrijf;
 private Date begindatum;
@@ -16,9 +17,10 @@ private Date einddatum;
 private ArrayList<Beoordeling> beoordelingen = new ArrayList<Beoordeling>();
 
 
-public Stage(int idee, String lrl, String opl, String bedr, Date begin, Date eind){
+public Stage(int idee, String lrl,String beg, String opl, String bedr, Date begin, Date eind){
 	eigenid = idee;
 	deLeerling = lrl;
+	setDeBegeleider(beg);
 	deOpleider = opl;
 	hetBedrijf = bedr;
 	begindatum = begin;
@@ -93,5 +95,11 @@ public int getId() {
 
 public void setId(int id) {
 	this.eigenid = id;
+}
+public String getDeBegeleider() {
+	return deBegeleider;
+}
+public void setDeBegeleider(String deBegeleider) {
+	this.deBegeleider = deBegeleider;
 }
 }

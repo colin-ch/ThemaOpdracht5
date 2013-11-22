@@ -46,7 +46,7 @@ public class UserContextListener implements ServletContextListener {
 		Leerling u = new Leerling("123", "123", "123@gmail.com", "leerling1", "Student", date, "V1IE", stagebeg.getEmail() );	
 		StageBedrijf bedrijf1 = new StageBedrijf("bedrijf1", "123","bedrijf@gmail.com", "utrecht", "123456");
 		StageOpleider opleider = new StageOpleider("jopie");
-		Stage stage = new Stage(1, u.getUsername(), opleider.getNaam(), bedrijf1.getUsername(), date, date);
+		Stage stage = new Stage(1, u.getUsername(), stagebeg.getEmail(), opleider.getNaam(), bedrijf1.getUsername(), date, date);
 		Docent d = new Docent("docent", "pass", "email@gmail.com");
 		Stelling stelling1 = new Stelling(1, "de leerling gedraagt zich zo dat samenwerking makkelijk gaat", "1", 1);
 		Stelling stelling2 = new Stelling(1, "De leerling past zich aan de groep aan", null, 2);
