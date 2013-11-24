@@ -16,6 +16,7 @@ import com.appspot.Accent.model.StageBedrijf;
 import com.appspot.Accent.model.StageBegeleider;
 import com.appspot.Accent.model.StageOpleider;
 import com.appspot.Accent.model.Stelling;
+import com.appspot.Accent.model.StellingBeoordeeld;
 import com.appspot.Accent.model.service.LeerlingOfyDAO;
 import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
 import com.appspot.Accent.model.service.StageBedrijfOfyDAO;
@@ -90,6 +91,7 @@ public class UserContextListener implements ServletContextListener {
 		ObjectifyService.register(StageBedrijf.class);
 		ObjectifyService.register(Stage.class);
 		ObjectifyService.register(Stelling.class);
+		ObjectifyService.register(StellingBeoordeeld.class);
 		
 /*		ofy.put(u);
 		ofy.put(d);
