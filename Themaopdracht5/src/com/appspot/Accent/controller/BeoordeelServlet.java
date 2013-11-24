@@ -128,6 +128,9 @@ public class BeoordeelServlet extends HttpServlet {
 										
 								}
 								rate.setOpmerking(req.getParameter("opmerking"));
+								if(req.getParameter("opmerking").equals("")){
+									rate.setOpmerking("geen opmerking");
+								}
 								log.info(rate.getOpmerking());
 								Date d = new Date();
 								String datum = d.toString();

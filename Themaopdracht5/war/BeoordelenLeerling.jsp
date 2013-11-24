@@ -71,6 +71,7 @@
 				
 				<%@ page import="com.appspot.Accent.model.Competentie" %>
 				<%@ page import="com.appspot.Accent.model.Stelling" %>
+				<%@ page import="com.appspot.Accent.model.Leerling" %>
 				<%@ page import="java.util.ArrayList" %>
 				<%@ page import="com.googlecode.objectify.Objectify" %>
 				<%@ page import="com.googlecode.objectify.ObjectifyService" %>
@@ -79,60 +80,70 @@
 				<form action="/BeoordeelServlet.do" method="GET">
 				<%
 				Objectify ofy = ObjectifyService.begin();
-				
-				Stage s= (Stage) request.getAttribute("competenties");	
+				StageOfyDAOImpl stod = new StageOfyDAOImpl();
+				ArrayList < Stage > allStages = (ArrayList < Stage > ) stod.getAllStages();
+				Object o = request.getSession().getAttribute("userobject");
 				BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
 				CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 				StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
-				
-				ArrayList<Beoordeling> beoordelingen = (ArrayList<Beoordeling>) bod.getAllBeoordelingen();
-				for(Beoordeling be : beoordelingen){
 
-			if(be.getDatum() == null){
-				
-				ArrayList<Competentie> competenties = (ArrayList<Competentie>) cod.getAllCompetenties();
-				int teller = 0;
-				for(Competentie c : competenties){
-					//System.out.println(" "  + c.getTitel());
-					
-					out.println("<h2>"+  c.getTitel() +"</h2></br>");
-					
-					ArrayList<Stelling> stellingen = (ArrayList<Stelling>) sod.getAllStellingen();
-					for(Stelling st : stellingen){							
-						if(st.getEigenId() == c.getEigenId()){
-							System.out.println("stelling");
-							System.out.println(" "  + st.getDeStelling());
-							teller++;
-							String waarde = st.getDeWaarde();
-							
-							out.println("<h4>" + st.getDeStelling() + "</h4>");
-							
-							if(waarde == null || waarde.equals("")){
-							out.println("1<input type='radio' name='"+ st.getUniekID()+ "' value='1'>2<input type='radio' name='"+ st.getUniekID()+ "' value='2'>3<input type='radio' name='"+ st.getUniekID()+ "' value='3'>4<input type='radio' name='"+ st.getUniekID()+ "' value='4'></br>");
-							}
-							
-							if(waarde.equals("1")){
-								out.println("1<input type='radio' name='"+ st.getUniekID()+ "' checked='checked' value='1'>2<input type='radio' name='"+ st.getUniekID()+ "' value='2'>3<input type='radio' name='"+ st.getUniekID()+ "' value='3'>4<input type='radio' name='"+ st.getUniekID()+ "' value='4'></br>");
-						    }
-							
-							if(waarde.equals("2")){
-								out.println("1<input type='radio' name='"+ st.getUniekID()+ "' value='1'>2<input checked='checked' type='radio' name='"+ st.getUniekID()+ "' value='2'>3<input type='radio' name='"+ st.getUniekID()+ "' value='3'>4<input type='radio' name='"+ st.getUniekID()+ "' value='4'></br>");
-								}
-							if(waarde.equals("3")){
-								out.println("1<input type='radio' name='"+ st.getUniekID()+ "' value='1'>2<input  type='radio' name='"+ st.getUniekID()+ "' value='2'>3<input checked='checked' type='radio' name='"+ st.getUniekID()+ "' value='3'>4<input type='radio' name='"+ st.getUniekID()+ "' value='4'></br>");
-								}
-							if(waarde.equals("4")){
-								out.println("1<input type='radio' name='"+ st.getUniekID()+ "' value='1'>2<input type='radio' name='"+ st.getUniekID()+ "' value='2'>3<input checked='checked' type='radio' name='"+ st.getUniekID()+ "' value='3'>4<input type='radio' name='"+ st.getUniekID()+ "' value='4'></br>");
-								}
-						}
-						System.out.println("test");	
-						break;
-						}
-					} 
-			}
+				ArrayList < Beoordeling > beoordelingen = (ArrayList < Beoordeling > ) bod.getAllBeoordelingen();
+
+
+				for (Stage s: allStages) {
+				    if (o instanceof Leerling) {
+
+
+				        if (s.getDeLeerling().equals(((Leerling) o).getUsername())) {
+				            for (Beoordeling be: beoordelingen) {
+
+				                if (be.getDatum() == null) {
+
+				                    ArrayList < Competentie > competenties = (ArrayList < Competentie > ) cod.getAllCompetenties();
+				                    int teller = 0;
+				                    for (Competentie c: competenties) {
+				                        //System.out.println(" "  + c.getTitel());
+
+				                        out.println("<h2>" + c.getTitel() + "</h2></br>");
+
+				                        ArrayList < Stelling > stellingen = (ArrayList < Stelling > ) sod.getAllStellingen();
+				                        for (Stelling st: stellingen) {
+				                            if (st.getEigenId() == c.getEigenId()) {
+				                                System.out.println("stelling");
+				                                System.out.println(" " + st.getDeStelling());
+				                                teller++;
+				                                String waarde = st.getDeWaarde();
+
+				                                out.println("<h4>" + st.getDeStelling() + "</h4>");
+
+				                                if (waarde == null || waarde.equals("")) {
+				                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>");
+				                                }
+
+				                                if (waarde.equals("1")) {
+				                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' checked='checked' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>");
+				                                }
+
+				                                if (waarde.equals("2")) {
+				                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>");
+				                                }
+				                                if (waarde.equals("3")) {
+				                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input  type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>");
+				                                }
+				                                if (waarde.equals("4")) {
+				                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>");
+				                                }
+				                            }
+				                            System.out.println("test");
+				                            break;
+				                        }
+				                    }
+				                }
+				            }
+				        }
+				    }
 				}
-		
-		out.println("eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
+				out.println("eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
 		
 				%>
 				
