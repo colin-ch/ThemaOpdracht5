@@ -15,7 +15,9 @@ import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.School;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.Stelling;
+import com.appspot.Accent.model.StellingBeoordeeld;
 import com.appspot.Accent.model.service.StageOfyDAOImpl;
+import com.appspot.Accent.model.service.StellingBeoordeeldOfyDAOImpl;
 import com.appspot.Accent.model.service.StellingOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
@@ -32,12 +34,15 @@ public class OverzichtServlet extends HttpServlet{
 		Object o = req.getSession().getAttribute("userobject");
 		
 		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
+		StellingBeoordeeldOfyDAOImpl sbd = new StellingBeoordeeldOfyDAOImpl();
 		StageOfyDAOImpl std = new StageOfyDAOImpl();
 		
 		ArrayList<Stage>stages = new ArrayList<Stage>();
 		stages = (ArrayList<Stage>) std.getAllStages();
 		ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
 		stellingen = (ArrayList<Stelling>) sod.getAllStellingen();
+		ArrayList<StellingBeoordeeld> stellingenbeoordeeld = new ArrayList<StellingBeoordeeld>();
+		stellingenbeoordeeld = (ArrayList<StellingBeoordeeld>) sbd.getAllStellingenBeoordeeld();
 		boolean succes = false;
 		
 		for(Stage st : stages){
@@ -64,22 +69,14 @@ public class OverzichtServlet extends HttpServlet{
 							ArrayList<Integer> waardes = b.getDeWaardesLeerling();
 							ArrayList<Integer> waardeIDs = b.getDeIDsPerWaarde();
 							for (Stelling stel : stellingen){
-								
-								for (int i : waardes){
-									
-									for(int i2 : waardeIDs){
-										
-										if(i2 == stel.getUniekID()){
-											
-											stel.setDeWaarde("" + i);
-											
+								for(StellingBeoordeeld sb : stellingenbeoordeeld){
+									if(sb.getDeStage() == st.getId()){
+										if(stel.getUniekID() == sb.getUniekID()){
+											stel.setDeWaarde(sb.getDeWaarde());
 										}
-										
-										
 									}
-									
-								}
 								
+								}
 							}
 							bericht = bericht + "<option value="+b.getDatum()+">"+b.getDatum()+"</option>";
 							log.info(bericht);

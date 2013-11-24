@@ -17,6 +17,7 @@ import com.appspot.Accent.model.Competentie;
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.Stelling;
+import com.appspot.Accent.model.StellingBeoordeeld;
 import com.appspot.Accent.model.service.BeoordelingOfyDAOImpl;
 import com.appspot.Accent.model.service.CompetentieOfyDAOImpl;
 import com.appspot.Accent.model.service.StageOfyDAOImpl;
@@ -116,9 +117,9 @@ public class BeoordeelServlet extends HttpServlet {
 												int i2 = Integer.parseInt(s2);
 												waardesIDs.add(id);
 												waardesl.add(i2);
+												StellingBeoordeeld beoordeeldeStelling = new StellingBeoordeeld(stel.getDeWaarde(), i2, s.getId());
 												
-												
-//												ofy.put(stel);
+												ofy.put(beoordeeldeStelling);
 												}
 											}
 											}
