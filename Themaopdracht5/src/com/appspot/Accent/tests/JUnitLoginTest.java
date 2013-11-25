@@ -2,7 +2,6 @@ package com.appspot.Accent.tests;
 
 import static org.junit.Assert.fail;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import com.appspot.Accent.model.Docent;
@@ -17,31 +16,18 @@ import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 //imports van de JUnit test
 public class JUnitLoginTest {
-	private final LocalServiceTestHelper helper = new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
-
-    @Before
-    public void setUp() {
-        helper.setUp();
-    }
-	
 
 	@Test
 	public void testLoginSucces() {
-		
 		Objectify ofy = ObjectifyService.begin();
 		ObjectifyService.register(Leerling.class);
 		LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
 		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
 		StageBedrijfOfyDAOImpl sb = new StageBedrijfOfyDAOImpl();
 		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl();
-		Leerling leer = new Leerling("username", "pass", null, null, null, null, null, null);
-		ofy.put(leer);
 		//Dao klassen worden hiermee beschikbaar binnen de test
 
 		try {
-			System.out.println("2de");
-			Object o = l.getAllLeerlingen();
-			System.out.println("3de");
 			if (l.getAllLeerlingen() == null || d.getAllDocenten() == null || sb.getAllStageBedrijven() == null || 
 					sbg.getAllBegeleiders() == null) {
 				fail("Methode klopt niet");//Kijken of alle lijsten uit de datastore niet null zijn
