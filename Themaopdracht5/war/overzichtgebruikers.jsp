@@ -36,27 +36,27 @@
                         				String naam = ((Leerling) user).getUsername();
                         				String pass = ((Leerling) user).getPassword();
                         				if(naam.equals(le.getUsername()) && pass.equals(le.getPassword())){
-                        					out.println("<input type='radio' id='radio' class='radio' value='"+ naam +"'>"+ naam +" "+ ((Leerling) user).getEmail() +" "+ ((Leerling) user).getKlas() +" "+ ((Leerling) user).getBegeleider()+"<br/>");
+                        					out.println("<input type='radio' name='radio' value='"+ naam +"'>"+ naam +" "+ ((Leerling) user).getEmail() +" "+ ((Leerling) user).getKlas() +" "+ ((Leerling) user).getBegeleider()+"<br/>");
                         				}
                         			}
                         			
                         		}
                         		if(user instanceof Docent){
                         			for(Leerling le : l.getAllLeerlingen()){
-                        				out.println("<input type='radio' id='radio' class='radio' value='"+ le.getUsername() +"'>"+ le.getUsername() +" "+ le.getEmail() +" "+ le.getKlas() +" "+ le.getBegeleider()+"<br/>");
+                        				out.println("<input type='radio' name='radio' value='"+ le.getUsername() +"'>"+ le.getUsername() +" "+ le.getEmail() +" "+ le.getKlas() +" "+ le.getBegeleider()+"<br/>");
                         			}
                         		}
                         		if(user instanceof StageBedrijf){
                         			for(Stage stage: st.getAllStages()){
                         				if(stage.getHetBedrijf().equals(((StageBedrijf) user).getUsername())){
-                        					out.println("<input type='radio' class='radio' value='"+ stage.getDeLeerling() +"'>"+ stage.getDeLeerling() +" "+ stage.getHetBedrijf() +" "+ stage.getDeOpleider() +" "+ stage.getBegindatum()+"<br/>");
+                        					out.println("<input type='radio' name='radio' value='"+ stage.getDeLeerling() +"'>"+ stage.getDeLeerling() +" "+ stage.getHetBedrijf() +" "+ stage.getDeOpleider() +" "+ stage.getBegindatum()+"<br/>");
                         				}
                         			}
                         		}
                         		if(user instanceof StageBegeleider){
                         			for(Leerling le : l.getAllLeerlingen()){
                         				if(le.getBegeleider().equals(((StageBegeleider) user).getEmail())){
-                        					out.println("<input type='radio' class='radio' value='"+ le.getUsername() +"'>"+ le.getUsername() +" "+ le.getEmail() +" "+ le.getKlas() +" "+ le.getBegeleider()+"<br/>");
+                        					out.println("<input type='radio' name='radio' value='"+ le.getUsername() +"'>"+ le.getUsername() +" "+ le.getEmail() +" "+ le.getKlas() +" "+ le.getBegeleider()+"<br/>");
                         				}
                         			}
                         		}
