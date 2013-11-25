@@ -1,55 +1,79 @@
 package com.appspot.Accent.tests;
-/*
-import static org.junit.Assert.*;
 
-import java.util.ArrayList;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.appspot.Accent.model.User;
-
+import com.appspot.Accent.model.Docent;
+import com.appspot.Accent.model.Leerling;
+import com.appspot.Accent.model.StageBedrijf;
+import com.appspot.Accent.model.StageBegeleider;
+import com.appspot.Accent.model.service.DocentOfyDAOImpl;
+import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
+import com.appspot.Accent.model.service.StageBedrijfOfyDAOImpl;
+import com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl;
+import com.googlecode.objectify.Objectify;
+import com.googlecode.objectify.ObjectifyService;
+//imports van de JUnit test
 public class JUnitLoginTest {
+	private final LocalServiceTestHelper helper = new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
 
-	// testcase inloggen A1.1
+    @Before
+    public void setUp() {
+        helper.setUp();
+    }
+	
+
 	@Test
 	public void testLoginSucces() {
-		ArrayList<User> allUsers = new ArrayList<User>();
-		User user = new User("123", "123", "123@gmail.com");
-		allUsers.add(user);
-		User u = new User("123", "123", "123@gmail.com");
+		
+		Objectify ofy = ObjectifyService.begin();
+		ObjectifyService.register(Leerling.class);
+		LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
+		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
+		StageBedrijfOfyDAOImpl sb = new StageBedrijfOfyDAOImpl();
+		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl();
+		Leerling leer = new Leerling("username", "pass", null, null, null, null, null, null);
+		ofy.put(leer);
+		//Dao klassen worden hiermee beschikbaar binnen de test
 
 		try {
-			for (User us : allUsers) {
-				if (u.getUsername().equals(us.getUsername())) {
+			System.out.println("2de");
+			Object o = l.getAllLeerlingen();
+			System.out.println("3de");
+			if (l.getAllLeerlingen() == null || d.getAllDocenten() == null || sb.getAllStageBedrijven() == null || 
+					sbg.getAllBegeleiders() == null) {
+				fail("Methode klopt niet");//Kijken of alle lijsten uit de datastore niet null zijn
+			}
+			else{ //getUsername() en getPassword() voor alle gebruikers
+				for(Leerling le : l.getAllLeerlingen()){
+					if(le.getUsername() == null || le.getPassword() == null){
+						fail("Leerling is null");
+					}
 				}
-				else{
-					fail("gebruiker niet bekend");
+				for(Docent de : d.getAllDocenten()){
+					if(de.getUsername() == null || de.getPassword() == null){
+						fail("Docent is null");
+					}
+				}
+				for(StageBedrijf sbe : sb.getAllStageBedrijven()){
+					if(sbe.getUsername() == null || sbe.getPassword() == null){
+						fail("Stagebedrijf is null");
+					}
+				}
+				for(StageBegeleider stb: sbg.getAllBegeleiders()){
+					if(stb.getUsername() == null || stb.getPassword() == null){
+						fail("Begeleider is null");
+					}
 				}
 			}
-		} catch (Exception e) {
-			fail("Onjuiste gebruikersnaam/wachtwoord combinatie");
+		} 
+		catch (Exception e) {
+			fail("Exception login");
 		}
 
 	}
-	// testcase inloggen A1.2
-	@Test
-	public void testLoginFail() {
-		ArrayList<User> allUsers = new ArrayList<User>();
-		User user = new User("123","123","123@gmail.com");
-		allUsers.add(user);
-		User u = new User("564675", "123", "123@gmail.com");
 
-		try {
-			for (User us : allUsers) {
-				if (u.getUsername().equals(us.getUsername())) {
-					fail("Deze gebruiker is bekend");
-				}
-			}
-		} catch (Exception e) {
-			fail("Onjuiste gebruikersnaam/wachtwoord combinatie");
-		}
+}
 
-	}
-
-}*/
