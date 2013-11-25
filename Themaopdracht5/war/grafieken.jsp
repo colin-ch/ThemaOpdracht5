@@ -2,24 +2,26 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8"/>
-	<title>Dashboard I Admin Panel</title>
-	
-	<link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
-	<!--[if lt IE 9]>
+<meta charset="utf-8" />
+<title>Dashboard I Admin Panel</title>
+
+<link rel="stylesheet" href="css/layout.css" type="text/css"
+	media="screen" />
+<!--[if lt IE 9]>
 	<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<script src="js/jquery-1.5.2.min.js" type="text/javascript"></script>
-	<script src="js/hideshow.js" type="text/javascript"></script>
-	<script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
-	<script src="js/add2home.js" type="text/javascript"></script>
-		<link rel="stylesheet" href="js/add2home.css" type="text/css" media="screen"></link>
-	<link rel="apple-touch-icon" href="images/iphonee.png" />
+<script src="js/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="js/hideshow.js" type="text/javascript"></script>
+<script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
+<script src="js/add2home.js" type="text/javascript"></script>
+<link rel="stylesheet" href="js/add2home.css" type="text/css"
+	media="screen"></link>
+<link rel="apple-touch-icon" href="images/iphonee.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="images/ipadd.png" />
 <link rel="apple-touch-icon" sizes="114x114" href="images/iphone4.png" />
-	<script type="text/javascript" src="js/jquery.equalHeight.js"></script>
-	<script type="text/javascript">
+<script type="text/javascript" src="js/jquery.equalHeight.js"></script>
+<script type="text/javascript">
 	$(document).ready(function() 
     	{ 
       	  $(".tablesorter").tablesorter(); 
@@ -46,19 +48,19 @@
 
 });
     </script>
-    <script type="text/javascript">
+<script type="text/javascript">
     $(function(){
         $('.column').equalHeight();
     });
 </script>
 <%@ page import="java.util.*"%>
-          <%@ page import="javax.servlet.ServletContextEvent"%>
-          <%@ page import="com.appspot.Accent.model.Stelling"%>
-          <%@ page import="com.appspot.Accent.model.Competentie"%>
-       
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        
-    <script>
+<%@ page import="javax.servlet.ServletContextEvent"%>
+<%@ page import="com.appspot.Accent.model.Stelling"%>
+<%@ page import="com.appspot.Accent.model.Competentie"%>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script>
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       
@@ -101,25 +103,30 @@
 <body>
 
 	<%@ include file="header.jsp"%>
-	
-	<section id="main" class="column"   style="min-width: 1110px; min-height: 600px!important;">
-		
-		<h4 class="alert_info">Welkom, dit is het competentie beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
-		
-		
-		
-		
-		
+
+	<section id="main" class="column"
+		style="min-width: 1110px; min-height: 600px !important;">
+
+		<h4 class="alert_info">Welkom, dit is het competentie
+			beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
+
+
+
+
+
 		<article class="module width_full">
-			<header><h3>Home</h3></header>
-				<div class="module_content">
-					 <div id="chart_div" style="width: 80%; height: 700px"></div>
-				</div>
-		</article><!-- end of styles article -->
+			<header>
+				<h3>Home</h3>
+			</header>
+			<div class="module_content">
+				<div id="chart_div" style="width: 80%; height: 700px"></div>
+			</div>
+		</article>
+		<!-- end of styles article -->
 		<div class="spacer"></div>
 	</section>
 
-</div>
+	</div>
 
 </body>
 

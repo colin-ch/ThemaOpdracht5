@@ -20,8 +20,8 @@ $(document).ready(function() {
 </head>
 
 <body>
-<div id="bg"></div>
-<div id="bg2"></div>
+	<div id="bg"></div>
+	<div id="bg2"></div>
 	<div id="login">
 
 		<h2>
@@ -40,7 +40,7 @@ $(document).ready(function() {
 						onBlur="if(this.value=='')this.value='username'"
 						onFocus="if(this.value=='username')this.value=''" autofocus>
 				</div>
-				
+
 
 				<div id="roww">
 					<label for="password">Password</label>
@@ -50,18 +50,18 @@ $(document).ready(function() {
 						onBlur="if(this.value=='')this.value='password'"
 						onFocus="if(this.value=='password')this.value=''">
 				</div>
-				
+
 
 				<div id="roww">
-				
+
 					<input type="submit" class="btn btn-success" value="Login">
 					<a href="register.jsp" value="Register">Register</a>
 				</div>
-		
+
 			</fieldset>
 
 		</form>
-		
+
 	</div>
 	<!-- end login -->
 
