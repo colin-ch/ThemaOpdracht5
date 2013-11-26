@@ -32,25 +32,27 @@ public class JUnitLoginTest {
 	    @Test
 		public void testLoginSucces() {
 		Objectify ofy = ObjectifyService.begin();
-		ObjectifyService.register(Leerling.class);
+		//ObjectifyService.register(Leerling.class);
+		
+		//Dao klassen worden hiermee beschikbaar binnen de test
 		LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
 		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
 		StageBedrijfOfyDAOImpl sb = new StageBedrijfOfyDAOImpl();
 		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl();
-		//Dao klassen worden hiermee beschikbaar binnen de test
+		
 		//ofy.put(new Leerling( "123",  "123",  null, null, null, null, null, null));
 		System.out.println("1");
 		Object o = l.getAllLeerlingen();
 		System.out.println("2");
 		
 		
-		/*try {
+		/*try { 
 
 			if (l.getAllLeerlingen() == null || d.getAllDocenten() == null || sb.getAllStageBedrijven() == null || 
 					sbg.getAllBegeleiders() == null) {
 				fail("Methode klopt niet");//Kijken of alle lijsten uit de datastore niet null zijn
 			}
-			else{ //getUsername() en getPassword() voor alle gebruikers
+			else{ //getUsername() en getPassword() testen voor alle gebruikers
 				for(Leerling le : l.getAllLeerlingen()){
 					if(le.getUsername() == null || le.getPassword() == null){
 						fail("Leerling is null");

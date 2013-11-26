@@ -1,6 +1,7 @@
 package com.appspot.Accent.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -88,7 +89,11 @@ public class LoginServlet extends HttpServlet {
 		}
 		else {
 			rd = req.getRequestDispatcher("login.jsp");
-			req.setAttribute("msgs", "Foute login");
+			PrintWriter out = resp.getWriter();  
+			resp.setContentType("text/html");  
+			out.println("<script type=\"text/javascript\">");  
+			out.println("alert('deadbeef');");  
+			out.println("</script>");
 		}
 		rd.forward(req, resp);
 	}
