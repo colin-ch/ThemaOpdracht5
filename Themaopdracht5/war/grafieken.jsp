@@ -63,7 +63,7 @@
 <script>
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
-      
+      //google chart wordt geïnitialiseerd
       
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
@@ -71,7 +71,7 @@
       	         
 		
        <% 
-       
+       	//Hier worden de stellingen opgehaald voor de beoordeling
 	      ArrayList<Stelling> alleStellingenLijst1 = (ArrayList<Stelling>) getServletContext().getAttribute("stellingen");
 	         
 				for (Stelling s : alleStellingenLijst1) {
@@ -83,7 +83,7 @@
          %>  
         ['2', 2, 2]
         ]);
-        
+        //opties voor de google chart
         var options = {
           title: 'Laatste competenties',
           hAxis: {title: 'Score', titleTextStyle: {color: 'green'}},

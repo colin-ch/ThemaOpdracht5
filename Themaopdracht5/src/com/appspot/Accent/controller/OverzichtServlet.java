@@ -31,7 +31,7 @@ public class OverzichtServlet extends HttpServlet{
 		
 		ofy = ObjectifyService.begin();
 		School s = new School("Accent", "Nijkerk", "Nijkerk", "0000AS");
-		Object o = req.getSession().getAttribute("userobject");
+		Object o = req.getSession().getAttribute("userobject");//haalt ingelogde gebruiker op
 		
 		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 		StellingBeoordeeldOfyDAOImpl sbd = new StellingBeoordeeldOfyDAOImpl();
@@ -42,25 +42,25 @@ public class OverzichtServlet extends HttpServlet{
 		ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
 		stellingen = (ArrayList<Stelling>) sod.getAllStellingen();
 		ArrayList<StellingBeoordeeld> stellingenbeoordeeld = new ArrayList<StellingBeoordeeld>();
-		stellingenbeoordeeld = (ArrayList<StellingBeoordeeld>) sbd.getAllStellingenBeoordeeld();
+		stellingenbeoordeeld = (ArrayList<StellingBeoordeeld>) sbd.getAllStellingenBeoordeeld();//alle stages, stellingbeoordeeld en stellingen worden opgehaald en in arraylists gezet
 		boolean succes = false;
 		
-		for(Stage st : stages){
+		for(Stage st : stages){//doorloopt alle stages
 			log.info("1");
-			if(o instanceof Leerling ){
+			if(o instanceof Leerling ){//is ingelogde gebruiker een leerling?
 				log.info("1");
-				if (st.getDeLeerling().equals( ((Leerling) o).getUsername())){
+				if (st.getDeLeerling().equals( ((Leerling) o).getUsername())){//zoekt stage dmv naam ingelogde te vergelijken met stage.getLeerling()
 			
 					log.info("1");
 					ArrayList<Beoordeling>beoordelingen = new ArrayList<Beoordeling>();
-					beoordelingen = st.getBeoordelingen();
+					beoordelingen = st.getBeoordelingen();//alle beoordelingen voor die stage worden opgehaald
 					if(beoordelingen != null){
 						log.info("2");
-						String bericht = "<select name='dropdown'>";
+						String bericht = "<select name='dropdown'>";//dropdown worden gemaakt
 					
 						int teller=0;
 						log.info("iets random");
-						for(Beoordeling b : beoordelingen){
+						for(Beoordeling b : beoordelingen){//alle beoordelingen worden doorlopen
 							teller++;
 						
 							
@@ -68,9 +68,9 @@ public class OverzichtServlet extends HttpServlet{
 							
 							ArrayList<Integer> waardes = b.getDeWaardesLeerling();
 							ArrayList<Integer> waardeIDs = b.getDeIDsPerWaarde();
-							for (Stelling stel : stellingen){
-								for(StellingBeoordeeld sb : stellingenbeoordeeld){
-									if(sb.getDeStage() == st.getId()){
+							for (Stelling stel : stellingen){//alle stellingen worden doorlopen
+								for(StellingBeoordeeld sb : stellingenbeoordeeld){//alle stellingbeoordeeld worden doorlopen
+									if(sb.getDeStage() == st.getId()){//voor iedere stellingbeoordeeld wordt id van stage vergeleken. zo ja zet de waarde van stellingbeoordeeld
 										if(stel.getUniekID() == sb.getUniekID()){
 											stel.setDeWaarde(sb.getDeWaarde());
 										}
@@ -79,11 +79,11 @@ public class OverzichtServlet extends HttpServlet{
 								}
 							}
 							bericht = bericht + "<option value="+b.getDatum()+">"+b.getDatum()+"</option>";
-							log.info(bericht);
+							log.info(bericht);//de options worden aan de select van de dropdown toegevoegd
 					//		System.out.println();
 							
 						}
-						bericht = bericht+"</select>";
+						bericht = bericht+"</select>";//select wordt gesloten
 						succes = true;
 						req.setAttribute("msgs", bericht);
 					}

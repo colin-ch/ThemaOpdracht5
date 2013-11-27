@@ -25,37 +25,37 @@
 					<%@ page import="com.appspot.Accent.model.*"%>
 					<%@ page import="com.appspot.Accent.model.service.*"%>
 					<%
-                            	Object user = session.getAttribute("userobject");
+                            	Object user = session.getAttribute("userobject");//haalt huidige ingelogde gebruiker op
                             	StageOfyDAOImpl st = new StageOfyDAOImpl();
                             	LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
                         		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
                         		StageBedrijfOfyDAOImpl sb = new StageBedrijfOfyDAOImpl();
-                        		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl();
+                        		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl();//Objectify klassen
                         		
-                        		if(user instanceof Leerling){
+                        		if(user instanceof Leerling){ //kijkt of ingelogde gebruiker een leerling is
                         			for(Leerling le : l.getAllLeerlingen()){
                         				String naam = ((Leerling) user).getUsername();
                         				String pass = ((Leerling) user).getPassword();
-                        				if(naam.equals(le.getUsername()) && pass.equals(le.getPassword())){
+                        				if(naam.equals(le.getUsername()) && pass.equals(le.getPassword())){//print alleen de leerling zelf uit met radio button
                         					out.println("<input type='radio' name='radio' value='"+ naam +"'>"+ naam +" "+ ((Leerling) user).getEmail() +" "+ ((Leerling) user).getKlas() +" "+ ((Leerling) user).getBegeleider()+"<br/>");
                         				}
                         			}
                         			
                         		}
-                        		if(user instanceof Docent){
-                        			for(Leerling le : l.getAllLeerlingen()){
+                        		if(user instanceof Docent){//kijkt of ingelogde gebruiker een docent is
+                        			for(Leerling le : l.getAllLeerlingen()){//print alle leerlingen uit
                         				out.println("<input type='radio' name='radio' value='"+ le.getUsername() +"'>"+ le.getUsername() +" "+ le.getEmail() +" "+ le.getKlas() +" "+ le.getBegeleider()+"<br/>");
                         			}
                         		}
-                        		if(user instanceof StageBedrijf){
+                        		if(user instanceof StageBedrijf){//kijkt of ingelogde gebruiker een stagebedrijf is
                         			for(Stage stage: st.getAllStages()){
-                        				if(stage.getHetBedrijf().equals(((StageBedrijf) user).getUsername())){
+                        				if(stage.getHetBedrijf().equals(((StageBedrijf) user).getUsername())){//print alle leerlingen uit die ingelode bedrijf als stagebedrijf hebben 
                         					out.println("<input type='radio' name='radio' value='"+ stage.getDeLeerling() +"'>"+ stage.getDeLeerling() +" "+ stage.getHetBedrijf() +" "+ stage.getDeOpleider() +" "+ stage.getBegindatum()+"<br/>");
                         				}
                         			}
                         		}
-                        		if(user instanceof StageBegeleider){
-                        			for(Leerling le : l.getAllLeerlingen()){
+                        		if(user instanceof StageBegeleider){//kijkt of ingelogde gebruiker een stagebegeleider is
+                        			for(Leerling le : l.getAllLeerlingen()){//print alle leerlingen uit die ingelode begeleider als stagebegeleider hebben  
                         				if(le.getBegeleider().equals(((StageBegeleider) user).getEmail())){
                         					out.println("<input type='radio' name='radio' value='"+ le.getUsername() +"'>"+ le.getUsername() +" "+ le.getEmail() +" "+ le.getKlas() +" "+ le.getBegeleider()+"<br/>");
                         				}

@@ -76,8 +76,8 @@
 				
 				<form action="/BeoordeelServlet.do" methode="GET">
 				<%
-				ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten");
-				out.println("<input list='leerlingen' name='leerlingen'>");
+				ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
+				out.println("<input list='leerlingen' name='leerlingen'>");//lijst van leerlingen wordt aangemaakt
 				out.println("<datalist id='leerlingen'>");
 				if (array != null) {
 					for (int i = 0; i < array.size(); i++) {

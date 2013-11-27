@@ -84,35 +84,33 @@
 
 				<form action="/BeoordeelServlet.do" method="GET">
 					<%
-				Objectify ofy = ObjectifyService.begin();
+				Objectify ofy = ObjectifyService.begin(); //alle objectify klassen die nodig zijn 
 				StageOfyDAOImpl stod = new StageOfyDAOImpl();
-				ArrayList < Stage > allStages = (ArrayList < Stage > ) stod.getAllStages();
 				Object o = request.getSession().getAttribute("userobject");
 				BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
 				CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 				StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
+				ArrayList < Stage > allStages = (ArrayList < Stage > ) stod.getAllStages();//alle stages worden opgehaald
+				ArrayList < Beoordeling > beoordelingen = (ArrayList < Beoordeling > ) bod.getAllBeoordelingen(); //alle beoordelingen worden opgehaald
 
-				ArrayList < Beoordeling > beoordelingen = (ArrayList < Beoordeling > ) bod.getAllBeoordelingen();
+				for (Stage s: allStages) { //alle stages worden door lopen
+				    if (o instanceof Leerling) {//kijkt of ingelogde gebruiker een leerling is
 
 
-				for (Stage s: allStages) {
-				    if (o instanceof Leerling) {
-
-
-				        if (s.getDeLeerling().equals(((Leerling) o).getUsername())) {
-				            for (Beoordeling be: beoordelingen) {
+				        if (s.getDeLeerling().equals(((Leerling) o).getUsername())) {//zoekt stage dmw van ingelogde gebruikersnaam te vergelijken met naam van leerling in stage
+				            for (Beoordeling be: beoordelingen) {//alle beoordelingen doorlopen
 
 				                if (be.getDatum() == null) {
 
 				                    ArrayList < Competentie > competenties = (ArrayList < Competentie > ) cod.getAllCompetenties();
 				                    int teller = 0;
-				                    for (Competentie c: competenties) {
+				                    for (Competentie c: competenties) {//alle competenties doorlopen
 				                        //System.out.println(" "  + c.getTitel());
 
 				                        out.println("<h2>" + c.getTitel() + "</h2></br>");
 
 				                        ArrayList < Stelling > stellingen = (ArrayList < Stelling > ) sod.getAllStellingen();
-				                        for (Stelling st: stellingen) {
+				                        for (Stelling st: stellingen) {//alle stellingen door lopen
 				                            if (st.getEigenId() == c.getEigenId()) {
 				                                System.out.println("stelling");
 				                                System.out.println(" " + st.getDeStelling());
@@ -120,7 +118,7 @@
 				                                String waarde = st.getDeWaarde();
 
 				                                out.println("<h4>" + st.getDeStelling() + "</h4>");
-
+												//voor iedere stelling radio buttons maken
 				                                if (waarde == null || waarde.equals("")) {
 				                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>");
 				                                }
@@ -149,7 +147,7 @@
 				    }
 				}
 				out.println("eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
-		
+				//opmerkingen veld
 				%>
 
 					<input type="submit" value="Opslaan" name="Opslaan" />
