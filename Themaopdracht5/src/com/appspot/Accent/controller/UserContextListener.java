@@ -42,6 +42,8 @@ public class UserContextListener implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 //		User u1 = new User("12345", "12345", "12345@gmail.com");
+		
+		//er wordt een dummy objecten aangemaakt
 		Date date = new Date();
 		StageBegeleider stagebeg = new StageBegeleider("stage", "begeleider", "yahoo@gmail.com");
 		Leerling u = new Leerling("123", "123", "123@gmail.com", "leerling1", "Student", date, "V1IE", stagebeg.getEmail() );	
@@ -80,7 +82,7 @@ public class UserContextListener implements ServletContextListener {
 		ArrayList<Stage> allStages = new ArrayList<Stage>();
 		allStages.add(stage);
 		sce.getServletContext().setAttribute("stages", allStages);*/
-		
+		// alle classes worden geregistreerd
 		Objectify ofy = ObjectifyService.begin();
 		ObjectifyService.register(Leerling.class);
 		ObjectifyService.register(Docent.class);
@@ -92,6 +94,9 @@ public class UserContextListener implements ServletContextListener {
 		ObjectifyService.register(Stage.class);
 		ObjectifyService.register(Stelling.class);
 		ObjectifyService.register(StellingBeoordeeld.class);
+		
+		
+		// alle objecten worden in de datastore gezet
 		
 /*		ofy.put(u);
 		ofy.put(d);

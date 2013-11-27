@@ -16,6 +16,7 @@ public class LoginFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest r2 = (HttpServletRequest) req;
 		Object o = r2.getSession().getAttribute("userobject");
+		// als de gebruiker als een object is ingelogd (een leerling begeleider opleider of  docent) staat dit bekend in de session
 		if (o == null) {
 			req.setAttribute("msg", "<br/><br/>U moet ingelogd zijn om deze pagina te kunnen bekijken");
 			r2.getRequestDispatcher("/login.jsp").forward(req, resp);

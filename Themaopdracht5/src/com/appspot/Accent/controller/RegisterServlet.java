@@ -15,7 +15,7 @@ public class RegisterServlet extends HttpServlet {
 	
 	protected void doPost( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
-		
+		// deze servlet gerbuiken we niet meer
 		boolean succes = false;
 		
 		String username = req.getParameter("username");
