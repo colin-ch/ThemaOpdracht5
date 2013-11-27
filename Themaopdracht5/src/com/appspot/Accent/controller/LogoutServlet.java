@@ -13,6 +13,7 @@ public class LogoutServlet extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
+		// de session wordt verwijderd
 		req.getSession().setAttribute("userobject", null);
 		req.setAttribute("msgs", null);
 		RequestDispatcher rd = null;

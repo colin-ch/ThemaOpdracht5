@@ -19,6 +19,8 @@ private static final Logger log = Logger.getLogger(OverzichtServlet.class.getNam
 	
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
+		// IS NOG ONDER CONSTRUCTIE
+		
 		String geselecteerd = req.getParameter("radio");
 		//if (req.getParameter("overzicht") == null){
 			

@@ -32,8 +32,9 @@ public class BeoodelingAanmakenServlet extends HttpServlet {
 		Stage stage = null;
 		StageBedrijf bedr = null;
 		Leerling student = null;
-		StageBegeleider begeleider = (StageBegeleider) req.getSession().getAttribute("userobject");
-		
+		StageBegeleider begeleider = (StageBegeleider) req.getSession().getAttribute("userobject")
+				// alles wordt globaal aangremaakt
+		// hieronder staat de stuk om een leerling te selecteren
 //		if(req.getParameter("initLeerling") != null){
 			ArrayList<Leerling> leerlingen = new ArrayList<Leerling>();
 			Objectify ofy = ObjectifyService.begin();
@@ -42,11 +43,12 @@ public class BeoodelingAanmakenServlet extends HttpServlet {
 			req.setAttribute("studenten", leerlingen);
 			
 //		}
+			// als er stage is geselcteerd moet onderstaande worcden uitgevoerd
 		if(req.getParameter("initStage") != null){
 			
 			
 		}
-		
+		// als de beoordeling is aangemaakt is komt dit onderstaande stuk
 		if(req.getParameter("create") != null){
 			
 			

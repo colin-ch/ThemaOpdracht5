@@ -68,9 +68,10 @@ public class BeoordeelServlet extends HttpServlet {
 		ArrayList<Integer> waardesl = new ArrayList<Integer>();
 		ArrayList<Integer> waardesIDs = new ArrayList<Integer>();
 		ArrayList<Integer> ints = new ArrayList<Integer>();
-		
+		// alles wordt aangemaakt
 			ArrayList<Stage> allStages = (ArrayList<Stage>) stod.getAllStages() ;
 			
+			// inde volgende stuk wordt gekeken naar wie de leerling is en welke beoordeling hij meot doen (daar is nog geen datum van)
 			if (req.getParameter("Opslaan") != null){
 				log.info("knop opslaan");
 				for (Stage s : allStages) {
@@ -131,6 +132,7 @@ public class BeoordeelServlet extends HttpServlet {
 								if(req.getParameter("opmerking").equals("")){
 									rate.setOpmerking("geen opmerking");
 								}
+								// alles wordt buiten de arraylist gewijzigd
 								log.info(rate.getOpmerking());
 								Date d = new Date();
 								String datum = d.toString();
@@ -142,7 +144,7 @@ public class BeoordeelServlet extends HttpServlet {
 						}
 					}
 					
-					
+					// er wordt een message meegegeven
 					
 					String msgs = "<h4 class='alert_success'>U heeft de beoordeling successvol ingevuld.</h4>";
 		
