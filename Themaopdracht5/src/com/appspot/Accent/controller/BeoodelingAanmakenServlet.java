@@ -32,7 +32,7 @@ public class BeoodelingAanmakenServlet extends HttpServlet {
 		Stage stage = null;
 		StageBedrijf bedr = null;
 		Leerling student = null;
-		StageBegeleider begeleider = (StageBegeleider) req.getSession().getAttribute("userobject")
+		StageBegeleider begeleider = (StageBegeleider) req.getSession().getAttribute("userobject");
 				// alles wordt globaal aangremaakt
 		// hieronder staat de stuk om een leerling te selecteren
 //		if(req.getParameter("initLeerling") != null){
