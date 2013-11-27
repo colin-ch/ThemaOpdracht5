@@ -33,7 +33,7 @@ public class BeoodelingAanmakenServlet extends HttpServlet {
 		StageBedrijf bedr = null;
 		Leerling student = null;
 		StageBegeleider begeleider = (StageBegeleider) req.getSession().getAttribute("userobject");
-				// alles wordt globaal aangremaakt
+				// alles wordt globaal aangemaakt
 		// hieronder staat de stuk om een leerling te selecteren
 //		if(req.getParameter("initLeerling") != null){
 			ArrayList<Leerling> leerlingen = new ArrayList<Leerling>();

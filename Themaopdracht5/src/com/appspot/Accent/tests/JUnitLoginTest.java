@@ -1,21 +1,8 @@
 package com.appspot.Accent.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
-import com.appspot.Accent.model.Leerling;
-import com.appspot.Accent.model.service.DocentOfyDAOImpl;
-import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
-import com.appspot.Accent.model.service.StageBedrijfOfyDAOImpl;
-import com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl;
-import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
-import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
-import com.googlecode.objectify.Objectify;
-import com.googlecode.objectify.ObjectifyService;
 //imports van de JUnit test
 public class JUnitLoginTest {
-	private final LocalServiceTestHelper helper =
+	/*private final LocalServiceTestHelper helper =
 	        new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
 
 	    @Before
@@ -77,9 +64,9 @@ public class JUnitLoginTest {
 		} 
 		catch (Exception e) {
 			fail("Exception login");
-		}*/
+		}
 
 	}
-
+*/
 }
 
