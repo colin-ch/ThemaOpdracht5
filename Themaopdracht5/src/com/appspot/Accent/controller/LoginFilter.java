@@ -10,7 +10,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import com.appspot.Accent.model.Docent;
 import com.appspot.Accent.model.Leerling;
+import com.appspot.Accent.model.StageBedrijf;
 import com.appspot.Accent.model.StageBegeleider;
 
 
@@ -40,6 +42,25 @@ public class LoginFilter implements Filter {
 				
 				
 			}
+			
+			if(o instanceof Docent){
+				if(reqUrl.equals(schermX)||reqUrl.equals(schermY)){
+					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
+					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
+					
+				}
+				
+				
+			}
+			if(o instanceof StageBedrijf){
+				if(reqUrl.equals(schermX)||reqUrl.equals(schermY)){
+					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
+					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
+					
+				}
+				
+				
+			}
 			if(o instanceof StageBegeleider){
 				if(reqUrl.equals(schermX)|| reqUrl.equals(schermY)){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
@@ -51,6 +72,7 @@ public class LoginFilter implements Filter {
 		}
 	}
 		
+	
 		
 		
 		
