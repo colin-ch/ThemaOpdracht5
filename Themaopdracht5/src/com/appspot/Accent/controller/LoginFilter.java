@@ -10,21 +10,52 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import com.appspot.Accent.model.Leerling;
+import com.appspot.Accent.model.StageBegeleider;
+
+
 public class LoginFilter implements Filter {
 	public void init(FilterConfig arg0) throws ServletException {
 	}
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest r2 = (HttpServletRequest) req;
 		Object o = r2.getSession().getAttribute("userobject");
-		// als de gebruiker als een object is ingelogd (een leerling begeleider opleider of  docent) staat dit bekend in de session
+		
+		String schermX = "http://project-omega.appspot.com/#";
+		String schermY = "http://project-omega.appspot.com/#";
+
+
 		if (o == null) {
-			req.setAttribute("msg", "<br/><br/>U moet ingelogd zijn om deze pagina te kunnen bekijken");
-			r2.getRequestDispatcher("/login.jsp").forward(req, resp);
+			req.setAttribute("msgs", "U moet ingelogd zijn om deze site te gebruiken");
+			r2.getRequestDispatcher("/loginpage.jsp").forward(req, resp);
 		} else {
+			String reqUrl =	r2.getRequestURL().toString();
+			
+			if(o instanceof Leerling){
+				if(reqUrl.equals(schermX)||reqUrl.equals(schermY)){
+					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
+					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
+					
+				}
+				
+				
+			}
+			if(o instanceof StageBegeleider){
+				if(reqUrl.equals(schermX)|| reqUrl.equals(schermY)){
+					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
+					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
+				}
+				
+			}
 			chain.doFilter(req, resp);
 		}
 	}
-
+		
+		
+		
+		
+		
+	
 	public void destroy() {
 	}
 }
