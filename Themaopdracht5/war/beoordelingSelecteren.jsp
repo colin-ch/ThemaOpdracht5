@@ -20,8 +20,30 @@
 				<h3>Selecteer beoordeling</h3>
 			</header>
 			<div class="module_content">
+			<%@ page import="java.util.*"%>
+				<%@ page import="com.appspot.Accent.model.*"%>
+				<%@ page import="com.appspot.Accent.model.service.*"%>
+				
 				<form action='BeoordelingOphalenServlet.do' method='GET' >
 				
+				<%
+				out.println("<select>");
+				String geselecteerd = getServletContext().getAttribute("geselecteerd").toString();
+				BeoordelingOfyDAOImpl b = new BeoordelingOfyDAOImpl();
+				StageOfyDAOImpl s = new StageOfyDAOImpl();
+				for(Stage st : s.getAllStages()){
+					if(st.getDeLeerling().equals(geselecteerd)){
+						for(Beoordeling be : st.getBeoordelingen()){
+							out.println("<option value='"+ be.getDatum() +"'>" + be.getDatum() + "</option");
+						}
+					}
+				}
+							
+				out.println("</select>");
+				out.println("</form>");
+				
+				
+				%>
 				<br/>
 				<input type='submit' value='overzicht'>
 				</form>
