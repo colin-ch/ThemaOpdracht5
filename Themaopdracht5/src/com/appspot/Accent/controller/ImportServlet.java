@@ -6,7 +6,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -33,40 +37,101 @@ public class ImportServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException{
 		ServletFileUpload upload = new ServletFileUpload();
 		RequestDispatcher rd = null;
+		
+		LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
+		
+		int teller = 0;
 		try {
 			FileItemIterator fii = upload.getItemIterator(req);
 			while (fii.hasNext()){
 				FileItemStream item = fii.next();
 				InputStream stream = item.openStream();
 				if (item.isFormField()){
-					log.info("item is een formfield: " + item.getFieldName());
+					//log.info("item is een formfield: " + item.getFieldName());
 				} else {
-					log.info("Bestand: " + item.getName());
+					//log.info("Bestand: " + item.getName());
 					StringWriter writer = new StringWriter();
 					IOUtils.copy(stream, writer, "UTF-8");
 					String output = writer.toString();
 					log.info("Input file =" + output);
 					BufferedReader br = new BufferedReader(new StringReader(output));
 					String s = "";
-					LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
+					
 					ArrayList<Leerling>leerlingen = (ArrayList<Leerling>) lod.getAllLeerlingen();
 					while ((s = br.readLine()) != null){
-						Scanner sc = new Scanner(s);
-						/*sc.useDelimiter(", ");
-						String un = sc.next();
-						String ww = sc.next();
-						String em = sc.next();
-						String ac = sc.next();
-						String da = sc.next();
-						long dalo = Long.parseLong(da);
-						String ga = sc.next();
-						boolean g = Boolean.parseBoolean(ga);
-						String ro = sc.next();
-						int rol   = Integer.parseInt(ro);*/
-						log.info(s);
-						sc.close();
-						//LocalUser lu = new LocalUser(un, ww, em, ac, dalo, g, rol);
-						
+						teller++;
+						if(teller != 1){
+							Scanner sc = new Scanner(s);
+							sc.useDelimiter(";");
+							String volgnrKlas = sc.next();
+							String klasAanmelding = sc.next();
+							String cAanmeldingKlasMentor1 = sc.next();
+							String cAanmeldingKlasMentor2 = sc.next();
+							String stamnr = sc.next();
+							String roepnaam = sc.next();
+							String tussenvoegsel = sc.next();
+							String achternaam = sc.next();
+							String leerling = sc.next();
+							String begin = sc.next();
+							String geplandeinde = sc.next();
+							String werkelijk = sc.next();
+							String leeftijdLeerling = sc.next();
+							String gebDat = sc.next();
+							Date gebDate = null;
+							
+							int length = gebDat.length();
+							try {
+								if(length >= 10){
+									gebDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).parse(gebDat);
+								}
+								else{
+									gebDate = new SimpleDateFormat("dd-M-yyyy", Locale.ENGLISH).parse(gebDat);
+								}
+							} catch (ParseException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							String codeStageBedrijf = sc.next();
+							String nmStageBedrijf = sc.next();
+							String plaatsStageBedrijf = sc.next();
+							String praktijkOpleider = sc.next();
+							String codePraktijkbegleider = sc.next();
+							String praktijkBegeleider = sc.next();
+							String maVrij = sc.next();
+							String diVrij = sc.next();
+							String woVrij = sc.next();
+							String doVrij = sc.next();
+							String vrVrij = sc.next();
+							String zaVrij = sc.next();
+							String stageDagenVrijevelden = sc.next();
+							String verwerktIn = sc.next();
+							String succesvol = sc.next();
+							String status = sc.next();
+							String StageType = sc.next();
+							String typebedrijfStageBedrijf = sc.next();
+							String printdatumIdsbll = sc.next();
+							String inleverdatumsIdbll = sc.next();
+							String ondertekendIdsbll = sc.next();
+							String StatusIdsbll = sc.next();
+							String PBerVrijevelden = sc.next();
+							String dagenperweek = sc.next();
+							String BedragStagebedrijfVrijeveldenBedrijf = sc.next();
+							String StageVergoedingStagebedrijfvrijeveldenBedrijf = sc.next();
+							String opleiding = sc.next();
+							String BedragStageBedrijf = sc.next();
+							String BankrekeningLeerling = sc.next();
+							String GiroLeerling = sc.next();
+							String emailLeerling = sc.next();
+							String SBO2INVrijeveldenBPV = sc.next();
+							String SBODigitaalVrijevelden = sc.next();
+							
+							lod.createLeerling("username", "password", emailLeerling, roepnaam, tussenvoegsel +" "+achternaam, gebDate, klasAanmelding, praktijkBegeleider);
+							log.info("leerlingen geimporteerd.");
+							sc.close();
+						}
+						else{
+							log.info("Eerste rij informatie");
+						}
 					}
 					rd = req.getRequestDispatcher("index.jsp");
 				}
