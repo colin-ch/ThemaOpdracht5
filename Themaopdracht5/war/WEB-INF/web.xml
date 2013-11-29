@@ -15,6 +15,24 @@
 		<servlet-name>RegisterServlet</servlet-name>
 		<url-pattern>/RegisterServlet.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Export Servlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.ExportServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Export Servlet</servlet-name>
+		<url-pattern>/Userlijst.zip</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Import Servlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.ImportServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Import Servlet</servlet-name>
+		<url-pattern>/Importeer.do</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>OverzichtServlet</servlet-name>
