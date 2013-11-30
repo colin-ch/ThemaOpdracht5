@@ -52,10 +52,10 @@ public class UserContextListener implements ServletContextListener {
 		Stage stage = new Stage(1, u.getUsername(), stagebeg.getEmail(), opleider.getNaam(), bedrijf1.getUsername(), date, date);
 		Docent d = new Docent("docent", "pass", "email@gmail.com");
 		Stelling stelling1 = new Stelling(1, "de leerling gedraagt zich zo dat samenwerking makkelijk gaat", "1", 1);
-		Stelling stelling2 = new Stelling(1, "De leerling past zich aan de groep aan", null, 2);
-		Stelling stelling3 = new Stelling(1, "De leerling houdt zich aan de regels van het bedrijf",null, 3);
-		Stelling stelling4 = new Stelling(2, "de leerling luister naar een ander", null, 4);
-		Stelling stelling5 = new Stelling(2, "de leerling laat de ander uitpraten", null, 5);
+		Stelling stelling2 = new Stelling(1, "De leerling past zich aan de groep aan", "1", 2);
+		Stelling stelling3 = new Stelling(1, "De leerling houdt zich aan de regels van het bedrijf","1", 3);
+		Stelling stelling4 = new Stelling(2, "de leerling luister naar een ander", "1", 4);
+		Stelling stelling5 = new Stelling(2, "de leerling laat de ander uitpraten", "1", 5);
 		
 		
 		
@@ -98,7 +98,7 @@ public class UserContextListener implements ServletContextListener {
 		
 		// alle objecten worden in de datastore gezet
 		
-/*		ofy.put(u);
+/*	ofy.put(u);
 		ofy.put(d);
 		ofy.put(stagebeg);
 		ofy.put(bedrijf1);
@@ -112,7 +112,7 @@ public class UserContextListener implements ServletContextListener {
 		ofy.put(nr1);
 		ofy.put(nr2);
 		ofy.put(b);
-		*/
+		*/	
 /*		LeerlingOfyDAO lu3 = new LeerlingOfyDAOImpl();
 		System.out.println("alle leerlingen " + lu3.getAllLeerlingen());	
 		

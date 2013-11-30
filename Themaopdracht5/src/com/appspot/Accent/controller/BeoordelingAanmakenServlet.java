@@ -10,12 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.appspot.Accent.model.Competentie;
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.StageBedrijf;
 import com.appspot.Accent.model.StageBegeleider;
+import com.appspot.Accent.model.Stelling;
+import com.appspot.Accent.model.StellingBeoordeeld;
+import com.appspot.Accent.model.service.CompetentieOfyDAOImpl;
 import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
 import com.appspot.Accent.model.service.StageOfyDAOImpl;
+import com.appspot.Accent.model.service.StellingOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
@@ -34,6 +39,7 @@ public class BeoordelingAanmakenServlet extends HttpServlet {
 		StageBedrijf bedr = null;
 		Leerling student = null;
 		ArrayList<Stage> studentStages = new ArrayList<Stage>();
+		ofy = ObjectifyService.begin();
 
 		StageBegeleider begeleider = (StageBegeleider) req.getSession().getAttribute("userobject");
 				// alles wordt globaal aangemaakt
@@ -46,7 +52,8 @@ public class BeoordelingAanmakenServlet extends HttpServlet {
 			LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
 			leerlingen = (ArrayList < Leerling > ) lod.getAllLeerlingen();
 			req.setAttribute("studenten", leerlingen);
-			
+			rd = req.getRequestDispatcher("BeoordelingAanmaken.jsp");
+
 		}
 			// als er stage is geselcteerd moet onderstaande worcden uitgevoerd
 		if(req.getParameter("initStage") != null){
@@ -77,39 +84,69 @@ public class BeoordelingAanmakenServlet extends HttpServlet {
 				}
 			}
 			
-			
+			rd = req.getRequestDispatcher("BeoordelingAanmaken.jsp");
 			
 			req.setAttribute("stages", studentStages);
-			
 		}
 		
 		
 		
 		// als de beoordeling is aangemaakt is komt dit onderstaande stuk
 		if(req.getParameter("create") != null){
+			Objectify ofy = ObjectifyService.begin();
+
 			req.setAttribute("save", "yolo");
 			ArrayList<Stage> stages = new ArrayList<Stage>();
+			StageOfyDAOImpl sod = new StageOfyDAOImpl();
+			stages = (ArrayList < Stage > ) sod.getAllStages();
 			for (Stage s : stages){
+	
 				if(req.getParameter("stages").equals(""+ s.getId())){
-					stage =s;
+					stage = s;
 				}
 			}
 			ArrayList<Leerling> leerlingen = new ArrayList<Leerling>();
-			Objectify ofy = ObjectifyService.begin();
 			LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
 			leerlingen = (ArrayList < Leerling > ) lod.getAllLeerlingen();
+			CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
+			ArrayList<Competentie> competenties = (ArrayList < Competentie > ) cod.getAllCompetenties();
 			req.setAttribute("studenten", leerlingen);
+			req.setAttribute("competenties", competenties);
+			req.getSession().setAttribute("destage", stage);
 			
-			req.setAttribute("destage", stage);
+			rd = req.getRequestDispatcher("BeoordelingAanmaken.jsp");
+					}
+		
+		if(req.getParameter("save") != null){
+			String msgs = "<h4 class='alert_success'>U heeft succesvol een beoordeling gemaakt.</h4>";
 			
-			
-			// TODO: creeer een beoordeling vanuit de gegevens van beoordelingaanmaken.jsp
+			req.setAttribute("msgs", msgs);
+		Stage currentstage = (Stage) req.getSession().getAttribute("destage");
+		System.out.println(currentstage);
+			ArrayList<StellingBeoordeeld> stelbeoordelen = new ArrayList<StellingBeoordeeld>();
+int destage = currentstage.getId();
+			CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
+			ArrayList<Competentie> competenties = (ArrayList < Competentie > ) cod.getAllCompetenties();
+			StellingOfyDAOImpl stod = new StellingOfyDAOImpl();
+			ArrayList<Stelling> stellingen = (ArrayList < Stelling > ) stod.getAllStellingen() ;
+			for(Competentie c : competenties){
+				if(req.getParameter("" + c.getEigenId()) != null){
+					String s2 = req.getParameter("radio"+ c.getEigenId());
+					for(Stelling s : stellingen){
+						System.out.println("s2=: " + s.getDeWaarde());
+						if(s.getEigenId() == c.getEigenId()){
+						if(s.getDeWaarde().equals(s2)){
+							StellingBeoordeeld x = new StellingBeoordeeld(null, s.getUniekID(), destage);
+							ofy.put(x);
+						}
+					}
+					}
+				}
+			}
+			rd = req.getRequestDispatcher("index.jsp");
 		}
 		
 		
-		
-		
-		rd = req.getRequestDispatcher("BeoordelingAanmaken.jsp");
 		rd.forward(req, resp);
 	}
 }

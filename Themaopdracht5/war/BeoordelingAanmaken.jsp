@@ -78,7 +78,7 @@
 				<%
 				Object initleerling = request.getAttribute( "initLeerling");
 				Object initStage = request.getAttribute( "initStage");
-				Object save = request.getAttribute( "save");
+				Object save = request.getAttribute("save");
 
 				if(initleerling != null){
 				ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
@@ -98,7 +98,7 @@
 						out.print(fluf); // sets the name
 						out.print(" </option> ");  // end of option */
 					}
-				out.println("<input type='submit' value='Opslaan' name='initStage'/>");
+				out.println("<input type='submit' value='Verder' name='initStage'/>");
 				}
 				
 				if(initStage != null){
@@ -112,30 +112,35 @@
 							out.println(" <option value='"+  fluf.getId() + "'/>") ;
 						}
 						out.println(" </datalist>");
-							/* 
-							out.print("	<option value= '"); //first part of <option>
-							out.print(i); // gives the "value" 
-							out.print(" '>"); // end of first tag
-							out.print(fluf); // sets the name
-							out.print(" </option> ");  // end of option */
+							
 						}
-					out.println("<input type='submit' value='Opslaan' name='save'/>");
+					out.println("<input type='submit' value='Verder' name='create'/>");
 					}
+				
+				
 				if(save != null){
 					Leerling student = null;
-					Stage stage =(Stage) request.getAttribute("destage");
+					Stage stage =(Stage) request.getSession().getAttribute("destage");
 					ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
+					
 					for(Leerling l: array){
 						if(stage.getDeLeerling().equals(l.getUsername())){
 							student = l;
 						}
 					}
+					 	 
+					out.print("<label class='nameclass'>De Leerling:</label><label class='inputclass'>" + student.getRoepnaam() + " " + student.getAchternaam()+ "</label><br/>"); 
+					out.print("<label class='nameclass'>Stage ID:</label><label class='inputclass'>" + stage.getId() +"</label><br/>"); 
+					out.print("<label class='nameclass'>Stage bedrijf:</label><label class='inputclass'>" + stage.getHetBedrijf() +"</label><br/>"); 
+					out.print("<label class='nameclass'>Stage opleider:</label><label class='inputclass'>" + stage.getDeOpleider() +"</label><br/><br/>"); 
 					
-					out.print("<label class='nameclass'>De Leerling:</label><label class='inputclass'>" + student.getRoepnaam() + " " + student.getAchternaam()+ "</label>"); 
-					out.print("<label class='nameclass'>Stage ID:</label><label class='inputclass'>" + stage.getId() +"</label>"); 
-					out.print("<label class='nameclass'>Stage bedrijf:</label><label class='inputclass'>" + stage.getHetBedrijf() +"</label>"); 
-					out.print("<label class='nameclass'>Stage begeleider:</label><label class='inputclass'>" + stage.getId() +"</label>"); 
+					ArrayList<Competentie> competenties = (ArrayList<Competentie>) request.getAttribute("competenties");
 					
+					for(Competentie c : competenties){
+						out.print("<input type='checkbox' name='"+ c.getEigenId() +"' value='"+ c.getEigenId() +"'/><label class='competentieclass'>"+ c.getTitel() +"</label><input type='radio' name='radio"+c.getEigenId()+"' value='1'/><input type='radio' name='radio"+c.getEigenId()+"' value='2'/><input type='radio' name='radio"+c.getEigenId()+"' value='3'/><br/> ");
+					}
+					out.println("<input type='submit' value='Beoordeling Opslaan' name='save'/>");
+
 					
 				}
 				

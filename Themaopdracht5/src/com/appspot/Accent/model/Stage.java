@@ -1,11 +1,12 @@
 package com.appspot.Accent.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Id;
 
-public class Stage {
+public class Stage implements Serializable {
 	@Id Long id;
 private int eigenid;	
 private String deLeerling;
