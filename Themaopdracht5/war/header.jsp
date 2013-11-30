@@ -35,7 +35,7 @@
 		<hr />
 		<h3>Competenties</h3>
 		<ul class="toggle">
-			<li class="icn_new_article"><a href="#">Nieuwe competentie
+			<li class="icn_new_article"><a href="/BeoordelingAanmakenServlet.do?initLeerling=initLeerling">Nieuwe competentie
 					missing</a></li>
 			<li class="icn_edit_article"><a href="/BeoordeelServlet.do">Beoordelen</a></li>
 			<li class="icn_categories"><a href="#">Competenties bekijken

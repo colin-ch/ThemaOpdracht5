@@ -18,12 +18,12 @@ import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
-public class BeoodelingAanmakenServlet extends HttpServlet {
+public class BeoordelingAanmakenServlet extends HttpServlet {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final Logger log = Logger.getLogger(BeoodelingAanmakenServlet.class.getName());
+	private static final Logger log = Logger.getLogger(BeoordelingAanmakenServlet.class.getName());
 	private Objectify ofy;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -35,14 +35,14 @@ public class BeoodelingAanmakenServlet extends HttpServlet {
 		StageBegeleider begeleider = (StageBegeleider) req.getSession().getAttribute("userobject");
 				// alles wordt globaal aangemaakt
 		// hieronder staat de stuk om een leerling te selecteren
-//		if(req.getParameter("initLeerling") != null){
+		if(req.getParameter("initLeerling") != null){
 			ArrayList<Leerling> leerlingen = new ArrayList<Leerling>();
 			Objectify ofy = ObjectifyService.begin();
 			LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
 			leerlingen = (ArrayList < Leerling > ) lod.getAllLeerlingen();
 			req.setAttribute("studenten", leerlingen);
 			
-//		}
+		}
 			// als er stage is geselcteerd moet onderstaande worcden uitgevoerd
 		if(req.getParameter("initStage") != null){
 			

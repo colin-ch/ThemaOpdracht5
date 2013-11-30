@@ -83,6 +83,16 @@
 		<servlet-name>BeoordelingOphalenServlet</servlet-name>
 		<url-pattern>/BeoordelingOphalenServlet.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>BeoordelingAanmakenServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.BeoordelingAanmakenServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BeoordelingAanmakenServlet</servlet-name>
+		<url-pattern>/BeoordelingAanmakenServlet.do</url-pattern>
+	</servlet-mapping>
 
 	<filter>
 		<filter-name>LoginFilter</filter-name>
