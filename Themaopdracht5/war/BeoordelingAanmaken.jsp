@@ -74,8 +74,13 @@
 	<%@ page import="com.appspot.Accent.model.Leerling" %>
 	<%@ page import="java.util.ArrayList" %>
 				
-				<form action="/BeoordeelServlet.do" methode="GET">
+				<form action="/BeoordelingAanmakenServlet.do" methode="GET">
 				<%
+				Object initleerling = request.getAttribute( "initLeerling");
+				Object initStage = request.getAttribute( "initStage");
+				Object save = request.getAttribute( "save");
+
+				if(initleerling != null){
 				ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
 				out.println("<input list='leerlingen' name='leerlingen'>");//lijst van leerlingen wordt aangemaakt
 				out.println("<datalist id='leerlingen'>");
@@ -83,7 +88,6 @@
 					for (int i = 0; i < array.size(); i++) {
 
 						Leerling fluf = array.get(i);
-						String Knummer = fluf.getRoepnaam() + " " + fluf.getAchternaam();
 						out.println(" <option value='"+  fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "'/>") ;
 					}
 					out.println(" </datalist>");
@@ -94,10 +98,49 @@
 						out.print(fluf); // sets the name
 						out.print(" </option> ");  // end of option */
 					}
-		
+				out.println("<input type='submit' value='Opslaan' name='initStage'/>");
+				}
+				
+				if(initStage != null){
+					ArrayList<Stage> array = (ArrayList<Stage>) request.getAttribute("stages"); //alle stages worden opgehaald
+					out.println("<input list='stages' name='stages'>");//lijst van stages wordt aangemaakt
+					out.println("<datalist id='stages'>");
+					if (array != null) {
+						for (int i = 0; i < array.size(); i++) {
+
+							Stage fluf = array.get(i);
+							out.println(" <option value='"+  fluf.getId() + "'/>") ;
+						}
+						out.println(" </datalist>");
+							/* 
+							out.print("	<option value= '"); //first part of <option>
+							out.print(i); // gives the "value" 
+							out.print(" '>"); // end of first tag
+							out.print(fluf); // sets the name
+							out.print(" </option> ");  // end of option */
+						}
+					out.println("<input type='submit' value='Opslaan' name='save'/>");
+					}
+				if(save != null){
+					Leerling student = null;
+					Stage stage =(Stage) request.getAttribute("destage");
+					ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
+					for(Leerling l: array){
+						if(stage.getDeLeerling().equals(l.getUsername())){
+							student = l;
+						}
+					}
+					
+					out.print("<label class='nameclass'>De Leerling:</label><label class='inputclass'>" + student.getRoepnaam() + " " + student.getAchternaam()+ "</label>"); 
+					out.print("<label class='nameclass'>Stage ID:</label><label class='inputclass'>" + stage.getId() +"</label>"); 
+					out.print("<label class='nameclass'>Stage bedrijf:</label><label class='inputclass'>" + stage.getHetBedrijf() +"</label>"); 
+					out.print("<label class='nameclass'>Stage begeleider:</label><label class='inputclass'>" + stage.getId() +"</label>"); 
+					
+					
+				}
+				
 				%>
 				
-				<input type="submit" value="Opslaan" name="initStage"/>
 				</form>
 			
 					</div>
