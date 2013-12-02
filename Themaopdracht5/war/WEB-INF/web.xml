@@ -17,6 +17,16 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>GebruikerAanmakenServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.GebruikerAanmakenServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>GebruikerAanmakenServlet</servlet-name>
+		<url-pattern>/GebruikerAanmaken.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>Export Servlet</servlet-name>
 		<servlet-class>com.appspot.Accent.controller.ExportServlet</servlet-class>
 	</servlet>
