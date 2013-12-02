@@ -30,7 +30,7 @@
 					<%@ page import="com.appspot.Accent.model.*"%>
 					<%@ page import="com.appspot.Accent.model.service.*"%>
 					<%
-                            	Object user = session.getAttribute("userobject");//haalt huidige ingelogde gebruiker op
+                            	Object users = session.getAttribute("userobject");//haalt huidige ingelogde gebruiker op
                             	StageOfyDAOImpl st = new StageOfyDAOImpl();
                             	LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
                         		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
@@ -39,9 +39,9 @@
                         		
                         		if(user instanceof Leerling){ //kijkt of ingelogde gebruiker een leerling is
                         			for(Leerling le : l.getAllLeerlingen()){
-                        				String naam = ((Leerling) user).getUsername();
+                        				String name = ((Leerling) user).getUsername();
                         				String pass = ((Leerling) user).getPassword();
-                        				if(naam.equals(le.getUsername()) && pass.equals(le.getPassword())){//print alleen de leerling zelf uit met radio button
+                        				if(name.equals(le.getUsername()) && pass.equals(le.getPassword())){//print alleen de leerling zelf uit met radio button
                         					out.println("<input type='radio' name='radio' value='"+ naam +"'>"+ naam +" "+ ((Leerling) user).getEmail() +" "+ ((Leerling) user).getKlas() +" "+ ((Leerling) user).getBegeleider()+"<br/>");
                         				}
                         			}
