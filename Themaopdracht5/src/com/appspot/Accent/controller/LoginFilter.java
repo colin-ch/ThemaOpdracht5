@@ -29,7 +29,7 @@ public class LoginFilter implements Filter {
 
 		if (o == null) {
 			req.setAttribute("msgs", "U moet ingelogd zijn om deze site te gebruiken");
-			r2.getRequestDispatcher("/loginpage.jsp").forward(req, resp);
+			r2.getRequestDispatcher("/login.jsp").forward(req, resp);
 		} else {
 			String reqUrl =	r2.getRequestURL().toString();
 			

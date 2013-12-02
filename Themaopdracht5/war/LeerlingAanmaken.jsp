@@ -23,7 +23,7 @@
 			<%@ page import="com.appspot.Accent.model.StageBegeleider" %>
 			<%@ page import="com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl" %>
 			<%@ page import="java.util.ArrayList" %>
-			<form action="/LeerlingAanmaken.do" method="get">
+			<form action="/GebruikerAanmaken.do" method="get">
 				Inlognaam van de leerling
 				<input type="text" name="username" placeholder="inlognaam"><br/>
 				Wachtwoord van de leerling
@@ -47,12 +47,12 @@
 				else{
 					out.println("Error") ;
 				} %>
-				</br>Geboortedatum van de leerling
+				Geboortedatum van de leerling
 				<input type="date" name="gebdat" placeholder="Geboortedatum"><br/>
 				Roepnaam van de leerling
-				<input type="date" name="roepnaam" placeholder="Roepnaam"><br/>
+				<input type="text" name="roepnaam" placeholder="Roepnaam"><br/>
 				Achternaam van de leerling
-				<input type="date" name="achternaam" placeholder="Achternaam"><br/>
+				<input type="text" name="achternaam" placeholder="Achternaam"><br/>
 				<input type="submit" value="Maak leerling aan" name="leerling">
 			</form>	
 			</div>

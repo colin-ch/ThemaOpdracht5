@@ -23,10 +23,8 @@
 			<%@ page import="com.appspot.Accent.model.StageBegeleider" %>
 			<%@ page import="com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl" %>
 			<%@ page import="java.util.ArrayList" %>
-			<input type="button" value="LeerlingAanmaken.jsp">Maak een leerling aan</button>
-			<input type="button" value="LeerlingAanmaken.jsp">Maak een leerling aan</button>
-			<input type="button" value="LeerlingAanmaken.jsp">Maak een leerling aan</button>
-			<input type="button" value="LeerlingAanmaken.jsp">Maak een leerling aan</button>
+			<button><a href="/LeerlingAanmaken.jsp">Maak een leerling aan</a></button>
+			
 			</div>
 		</article>
 		<!-- end of styles article -->
