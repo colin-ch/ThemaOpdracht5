@@ -11,19 +11,20 @@
 	<%@ include file="header.jsp"%>
 	<section id="main" class="column"
 		style="min-width: 1110px; min-height: 600px !important;">
-		<h4 class="alert_info">Welkom, dit is het competentie
-			beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
 
 		<% Object msgs=request.getAttribute( "msgs"); if (msgs !=null) { out.println(msgs); } %>
 		<article class="module width_full">
 			<header>
-				<h3>Leerling aanmaken</h3>
+				<h3>Gebruiker aanmaken</h3>
 			</header>
 			<div class="module_content">
 			<%@ page import="com.appspot.Accent.model.StageBegeleider" %>
 			<%@ page import="com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl" %>
 			<%@ page import="java.util.ArrayList" %>
 			<button><a href="/LeerlingAanmaken.jsp">Maak een leerling aan</a></button>
+			<button><a href="#">Maak een docent aan</a></button>
+			<button><a href="#">Maak een stagebegeleider aan</a></button>
+			<button><a href="#">Maak een stagebedrijf aan</a></button>
 			
 			</div>
 		</article>
