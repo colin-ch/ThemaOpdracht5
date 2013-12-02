@@ -11,8 +11,13 @@
 	<%@ include file="header.jsp"%>
 	<section id="main" class="column"
 		style="min-width: 1110px; min-height: 600px !important;">
-
-		<% Object msgs=request.getAttribute( "msgs"); if (msgs !=null) { out.println(msgs); } %>
+		<% 
+		Object msgs=request.getAttribute( "msgs"); 
+		if (msgs !=null) { 
+			out.println("<h4 class='alert_info'>"+msgs+"</h4>"); 
+		} 
+		%>
+		
 		<article class="module width_full">
 			<header>
 				<h3>Selecteren gebruiker</h3>

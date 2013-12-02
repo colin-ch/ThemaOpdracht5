@@ -41,6 +41,7 @@ public class GebruikerAanmakenServlet extends HttpServlet {
 			String achter = req.getParameter("achternaam");
 			LeerlingOfyDAOImpl lop = new LeerlingOfyDAOImpl();
 			lop.createLeerling(inlog, wachtwoord, email, roep, achter, gebDate, klas, begeleiders);
+			req.setAttribute("msgs", "Er is een leerling aangemaakt");
 			rd = req.getRequestDispatcher("index.jsp");
 		}
 		

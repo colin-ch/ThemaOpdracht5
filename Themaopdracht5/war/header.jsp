@@ -12,7 +12,26 @@
 
 <section id="secondary_bar" style="min-width: 850px;">
 	<div class="user">
-		<p>Welkom, Cor Kok</p>
+	<%@ page import="com.appspot.Accent.model.*" %>
+	<%
+	
+	Object user = session.getAttribute("userobject");
+	String naam = "";
+	if(user instanceof Leerling){
+		naam = ((Leerling) user).getRoepnaam() +" " + ((Leerling) user).getAchternaam();
+	}
+	if(user instanceof Docent){
+		naam = ((Docent) user).getUsername();
+	}
+	if(user instanceof StageBedrijf){
+		naam = ((StageBedrijf) user).getUsername();
+	}
+	if(user instanceof StageBegeleider){
+		naam = ((StageBegeleider) user).getUsername();
+	}
+	
+	out.println("<p>"+ naam +"</p>"); 
+	%>
 		<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
 	</div>
 	<div class="breadcrumbs_container">
@@ -45,8 +64,7 @@
 		</ul>
 		<h3>Leerlingen</h3>
 		<ul class="toggle">
-			<li class="icn_add_user"><a href="#">Leerlingen toevoegen
-					missing</a></li>
+			<li class="icn_add_user"><a href="GebruikerAanmaken.jsp">Gebruikers toevoegen</a></li>
 			<li class="icn_view_users"><a href="overzichtgebruikers.jsp">Beoordelingen
 					bekijken</a></li>
 			<li class="icn_jump_back"><a href="/LogoutServlet.do">Loguit</a></li>

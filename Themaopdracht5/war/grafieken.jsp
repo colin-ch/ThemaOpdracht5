@@ -106,14 +106,12 @@
 
 	<section id="main" class="column"
 		style="min-width: 1110px; min-height: 600px !important;">
-
-		<h4 class="alert_info">Welkom, dit is het competentie
-			beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
-
-
-
-
-
+<% 
+		Object msgs=request.getAttribute( "msgs"); 
+		if (msgs !=null) { 
+			out.println("<h4 class='alert_info'>"+msgs+"</h4>"); 
+		} 
+		%>
 		<article class="module width_full">
 			<header>
 				<h3>Home</h3>
