@@ -14,22 +14,26 @@
 		<% 
 		Object msgs=request.getAttribute( "msgs"); 
 		if (msgs !=null) { 
-			out.println("<h4 class='alert_info'>"+msgs+"</h4>"); 
+			out.println(msgs); 
 		} 
 		%>
 		<article class="module width_full">
 			<header>
-				<h3>Gebruiker aanmaken</h3>
+				<h3>Docent aanmaken</h3>
 			</header>
 			<div class="module_content">
 			<%@ page import="com.appspot.Accent.model.StageBegeleider" %>
 			<%@ page import="com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl" %>
 			<%@ page import="java.util.ArrayList" %>
-			<button><a href="/LeerlingAanmaken.jsp">Maak een leerling aan</a></button>
-			<button><a href="/DocentAanmaken.jsp">Maak een docent aan</a></button>
-			<button><a href="/StageBegeleiderAanmaken.jsp">Maak een stagebegeleider aan</a></button>
-			<button><a href="/StagebedrijfAanmaken.jsp">Maak een stagebedrijf aan</a></button>
-			
+			<form action="/GebruikerAanmaken.do" method="get">
+				Inlognaam van de docent
+				<input type="text" name="username" placeholder="inlognaam"><br/>
+				Wachtwoord van de docent
+				<input type="text" name="wachtwoord" placeholder="Wachtwoord"><br/>
+				Email van de docent
+				<input type="email" name="email" placeholder="Email"><br/>
+				<input type="submit" value="Maak docent aan" name="docent">
+			</form>	
 			</div>
 		</article>
 		<!-- end of styles article -->

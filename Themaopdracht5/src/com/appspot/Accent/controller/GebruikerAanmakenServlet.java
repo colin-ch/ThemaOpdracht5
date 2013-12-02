@@ -12,17 +12,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.appspot.Accent.model.service.DocentOfyDAOImpl;
 import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
+import com.appspot.Accent.model.service.StageBedrijfOfyDAOImpl;
+import com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
 public class GebruikerAanmakenServlet extends HttpServlet {
-	private Objectify ofy;
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		RequestDispatcher rd = null;
-		ofy = ObjectifyService.begin();
 		
 		if(req.getParameter("leerling") != null){
 			String inlog = req.getParameter("username");
@@ -44,10 +45,40 @@ public class GebruikerAanmakenServlet extends HttpServlet {
 			req.setAttribute("msgs", "Er is een leerling aangemaakt");
 			rd = req.getRequestDispatcher("index.jsp");
 		}
+		if(req.getParameter("docent") != null){
+			String inlog = req.getParameter("username");
+			String wachtwoord = req.getParameter("wachtwoord");
+			String email = req.getParameter("email");
+			DocentOfyDAOImpl dop = new DocentOfyDAOImpl();
+			dop.createDocent(inlog, wachtwoord, email);
+			req.setAttribute("msgs", "Er is een docent aangemaakt");
+			rd = req.getRequestDispatcher("index.jsp");
+		}
+		if(req.getParameter("stagebegeleider") != null){
+			String inlog = req.getParameter("username");
+			String wachtwoord = req.getParameter("wachtwoord");
+			String email = req.getParameter("email");
+			StageBegeleiderOfyDAOImpl sbop = new StageBegeleiderOfyDAOImpl();
+			sbop.createBegeleider(inlog, wachtwoord, email);
+			req.setAttribute("msgs", "Er is een stagebegeleider aangemaakt");
+			rd = req.getRequestDispatcher("index.jsp");
+		}
+		if(req.getParameter("stagebedrijf") != null){
+			String inlog = req.getParameter("username");
+			String wachtwoord = req.getParameter("wachtwoord");
+			String email = req.getParameter("email");
+			String plaats = req.getParameter("plaats");
+			String code = req.getParameter("code");
+			StageBedrijfOfyDAOImpl stbop = new StageBedrijfOfyDAOImpl();
+			stbop.createStageBedrijf(inlog, wachtwoord, email, plaats, code);
+			req.setAttribute("msgs", "Er is een stagebegeleider aangemaakt");
+			rd = req.getRequestDispatcher("index.jsp");
+		}
 		
 		
 		else{
-			rd = req.getRequestDispatcher("login.jsp");
+			req.setAttribute("msgs", "<h4 class='alert_succes'>Error</h4>");
+			rd = req.getRequestDispatcher("index.jsp");
 		}
 		
 		

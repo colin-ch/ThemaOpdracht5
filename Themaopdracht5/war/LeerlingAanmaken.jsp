@@ -27,13 +27,13 @@
 			<%@ page import="java.util.ArrayList" %>
 			<form action="/GebruikerAanmaken.do" method="get">
 				Inlognaam van de leerling
-				<input type="text" name="username" placeholder="inlognaam"><br/>
+				<input type="text" name="username" placeholder="inlognaam" required="required"><br/>
 				Wachtwoord van de leerling
-				<input type="text" name="wachtwoord" placeholder="Wachtwoord"><br/>
+				<input type="text" name="wachtwoord" placeholder="Wachtwoord" required="required"><br/>
 				Email van de leerling
-				<input type="text" name="email" placeholder="Email"><br/>
+				<input type="email" name="email" placeholder="Email" required="required"><br/>
 				Klas van de leerling
-				<input type="text" name="klas" placeholder="Klas"><br/>
+				<input type="text" name="klas" placeholder="Klas" required="required"><br/>
 				Naam van de begeleider van de leerling
 				<input list="begeleiders" name="begeleiders" placeholder="email begeleider"><br/>
 				<%
@@ -50,11 +50,11 @@
 					out.println("Error") ;
 				} %>
 				Geboortedatum van de leerling
-				<input type="date" name="gebdat" placeholder="Geboortedatum"><br/>
+				<input type="date" name="gebdat" placeholder="Geboortedatum" required="required"><br/>
 				Roepnaam van de leerling
-				<input type="text" name="roepnaam" placeholder="Roepnaam"><br/>
+				<input type="text" name="roepnaam" placeholder="Roepnaam" required="required"><br/>
 				Achternaam van de leerling
-				<input type="text" name="achternaam" placeholder="Achternaam"><br/>
+				<input type="text" name="achternaam" placeholder="Achternaam" required="required"><br/>
 				<input type="submit" value="Maak leerling aan" name="leerling">
 			</form>	
 			</div>
