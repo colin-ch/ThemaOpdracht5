@@ -1,156 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="com.appspot.Accent.model.StageOpleider" project="Themaopdracht5" 
-    file="/Themaopdracht5/src/com/appspot/Accent/model/StageOpleider.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="130" x="902" y="1345"/>    
+  <interface id="1" language="java" name="com.appspot.Accent.model.service.StageOfyDAO" project="Themaopdracht5" 
+    file="/Themaopdracht5/src/com/appspot/Accent/model/service/StageOfyDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1219" y="1001"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="2" language="java" name="com.appspot.Accent.model.service.StageBedrijfOfyDAOImpl" project="Themaopdracht5" 
+    file="/Themaopdracht5/src/com/appspot/Accent/model/service/StageBedrijfOfyDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="428" y="770"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.appspot.Accent.model.Competentie" project="Themaopdracht5" 
-    file="/Themaopdracht5/src/com/appspot/Accent/model/Competentie.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="216" x="568" y="1345"/>    
+  <interface id="3" language="java" name="com.appspot.Accent.model.service.LeerlingOfyDAO" project="Themaopdracht5" 
+    file="/Themaopdracht5/src/com/appspot/Accent/model/service/LeerlingOfyDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1631" y="1001"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="4" language="java" name="com.appspot.Accent.model.service.StageOfyDAOImpl" project="Themaopdracht5" 
+    file="/Themaopdracht5/src/com/appspot/Accent/model/service/StageOfyDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1219" y="770"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.appspot.Accent.model.Beoordeling" project="Themaopdracht5" 
-    file="/Themaopdracht5/src/com/appspot/Accent/model/Beoordeling.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="649" y="957"/>    
+  <class id="5" language="java" name="com.appspot.Accent.model.service.BeoordelingOfyDAOImpl" project="Themaopdracht5" 
+    file="/Themaopdracht5/src/com/appspot/Accent/model/service/BeoordelingOfyDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="822" y="770"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.appspot.Accent.model.Leerling" project="Themaopdracht5" 
+  <interface id="6" language="java" name="com.appspot.Accent.model.service.BeoordelingOfyDAO" project="Themaopdracht5" 
+    file="/Themaopdracht5/src/com/appspot/Accent/model/service/BeoordelingOfyDAO.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="822" y="1001"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="7" language="java" name="com.appspot.Accent.model.service.StageBedrijfOfyDAO" project="Themaopdracht5" 
+    file="/Themaopdracht5/src/com/appspot/Accent/model/service/StageBedrijfOfyDAO.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="428" y="1001"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="8" language="java" name="com.appspot.Accent.model.service.LeerlingOfyDAOImpl" project="Themaopdracht5" 
+    file="/Themaopdracht5/src/com/appspot/Accent/model/service/LeerlingOfyDAOImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1631" y="770"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.appspot.Accent.model.Leerling" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/Leerling.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="495" width="438" x="-129" y="810"/>    
+    <position height="-1" width="-1" x="1636" y="392"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.appspot.Accent.model.Docent" project="Themaopdracht5" 
-    file="/Themaopdracht5/src/com/appspot/Accent/model/Docent.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="158" x="370" y="810"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="com.appspot.Accent.model.Stage" project="Themaopdracht5" 
+  <class id="10" language="java" name="com.appspot.Accent.model.Stage" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/Stage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="574" y="605"/>    
+    <position height="-1" width="-1" x="1246" y="383"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="com.appspot.Accent.model.StageBegeleider" project="Themaopdracht5" 
-    file="/Themaopdracht5/src/com/appspot/Accent/model/StageBegeleider.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="203" x="-129" y="1345"/>    
+  <class id="11" language="java" name="com.appspot.Accent.model.Beoordeling" project="Themaopdracht5" 
+    file="/Themaopdracht5/src/com/appspot/Accent/model/Beoordeling.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="828" y="415"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="com.appspot.Accent.model.StageBedrijf" project="Themaopdracht5" 
+  <class id="12" language="java" name="com.appspot.Accent.model.StageBedrijf" project="Themaopdracht5" 
     file="/Themaopdracht5/src/com/appspot/Accent/model/StageBedrijf.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="245" x="766" y="810"/>    
+    <position height="443" width="273" x="304" y="204"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="com.appspot.Accent.model.School" project="Themaopdracht5" 
-    file="/Themaopdracht5/src/com/appspot/Accent/model/School.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="477" width="265" x="370" y="-80"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <association id="10">    
-    <bendpoint x="775" y="437"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="11" name="bedrijven"/>      
-      <multiplicity id="12" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="13">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="14" name="beoordelingen"/>      
-      <multiplicity id="15" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <realization id="13">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <realization id="14">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <realization id="15">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
   <association id="16">    
-    <bendpoint x="339" y="437"/>    
-    <bendpoint x="339" y="810"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="17" name="begeleiders"/>      
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="17" name="beoordelingen"/>      
       <multiplicity id="18" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="19">    
-    <bendpoint x="-120" y="437"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="20" name="leerlingen"/>      
-      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="22">    
-    <bendpoint x="379" y="437"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="23" name="docenten"/>      
-      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="25">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="26" name="opleiders"/>      
-      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="29" name="competenties"/>      
-      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="32" name="Stages"/>      
-      <multiplicity id="33" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <realization id="19">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
