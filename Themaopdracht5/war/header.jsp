@@ -65,8 +65,8 @@
 		<h3>Leerlingen</h3>
 		<ul class="toggle">
 			<li class="icn_add_user"><a href="GebruikerAanmaken.jsp">Gebruikers toevoegen</a></li>
-			<li class="icn_view_users"><a href="overzichtgebruikers.jsp">Beoordelingen
-					bekijken</a></li>
+			<li class="icn_view_users"><a href="overzichtgebruikers.jsp">Beoordelingen bekijken</a></li>
+			<li class="icn_view_users"><a href="StageAanmaken.jsp">Stage aanmaken</a></li>
 			<li class="icn_jump_back"><a href="/LogoutServlet.do">Loguit</a></li>
 		</ul>
 
