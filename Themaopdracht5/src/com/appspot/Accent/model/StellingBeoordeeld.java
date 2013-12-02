@@ -4,30 +4,37 @@ import javax.persistence.Id;
 
 public class StellingBeoordeeld {
 	@Id Long id;
-private String deWaarde;
+private String deWaardeStagebedrijf;
 private int uniekID;
 private int deStage;
+private String deWaardeLeerling;
 
 
-public StellingBeoordeeld(String val, int uniq, int destage){
+public StellingBeoordeeld(String val, String vall,  int uniq, int destage){
 	
-	deWaarde = val;
-	
+	deWaardeStagebedrijf = val;
+	deWaardeLeerling = vall;
 	uniekID = uniq;
 	deStage = destage;
 }
 public StellingBeoordeeld(){}
 
 
-public String getDeWaarde() {
-	return deWaarde;
+public String getDeWaardeStagebedrijf() {
+	return deWaardeStagebedrijf;
 }
 
 
-public void setDeWaarde(String deWaarde) {
-	this.deWaarde = deWaarde;
+public void setDeWaardeStagebedrijf(String deWaardeStagebedrijf) {
+	this.deWaardeStagebedrijf = deWaardeStagebedrijf;
 }
 
+public String getDeWaardeLeerling() {
+	return deWaardeLeerling;
+}
+public void setDeWaardeLeerling(String deWaardeLeerling) {
+	this.deWaardeLeerling = deWaardeLeerling;
+}
 public String toString(){
 	String s = "test";
 	return s;

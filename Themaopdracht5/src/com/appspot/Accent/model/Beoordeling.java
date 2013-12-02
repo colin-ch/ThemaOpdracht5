@@ -9,21 +9,19 @@ import com.googlecode.objectify.Objectify;
 
 
 public class Beoordeling {
-	private ArrayList<Competentie> competenties = new ArrayList<Competentie>();
-	
 	private ArrayList<Integer> deCompetenties = new ArrayList<Integer>();
-	private ArrayList<Integer> deWaardesLeerling = new ArrayList<Integer>();
-	private ArrayList<Integer> deIDsPerWaarde = new ArrayList<Integer>();
+	private ArrayList<Integer> stellingBeoordeeld = new ArrayList<Integer>();
 	@Id Long id;
+	private int stage;
 	private String datum;
 	private String opmerking;
 
-	public Beoordeling(String dt, String op, ArrayList c, ArrayList l, ArrayList w){
+	public Beoordeling(String dt, String op,int sta,  ArrayList c, ArrayList w){
 		datum = dt;
 		opmerking = op;
+		setStage(sta);
 		deCompetenties = c;
-		deWaardesLeerling = l;
-		deIDsPerWaarde = w;
+		stellingBeoordeeld = w;
 	}
 	public Beoordeling(){}
 	
@@ -51,18 +49,18 @@ public class Beoordeling {
 		this.opmerking = opmerking;
 	}
 
-	public ArrayList<Integer> getDeWaardesLeerling() {
-		return deWaardesLeerling;
+	public int getStage() {
+		return stage;
 	}
-
-	public void setDeWaardesLeerling(ArrayList<Integer> deWaardesLeerling) {
-		this.deWaardesLeerling = deWaardesLeerling;
+	public void setStage(int stage) {
+		this.stage = stage;
 	}
-	public ArrayList<Integer> getDeIDsPerWaarde() {
-		return deIDsPerWaarde;
+	
+	public ArrayList<Integer> getStellingBeoordeeld() {
+		return stellingBeoordeeld;
 	}
-	public void setDeIDsPerWaarde(ArrayList<Integer> deIDsPerWaarde) {
-		this.deIDsPerWaarde = deIDsPerWaarde;
+	public void setStellingBeoordeeld(ArrayList<Integer> stellingBeoordeeld) {
+		this.stellingBeoordeeld = stellingBeoordeeld;
 	}
 
 

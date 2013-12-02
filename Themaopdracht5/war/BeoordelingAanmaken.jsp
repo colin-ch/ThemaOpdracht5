@@ -57,9 +57,13 @@
 	
 	<section id="main" class="column"   style="min-width: 1110px; min-height: 600px!important;">
 		
-		<h4 class="alert_info">Welkom, dit is het competentie beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
-		
-		
+	
+		  <% 
+Object msgs = request.getAttribute("msgs");
+if (msgs != null) { 
+out.println(msgs);
+}
+%>
 		
 		
 		
@@ -82,7 +86,7 @@
 
 				if(initleerling != null){
 				ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
-				out.println("<input list='leerlingen' name='leerlingen'>");//lijst van leerlingen wordt aangemaakt
+				out.println("<input list='leerlingen' name='leerlingen' required>");//lijst van leerlingen wordt aangemaakt
 				out.println("<datalist id='leerlingen'>");
 				if (array != null) {
 					for (int i = 0; i < array.size(); i++) {
@@ -91,19 +95,14 @@
 						out.println(" <option value='"+  fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "'/>") ;
 					}
 					out.println(" </datalist>");
-						/* 
-						out.print("	<option value= '"); //first part of <option>
-						out.print(i); // gives the "value" 
-						out.print(" '>"); // end of first tag
-						out.print(fluf); // sets the name
-						out.print(" </option> ");  // end of option */
+				
 					}
 				out.println("<input type='submit' value='Verder' name='initStage'/>");
 				}
 				
 				if(initStage != null){
 					ArrayList<Stage> array = (ArrayList<Stage>) request.getAttribute("stages"); //alle stages worden opgehaald
-					out.println("<input list='stages' name='stages'>");//lijst van stages wordt aangemaakt
+					out.println("<input list='stages' name='stages' required>");//lijst van stages wordt aangemaakt
 					out.println("<datalist id='stages'>");
 					if (array != null) {
 						for (int i = 0; i < array.size(); i++) {

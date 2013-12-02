@@ -137,8 +137,7 @@ public class BeoordeelServlet extends HttpServlet {
 								Date d = new Date();
 								String datum = d.toString();
 								rate.setDatum(datum);
-								rate.setDeIDsPerWaarde(waardesIDs);
-								rate.setDeWaardesLeerling(waardesl);
+								rate.setStellingBeoordeeld(waardesIDs);
 								ofy.put(rate);
 							}	
 						}

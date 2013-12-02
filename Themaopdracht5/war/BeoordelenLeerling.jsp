@@ -59,11 +59,12 @@
 	<section id="main" class="column"
 		style="min-width: 1110px; min-height: 600px !important;">
 
-		<h4 class="alert_info">Welkom, dit is het competentie
-			beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
-
-
-
+		  <% 
+Object msgs = request.getAttribute("msgs");
+if (msgs != null) { 
+out.println(msgs);
+}
+%>
 
 
 		<article class="module width_full">
@@ -99,8 +100,11 @@
 
 				        if (s.getDeLeerling().equals(((Leerling) o).getUsername())) {//zoekt stage dmw van ingelogde gebruikersnaam te vergelijken met naam van leerling in stage
 				            for (Beoordeling be: beoordelingen) {//alle beoordelingen doorlopen
-
-				                if (be.getDatum() == null) {
+				              if(be.getStage() == s.getId()){
+				            	
+				            	
+				            	
+				            	if (be.getDatum() == null) {
 
 				                    ArrayList < Competentie > competenties = (ArrayList < Competentie > ) cod.getAllCompetenties();
 				                    int teller = 0;
@@ -136,21 +140,24 @@
 				                                if (waarde.equals("4")) {
 				                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>");
 				                                }
+				                               
+				                                out.println("eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
+				            					out.println("<input type='submit' value='Opslaan' name='Opslaan' />");
+
 				                            }
 				                            System.out.println("test");
 				                            
 				                        }
 				                    }
 				                }break;
+				             }
 				            }
 				        }
 				    }
 				}
-				out.println("eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
-				//opmerkingen veld
+				
 				%>
 
-					<input type="submit" value="Opslaan" name="Opslaan" />
 				</form>
 				<% 
 				Object msgs = request.getAttribute("msgs");

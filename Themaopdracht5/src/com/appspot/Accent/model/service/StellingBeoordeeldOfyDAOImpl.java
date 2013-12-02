@@ -46,8 +46,8 @@ public class StellingBeoordeeldOfyDAOImpl implements StellingBeoordeeldOfyDAO {
 		ofy.delete(s);
 	}
 	@Override
-	public void createStellingBeoordeeld(String wd, int uniek, int stage) {
-		ofy.put(new StellingBeoordeeld(wd, uniek, stage));
+	public void createStellingBeoordeeld(String wd, String wdl, int uniek, int stage) {
+		ofy.put(new StellingBeoordeeld(wd, wdl, uniek, stage));
 	}
 
 	@Override

@@ -66,8 +66,7 @@ public class OverzichtServlet extends HttpServlet{
 							
 							int teller1 = 0;
 							
-							ArrayList<Integer> waardes = b.getDeWaardesLeerling();
-							ArrayList<Integer> waardeIDs = b.getDeIDsPerWaarde();
+						
 							for (Stelling stel : stellingen){//alle stellingen worden doorlopen
 								for(StellingBeoordeeld sb : stellingenbeoordeeld){//alle stellingbeoordeeld worden doorlopen
 									if(sb.getDeStage() == st.getId()){//voor iedere stellingbeoordeeld wordt id van stage vergeleken. zo ja zet de waarde van stellingbeoordeeld
