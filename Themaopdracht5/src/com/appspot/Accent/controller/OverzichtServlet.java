@@ -16,6 +16,7 @@ import com.appspot.Accent.model.School;
 import com.appspot.Accent.model.Stage;
 import com.appspot.Accent.model.Stelling;
 import com.appspot.Accent.model.StellingBeoordeeld;
+import com.appspot.Accent.model.service.BeoordelingOfyDAOImpl;
 import com.appspot.Accent.model.service.StageOfyDAOImpl;
 import com.appspot.Accent.model.service.StellingBeoordeeldOfyDAOImpl;
 import com.appspot.Accent.model.service.StellingOfyDAOImpl;
@@ -36,6 +37,7 @@ public class OverzichtServlet extends HttpServlet{
 		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 		StellingBeoordeeldOfyDAOImpl sbd = new StellingBeoordeeldOfyDAOImpl();
 		StageOfyDAOImpl std = new StageOfyDAOImpl();
+		BeoordelingOfyDAOImpl bo = new BeoordelingOfyDAOImpl();
 		
 		ArrayList<Stage>stages = new ArrayList<Stage>();
 		stages = (ArrayList<Stage>) std.getAllStages();
@@ -43,7 +45,12 @@ public class OverzichtServlet extends HttpServlet{
 		stellingen = (ArrayList<Stelling>) sod.getAllStellingen();
 		ArrayList<StellingBeoordeeld> stellingenbeoordeeld = new ArrayList<StellingBeoordeeld>();
 		stellingenbeoordeeld = (ArrayList<StellingBeoordeeld>) sbd.getAllStellingenBeoordeeld();//alle stages, stellingbeoordeeld en stellingen worden opgehaald en in arraylists gezet
+		ArrayList<Beoordeling> allebeoordelingen = new ArrayList<Beoordeling>();
+		allebeoordelingen = (ArrayList<Beoordeling>) bo.getAllBeoordelingen();
+		
 		boolean succes = false;
+		
+		if(req.getParameter("geselecteerde") == null) {
 		
 		for(Stage st : stages){//doorloopt alle stages
 			log.info("1");
@@ -52,15 +59,16 @@ public class OverzichtServlet extends HttpServlet{
 				if (st.getDeLeerling().equals( ((Leerling) o).getUsername())){//zoekt stage dmv naam ingelogde te vergelijken met stage.getLeerling()
 			
 					log.info("1");
-					ArrayList<Beoordeling>beoordelingen = new ArrayList<Beoordeling>();
-					beoordelingen = st.getBeoordelingen();//alle beoordelingen voor die stage worden opgehaald
-					if(beoordelingen != null){
+					
+					
+					
+					if(bo.getBeoordelingen(st.getId()) != null){
 						log.info("2");
 						String bericht = "<select name='dropdown'>";//dropdown worden gemaakt
 					
 						int teller=0;
 						log.info("iets random");
-						for(Beoordeling b : beoordelingen){//alle beoordelingen worden doorlopen
+						for(Beoordeling b : bo.getBeoordelingen(st.getId())){//alle beoordelingen worden doorlopen
 							teller++;
 						
 							
@@ -71,7 +79,7 @@ public class OverzichtServlet extends HttpServlet{
 								for(StellingBeoordeeld sb : stellingenbeoordeeld){//alle stellingbeoordeeld worden doorlopen
 									if(sb.getDeStage() == st.getId()){//voor iedere stellingbeoordeeld wordt id van stage vergeleken. zo ja zet de waarde van stellingbeoordeeld
 										if(stel.getUniekID() == sb.getUniekID()){
-											stel.setDeWaarde(sb.getDeWaarde());
+											stel.setDeWaarde(sb.getDeWaardeLeerling());
 										}
 									}
 								
@@ -94,6 +102,15 @@ public class OverzichtServlet extends HttpServlet{
 			else{
 				req.setAttribute("msgs", "Er is nog geen stage bekend");
 			}
+		}
+		}
+		
+		if(req.getParameter("geselecteerde") != null){
+			
+			String geselecteerdeleerling = req.getParameter("geselecteerde");
+			
+			
+			succes = true;
 		}
 		RequestDispatcher rd = null;
 		

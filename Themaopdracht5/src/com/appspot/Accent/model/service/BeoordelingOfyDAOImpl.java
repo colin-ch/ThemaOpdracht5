@@ -38,6 +38,20 @@ public class BeoordelingOfyDAOImpl implements BeoordelingOfyDAO {
 	      }
 	      return result;
 	}
+	
+	@Override
+	public List<Beoordeling> getBeoordelingen(int id) {
+		  ArrayList<Beoordeling> result = new ArrayList<Beoordeling>();
+		  ArrayList<Beoordeling> beoordelingen = (ArrayList<Beoordeling>) getAllBeoordelingen();
+	      for (Beoordeling b : beoordelingen){
+	    	  if (b.getStage() == id){
+	    		  result.add(b);
+	    	  }
+	      }
+	      return result;
+	}
+	
+	
 	@Override
 	public void updateBeoordeling(Beoordeling b) {
 		// TODO Auto-generated method stub

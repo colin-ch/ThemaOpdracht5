@@ -15,7 +15,7 @@ private String deOpleider;
 private String hetBedrijf;
 private Date begindatum;
 private Date einddatum;
-private ArrayList<Beoordeling> beoordelingen = new ArrayList<Beoordeling>();
+
 
 
 public Stage(int idee, String lrl,String beg, String opl, String bedr, Date begin, Date eind){
@@ -79,14 +79,6 @@ public void setEinddatum(Date einddatum) {
 }
 
 
-public ArrayList<Beoordeling> getBeoordelingen() {
-	return beoordelingen;
-}
-
-
-public void setBeoordelingen(ArrayList<Beoordeling> beoordelingen) {
-	this.beoordelingen = beoordelingen;
-}
 
 
 public int getId() {

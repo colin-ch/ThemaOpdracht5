@@ -64,7 +64,7 @@ public class UserContextListener implements ServletContextListener {
 		ArrayList<Integer> array = new ArrayList<Integer>();
 		array.add(nr1.getEigenId());
 		array.add(nr2.getEigenId());
-		Beoordeling b = new Beoordeling(null, "opmerking", stage.getId(), array, null);
+		Beoordeling b = new Beoordeling(null, "opmerking", stage.getId(), array, null, null);
 	
 		
 		

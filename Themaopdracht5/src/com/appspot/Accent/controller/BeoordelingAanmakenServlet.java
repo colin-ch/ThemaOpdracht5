@@ -196,7 +196,7 @@ int destage = currentstage.getId();
 						if(s.getEigenId() == c.getEigenId()){
 						if(s.getDeWaarde().equals(s2)){
 							
-							StellingBeoordeeld x = new StellingBeoordeeld(null, s.getUniekID(), destage);
+							StellingBeoordeeld x = new StellingBeoordeeld(null, null, s.getUniekID(), destage);
 							ofy.put(x);
 							Beoordeling be = new Beoordeling(null, "nog niet gedaan",destage, c, l, w)
 						}

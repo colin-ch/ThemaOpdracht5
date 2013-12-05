@@ -22,6 +22,7 @@ public class Beoordeling {
 		setStage(sta);
 		deCompetenties = c;
 		stellingBeoordeeld = w;
+		
 	}
 	public Beoordeling(){}
 	

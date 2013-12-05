@@ -99,6 +99,8 @@
 
 				        if (s.getDeLeerling().equals(((Leerling) o).getUsername())) {//zoekt stage dmw van ingelogde gebruikersnaam te vergelijken met naam van leerling in stage
 				            for (Beoordeling be: beoordelingen) {//alle beoordelingen doorlopen
+				            	
+				            	
 				              if(be.getStage() == s.getId()){
 				            	
 				            	

@@ -118,7 +118,7 @@ public class BeoordeelServlet extends HttpServlet {
 												int i2 = Integer.parseInt(s2);
 												waardesIDs.add(id);
 												waardesl.add(i2);
-												StellingBeoordeeld beoordeeldeStelling = new StellingBeoordeeld(stel.getDeWaarde(), i2, s.getId());
+												StellingBeoordeeld beoordeeldeStelling = new StellingBeoordeeld(null, stel.getDeWaarde(), i2, s.getId());
 												
 												ofy.put(beoordeeldeStelling);
 												}

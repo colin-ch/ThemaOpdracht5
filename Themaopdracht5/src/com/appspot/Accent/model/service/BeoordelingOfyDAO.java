@@ -8,6 +8,7 @@ import com.appspot.Accent.model.Beoordeling;
 
 public interface BeoordelingOfyDAO {
 	   public List<Beoordeling> getAllBeoordelingen();
+	   public List<Beoordeling> getBeoordelingen(int id);
 	   public Beoordeling getBeoordeling(String datum);
 	   public void updateBeoordeling(Beoordeling b);
 	   public void deleteBeoordeling(Beoordeling b);
