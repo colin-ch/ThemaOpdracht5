@@ -198,7 +198,7 @@ int destage = currentstage.getId();
 							
 							StellingBeoordeeld x = new StellingBeoordeeld(null, null, s.getUniekID(), destage);
 							ofy.put(x);
-							//Beoordeling be = new Beoordeling(null, "nog niet gedaan",destage, c, l, w)
+							Beoordeling be = new Beoordeling(null, "nog niet gedaan",destage, c, l, w)
 						}
 					}
 					}
