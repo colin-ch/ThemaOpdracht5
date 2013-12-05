@@ -17,8 +17,26 @@
 	</servlet-mapping>
 	
 	<servlet>
+	    <servlet-name>Export</servlet-name>
+	    <servlet-class>com.appspot.Accent.controller.ServletExport</servlet-class>	    
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>Export</servlet-name>
+	    <url-pattern>/Userlijst.zip</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ImportServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.ServletImport</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ImportServlet</servlet-name>
+		<url-pattern>/Importeer.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>StageAanmakenServlet</servlet-name>
-		<servlet-class>com.appspot.Accent.controller.StageAanmakenServlet</servlet-class>
+		<servlet-class>com.appspot.Accent.controller.StageMakenServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
@@ -36,23 +54,9 @@
 		<url-pattern>/GebruikerAanmaken.do</url-pattern>
 	</servlet-mapping>
 	
-	<servlet>
-		<servlet-name>Export Servlet</servlet-name>
-		<servlet-class>com.appspot.Accent.controller.ExportServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Export Servlet</servlet-name>
-		<url-pattern>/Userlijst.zip</url-pattern>
-	</servlet-mapping>
 	
-	<servlet>
-		<servlet-name>Import Servlet</servlet-name>
-		<servlet-class>com.appspot.Accent.controller.ImportServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Import Servlet</servlet-name>
-		<url-pattern>/Importeer.do</url-pattern>
-	</servlet-mapping>
+	
+	
 
 	<servlet>
 		<servlet-name>OverzichtServlet</servlet-name>

@@ -19,10 +19,10 @@ import java.util.zip.ZipOutputStream;
 
 import com.google.appengine.api.users.UserServiceFactory;
 
-public class ExportServlet extends HttpServlet {
+public class ServletExport extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@SuppressWarnings("unused")
-	private static final Logger log = Logger.getLogger(ExportServlet.class.getName());
+	private static final Logger log = Logger.getLogger(ServletExport.class.getName());
 
 	@SuppressWarnings({ "unchecked", "unused" })
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

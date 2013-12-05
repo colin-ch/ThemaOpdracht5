@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.appspot.Accent.model.service.StageOfyDAOImpl;
 
-public class StageAanmakenServlet extends HttpServlet{
+public class StageMakenServlet extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = null;
