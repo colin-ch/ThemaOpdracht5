@@ -103,9 +103,11 @@
 					}
 
 				}
+		out.println("<input type='submit'' value='opslaan'>");
 			}
+		
+
 		%>
-		<input type="submit" value="opslaan">
 	</form>
 
 
