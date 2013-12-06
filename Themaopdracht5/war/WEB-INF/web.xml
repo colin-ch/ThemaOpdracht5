@@ -126,6 +126,16 @@
 		<servlet-name>BeoordelingAanmakenServlet</servlet-name>
 		<url-pattern>/BeoordelingAanmakenServlet.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CompetentieOverzichtServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.CompetentieOverzichtServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CompetentieOverzichtServlet</servlet-name>
+		<url-pattern>/CompetentieOverzichtServlet.do</url-pattern>
+	</servlet-mapping>
 
 	<filter>
 		<filter-name>LoginFilterServlet</filter-name>
