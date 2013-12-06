@@ -112,13 +112,15 @@ public class BeoordeelServlet extends HttpServlet {
 												if(c.getEigenId() == stel.getEigenId()){
 												teller++;
 												
-												log.info("waardes is" + req.getParameter("waarde"+ stel.getDeWaarde()) );
+												
 												String s2 = req.getParameter("" +stel.getUniekID());
 												int id = stel.getUniekID();
-												int i2 = Integer.parseInt(s2);
-												waardesIDs.add(id);
-												waardesl.add(i2);
-												StellingBeoordeeld beoordeeldeStelling = new StellingBeoordeeld(null, stel.getDeWaarde(), i2, s.getId());
+												
+												
+												
+												
+												
+												StellingBeoordeeld beoordeeldeStelling = new StellingBeoordeeld(null, s2, id, s.getId());
 												
 												ofy.put(beoordeeldeStelling);
 												}

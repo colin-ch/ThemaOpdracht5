@@ -1,4 +1,4 @@
-<!doctype html>
++<!doctype html>
 <html lang="en">
 
 <head>
@@ -55,8 +55,17 @@
 </script>
 <%@ page import="java.util.*"%>
 <%@ page import="javax.servlet.ServletContextEvent"%>
+<%@ page import="com.appspot.Accent.model.StellingBeoordeeld"%>
+<%@ page import="com.appspot.Accent.model.service.StellingBeoordeeldOfyDAOImpl"%>
+<%@ page import="com.appspot.Accent.model.service.StageOfyDAOImpl"%>
+<%@ page import="com.appspot.Accent.model.service.LeerlingOfyDAOImpl"%>
 <%@ page import="com.appspot.Accent.model.Stelling"%>
+<%@ page import="" %>
+<%@ page import="com.appspot.Accent.model.Stage"%>
+<%@ page import="com.appspot.Accent.model.Leerling"%>
 <%@ page import="com.appspot.Accent.model.Competentie"%>
+<%@ page import="com.googlecode.objectify.Objectify"%>
+          <%@ page import="com.googlecode.objectify.ObjectifyService"%>  
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
@@ -72,13 +81,46 @@
 		
        <% 
        	//Hier worden de stellingen opgehaald voor de beoordeling
-	      ArrayList<Stelling> alleStellingenLijst1 = (ArrayList<Stelling>) getServletContext().getAttribute("stellingen");
-	         
-				for (Stelling s : alleStellingenLijst1) {
-					
-	        		out.println("['"+s.getDeStelling() +"', " + "2" + " , " + s.getDeWaarde() + "],");       
-	         	}
-		
+	      
+          Objectify ofy;
+		    ofy = ObjectifyService.begin();
+		    StellingBeoordeeldOfyDAOImpl sb = new StellingBeoordeeldOfyDAOImpl();
+		    LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
+		    StageOfyDAOImpl st = new StageOfyDAOImpl();
+		    StellingOfyDAOImpl stelling = new StellingOfyDAOImpl();
+		    
+		    
+		    for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
+		    	
+		    	if (le.toString().equals(getServletContext().getAttribute("geselecteerd").toString())){ //als leerling gelijk is aan de eerder geselecteerde leerling
+		    		
+		    		for(Stage stage : st.getAllStages()){ //loop door alle stages
+		    			
+		    			if(stage.getDeLeerling().equals(le.getUsername())){ //zoekt bijbehorende stage
+		    				
+		    				for (StellingBeoordeeld s : sb.getAllStellingenBeoordeeld()) { //loop door alle stellingenbeoordeeld
+		    					
+		    					if(s.getDeStage() == stage.getId()){
+		    						
+		    						for(Stelling stel : stelling.getAllStellingen()){
+		    							if(stel.getUniekID() == s.getUniekID()){
+		    						
+		    							out.println("['"+stel.getDeStelling() +"', " + s.getDeWaardeStagebedrijf() + " , " + s.getDeWaardeLeerling() + "],"); 
+		    						
+		    							}
+		    					
+		    						}
+								
+				        		      
+				         		}
+		    				
+		    				
+		    				}
+		    			
+		    			}
+		    		}
+		    	}
+		    }
 			
          %>  
         ['2', 2, 2]

@@ -16,7 +16,7 @@ import com.appspot.Accent.model.StageBedrijf;
 import com.appspot.Accent.model.StageBegeleider;
 
 
-public class LoginFilter implements Filter {
+public class LoginFilterServlet implements Filter {
 	public void init(FilterConfig arg0) throws ServletException {
 	}
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {

@@ -75,16 +75,16 @@ public class OverzichtServlet extends HttpServlet{
 							int teller1 = 0;
 							
 						
-							for (Stelling stel : stellingen){//alle stellingen worden doorlopen
-								for(StellingBeoordeeld sb : stellingenbeoordeeld){//alle stellingbeoordeeld worden doorlopen
-									if(sb.getDeStage() == st.getId()){//voor iedere stellingbeoordeeld wordt id van stage vergeleken. zo ja zet de waarde van stellingbeoordeeld
-										if(stel.getUniekID() == sb.getUniekID()){
-											stel.setDeWaarde(sb.getDeWaardeLeerling());
-										}
-									}
-								
-								}
-							}
+//							for (Stelling stel : stellingen){//alle stellingen worden doorlopen
+//								for(StellingBeoordeeld sb : stellingenbeoordeeld){//alle stellingbeoordeeld worden doorlopen
+//									if(sb.getDeStage() == st.getId()){//voor iedere stellingbeoordeeld wordt id van stage vergeleken. zo ja zet de waarde van stellingbeoordeeld
+//										if(stel.getUniekID() == sb.getUniekID()){
+//											sb.setDeWaardeLeerling(sb.getDeWaardeLeerling());
+//										}
+//									}
+//								
+//								}
+//							}
 							bericht = bericht + "<option value="+b.getDatum()+">"+b.getDatum()+"</option>";
 							log.info(bericht);//de options worden aan de select van de dropdown toegevoegd
 					//		System.out.println();
@@ -108,7 +108,7 @@ public class OverzichtServlet extends HttpServlet{
 		if(req.getParameter("geselecteerde") != null){
 			
 			String geselecteerdeleerling = req.getParameter("geselecteerde");
-			
+			String geselecteerd = getServletContext().getAttribute("geselecteerd").toString();
 			
 			succes = true;
 		}

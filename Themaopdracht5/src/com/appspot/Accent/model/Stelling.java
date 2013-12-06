@@ -10,9 +10,9 @@ private String deWaarde;
 private int uniekID;
 
 
-public Stelling(int idee, String stel, String val, int uniq){
+public Stelling(int idee, String val, String stel, int uniq){
 	deStelling = stel;
-	deWaarde = val;
+	setDeWaarde(val);
 	eigenId = idee;
 	setUniekID(uniq);
 }
@@ -28,14 +28,7 @@ public void setDeStelling(String deStelling) {
 }
 
 
-public String getDeWaarde() {
-	return deWaarde;
-}
 
-
-public void setDeWaarde(String deWaarde) {
-	this.deWaarde = deWaarde;
-}
 
 public String toString(){
 	String s = "test";
@@ -53,6 +46,12 @@ public int getUniekID() {
 }
 public void setUniekID(int uniekID) {
 	this.uniekID = uniekID;
+}
+public String getDeWaarde() {
+	return deWaarde;
+}
+public void setDeWaarde(String deWaarde) {
+	this.deWaarde = deWaarde;
 }
 
 }
