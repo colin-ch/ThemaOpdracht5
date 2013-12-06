@@ -30,8 +30,8 @@ import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
 
 @SuppressWarnings("serial")
-public class ServletImport extends HttpServlet {
-	private static final Logger log = Logger.getLogger(ServletImport.class.getName());
+public class ServletImportStages extends HttpServlet {
+	private static final Logger log = Logger.getLogger(ServletImportStages.class.getName());
 	
 	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException{

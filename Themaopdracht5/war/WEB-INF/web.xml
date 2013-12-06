@@ -27,11 +27,20 @@
 	
 	<servlet>
 		<servlet-name>ImportServlet</servlet-name>
-		<servlet-class>com.appspot.Accent.controller.ServletImport</servlet-class>
+		<servlet-class>com.appspot.Accent.controller.ServletImportLeerlingen</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ImportServlet</servlet-name>
 		<url-pattern>/Importeer.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ImportStages</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.ServletImportStages</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ImportStages</servlet-name>
+		<url-pattern>/Importeers.do</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

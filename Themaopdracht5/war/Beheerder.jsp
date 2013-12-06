@@ -30,6 +30,10 @@
 					<input type="file" name="bestand"/>
 					<input value="Importeer leerlingen met CSV" type="submit"/>
 				</form>
+				<form method="post" action="Importeers.do" enctype="multipart/form-data">
+					<input type="file" name="bestand"/>
+					<input value="Importeer stages met CSV" type="submit"/>
+				</form>
 				<form action="/Userlijst.zip" method="get">
 				<input type="submit" value="export">
 				</form>
@@ -42,6 +46,8 @@
 				<button><a href="/StageBegeleiderAanmaken.jsp">Maak een stagebegeleider aan</a></button>
 				<button><a href="/StagebedrijfAanmaken.jsp">Maak een stagebedrijf aan</a></button>
 				<br/><p>Competenties wijzigen</p>
+				<br/><p>Stage aanmaken</p>
+				<a href="StageAanmaken.jsp">Stage aanmaken</a>
 			</div>
 		</article>
 		<!-- end of styles article -->
