@@ -160,12 +160,8 @@
 				%>
 
 				</form>
-				<% 
-				Object msgs = request.getAttribute("msgs");
-				if (msgs != null) { 
-				out.println(msgs);
-				}
-				%>
+				
+				
 			</div>
 
 

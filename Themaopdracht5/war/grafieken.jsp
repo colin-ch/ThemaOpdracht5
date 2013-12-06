@@ -1,4 +1,4 @@
-+<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -60,7 +60,7 @@
 <%@ page import="com.appspot.Accent.model.service.StageOfyDAOImpl"%>
 <%@ page import="com.appspot.Accent.model.service.LeerlingOfyDAOImpl"%>
 <%@ page import="com.appspot.Accent.model.Stelling"%>
-<%@ page import="" %>
+<%@ page import="com.appspot.Accent.model.service.StellingOfyDAOImpl" %>
 <%@ page import="com.appspot.Accent.model.Stage"%>
 <%@ page import="com.appspot.Accent.model.Leerling"%>
 <%@ page import="com.appspot.Accent.model.Competentie"%>
