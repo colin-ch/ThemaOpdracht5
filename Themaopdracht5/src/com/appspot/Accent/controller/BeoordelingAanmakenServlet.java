@@ -41,7 +41,7 @@ public class BeoordelingAanmakenServlet extends HttpServlet {
 		Leerling student = null;
 		ArrayList<Stage> studentStages = new ArrayList<Stage>();
 		ArrayList<Integer> beoordeelCompetenties = new ArrayList<Integer>();
-
+ArrayList<Integer>deStellingen = new ArrayList<Integer>();
 		ArrayList<Integer> stellingBeoordeeld = new ArrayList<Integer>();
 
 		ofy = ObjectifyService.begin();
@@ -189,22 +189,23 @@ int destage = currentstage.getId();
 			ArrayList<Stelling> stellingen = (ArrayList < Stelling > ) stod.getAllStellingen() ;
 			for(Competentie c : competenties){
 				if(req.getParameter("" + c.getEigenId()) != null){
-					
+					beoordeelCompetenties.add(c.getEigenId());
 					String s2 = req.getParameter("radio"+ c.getEigenId());
 					for(Stelling s : stellingen){
 						System.out.println("s2=: " + s.getDeWaarde());
 						if(s.getEigenId() == c.getEigenId()){
 						if(s.getDeWaarde().equals(s2)){
-							
+							stellingBeoordeeld.add(s.getUniekID());
 							StellingBeoordeeld x = new StellingBeoordeeld(null, null, s.getUniekID(), destage);
 							ofy.put(x);
-							Beoordeling be = new Beoordeling(null, "nog niet gedaan",destage, c, l, w);
 						}
 					}
 					}
 				}
 			}
 			rd = req.getRequestDispatcher("index.jsp");
+			Beoordeling be = new Beoordeling(null, "nog niet gedaan",destage, beoordeelCompetenties, stellingBeoordeeld);
+ofy.put(be);
 		}
 		
 		
