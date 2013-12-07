@@ -90,6 +90,8 @@
 				BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
 				CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 				StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
+				StellingBeoordeeldOfyDAOImpl sbod = new StellingBeoordeeldOfyDAOImpl();
+ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordeeld>) sbod.getAllStellingenBeoordeeld();
 				ArrayList < Stage > allStages = (ArrayList < Stage > ) stod.getAllStages();//alle stages worden opgehaald
 				ArrayList < Beoordeling > beoordelingen = (ArrayList < Beoordeling > ) bod.getAllBeoordelingen(); //alle beoordelingen worden opgehaald
 
@@ -106,18 +108,37 @@
 				            	
 				            	
 				            	if (be.getDatum() == null) {
+				            		ArrayList<Integer> beoordelencomp = be.getCompetenties();
 
 				                    ArrayList < Competentie > competenties = (ArrayList < Competentie > ) cod.getAllCompetenties();
 				                    int teller = 0;
-				                    for (Competentie c: competenties) {//alle competenties doorlopen
+				                    for (Competentie c: competenties) {
+				                    	
+				                    for(Integer inter : beoordelencomp){//alle competenties doorlopen
 				                        //System.out.println(" "  + c.getTitel());
-
+									if(inter == c.getEigenId()){
 				                        out.println("<h2>" + c.getTitel() + "</h2></br>");
 
 				                        ArrayList < Stelling > stellingen = (ArrayList < Stelling > ) sod.getAllStellingen();
-				                        for (Stelling st: stellingen) {//alle stellingen door lopen
+				                        ArrayList <StellingBeoordeeld> currentbeoordelen = new ArrayList<StellingBeoordeeld>();
+				                        for(StellingBeoordeeld sbfill : beoordeelStellingen){
+				                        	if(s.getId() == sbfill.getDeStage()){
+				                        		if(sbfill.getDeWaardeLeerling() == null){
+				                        			currentbeoordelen.add(sbfill);
+				                        		}
+				                        	}
+				                        }
+			                        	for(StellingBeoordeeld sb : currentbeoordelen){//alle stellingen door lopen
+System.out.println("stellingbeoordeeld");
+				                        for (Stelling st: stellingen) {
+				                        	System.out.println("stelling");
+
 				                            if (st.getEigenId() == c.getEigenId()) {
-				                                System.out.println("stelling");
+				                            	if(st.getUniekID() == sb.getUniekID()){
+				                            		
+				                            	
+				                            	
+				                                System.out.println("teller =" + teller);
 				                                System.out.println(" " + st.getDeStelling());
 				                                teller++;
 				                                String waarde = st.getDeWaarde();
@@ -146,10 +167,9 @@
 				            					out.println("<input type='submit' value='Opslaan' name='Opslaan' />");
 
 				                            }
-				                            System.out.println("test");
-				                            
-				                        }
-				                    }
+				                            }
+				                        }}
+				                    }}}
 				                }break;
 				             }
 				            }
