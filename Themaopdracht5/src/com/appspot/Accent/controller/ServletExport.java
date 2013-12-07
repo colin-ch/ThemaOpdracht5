@@ -3,21 +3,17 @@ package com.appspot.Accent.controller;
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Logger;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
-
-import com.google.appengine.api.users.UserServiceFactory;
+import com.appspot.Accent.model.Leerling;
 
 public class ServletExport extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,15 +22,13 @@ public class ServletExport extends HttpServlet {
 
 	@SuppressWarnings({ "unchecked", "unused" })
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		/*	ArrayList<LocalUser> users = (ArrayList<LocalUser>) getServletContext().getAttribute("Users");
-		ArrayList<LocalUser> ssousers = (ArrayList<LocalUser>) getServletContext().getAttribute("SSOUsers");
-		users.addAll(ssousers);
+		
 		try {
 			resp.setContentType("application/zip");
 			resp.setStatus(HttpServletResponse.SC_OK);
 			ZipOutputStream zos = new ZipOutputStream(resp.getOutputStream());
 			zos.putNextEntry(new ZipEntry("Userlijst.csv"));
-			zos.write(getOutputData(users));
+			zos.write(getOutputData());
 			zos.closeEntry();
 			zos.close();
 		} catch (IOException e) {
@@ -42,14 +36,13 @@ public class ServletExport extends HttpServlet {
 		}
 	}
 	
-	private byte[] getOutputData(ArrayList<LocalUser> users){
+	private byte[] getOutputData(ArrayList<Leerling> users){
 		byte[] result = null;
 		String tmp = "";
-		for (LocalUser lu : users){
-			tmp = tmp + lu.getUsername() + ", " + lu.getPassword() + ", " + lu.getEmail() + ", " + 
-					lu.getActivatiecode() + ", " + lu.getDatumAangemaakt() + ", " + lu.getGeactiveerd() + ", " + lu.getRol() + "\n";
+		for (Leerling l : users){
+			tmp = tmp + l.getUsername() + "\n";
 		}
 		result = tmp.getBytes();
-		return result;*/
+		return result;
 	}
 }

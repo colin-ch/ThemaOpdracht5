@@ -51,7 +51,7 @@
 				if (sbod.getAllBegeleiders() != null) {
 					for (StageBegeleider sb : sbod.getAllBegeleiders()) {
 						
-						out.println(" <option value='"+  sb.getEmail() + "'/>") ;
+						out.println(" <option value='"+  sb.getEmail() + "'>"+sb.getUsername()+"</option>") ;
 					}
 					out.println(" </datalist>");
 				}
