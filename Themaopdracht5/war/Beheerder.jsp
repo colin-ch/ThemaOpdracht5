@@ -46,6 +46,7 @@
 				<button><a href="/StageBegeleiderAanmaken.jsp">Maak een stagebegeleider aan</a></button>
 				<button><a href="/StagebedrijfAanmaken.jsp">Maak een stagebedrijf aan</a></button>
 				<br/><p>Competenties wijzigen</p>
+				<button><a href="/CompetentieSelecteren.jsp">Pas een competentie aan</a></button>
 				<br/><p>Stage aanmaken</p>
 				<button>
 				<a href="StageAanmaken.jsp">Stage aanmaken</a></button>

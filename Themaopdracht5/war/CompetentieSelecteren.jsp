@@ -68,44 +68,22 @@
 	});
 </script>
 <body>
+	<h2>Kies een Competentie</h2>
+	<form action="CompetentieOverzichtServlet.do" method="GET">
+		<%
+			CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
+				ArrayList<Competentie> competenties = (ArrayList<Competentie>) cod.getAllCompetenties();
+				out.println("<select name='competentie'>");
+				for (Competentie c : competenties) {
+					out.println("<option  value='" + c.getEigenId() + "'>" + c.getTitel() + "</option");
+					out.println("</select>");
+				}
+		%>
+		<br /> <input type='submit' value='overzicht'>
+	</form>
 	
 
-
-	<form action="CompetentieAanpassenServlet.do" methode="GET">
-		<%
-		int iterator=0;
-			for (Stelling s : stellingen) {
-				
-					if (msgs.equals("Samenwerken en overleggen")) {
-						if (s.getEigenId() == 1) {
-							iterator++;
-							out.println(iterator+"." + s.getDeStelling() + "<br> <br>");
-							if(o instanceof StageBegeleider){
-								
-								out.println("<input required style='width:500px'name='"+s.getUniekID()+"' type='text' value='" + s.getDeStelling() + "'/></br></br>");
-							}
-						}
-					}
-					if (msgs.equals("Aandacht en begrip tonen")) {
-						if (s.getEigenId() == 2) {
-							iterator++;
-							out.println(iterator+"." + s.getDeStelling() + "<br> <br>");
-							if(o instanceof StageBegeleider){
-							
-							out.println("<input required style='width:500px'name='"+s.getUniekID()+"' type='text' value='" + s.getDeStelling() + "'/></br></br>");
-							}
-						}
-					}
-
-				}
-			if(o instanceof StageBegeleider){
-		out.println("<input type='submit' value='opslaan'>");
-			}
-			out.println("<a href='CompetentieSelecteren.jsp'><input type='button' value='terug'></a>");	
-		
-
-		%>
-	</form>
+	
 
 
 

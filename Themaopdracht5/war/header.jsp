@@ -57,7 +57,7 @@
 			<li class="icn_new_article"><a href="/BeoordelingAanmakenServlet.do?initLeerling=initLeerling">Nieuwe competentie
 					missing</a></li>
 			<li class="icn_edit_article"><a href="/BeoordeelServlet.do">Beoordelen</a></li>
-			<li class="icn_categories"><a href="CompetentieOverzicht.jsp">Competenties bekijken
+			<li class="icn_categories"><a href="CompetentieSelecteren.jsp">Competenties bekijken
 					</a></li>
 			<li class="icn_tags"><a href="/Overzicht.do">Overzicht
 					beoordelingen</a></li>

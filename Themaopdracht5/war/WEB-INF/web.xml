@@ -136,6 +136,16 @@
 		<servlet-name>CompetentieOverzichtServlet</servlet-name>
 		<url-pattern>/CompetentieOverzichtServlet.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CompetentieAanpassenServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.CompetentieAanpassenServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CompetentieAanpassenServlet</servlet-name>
+		<url-pattern>/CompetentieAanpassenServlet.do</url-pattern>
+	</servlet-mapping>
 
 	<filter>
 		<filter-name>LoginFilterServlet</filter-name>
