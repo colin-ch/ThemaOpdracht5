@@ -61,6 +61,10 @@
 					</a></li>
 			
 		</ul>
+		<h3>Stages</h3>
+		<ul class="toggle">
+			<li class="icn_view_users"><a href="StageOverzicht.jsp">Stages overzicht</a></li>
+		</ul>
 		<h3>Leerlingen</h3>
 		<ul class="toggle">
 			<li class="icn_add_user"><a href="Beheerder.jsp">Beheerders pagina</a></li>

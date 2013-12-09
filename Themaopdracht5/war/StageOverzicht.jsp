@@ -23,6 +23,7 @@
 				
 
 					<%@ page import="java.util.*"%>
+					<%@ page import="java.text.*"%>
 					<%@ page import="com.appspot.Accent.model.*"%>
 					<%@ page import="com.appspot.Accent.model.service.*"%>
 					<%
@@ -34,6 +35,7 @@
                         		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
                         		StageBedrijfOfyDAOImpl sb = new StageBedrijfOfyDAOImpl();
                         		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl();//Objectify klassen
+                        		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
                         	%>
                         		 <script type="text/javascript" src="//www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -46,7 +48,7 @@
         ['Naam', 'Stage bedrijf', 'Begin datum', 'Eind datum'],
         <% for(Stage stl : alleStages) {
        //	 out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+stl.getBegindatum()+"','"+stl.getEinddatum()+"'],");
-       	 out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getBegindatum()+"','"+stl.getEinddatum()+"'],");
+       	 out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+simpleDateFormate.parse(stl.getBegindatum())+"','"+simpleDateFormate.parse(stl.getEinddatum())+"'],");
       	 System.out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+stl.getBegindatum()+"','"+stl.getEinddatum()+"'],");
        	   }
         System.out.println("End of Stage loop");
