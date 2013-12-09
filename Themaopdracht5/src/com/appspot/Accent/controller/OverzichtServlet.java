@@ -50,71 +50,43 @@ public class OverzichtServlet extends HttpServlet{
 		
 		boolean succes = false;
 		
-		if(req.getParameter("geselecteerde") == null) {
+		if(req.getParameter("geselecteerde") != null){
 		
 		for(Stage st : stages){//doorloopt alle stages
 			log.info("1");
 			if(o instanceof Leerling ){//is ingelogde gebruiker een leerling?
 				log.info("1");
-				if (st.getDeLeerling().equals( ((Leerling) o).getUsername())){//zoekt stage dmv naam ingelogde te vergelijken met stage.getLeerling()
+				if (st.getDeLeerling().equals(req.getParameter("geselecteerde"))){//zoekt stage dmv naam ingelogde te vergelijken met stage.getLeerling()
 			
-					log.info("1");
 					
-					
-					
-					if(bo.getBeoordelingen(st.getId()) != null){
-						log.info("2");
-						String bericht = "<select name='dropdown'>";//dropdown worden gemaakt
-					    String datum ="";
-						int teller=0;
-						log.info("iets random");
+						String bericht = "";//dropdown worden gemaakt
+					   
+						
 						for(Beoordeling b : bo.getBeoordelingen(st.getId())){//alle beoordelingen worden doorlopen
-							teller++;
 						
-							datum = b.getDatum();
-							int teller1 = 0;
-							
-						
-//							for (Stelling stel : stellingen){//alle stellingen worden doorlopen
-//								for(StellingBeoordeeld sb : stellingenbeoordeeld){//alle stellingbeoordeeld worden doorlopen
-//									if(sb.getDeStage() == st.getId()){//voor iedere stellingbeoordeeld wordt id van stage vergeleken. zo ja zet de waarde van stellingbeoordeeld
-//										if(stel.getUniekID() == sb.getUniekID()){
-//											sb.setDeWaardeLeerling(sb.getDeWaardeLeerling());
-//										}
-//									}
-//								
-//								}
-//							}
-							
 							bericht = bericht + "<option value="+b.getDatum()+">"+b.getDatum()+"</option>";
 							log.info(bericht);//de options worden aan de select van de dropdown toegevoegd
-					//		System.out.println();
+				
 							
 						}
 						
-						if(req.getParameter("select") != null) {
-						datum = req.getParameter("select");
-						}
-						bericht = bericht+"</select>";//select wordt gesloten
 						succes = true;
-						getServletContext().setAttribute("datum", datum);
+						
 						req.setAttribute("msgs", bericht);
 					}
 					else{
 						req.setAttribute("msgs", "Er zijn nog geen beoordelingen gedaan");
 					}
 				}
-			}
-			else{
-				req.setAttribute("msgs", "Er is nog geen stage bekend");
-			}
-		}
-		}
-		
-		if(req.getParameter("geselecteerde") != null){
 			
-			String geselecteerdeleerling = req.getParameter("geselecteerde");
-			String geselecteerd = getServletContext().getAttribute("geselecteerd").toString();
+			else{
+				req.setAttribute("msgs", "U bent niet ingelogd als leerling");
+			}
+			
+			}
+		
+		
+	
 			
 			String datum = req.getParameter("select");
 			getServletContext().setAttribute("datum", datum);
@@ -125,8 +97,7 @@ public class OverzichtServlet extends HttpServlet{
 		
 		
 	
-		getServletContext().setAttribute("stellingen", stellingen);
-		//System.out.println(alleStellingen);
+	
 		
 		if(succes){
 			rd = req.getRequestDispatcher("grafieken.jsp");

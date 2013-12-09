@@ -59,8 +59,11 @@
 			<li class="icn_edit_article"><a href="/BeoordeelServlet.do">Beoordelen</a></li>
 			<li class="icn_categories"><a href="CompetentieSelecteren.jsp">Competenties bekijken
 					</a></li>
-			<li class="icn_tags"><a href="/Overzicht.do">Overzicht
-					beoordelingen</a></li>
+			
+		</ul>
+		<h3>Stages</h3>
+		<ul class="toggle">
+			<li class="icn_view_users"><a href="StageOverzicht.jsp">Stages overzicht</a></li>
 		</ul>
 		<h3>Leerlingen</h3>
 		<ul class="toggle">

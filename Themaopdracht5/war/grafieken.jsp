@@ -94,7 +94,7 @@
 		    
 		    for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
 		    	
-		    	if (le.toString().equals(getServletContext().getAttribute("geselecteerd").toString())){ //als leerling gelijk is aan de eerder geselecteerde leerling
+		    	if (le.getUsername().equals(getServletContext().getAttribute("geselecteerd"))){ //als leerling gelijk is aan de eerder geselecteerde leerling
 		    		
 		    		for(Stage stage : st.getAllStages()){ //loop door alle stages
 		    			
@@ -128,7 +128,7 @@
 		    }
 			
          %>  
-        ['2', 2, 2]
+        ['', 0, 0]
         ]);
         //opties voor de google chart
         var options = {
@@ -153,12 +153,21 @@
 
 	<section id="main" class="column"
 		style="min-width: 1110px; min-height: 600px !important;">
-<% 
-		Object msgs=request.getAttribute( "msgs"); 
+		<h4 class='alert_info'>
+		<form action="/Overzicht.do">
+		<select name="select" onchange="this.form.submit()">
+		<% 
+		Object msgs=request.getAttribute("msgs"); 
 		if (msgs !=null) { 
-			out.println("<h4 class='alert_info'>"+msgs+"</h4>"); 
+			out.println(""+msgs); 
 		} 
+		else{
+			out.println("null");
+		}
 		%>
+	    </select>
+		</form>
+		</h4>
 		<article class="module width_full">
 			<header>
 				<h3>Home</h3>
@@ -171,7 +180,6 @@
 		<div class="spacer"></div>
 	</section>
 
-	</div>
 
 </body>
 
