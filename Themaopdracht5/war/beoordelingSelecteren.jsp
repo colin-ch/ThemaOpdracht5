@@ -30,7 +30,7 @@
 				<form action='/Overzicht.do' method='GET' >
 				
 				<%
-				out.println("<select>");
+				out.println("<select name='select'>");
 				String geselecteerd = getServletContext().getAttribute("geselecteerd").toString();
 				BeoordelingOfyDAOImpl b = new BeoordelingOfyDAOImpl();
 				ArrayList < Beoordeling > beoordelingen = (ArrayList < Beoordeling > ) b.getAllBeoordelingen();
@@ -41,18 +41,19 @@
 						for(Beoordeling be : b.getBeoordelingen(st.getId())){
 						
 							out.println("<option value='"+ be.getDatum() +"'>" + be.getDatum() + "</option");
-							out.println("<input type='hidden' name='geselecteerde' value='" + geselecteerd +"'/>");
+							
 						}
 					}
 				}
-							
+				%><input type='submit' value='overzicht'><%	
 				out.println("</select>");
+				out.println("<input type='hidden' name='geselecteerde' value='" + geselecteerd +"'/>");
 				out.println("</form>");
 				
 				
 				%>
 				<br/>
-				<input type='submit' value='overzicht'>
+				
 				</form>
 			</div>
 		</article>
