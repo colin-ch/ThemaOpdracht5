@@ -26,8 +26,19 @@
 			<%@ page import="com.appspot.Accent.model.service.*" %>
 			<%@ page import="java.util.ArrayList" %>
 			<form action="/StageAanmaken.do" method="get">
-				ID van de stage
-				<input type="number" name="id" placeholder="ID van de stage" required="required"><br/>
+			<%
+			double id = (Math.random() * 101); 
+			StageOfyDAOImpl sod = new StageOfyDAOImpl();
+			boolean x = false;
+			for(Stage st : sod.getAllStages()){
+				if(st.getId() == id){
+					x = true;
+				}
+			}
+			if(x == false){			
+				out.println("<input type='hidden' name='id' value="+id);
+			}
+			%>
 				Username van de deelnemende leerling
 				<input list="leerlingen" name="leerlingen" placeholder="Naam van de leerling"><br/>
 				<%

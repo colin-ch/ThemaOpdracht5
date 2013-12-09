@@ -49,7 +49,6 @@ public class LoginServlet extends HttpServlet {
 				user = le;
 			}
 			else{
-				System.out.println("Is geen leerling");
 			}
 		}
 		// er wordt gecontroleerd of het een docent is 
@@ -61,7 +60,6 @@ public class LoginServlet extends HttpServlet {
 				user = de;
 			}
 			else{
-				System.out.println("Is geen docent");
 			}
 		}
 		// er wordt gecontroleerd of het een stagebedrijf/opleider is 
@@ -73,7 +71,6 @@ public class LoginServlet extends HttpServlet {
 				user = sbe;
 			}
 			else{
-				System.out.println("Is geen stagebedrijf");
 			}
 		}
 		// er wordt gecontroleerd of het een begeleider is 
@@ -85,7 +82,6 @@ public class LoginServlet extends HttpServlet {
 				user = sbge;
 			}
 			else{
-				System.out.println("Is geen stagebegeleider");
 			}
 		}
 		// als er een gebruiker is stuurt ie de pagina door
@@ -100,7 +96,7 @@ public class LoginServlet extends HttpServlet {
 			PrintWriter out = resp.getWriter();  
 			resp.setContentType("text/html");  
 			out.println("<script type=\"text/javascript\">");  
-			out.println("alert('deadbeef');");  
+			out.println("alert('Foute login gegevens, probeer opnieuw');");  
 			out.println("</script>");
 		}
 		rd.forward(req, resp);

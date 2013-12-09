@@ -27,6 +27,7 @@ import org.apache.commons.io.IOUtils;
 
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
+import com.appspot.Accent.controller.SessionIdentifierGenerator;
 
 @SuppressWarnings("serial")
 public class ServletImportLeerlingen extends HttpServlet {
@@ -40,7 +41,6 @@ public class ServletImportLeerlingen extends HttpServlet {
 		LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
 		
 		int teller = 0;
-		boolean bestaat = false;
 		try {
 			FileItemIterator fii = upload.getItemIterator(req);
 			while (fii.hasNext()){
@@ -59,6 +59,8 @@ public class ServletImportLeerlingen extends HttpServlet {
 					
 					while ((s = br.readLine()) != null){
 						teller++;
+						boolean bestaat = false;
+
 						if(teller != 1){
 							Scanner sc = new Scanner(s);
 							sc.useDelimiter(";");
@@ -88,7 +90,11 @@ public class ServletImportLeerlingen extends HttpServlet {
 							String codePraktijkBegeleider = sc.next();
 							String naamPraktijkBegeleider = sc.next();
 							String emailPraktijkBegeleider = sc.next();
-							int codeStageBedrijf = Integer.parseInt(sc.next());
+							String code = sc.next();
+							int codeStageBedrijf = -1;
+							if(!code.equals("")){
+								codeStageBedrijf = Integer.parseInt(code);
+							}
 							String nmStageBedrijf = sc.next();
 							String plaatsStageBedrijf = sc.next();
 							String praktijkOpleider = sc.next();
@@ -99,6 +105,8 @@ public class ServletImportLeerlingen extends HttpServlet {
 							String straatBedrijf = sc.next();
 							String huisnrToeBedrijf = sc.next();
 							String postcodeBedrijf = sc.next();
+							SessionIdentifierGenerator sig = new SessionIdentifierGenerator();
+							String activatiecode = sig.nextSessionId();
 							
 							for(Leerling l : lod.getAllLeerlingen()){
 								if(l.getEmail().equals(emailLeerling)){
@@ -107,7 +115,7 @@ public class ServletImportLeerlingen extends HttpServlet {
 								}
 							}
 							if(bestaat == false){
-								lod.createLeerling("Username", "Password", emailLeerling, roepnaam, tussenvoegsel + " "+achternaam, null, klasAanmelding, emailPraktijkBegeleider);
+								lod.createLeerling(emailLeerling, activatiecode, emailLeerling, roepnaam, tussenvoegsel + " "+achternaam, null, klasAanmelding, emailPraktijkBegeleider);
 							}
 							sc.close();
 						}

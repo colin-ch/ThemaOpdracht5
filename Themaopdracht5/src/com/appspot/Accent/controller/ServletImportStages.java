@@ -41,7 +41,6 @@ public class ServletImportStages extends HttpServlet {
 		StageOfyDAOImpl sod = new StageOfyDAOImpl();
 		
 		int teller = 0;
-		boolean bestaat = false;
 		try {
 			FileItemIterator fii = upload.getItemIterator(req);
 			while (fii.hasNext()){
@@ -60,6 +59,8 @@ public class ServletImportStages extends HttpServlet {
 					
 					while ((s = br.readLine()) != null){
 						teller++;
+						boolean bestaat = false;
+
 						if(teller != 1){
 							Scanner sc = new Scanner(s);
 							sc.useDelimiter(";");
@@ -89,7 +90,13 @@ public class ServletImportStages extends HttpServlet {
 							String codePraktijkBegeleider = sc.next();
 							String naamPraktijkBegeleider = sc.next();
 							String emailPraktijkBegeleider = sc.next();
-							int codeStageBedrijf = Integer.parseInt(sc.next());
+							String code = sc.next();
+							int codeStageBedrijf = -1;
+
+							if(!code.equals("")){
+								codeStageBedrijf = Integer.parseInt(code);
+
+							}
 							String nmStageBedrijf = sc.next();
 							String plaatsStageBedrijf = sc.next();
 							String praktijkOpleider = sc.next();
