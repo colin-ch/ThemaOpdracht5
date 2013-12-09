@@ -91,6 +91,10 @@ public class OverzichtServlet extends HttpServlet{
 					//		System.out.println();
 							
 						}
+						
+						if(req.getParameter("select") != null) {
+						datum = req.getParameter("select");
+						}
 						bericht = bericht+"</select>";//select wordt gesloten
 						succes = true;
 						getServletContext().setAttribute("datum", datum);

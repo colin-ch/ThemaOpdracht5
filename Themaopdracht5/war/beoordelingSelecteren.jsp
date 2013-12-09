@@ -40,7 +40,7 @@
 						
 						for(Beoordeling be : b.getBeoordelingen(st.getId())){
 						
-							out.println("<option value='"+ be.getDatum() +"'>" + be.getDatum() + "</option");
+							out.println("<option value='"+ be.getDatum() +"'>" + be.getDatum() + "</option>");
 							
 						}
 					}
