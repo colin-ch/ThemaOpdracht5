@@ -134,20 +134,20 @@ boolean nextS = false;
 												
 												
 												beoordeeldeStelling = sb;
-												nextS = true;
+											
 												
-												}
-												else{
-													nextS = false;
-												}
-											}
+											
+									
 												
-												if(nextS == true){
 													beoordeeldeStelling.setDeWaardeLeerling(req.getParameter("" +stel.getUniekID()));
 													
 													ofy.put(beoordeeldeStelling);
 
 												}
+												
+											}
+												
+												
 											}
 											}
 										rate = be;
