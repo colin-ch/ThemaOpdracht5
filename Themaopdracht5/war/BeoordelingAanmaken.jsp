@@ -81,6 +81,7 @@
 				Object save = request.getAttribute("save");
 
 				if(initleerling != null){
+					out.println("<h2> selecteer een leerling: </h2>");
 				ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
 				out.println("<input list='leerlingen' name='leerlingen' required>");//lijst van leerlingen wordt aangemaakt
 				out.println("<datalist id='leerlingen'>");
@@ -97,6 +98,8 @@
 				}
 				
 				if(initStage != null){
+					out.println("<h2> selecteer een leerling: </h2>");
+
 					ArrayList<Stage> array = (ArrayList<Stage>) request.getAttribute("stages"); //alle stages worden opgehaald
 					out.println("<input list='stages' name='stages' required>");//lijst van stages wordt aangemaakt
 					out.println("<datalist id='stages'>");
@@ -114,6 +117,7 @@
 				
 				
 				if(save != null){
+					out.println("<h2> kies de competenties en bijbehorende stellingen: </h2>");
 					Leerling student = null;
 					Stage stage =(Stage) request.getSession().getAttribute("destage");
 					ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
