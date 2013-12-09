@@ -27,7 +27,7 @@
 					<%@ page import="com.appspot.Accent.model.service.*"%>
 					<%
 								
-							    Object user = session.getAttribute("userobject");//haalt huidige ingelogde gebruiker op
+							    Object user2 = session.getAttribute("userobject");//haalt huidige ingelogde gebruiker op
                             	StageOfyDAOImpl st = new StageOfyDAOImpl();
                             	ArrayList<Stage> alleStages = (ArrayList<Stage>) st.getAllStages();
                             	LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();

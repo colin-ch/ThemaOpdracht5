@@ -65,13 +65,13 @@ public class OverzichtServlet extends HttpServlet{
 					if(bo.getBeoordelingen(st.getId()) != null){
 						log.info("2");
 						String bericht = "<select name='dropdown'>";//dropdown worden gemaakt
-					
+					    String datum ="";
 						int teller=0;
 						log.info("iets random");
 						for(Beoordeling b : bo.getBeoordelingen(st.getId())){//alle beoordelingen worden doorlopen
 							teller++;
 						
-							
+							datum = b.getDatum();
 							int teller1 = 0;
 							
 						
@@ -85,13 +85,19 @@ public class OverzichtServlet extends HttpServlet{
 //								
 //								}
 //							}
+							
 							bericht = bericht + "<option value="+b.getDatum()+">"+b.getDatum()+"</option>";
 							log.info(bericht);//de options worden aan de select van de dropdown toegevoegd
 					//		System.out.println();
 							
 						}
+						
+						if(req.getParameter("select") != null) {
+						datum = req.getParameter("select");
+						}
 						bericht = bericht+"</select>";//select wordt gesloten
 						succes = true;
+						getServletContext().setAttribute("datum", datum);
 						req.setAttribute("msgs", bericht);
 					}
 					else{
@@ -109,6 +115,9 @@ public class OverzichtServlet extends HttpServlet{
 			
 			String geselecteerdeleerling = req.getParameter("geselecteerde");
 			String geselecteerd = getServletContext().getAttribute("geselecteerd").toString();
+			
+			String datum = req.getParameter("select");
+			getServletContext().setAttribute("datum", datum);
 			
 			succes = true;
 		}

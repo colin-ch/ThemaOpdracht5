@@ -163,8 +163,7 @@ System.out.println("stellingbeoordeeld");
 				                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>");
 				                                }
 				                               
-				                                out.println("eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
-				            					out.println("<input type='submit' value='Opslaan' name='Opslaan' />");
+				                               
 
 				                            }
 				                            }
@@ -176,7 +175,8 @@ System.out.println("stellingbeoordeeld");
 				        }
 				    }
 				}
-				
+				out.println("eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
+				out.println("<input type='submit' value='Opslaan' name='Opslaan' />");
 				%>
 
 				</form>

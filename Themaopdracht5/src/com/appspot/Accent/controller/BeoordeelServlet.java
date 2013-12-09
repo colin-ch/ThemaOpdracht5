@@ -130,24 +130,40 @@ boolean nextS = false;
 												
 												String s2 = req.getParameter("" +stel.getUniekID());
 												int id = stel.getUniekID();
-												
+											
 												
 												
 												beoordeeldeStelling = sb;
-												nextS = true;
 												
-												}
-												else{
-													nextS = false;
-												}
-											}
-												
-												if(nextS == true){
-													beoordeeldeStelling.setDeWaardeLeerling(req.getParameter("" +stel.getUniekID()));
+												if(req.getParameter("" +sb.getUniekID()).equals("1")){
+beoordeeldeStelling.setDeWaardeLeerling("1");
 													
 													ofy.put(beoordeeldeStelling);
+												}
+												if(req.getParameter("" +sb.getUniekID()).equals("2")){
+beoordeeldeStelling.setDeWaardeLeerling("2");
+													
+													ofy.put(beoordeeldeStelling);
+												}
+												if(req.getParameter("" +sb.getUniekID()).equals("3")){
+beoordeeldeStelling.setDeWaardeLeerling("3");
+													
+													ofy.put(beoordeeldeStelling);
+												}
+												if(req.getParameter("" +sb.getUniekID()).equals("4")){
+beoordeeldeStelling.setDeWaardeLeerling("4");
+													
+													ofy.put(beoordeeldeStelling);
+												}
+												
+												
+												
 
 												}
+												
+											}
+												
+												
 											}
 											}
 										rate = be;
