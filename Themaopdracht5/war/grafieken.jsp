@@ -128,7 +128,7 @@
 		    }
 			
          %>  
-       
+        ['', 0, 0]
         ]);
         //opties voor de google chart
         var options = {
