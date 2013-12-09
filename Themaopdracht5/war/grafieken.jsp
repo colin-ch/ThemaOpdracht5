@@ -94,7 +94,7 @@
 		    
 		    for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
 		    	
-		    	if (le.toString().equals(getServletContext().getAttribute("geselecteerd").toString())){ //als leerling gelijk is aan de eerder geselecteerde leerling
+		    	if (le.getUsername().equals(getServletContext().getAttribute("geselecteerd"))){ //als leerling gelijk is aan de eerder geselecteerde leerling
 		    		
 		    		for(Stage stage : st.getAllStages()){ //loop door alle stages
 		    			
