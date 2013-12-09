@@ -173,7 +173,6 @@
 		<div class="spacer"></div>
 	</section>
 
-	</div>
 
 </body>
 

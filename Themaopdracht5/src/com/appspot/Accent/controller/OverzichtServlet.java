@@ -58,13 +58,10 @@ public class OverzichtServlet extends HttpServlet{
 				log.info("1");
 				if (st.getDeLeerling().equals(req.getParameter("geselecteerde"))){//zoekt stage dmv naam ingelogde te vergelijken met stage.getLeerling()
 			
-					log.info("1");
 					
-					
-						log.info("2");
 						String bericht = "<select name='dropdown'>";//dropdown worden gemaakt
 					   
-						log.info("iets random");
+						
 						for(Beoordeling b : bo.getBeoordelingen(st.getId())){//alle beoordelingen worden doorlopen
 						
 							bericht = bericht + "<option value="+b.getDatum()+">"+b.getDatum()+"</option>";
@@ -103,7 +100,6 @@ public class OverzichtServlet extends HttpServlet{
 		
 	
 	
-		//System.out.println(alleStellingen);
 		
 		if(succes){
 			rd = req.getRequestDispatcher("grafieken.jsp");
