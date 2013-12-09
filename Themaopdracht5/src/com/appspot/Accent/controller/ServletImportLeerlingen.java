@@ -104,7 +104,7 @@ public class ServletImportLeerlingen extends HttpServlet {
 							String straatBedrijf = sc.next();
 							String huisnrToeBedrijf = sc.next();
 							String postcodeBedrijf = sc.next();
-							double id = (Math.random() * 100001); 
+							int id = 1 + (int)(Math.random() * ((10000 - 1) + 1));
 							String activatiecode = "" + id;
 							for(Leerling l : lod.getAllLeerlingen()){
 								if(l.getEmail().equals(emailLeerling)){
