@@ -61,8 +61,6 @@ public class OverzichtServlet extends HttpServlet{
 					log.info("1");
 					
 					
-					
-					if(bo.getBeoordelingen(st.getId()) != null){
 						log.info("2");
 						String bericht = "<select name='dropdown'>";//dropdown worden gemaakt
 					   
@@ -85,11 +83,12 @@ public class OverzichtServlet extends HttpServlet{
 						req.setAttribute("msgs", "Er zijn nog geen beoordelingen gedaan");
 					}
 				}
-			}
+			
 			else{
-				req.setAttribute("msgs", "Er is nog geen stage bekend");
+				req.setAttribute("msgs", "U bent niet ingelogd als leerling");
 			}
-		}
+			
+			}
 		
 		
 	

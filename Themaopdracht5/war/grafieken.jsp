@@ -153,12 +153,14 @@
 
 	<section id="main" class="column"
 		style="min-width: 1110px; min-height: 600px !important;">
-<% 
+		<h4 class='alert_info'>
+		<% 
 		Object msgs=request.getAttribute( "msgs"); 
 		if (msgs !=null) { 
-			out.println("<h4 class='alert_info'>"+msgs+"</h4>"); 
+			out.println(""+msgs); 
 		} 
 		%>
+		</h4>
 		<article class="module width_full">
 			<header>
 				<h3>Home</h3>
