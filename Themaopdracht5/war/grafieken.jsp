@@ -154,12 +154,19 @@
 	<section id="main" class="column"
 		style="min-width: 1110px; min-height: 600px !important;">
 		<h4 class='alert_info'>
+		<form action="/Overzicht.do">
+		<select name="select" onchange="this.form.submit()">
 		<% 
-		Object msgs=request.getAttribute( "msgs"); 
+		Object msgs=request.getAttribute("msgs"); 
 		if (msgs !=null) { 
 			out.println(""+msgs); 
 		} 
+		else{
+			out.println("null");
+		}
 		%>
+	    </select>
+		</form>
 		</h4>
 		<article class="module width_full">
 			<header>

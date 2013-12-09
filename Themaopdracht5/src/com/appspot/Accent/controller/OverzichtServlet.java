@@ -59,7 +59,7 @@ public class OverzichtServlet extends HttpServlet{
 				if (st.getDeLeerling().equals(req.getParameter("geselecteerde"))){//zoekt stage dmv naam ingelogde te vergelijken met stage.getLeerling()
 			
 					
-						String bericht = "<select name='dropdown'>";//dropdown worden gemaakt
+						String bericht = "";//dropdown worden gemaakt
 					   
 						
 						for(Beoordeling b : bo.getBeoordelingen(st.getId())){//alle beoordelingen worden doorlopen
@@ -70,8 +70,6 @@ public class OverzichtServlet extends HttpServlet{
 							
 						}
 						
-						
-						bericht = bericht+"</select>";//select wordt gesloten
 						succes = true;
 						
 						req.setAttribute("msgs", bericht);
