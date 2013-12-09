@@ -48,19 +48,26 @@
         ['Naam', 'Stage bedrijf', 'Begin datum', 'Eind datum'],
         <% for(Stage stl : alleStages) {
        //	 out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+stl.getBegindatum()+"','"+stl.getEinddatum()+"'],");
-       	 out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+simpleDateFormate.parse(stl.getBegindatum())+"','"+simpleDateFormate.parse(stl.getEinddatum())+"'],");
-      	 System.out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+stl.getBegindatum()+"','"+stl.getEinddatum()+"'],");
-       	   }
+       	 out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+simpleDateFormat.format(stl.getBegindatum())+"','"+simpleDateFormat.format(stl.getEinddatum())+"'],");
+      	//System.out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+simpleDateFormat.format(stl.getBegindatum())+"','"+simpleDateFormat.format(stl.getEinddatum())+"'],");
+      //	System.out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+stl.getBegindatum()+"','"+stl.getEinddatum()+"'],");   
+        }
         System.out.println("End of Stage loop");
        		      %>
       ]);
+       
     
       // Create and draw the visualization.
       visualization = new google.visualization.Table(document.getElementById('table-div'));
       visualization.draw(data, null);
-    }
-    
+      
+      google.visualization.events.addListener(visualization, 'select', function() {
+          var row = table.getSelection()[1].row;
+          alert('You selected ' + data.getValue(row, 1));
+        });
 
+    }
+   
     google.setOnLoadCallback(drawVisualization);
     </script>
 
