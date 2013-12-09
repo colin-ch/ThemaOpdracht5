@@ -60,6 +60,7 @@
 <%@ page import="com.appspot.Accent.model.service.StageOfyDAOImpl"%>
 <%@ page import="com.appspot.Accent.model.service.LeerlingOfyDAOImpl"%>
 <%@ page import="com.appspot.Accent.model.Stelling"%>
+<%@ page import="com.appspot.Accent.model.service.BeoordelingOfyDAOImpl" %>
 <%@ page import="com.appspot.Accent.model.service.StellingOfyDAOImpl" %>
 <%@ page import="com.appspot.Accent.model.Stage"%>
 <%@ page import="com.appspot.Accent.model.Leerling"%>
@@ -88,6 +89,7 @@
 		    LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
 		    StageOfyDAOImpl st = new StageOfyDAOImpl();
 		    StellingOfyDAOImpl stelling = new StellingOfyDAOImpl();
+		    BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
 		    
 		    
 		    for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
@@ -96,27 +98,30 @@
 		    		
 		    		for(Stage stage : st.getAllStages()){ //loop door alle stages
 		    			
-		    			if(stage.getDeLeerling().equals(le.getUsername())){ //zoekt bijbehorende stage
+		    			for(Beoordeling beoordeling : bod.getAllBeoordelingen()){
 		    				
-		    				for (StellingBeoordeeld s : sb.getAllStellingenBeoordeeld()) { //loop door alle stellingenbeoordeeld
-		    					
-		    					if(s.getDeStage() == stage.getId()){
-		    						
-		    						for(Stelling stel : stelling.getAllStellingen()){
-		    							if(stel.getUniekID() == s.getUniekID()){
-		    						
-		    							out.println("['"+stel.getDeStelling() +"', " + s.getDeWaardeStagebedrijf() + " , " + s.getDeWaardeLeerling() + "],"); 
-		    						
-		    							}
-		    					
-		    						}
-								
-				        		      
-				         		}
-		    				
-		    				
-		    				}
+		    				if(beoordeling.getDatum().equals(getServletContext().getAttribute("datum"))){
 		    			
+				    			if(stage.getDeLeerling().equals(le.getUsername())){ //zoekt bijbehorende stage
+				    				
+				    				for (StellingBeoordeeld s : sb.getAllStellingenBeoordeeld()) { //loop door alle stellingenbeoordeeld
+				    					
+				    					if(s.getDeStage() == stage.getId()){
+				    						
+				    						for(Stelling stel : stelling.getAllStellingen()){
+				    							if(stel.getUniekID() == s.getUniekID()){
+		    								
+		    										out.println("['"+stel.getDeStelling() +"', " + s.getDeWaardeStagebedrijf() + " , " + s.getDeWaardeLeerling() + "],"); 
+		    								
+		    									}
+		    					
+		    								}
+				        		      
+				         				}
+		    				
+		    						}
+		    					}
+		    				}
 		    			}
 		    		}
 		    	}

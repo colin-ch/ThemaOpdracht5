@@ -138,12 +138,12 @@
 	</servlet-mapping>
 
 	<filter>
-		<filter-name>LoginFilterServlet</filter-name>
-		<filter-class>com.appspot.Accent.controller.LoginFilterServlet
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.appspot.Accent.controller.LoginFilter
 		</filter-class>
 	</filter>
 	<filter-mapping>
-		<filter-name>LoginFilterServlet</filter-name>
+		<filter-name>LoginFilter</filter-name>
 		<url-pattern>/Overzicht.do</url-pattern>
 		<url-pattern>/BeoordeelServlet.do</url-pattern>
 		<url-pattern>/BeoordelingOphalenServlet.do</url-pattern>

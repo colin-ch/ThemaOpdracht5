@@ -94,7 +94,7 @@ public class UserContextListener implements ServletContextListener {
 		ObjectifyService.register(Stage.class);
 		ObjectifyService.register(Stelling.class);
 		ObjectifyService.register(StellingBeoordeeld.class);
-		ObjectifyService.register(Leerling.class);
+		//ObjectifyService.register(Leerling.class);
 		
 		
 		// alle objecten worden in de datastore gezet

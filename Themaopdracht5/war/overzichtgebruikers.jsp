@@ -42,7 +42,7 @@
                         				String name = ((Leerling) user).getUsername();
                         				String pass = ((Leerling) user).getPassword();
                         				if(name.equals(le.getUsername()) && pass.equals(le.getPassword())){//print alleen de leerling zelf uit met radio button
-                        					out.println("<input type='radio' name='radio' value='"+ naam +"'>"+ naam +" "+ ((Leerling) user).getEmail() +" "+ ((Leerling) user).getKlas() +" "+ ((Leerling) user).getBegeleider()+"<br/>");
+                        					out.println("<input type='radio' name='radio' value='"+ le.getRoepnaam() +"'>"+ naam +" "+ ((Leerling) user).getEmail() +" "+ ((Leerling) user).getKlas() +" "+ ((Leerling) user).getBegeleider()+"<br/>");
                         				}
                         			}
                         			
