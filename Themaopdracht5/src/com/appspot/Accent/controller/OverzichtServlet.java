@@ -50,13 +50,13 @@ public class OverzichtServlet extends HttpServlet{
 		
 		boolean succes = false;
 		
-		
+		if(req.getParameter("geselecteerde") != null){
 		
 		for(Stage st : stages){//doorloopt alle stages
 			log.info("1");
 			if(o instanceof Leerling ){//is ingelogde gebruiker een leerling?
 				log.info("1");
-				if (st.getDeLeerling().equals( ((Leerling) o).getUsername())){//zoekt stage dmv naam ingelogde te vergelijken met stage.getLeerling()
+				if (st.getDeLeerling().equals(req.getParameter("geselecteerde"))){//zoekt stage dmv naam ingelogde te vergelijken met stage.getLeerling()
 			
 					log.info("1");
 					
@@ -92,10 +92,7 @@ public class OverzichtServlet extends HttpServlet{
 		}
 		
 		
-		if(req.getParameter("geselecteerde") != null){
-			
-			String geselecteerdeleerling = req.getParameter("geselecteerde");
-			String geselecteerd = getServletContext().getAttribute("geselecteerd").toString();
+	
 			
 			String datum = req.getParameter("select");
 			getServletContext().setAttribute("datum", datum);
