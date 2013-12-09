@@ -26,9 +26,9 @@
 			<%@ page import="com.appspot.Accent.model.service.*" %>
 			<%@ page import="java.util.ArrayList" %>
 			<form action="/StageAanmaken.do" method="get">
-				ID
+				ID van de stage
 				<input type="number" name="id" placeholder="ID van de stage" required="required"><br/>
-				Naam van de deelnemende leerling
+				Username van de deelnemende leerling
 				<input list="leerlingen" name="leerlingen" placeholder="Naam van de leerling"><br/>
 				<%
 				LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
@@ -51,7 +51,7 @@
 				if (sbod.getAllBegeleiders() != null) {
 					for (StageBegeleider sb : sbod.getAllBegeleiders()) {
 						
-						out.println(" <option value='"+  sb.getEmail() + "'/>") ;
+						out.println(" <option value='"+  sb.getEmail() + "'>"+sb.getUsername()+"</option>") ;
 					}
 					out.println(" </datalist>");
 				}

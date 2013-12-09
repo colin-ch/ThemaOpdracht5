@@ -35,7 +35,7 @@
 					<input value="Importeer stages met CSV" type="submit"/>
 				</form>
 				<form action="/Userlijst.zip" method="get">
-				<input type="submit" value="export">
+				<input type="submit" value="Export leerlingen / stages">
 				</form>
 				<br/><p>Gebruikers aanmaken</p><br/>
 				<%@ page import="com.appspot.Accent.model.StageBegeleider" %>
@@ -46,8 +46,10 @@
 				<button><a href="/StageBegeleiderAanmaken.jsp">Maak een stagebegeleider aan</a></button>
 				<button><a href="/StagebedrijfAanmaken.jsp">Maak een stagebedrijf aan</a></button>
 				<br/><p>Competenties wijzigen</p>
+				<button><a href="/CompetentieSelecteren.jsp">Pas een competentie aan</a></button>
 				<br/><p>Stage aanmaken</p>
-				<a href="StageAanmaken.jsp">Stage aanmaken</a>
+				<button>
+				<a href="StageAanmaken.jsp">Stage aanmaken</a></button>
 			</div>
 		</article>
 		<!-- end of styles article -->

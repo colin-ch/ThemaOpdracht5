@@ -3,7 +3,6 @@ package com.appspot.Accent.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -21,6 +20,7 @@ import com.appspot.Accent.model.StellingBeoordeeld;
 import com.appspot.Accent.model.service.BeoordelingOfyDAOImpl;
 import com.appspot.Accent.model.service.CompetentieOfyDAOImpl;
 import com.appspot.Accent.model.service.StageOfyDAOImpl;
+import com.appspot.Accent.model.service.StellingBeoordeeldOfyDAOImpl;
 import com.appspot.Accent.model.service.StellingOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
@@ -51,7 +51,8 @@ public class BeoordeelServlet extends HttpServlet {
 		
 		Stelling stelling4 = null;		
 		
-		Stelling stelling5 = null;		
+		Stelling stelling5 = null;
+		StellingBeoordeeld beoordeeldeStelling = null;
 		ArrayList<Beoordeling> allBeoordelingen = new ArrayList<Beoordeling>();
 		//		ArrayList<Integer> allWaardes = new ArrayList<Integer>();
 		//		int teller = 0;
@@ -61,7 +62,7 @@ public class BeoordeelServlet extends HttpServlet {
 		//			allWaardes.add(Integer.parseInt(req.getParameter("waarde"+teller)));
 			
 		StageOfyDAOImpl stod = new StageOfyDAOImpl();
-
+boolean nextS = false;
 		BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
 		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
@@ -87,7 +88,7 @@ public class BeoordeelServlet extends HttpServlet {
 		
 								for(Beoordeling be : allBeoordelingen){
 									log.info("doorloop arraylist");
-								
+									if(be.getStage() == s.getId()){
 										if(be.getDatum() == null){
 											log.info("geen datum");
 											rate = be;
@@ -107,8 +108,22 @@ public class BeoordeelServlet extends HttpServlet {
 										for(Competentie c : competenties){
 											ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
 											stellingen = (ArrayList<Stelling>) sod.getAllStellingen();
+											StellingBeoordeeldOfyDAOImpl sbod = new StellingBeoordeeldOfyDAOImpl();
+
+											ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordeeld>) sbod.getAllStellingenBeoordeeld();
+
+											  ArrayList <StellingBeoordeeld> currentbeoordelen = new ArrayList<StellingBeoordeeld>();
+						                        for(StellingBeoordeeld sbfill : beoordeelStellingen){
+						                        	if(s.getId() == sbfill.getDeStage()){
+						                        		if(sbfill.getDeWaardeLeerling() == null){
+						                        			currentbeoordelen.add(sbfill);
+						                        		}
+						                        	}
+						                        }
 											
 											for(Stelling stel : stellingen){
+												for(StellingBeoordeeld sb : currentbeoordelen){
+
 												if(c.getEigenId() == stel.getEigenId()){
 												teller++;
 												
@@ -118,18 +133,27 @@ public class BeoordeelServlet extends HttpServlet {
 												
 												
 												
+												beoordeeldeStelling = sb;
+												nextS = true;
 												
+												}
+												else{
+													nextS = false;
+												}
+											}
 												
-												StellingBeoordeeld beoordeeldeStelling = new StellingBeoordeeld(null, s2, id, s.getId());
-												
-												ofy.put(beoordeeldeStelling);
+												if(nextS == true){
+													beoordeeldeStelling.setDeWaardeLeerling(req.getParameter("" +stel.getUniekID()));
+													
+													ofy.put(beoordeeldeStelling);
+
 												}
 											}
 											}
 										rate = be;
 										}
 										
-								}
+								}}
 								rate.setOpmerking(req.getParameter("opmerking"));
 								if(req.getParameter("opmerking").equals("")){
 									rate.setOpmerking("geen opmerking");
