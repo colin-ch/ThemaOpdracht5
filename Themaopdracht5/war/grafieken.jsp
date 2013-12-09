@@ -128,7 +128,7 @@
 		    }
 			
          %>  
-        ['2', 2, 2]
+       
         ]);
         //opties voor de google chart
         var options = {
