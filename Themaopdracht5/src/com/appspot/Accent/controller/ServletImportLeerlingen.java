@@ -27,7 +27,6 @@ import org.apache.commons.io.IOUtils;
 
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
-import com.appspot.Accent.controller.SessionIdentifierGenerator;
 
 @SuppressWarnings("serial")
 public class ServletImportLeerlingen extends HttpServlet {
@@ -105,9 +104,8 @@ public class ServletImportLeerlingen extends HttpServlet {
 							String straatBedrijf = sc.next();
 							String huisnrToeBedrijf = sc.next();
 							String postcodeBedrijf = sc.next();
-							SessionIdentifierGenerator sig = new SessionIdentifierGenerator();
-							String activatiecode = sig.nextSessionId();
-							
+							double id = (Math.random() * 100001); 
+							String activatiecode = "" + id;
 							for(Leerling l : lod.getAllLeerlingen()){
 								if(l.getEmail().equals(emailLeerling)){
 									bestaat = true;
