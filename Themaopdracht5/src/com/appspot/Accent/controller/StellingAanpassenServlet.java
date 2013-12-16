@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.appspot.Accent.model.Competentie;
+import com.appspot.Accent.model.Stelling;
 import com.appspot.Accent.model.service.CompetentieOfyDAOImpl;
+import com.appspot.Accent.model.service.StellingOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
-public class CompetentieOverzichtServlet extends HttpServlet {
+public class StellingAanpassenServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private Objectify ofy;
@@ -25,25 +27,22 @@ public class CompetentieOverzichtServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		ArrayList<Competentie> competenties = new ArrayList<Competentie>();
 		ofy = ObjectifyService.begin();
 		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
-		competenties = (ArrayList<Competentie>) cod.getAllCompetenties();
-		String samenwerkenEnOverleggen = "1";
-		String aandachtEnBegripTonen = "2";
+		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
+		ArrayList < Stelling > stellingen = (ArrayList <Stelling> ) sod.getAllStellingen();
 		
 		
-		if (req.getParameter("competentie").equals(samenwerkenEnOverleggen)) {
-			String msgs = "Samenwerken en overleggen";
+		for(Stelling s: stellingen){
+			if(req.getParameter(""+s.getUniekID())!= null){
+			s.setDeStelling(req.getParameter("" + s.getUniekID()));
+			ofy.put(s);
+			String msgs = "Opslaan Gelukt!";
 			req.setAttribute("msgs", msgs);
-			rd = req.getRequestDispatcher("CompetentieOverzicht.jsp");
+			}
 		}
-		if (req.getParameter("competentie").equals(aandachtEnBegripTonen)) {
-			String msgs = "Aandacht en begrip tonen";
-			req.setAttribute("msgs", msgs);
-			rd = req.getRequestDispatcher("CompetentieOverzicht.jsp");
-		}
-	
+		
+		rd = req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp);
 	}
 

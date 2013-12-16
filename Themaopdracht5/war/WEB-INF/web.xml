@@ -146,6 +146,10 @@
 		<servlet-name>CompetentieAanpassenServlet</servlet-name>
 		<url-pattern>/CompetentieAanpassenServlet.do</url-pattern>
 	</servlet-mapping>
+	
+	
+	
+	
 
 	<filter>
 		<filter-name>LoginFilterServlet</filter-name>

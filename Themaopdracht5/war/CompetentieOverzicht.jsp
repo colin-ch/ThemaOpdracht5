@@ -18,12 +18,15 @@
 	Object msgs=request.getAttribute( "msgs"); 
 		if (msgs !=null) { 
 	out.println("<h2 class='alert_info'>"+msgs+"</h2>"); 
+	
 		}
 %>
 <%
 	Object o = request.getSession().getAttribute("userobject");
 	StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 		ArrayList < Stelling > stellingen = (ArrayList <Stelling> ) sod.getAllStellingen();
+		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
+
 %>
 <title>Competenties</title>
 
@@ -69,9 +72,21 @@
 </script>
 <body>
 	
+<form action="CompetentieAanpassenServlet.do" method="GET">
+<%for(Competentie c : cod.getAllCompetenties()){
+			if(c.getEigenId()== 1){
+		 		out.println("<input type='text' style='width:500px'name='"+c.getEigenId()+"' value='" + c.getTitel()+" '><br>");
+		 		break;
+			}
+			if(c.getEigenId()==2){
+				 out.println("<input type='text'style='width:500px' name='"+c.getEigenId()+"' value='" + c.getTitel()+" '><br>");
+				break;
+			}
+	}%>
+			<input type="submit" value="opslaan"><br><br>
+</form>
 
-
-	<form action="CompetentieAanpassenServlet.do" methode="GET">
+	<form action="StellingAanpassenServlet.do" methode="GET">
 		<%
 		int iterator=0;
 			for (Stelling s : stellingen) {

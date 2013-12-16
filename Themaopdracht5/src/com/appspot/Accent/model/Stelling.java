@@ -10,7 +10,7 @@ private String deWaarde;
 private int uniekID;
 
 
-public Stelling(int idee, String val, String stel, int uniq){
+public Stelling(int idee, String stel, String val, int uniq){
 	deStelling = stel;
 	setDeWaarde(val);
 	eigenId = idee;

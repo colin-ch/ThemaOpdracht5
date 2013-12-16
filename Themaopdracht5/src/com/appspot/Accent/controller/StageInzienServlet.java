@@ -60,7 +60,7 @@ public class StageInzienServlet extends HttpServlet{
 	
 	RequestDispatcher rd = null;
 	
-	getServletContext().setAttribute("Stage", stage);
+//	getServletContext().setAttribute("Stage", stage);
 	
 	
 	if(succes){
