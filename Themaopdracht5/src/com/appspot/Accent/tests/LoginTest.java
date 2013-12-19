@@ -1,14 +1,13 @@
 package com.appspot.Accent.tests;
 
-import com.thoughtworks.selenium.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-import java.util.regex.Pattern;
+import com.thoughtworks.selenium.DefaultSelenium;
+import com.thoughtworks.selenium.Selenium;
 
 public class LoginTest{
 	private Selenium selenium;

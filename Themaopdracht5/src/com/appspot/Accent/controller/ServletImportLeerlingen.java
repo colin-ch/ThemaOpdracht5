@@ -8,6 +8,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
@@ -38,7 +39,8 @@ public class ServletImportLeerlingen extends HttpServlet {
 		RequestDispatcher rd = null;
 		
 		LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
-		
+		ArrayList<Leerling>leerlingen = new ArrayList<Leerling>();
+		leerlingen = (ArrayList<Leerling>) lod.getAllLeerlingen();
 		int teller = 0;
 		try {
 			FileItemIterator fii = upload.getItemIterator(req);
@@ -106,7 +108,7 @@ public class ServletImportLeerlingen extends HttpServlet {
 							String postcodeBedrijf = sc.next();
 							int id = 1 + (int)(Math.random() * ((10000 - 1) + 1));
 							String activatiecode = "" + id;
-							for(Leerling l : lod.getAllLeerlingen()){
+							for(Leerling l : leerlingen){
 								if(l.getEmail().equals(emailLeerling)){
 									bestaat = true;
 									log.info(l.getEmail() +" deze leerling bestaat al");

@@ -39,6 +39,8 @@ public class ServletImportStages extends HttpServlet {
 		RequestDispatcher rd = null;
 		
 		StageOfyDAOImpl sod = new StageOfyDAOImpl();
+		ArrayList<Stage>stages = new ArrayList<Stage>();
+		stages = (ArrayList<Stage>) sod.getAllStages();
 		
 		int teller = 0;
 		try {
@@ -108,7 +110,7 @@ public class ServletImportStages extends HttpServlet {
 							String huisnrToeBedrijf = sc.next();
 							String postcodeBedrijf = sc.next();
 							
-							for(Stage st : sod.getAllStages()){
+							for(Stage st : stages){
 								if(st.getId() == codeStageBedrijf && st.getDeLeerling().equals(emailLeerling) && st.getDeBegeleider().equals(emailPraktijkBegeleider) && st.getHetBedrijf().equals(nmStageBedrijf)&& st.getDeOpleider().equals(praktijkOpleider)){
 									bestaat = true;
 								}
