@@ -29,21 +29,22 @@ public class CompetentieOverzichtServlet extends HttpServlet {
 		ofy = ObjectifyService.begin();
 		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		competenties = (ArrayList<Competentie>) cod.getAllCompetenties();
-		String samenwerkenEnOverleggen = "1";
-		String aandachtEnBegripTonen = "2";
+	
 		
-		
-		if (req.getParameter("competentie").equals(samenwerkenEnOverleggen)) {
+		for(Competentie c : competenties){
+			if (req.getParameter("competentie").equals(1)) {
 			String msgs = "Samenwerken en overleggen";
 			req.setAttribute("msgs", msgs);
+			req.setAttribute("competentie", msgs);
 			rd = req.getRequestDispatcher("CompetentieOverzicht.jsp");
-		}
-		if (req.getParameter("competentie").equals(aandachtEnBegripTonen)) {
-			String msgs = "Aandacht en begrip tonen";
+			}
+			if (req.getParameter("competentie").equals(2)) {
+			String msgs = "" + c.getDeStellingen();
 			req.setAttribute("msgs", msgs);
+			req.setAttribute("competentie", msgs);
 			rd = req.getRequestDispatcher("CompetentieOverzicht.jsp");
+			}
 		}
-	
 		rd.forward(req, resp);
 	}
 

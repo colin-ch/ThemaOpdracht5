@@ -13,11 +13,13 @@
 <%@ page import="com.googlecode.objectify.ObjectifyService"%>
 <%@ page import="com.appspot.Accent.model.service.*"%>
 <%@ include file="header.jsp"%>
-<head>
+
 <%
 	Object msgs=request.getAttribute( "msgs"); 
 		if (msgs !=null) { 
 	out.println("<h2 class='alert_info'>"+msgs+"</h2>"); 
+	
+	Object competentie =request.getAttribute("competentie");
 	
 		}
 %>
@@ -73,16 +75,7 @@
 <body>
 	
 <form action="CompetentieAanpassenServlet.do" method="GET">
-<%for(Competentie c : cod.getAllCompetenties()){
-			if(c.getEigenId()== 1){
-		 		out.println("<input type='text' style='width:500px'name='"+c.getEigenId()+"' value='" + c.getTitel()+" '><br>");
-		 		break;
-			}
-			if(c.getEigenId()==2){
-				 out.println("<input type='text'style='width:500px' name='"+c.getEigenId()+"' value='" + c.getTitel()+" '><br>");
-				break;
-			}
-	}%>
+
 			<input type="submit" value="opslaan"><br><br>
 </form>
 

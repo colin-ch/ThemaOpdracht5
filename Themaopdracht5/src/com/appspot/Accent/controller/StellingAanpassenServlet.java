@@ -28,7 +28,6 @@ public class StellingAanpassenServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		ofy = ObjectifyService.begin();
-		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 		ArrayList < Stelling > stellingen = (ArrayList <Stelling> ) sod.getAllStellingen();
 		
