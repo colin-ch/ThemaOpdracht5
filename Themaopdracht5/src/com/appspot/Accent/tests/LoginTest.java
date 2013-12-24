@@ -14,8 +14,11 @@ public class LoginTest{
 
 	@Before
 	public void setUp() throws Exception {
+		//TestData t = new TestData();
+		//t.aanmaken();
 		selenium = new DefaultSelenium("localhost", 4444, "*chrome", "http://project-omega.appspot.com/");
 		selenium.start();
+		
 	}
 
 	@Test

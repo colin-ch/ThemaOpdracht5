@@ -41,15 +41,14 @@
 				<%@ page import="com.appspot.Accent.model.StageBegeleider" %>
 				<%@ page import="com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl" %>
 				<%@ page import="java.util.ArrayList" %>
-				<button><a href="/LeerlingAanmaken.jsp">Maak een leerling aan</a></button>
-				<button><a href="/DocentAanmaken.jsp">Maak een docent aan</a></button>
-				<button><a href="/StageBegeleiderAanmaken.jsp">Maak een stagebegeleider aan</a></button>
-				<button><a href="/StagebedrijfAanmaken.jsp">Maak een stagebedrijf aan</a></button>
+				<a href="/LeerlingAanmaken.jsp"><button>Maak een leerling aan</button></a>
+				<a href="/DocentAanmaken.jsp"><button>Maak een docent aan</button></a>
+				<a href="/StageBegeleiderAanmaken.jsp"><button>Maak een stagebegeleider aan</button></a>
+				<a href="/StagebedrijfAanmaken.jsp"><button>Maak een stagebedrijf aan</button></a>
 				<br/><p>Competenties wijzigen</p>
-				<button><a href="/CompetentieSelecteren.jsp">Pas een competentie aan</a></button>
+				<a href="/CompetentieSelecteren.jsp"><button>Pas een competentie aan</button></a>
 				<br/><p>Stage aanmaken</p>
-				<button>
-				<a href="StageAanmaken.jsp">Stage aanmaken</a></button>
+				<a href="StageAanmaken.jsp"><button>Stage aanmaken</button></a>
 			</div>
 		</article>
 		<!-- end of styles article -->
