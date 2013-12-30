@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8" />
 <title>Dashboard I Admin Panel</title>
 <%@ include file="imports.jsp"%>
@@ -54,7 +55,6 @@
 		<!-- end of styles article -->
 		<div class="spacer"></div>
 	</section>
-	</div>
 </body>
 
 </html>
