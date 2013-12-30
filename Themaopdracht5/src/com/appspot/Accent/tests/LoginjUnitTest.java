@@ -122,14 +122,14 @@ public class LoginjUnitTest {
 		assertFalse(x.getPassword().equals("test 123"));
 	}
 	
-	@Test
-	public void getAllLeerlingenTest(){
-		ofy = ObjectifyService.begin();
-		LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
-		ArrayList<Leerling> leerlingen =   (ArrayList<Leerling>) lod.getAllLeerlingen();
-		assertTrue(leerlingen != null);
-
-		
-	}
+//	@Test
+//	public void getAllLeerlingenTest(){
+//		ofy = ObjectifyService.begin();
+//		LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
+//		ArrayList<Leerling> leerlingen =   (ArrayList<Leerling>) lod.getAllLeerlingen();
+//		assertTrue(leerlingen != null);
+//
+//		
+//	}
 	
 }
