@@ -74,22 +74,22 @@
 	<%@ page import="com.appspot.Accent.model.Leerling" %>
 	<%@ page import="java.util.ArrayList" %>
 				
-				<form action="/BeoordelingAanmakenServlet.do" methode="GET">
+				<form action="/BeoordelingAanmakenServlet.do" method="GET">
 				<%
 				Object initleerling = request.getAttribute( "initLeerling");
 				Object initStage = request.getAttribute( "initStage");
 				Object save = request.getAttribute("save");
 
 				if(initleerling != null){
-					out.println("<h2> selecteer een leerling: </h2>");
 				ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
+				out.println("<h2> selecteer een leerling:</h2>");
 				out.println("<input list='leerlingen' name='leerlingen' required>");//lijst van leerlingen wordt aangemaakt
 				out.println("<datalist id='leerlingen'>");
 				if (array != null) {
 					for (int i = 0; i < array.size(); i++) {
 
 						Leerling fluf = array.get(i);
-						out.println(" <option value='"+  fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "'/>") ;
+						out.println(" <option value='"+  fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "'>"+ fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "</option>") ;
 					}
 					out.println(" </datalist>");
 				
@@ -107,7 +107,7 @@
 						for (int i = 0; i < array.size(); i++) {
 
 							Stage fluf = array.get(i);
-							out.println(" <option value='"+  fluf.getId() + "'/>") ;
+							out.println(" <option value='"+  fluf.getId() + "'>"+ fluf.getId() +"</option>") ;
 						}
 						out.println(" </datalist>");
 							

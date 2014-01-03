@@ -32,7 +32,7 @@ a:hover {
 /* Header */
 header#header {
 	height: 55px;
-	width: 100%;
+	width: 1410px;
 	background: #bfd255; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background:
@@ -116,7 +116,8 @@ section#secondary_bar {
 
 section#secondary_bar .user {
 	float: left;
-	width: 15%;
+	width: 288px;
+	min-width: 250px;
 	height: 38px;
 }
 
@@ -153,13 +154,7 @@ section#secondary_bar .user {
 	text-indent: -5000px;
 	background: url(../images/icn_logout.png) center no-repeat;
 }
-/* Breadcrumbs */
-section#secondary_bar .breadcrumbs_container {
-	float: left;
-	width: 77%;
-	background: url(../images/secondary_bar_shadow.png) no-repeat left top;
-	height: 38px;
-}
+
 
 article.breadcrumbs {
 	float: left;

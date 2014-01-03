@@ -1,12 +1,6 @@
 
-
 <header id="header" style="min-width: 850px;">
-	<hgroup>
-		<h1 class="site_title" style="min-width: 250px;">
-			<a href="index.html">Website Admin</a>
-		</h1>
-		<h2 class="section_title" style="min-width: 250px;">Dashboard</h2>
-	</hgroup>
+	
 </header>
 <!-- end of header bar -->
 
@@ -34,13 +28,7 @@
 	%>
 		<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
 	</div>
-	<div class="breadcrumbs_container">
-		<article class="breadcrumbs">
-			<a href="index.html">Website Admin</a>
-			<div class="breadcrumb_divider"></div>
-			<a class="current">Dashboard</a>
-		</article>
-	</div>
+	
 </section>
 <!-- end of secondary bar -->
 
@@ -80,9 +68,7 @@
 				<strong>Accent Nijkerk</strong>
 			</p>
 			<p>
-				Ontwikkeld door &nbsp;<a href="http://www.hu.nl"><img
-					src="http://www.sporttop.nl/111929/HU_Logo.png" width="20px"
-					height="15px" /></a>
+				Ontwikkeld door &nbsp;<a href="http://www.hu.nl"><img src="http://www.sporttop.nl/111929/HU_Logo.png" width="20" height="15" alt=" "/></a>
 			</p>
 		</footer>
 	</aside>

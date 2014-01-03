@@ -45,13 +45,15 @@
 						}
 					}
 				}
-				%><input type='submit' value='overzicht'><%	
+				%><%	
 				out.println("</select>");
 				out.println("<input type='hidden' name='geselecteerde' value='" + geselecteerd +"'/>");
+				out.println("<input type='submit' value='overzicht'>");
 				out.println("</form>");
 				
 				
 				%>
+				
 				<br/>
 				
 				</form>

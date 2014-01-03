@@ -42,19 +42,20 @@
 				<%@ page import="com.appspot.Accent.model.StageBegeleider" %>
 				<%@ page import="com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl" %>
 				<%@ page import="java.util.ArrayList" %>
-				<a href="/LeerlingAanmaken.jsp"><button>Maak een leerling aan</button></a>
-				<a href="/DocentAanmaken.jsp"><button>Maak een docent aan</button></a>
-				<a href="/StageBegeleiderAanmaken.jsp"><button>Maak een stagebegeleider aan</button></a>
-				<a href="/StagebedrijfAanmaken.jsp"><button>Maak een stagebedrijf aan</button></a>
+				<button onclick="window.location.href='LeerlingAanmaken.jsp';">Maak een leerling aan</button>
+				<button onclick="window.location.href='DocentAanmaken.jsp';">Maak een docent aan</button>
+				<button onclick="window.location.href='StagebedrijfAanmaken.jsp';">Maak een bedrijf aan</button>
+				<button onclick="window.location.href='StageBegeleiderAanmaken.jsp';">Maak een begeleider aan</button>
 				<br/><p>Competenties wijzigen</p>
-				<a href="/CompetentieSelecteren.jsp"><button>Pas een competentie aan</button></a>
+				<button onclick="window.location.href='CompetentieSelecteren.jsp';">Pas een competentie aan</button>
 				<br/><p>Stage aanmaken</p>
-				<a href="StageAanmaken.jsp"><button>Stage aanmaken</button></a>
+				<button onclick="window.location.href='StageAanmaken.jsp';">Stage aanmaken</button>
 			</div>
 		</article>
 		<!-- end of styles article -->
 		<div class="spacer"></div>
 	</section>
+	</div>
 </body>
 
 </html>
