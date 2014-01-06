@@ -169,7 +169,7 @@ background-image: linear-gradient(to bottom,#fff,#e6e6e6);
 		rgba(0, 0, 0, 0.05);
 }
 
-#roww {
+.roww {
 	float: left;
 	height: 30px;
 	padding-bottom: 10px;
