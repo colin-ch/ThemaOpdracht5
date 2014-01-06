@@ -1,27 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<%@ page import="com.appspot.Accent.model.Stage"%>
-<%@ page import="com.appspot.Accent.model.Beoordeling"%>
-<%@ page import="com.appspot.Accent.model.StageBegeleider"%>
-<%@ page import="com.appspot.Accent.model.Competentie"%>
-<%@ page import="com.appspot.Accent.model.Stelling"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="com.googlecode.objectify.Objectify"%>
-<%@ page import="com.googlecode.objectify.ObjectifyService"%>
-<%@ page import="com.appspot.Accent.model.service.*"%>
-<%@ include file="header.jsp"%>
+<!doctype html>
+<html>
 <head>
-<%
-	Object msgs=request.getAttribute( "msgs"); 
-		if (msgs !=null) { 
-	out.println("<h2 class='alert_info'>"+msgs+"</h2>"); 
-		}
-%>
-<%
-	Object o = request.getSession().getAttribute("userobject");
-	StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
-		ArrayList < Stelling > stellingen = (ArrayList <Stelling> ) sod.getAllStellingen();
-%>
+
+
 <title>Competenties</title>
 
 <link rel="stylesheet" href="css/layout.css" type="text/css"
@@ -64,22 +45,89 @@
 		$('.column').equalHeight();
 	});
 </script>
+</head>
 <body>
+
+
+
+
+
+
+
+
+
+<header id="header" style="min-width: 850px;">
+	
+</header>
+<!-- end of header bar -->
+
+<section id="secondary_bar" style="min-width: 850px;">
+	<div class="user">
+	
+	<p>leerling1 Student</p>
+
+		<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
+	</div>
+	
+</section>
+<!-- end of secondary bar -->
+
+<div style="width: 1410px;">
+	<aside id="sidebar" class="column"
+		style="min-width: 250px; width: 288px !important; height: 100% !important; min-height: 600px !important;">
+		<form class="quick_search">
+			<input type="text" value="Zoeken"
+				onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+		</form>
+		<hr />
+		<h3>Competenties</h3>
+		<ul class="toggle">
+			<li class="icn_new_article"><a href="/BeoordelingAanmakenServlet.do?initLeerling=initLeerling">Nieuwe competentie
+					missing</a></li>
+			<li class="icn_edit_article"><a href="/BeoordeelServlet.do">Beoordelen</a></li>
+			<li class="icn_categories"><a href="CompetentieSelecteren.jsp">Competenties bekijken
+					</a></li>
+			
+		</ul>
+		<h3>Stages</h3>
+		<ul class="toggle">
+			<li class="icn_view_users"><a href="StageOverzicht.jsp">Stages overzicht</a></li>
+		</ul>
+		<h3>Leerlingen</h3>
+		<ul class="toggle">
+			<li class="icn_add_user"><a href="Beheerder.jsp">Beheerders pagina</a></li>
+			<li class="icn_view_users"><a href="overzichtgebruikers.jsp">Beoordelingen bekijken</a></li>
+			<li class="icn_view_users"><a href="Profiel.jsp">Profiel gegevens</a></li>
+			<li class="icn_jump_back"><a href="/LogoutServlet.do">Loguit</a></li>
+		</ul>
+
+
+		<footer>
+			<hr />
+			<p>
+				<strong>Accent Nijkerk</strong>
+			</p>
+			<p>
+				Ontwikkeld door &nbsp;<a href="http://www.hu.nl"><img src="http://www.sporttop.nl/111929/HU_Logo.png" width="20" height="15" alt=" "/></a>
+			</p>
+		</footer>
+	</aside>
+	<!-- end of sidebar -->
+
+
+
 	<h2>Kies een Competentie</h2>
 	<form action="CompetentieOverzichtServlet.do" method="GET">
-		<%
-			CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
-				ArrayList<Competentie> competenties = (ArrayList<Competentie>) cod.getAllCompetenties();
-				out.println("<select name='competentie'>");
-				for (Competentie c : competenties) {
-					out.println("<option  value='" + c.getEigenId() + "'>" + c.getTitel() + "</option");
-					out.println("</select>");
-				}
-		%>
+		<select name='competentie'>
+<option  value='1'>1. Samenwerken en overleggen</option>
+
+<option  value='2'>2. Aandacht en begrip tonen</option>
+</select>
+
 		<br /> <input type='submit' value='overzicht'>
 	</form>
 	
-
+</div>
 	
 
 
