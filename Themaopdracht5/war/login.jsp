@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en-US">
 <head>
 
@@ -32,30 +33,30 @@ $(document).ready(function() {
 
 			<fieldset>
 
-				<div id="roww">
-					<label for="text">Username:</label>
+				<div class="roww">
+					<label>Username:</label>
 				</div>
-				<div id="roww">
+				<div class="roww">
 					<input type="text" name="username" value="username"
 						onBlur="if(this.value=='')this.value='username'"
 						onFocus="if(this.value=='username')this.value=''" autofocus>
 				</div>
 
 
-				<div id="roww">
-					<label for="password">Password</label>
+				<div class="roww">
+					<label>Password</label>
 				</div>
-				<div id="roww">
+				<div class="roww">
 					<input type="password" name="password" value="password"
 						onBlur="if(this.value=='')this.value='password'"
 						onFocus="if(this.value=='password')this.value=''">
 				</div>
 
 
-				<div id="roww">
+				<div class="roww">
 
 					<input type="submit" class="btn btn-success" value="Login">
-					<a href="register.jsp" value="Register">Register</a>
+					<a href="register.jsp">Register</a>
 				</div>
 
 			</fieldset>
