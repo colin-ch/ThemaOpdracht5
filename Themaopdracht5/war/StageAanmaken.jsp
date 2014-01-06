@@ -36,7 +36,7 @@
 				}
 			}
 			if(x == false){			
-				out.println("<input type='hidden' name='id' value="+id);
+				out.println("<input type='hidden' name='"+id+"' value='"+id+"'>");
 			}
 			%>
 				Username van de deelnemende leerling
