@@ -48,7 +48,7 @@
         ['Naam', 'Stage bedrijf', 'Begin datum', 'Eind datum'],
         <% for(Stage stl : alleStages) {
        //	 out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+stl.getBegindatum()+"','"+stl.getEinddatum()+"'],");
-       	 out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+simpleDateFormat.format(stl.getBegindatum())+"','"+simpleDateFormat.format(stl.getEinddatum())+"'],");
+       	 out.println("['"+stl.getDeLeerling()+"', \""+stl.getHetBedrijf()+"\", '"+simpleDateFormat.format(stl.getBegindatum())+"','"+simpleDateFormat.format(stl.getEinddatum())+"'],");
       	//System.out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+simpleDateFormat.format(stl.getBegindatum())+"','"+simpleDateFormat.format(stl.getEinddatum())+"'],");
       //	System.out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+stl.getBegindatum()+"','"+stl.getEinddatum()+"'],");   
         }

@@ -57,14 +57,25 @@ public class ServletImportStages extends HttpServlet {
 					String output = writer.toString();
 					log.info("Input file =" + output);
 					BufferedReader br = new BufferedReader(new StringReader(output));
-					String s = "";
+					String s = "geen string";
 					
 					while ((s = br.readLine()) != null){
 						teller++;
 						boolean bestaat = false;
+						log.info(s);
 
+						String correct = "";
+						for (String retval: s.split("")){
+							if(retval != null){
+								if(!retval.equals("\"" )){
+									correct+= retval;
+								}
+							}
+						}
+						
+						log.info(correct);
 						if(teller != 1){
-							Scanner sc = new Scanner(s);
+							Scanner sc = new Scanner(correct);
 							sc.useDelimiter(";");
 							String volgnrKlas = sc.next();
 							String klasAanmelding = sc.next();
