@@ -37,6 +37,7 @@ public class BeoordeelStageBedrijfServlet extends HttpServlet {
 			throws ServletException, IOException {
 		//		boolean succes = false;
 		RequestDispatcher rd = null;
+		String content ="";
 		Object o = req.getSession().getAttribute("userobject");
 		ofy = ObjectifyService.begin();
 		Beoordeling rate =null;
@@ -99,7 +100,7 @@ boolean nextS = false;
 		                    for(Integer inter : beoordelencomp){//alle competenties doorlopen
 		                        //System.out.println(" "  + c.getTitel());
 							if(inter == c.getEigenId()){
-		                        out.println("<h2>" + c.getTitel() + "</h2><br/>");
+		                       content = content + "<br/><h2>" + c.getTitel() + "</h2><br/>";
 
 		                        ArrayList < Stelling > stellingen = (ArrayList < Stelling > ) sod.getAllStellingen();
 		                        ArrayList <StellingBeoordeeld> currentbeoordelen = new ArrayList<StellingBeoordeeld>();
@@ -125,24 +126,24 @@ System.out.println("stellingbeoordeeld");
 		                                teller++;
 		                                String waarde = st.getDeWaarde();
 
-		                                out.println("<h4>" + st.getDeStelling() + "</h4>");
+		                                content = content + "<br/><h4>" + st.getDeStelling() + "</h4>";
 										//voor iedere stelling radio buttons maken
 		                                if (waarde == null || waarde.equals("")) {
-		                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>");
+		                                	content = content + "<br/>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>";
 		                                }
 
 		                                if (waarde.equals("1")) {
-		                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' checked='checked' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>");
+		                                	content = content + "<br/>1<input type='radio' name='" + st.getUniekID() + "' checked='checked' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>";
 		                                }
 
 		                                if (waarde.equals("2")) {
-		                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>");
+		                                	content = content + "<br/>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>";
 		                                }
 		                                if (waarde.equals("3")) {
-		                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input  type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>");
+		                                	content = content + "<br/>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input  type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>";
 		                                }
 		                                if (waarde.equals("4")) {
-		                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>");
+		                                	content = content + "<br/>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>";
 		                                }
 		                               
 		                               
@@ -157,6 +158,8 @@ System.out.println("stellingbeoordeeld");
 		        
 				}
 			}
+			rd = req.getRequestDispatcher("beoordelenOpleider.jsp");
+			req.setAttribute("beoordelingopleider", content);
 				
 			}
 			

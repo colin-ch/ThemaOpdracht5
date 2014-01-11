@@ -88,6 +88,17 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>BeoordeelStageBedrijfServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.BeoordeelStageBedrijfServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>BeoordeelStageBedrijfServlet</servlet-name>
+		<url-pattern>/BeoordeelStageBedrijfServlet.do</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
 		<servlet-name>LoginServlet</servlet-name>
 		<servlet-class>com.appspot.Accent.controller.LoginServlet</servlet-class>
 	</servlet>
