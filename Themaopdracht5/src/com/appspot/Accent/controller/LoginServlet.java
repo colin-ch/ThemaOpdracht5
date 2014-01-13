@@ -39,14 +39,10 @@ public class LoginServlet extends HttpServlet {
 		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
 		StageBedrijfOfyDAOImpl sb = new StageBedrijfOfyDAOImpl();
 		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl();
-		ArrayList<Leerling>leerlingen = (ArrayList<Leerling>) l.getAllLeerlingen();
-		ArrayList<Docent>docenten = (ArrayList<Docent>) d.getAllDocenten();
-		ArrayList<StageBedrijf>bedrijven = (ArrayList<StageBedrijf>) sb.getAllStageBedrijven();
-		ArrayList<StageBegeleider>begeleiders = (ArrayList<StageBegeleider>) sbg.getAllBegeleiders();
 		// er wrodt gekeken pof de gegevens overeenkomt met een van de users er is verschil in type users, namelijk leerlingen en docenten etc.
 		
 		// er wordt gecontroleerd of het een leerling is 
-		for(Leerling le : leerlingen){
+		for(Leerling le : l.getAllLeerlingen()){
 			if(username.equals(le.getUsername()) && pass.equals(le.getPassword())){
 				loginsucces = true;
 				System.out.println("Is een leerling");
@@ -56,36 +52,39 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		// er wordt gecontroleerd of het een docent is 
-
-		for(Docent de : docenten){
-			if(username.equals(de.getUsername()) && pass.equals(de.getPassword()) && loginsucces == false){
-				loginsucces = true;
-				System.out.println("Is een docent");
-				user = de;
-			}
-			else{
+		if(loginsucces == false){
+			for(Docent de : d.getAllDocenten()){
+				if(username.equals(de.getUsername()) && pass.equals(de.getPassword())){
+					loginsucces = true;
+					System.out.println("Is een docent");
+					user = de;
+				}
+				else{
+				}
 			}
 		}
 		// er wordt gecontroleerd of het een stagebedrijf/opleider is 
-
-		for(StageBedrijf sbe : bedrijven){
-			if(username.equals(sbe.getUsername()) && pass.equals(sbe.getPassword()) && loginsucces == false){
-				loginsucces = true;
-				System.out.println("Is een stagebedrijf");
-				user = sbe;
-			}
-			else{
+		if(loginsucces == false){
+			for(StageBedrijf sbe : sb.getAllStageBedrijven()){
+				if(username.equals(sbe.getUsername()) && pass.equals(sbe.getPassword())){
+					loginsucces = true;
+					System.out.println("Is een stagebedrijf");
+					user = sbe;
+				}
+				else{
+				}
 			}
 		}
 		// er wordt gecontroleerd of het een begeleider is 
-
-		for(StageBegeleider sbge : begeleiders){
-			if(username.equals(sbge.getUsername()) && pass.equals(sbge.getPassword()) && loginsucces == false){
-				loginsucces = true;
-				System.out.println("Is een stagebegeleider");
-				user = sbge;
-			}
-			else{
+		if(loginsucces == false){
+			for(StageBegeleider sbge : sbg.getAllBegeleiders()){
+				if(username.equals(sbge.getUsername()) && pass.equals(sbge.getPassword())){
+					loginsucces = true;
+					System.out.println("Is een stagebegeleider");
+					user = sbge;
+				}
+				else{
+				}
 			}
 		}
 		// als er een gebruiker is stuurt ie de pagina door
