@@ -18,8 +18,13 @@ private static final Logger log = Logger.getLogger(OverzichtServlet.class.getNam
 		// IS NOG ONDER CONSTRUCTIE
 		
 		
+		if(req.getParameter("radio") != null){
+			String geselecteerd = req.getParameter("radio");
+			getServletContext().setAttribute("geselecteerd", geselecteerd);
+		}	
+		
 		RequestDispatcher rd = null;
-		rd = req.getRequestDispatcher("grafieken.jsp");
+		rd = req.getRequestDispatcher("beoordelingSelecteren.jsp");
 		rd.forward(req, resp);
 	
 		

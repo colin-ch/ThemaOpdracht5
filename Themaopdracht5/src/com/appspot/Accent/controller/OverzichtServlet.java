@@ -56,11 +56,7 @@ public class OverzichtServlet extends HttpServlet{
 		if(req.getParameter("geselecteerde") != null){
 			
 			
-			
-			if(req.getParameter("radio") != null){
-				String geselecteerd = req.getParameter("radio");
-				getServletContext().setAttribute("geselecteerd", geselecteerd);
-			}	
+	
 			
 			
 		for(Stage st : stages){//doorloopt alle stages

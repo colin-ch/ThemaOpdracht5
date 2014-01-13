@@ -71,6 +71,7 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 <script>
+
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       //google chart wordt geïnitialiseerd
@@ -157,7 +158,7 @@
 		<h4 class='alert_info'>
 		<form action="/Overzicht.do" method="get">
 		<select name="select" onchange="this.form.submit()">
-		<option><i>Selecteer een beoordeling</i></option>
+	
 		<% 
 		String geselecteerd = getServletContext().getAttribute("geselecteerd").toString();
 		BeoordelingOfyDAOImpl b = new BeoordelingOfyDAOImpl();

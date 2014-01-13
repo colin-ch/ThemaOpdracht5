@@ -24,7 +24,7 @@
 			</header>
 			<div class="module_content">
 
-				<form action="Overzicht.do" method="GET">
+				<form action="BeoordelingOphalenServlet.do" method="GET">
 
 					<%@ page import="java.util.*"%>
 					<%@ page import="com.appspot.Accent.model.*"%>
@@ -71,8 +71,7 @@
                         		
                         		
                             	%>
-					<input type='hidden' name='geselecteerde' value="test"/>
-					<input type='hidden' name='select' value="test"/>
+				
 					<input type="submit" value="verder">
 				</form>
 			</div>
