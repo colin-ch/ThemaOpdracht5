@@ -92,6 +92,7 @@
 		    BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
 		    
 		    
+		    
 		    for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
 		    	
 		    	if (le.getUsername().equals(getServletContext().getAttribute("geselecteerd"))){ //als leerling gelijk is aan de eerder geselecteerde leerling
@@ -126,7 +127,7 @@
 		    		}
 		    	}
 		    }
-			
+		    
          %>  
         ['', 0, 0]
         ]);
@@ -154,18 +155,33 @@
 	<section id="main" class="column"
 		style="min-width: 1110px; min-height: 600px !important;">
 		<h4 class='alert_info'>
-		<form action="/Overzicht.do">
+		<form action="/Overzicht.do" method="get">
 		<select name="select" onchange="this.form.submit()">
+		<option><i>Selecteer een beoordeling</i></option>
 		<% 
-		Object msgs=request.getAttribute("msgs"); 
-		if (msgs !=null) { 
-			out.println(""+msgs); 
-		} 
-		else{
-			out.println("null");
+		String geselecteerd = getServletContext().getAttribute("geselecteerd").toString();
+		BeoordelingOfyDAOImpl b = new BeoordelingOfyDAOImpl();
+		ArrayList < Beoordeling > beoordelingen = (ArrayList < Beoordeling > ) b.getAllBeoordelingen();
+		StageOfyDAOImpl s = new StageOfyDAOImpl();
+		for(Stage sta : s.getAllStages()){
+			if(sta.getDeLeerling().equals(geselecteerd)){
+				
+				for(Beoordeling be : b.getBeoordelingen(sta.getId())){
+					if(be.getDatum().equals(getServletContext().getAttribute("datum"))){
+					out.println("<option value='"+ be.getDatum() +"' selected>Stage ID: " + sta.getId() + " - Datum:"   + be.getDatum() + "</option>");
+				}
+				else{
+					out.println("<option value='"+ be.getDatum() +"'>Stage ID: " + sta.getId() + " - Datum:"   + be.getDatum() + "</option>");
+				}
+				}
+				
+			}
 		}
+		
 		%>
+		
 	    </select>
+	    <%out.println("<input type='hidden' name='geselecteerde' value='" + geselecteerd +"'/>"); %>
 		</form>
 		</h4>
 		<article class="module width_full">

@@ -17,11 +17,9 @@ private static final Logger log = Logger.getLogger(OverzichtServlet.class.getNam
 			throws ServletException, IOException{
 		// IS NOG ONDER CONSTRUCTIE
 		
-		String geselecteerd = req.getParameter("radio");
-		getServletContext().setAttribute("geselecteerd", geselecteerd);
 		
 		RequestDispatcher rd = null;
-		rd = req.getRequestDispatcher("beoordelingSelecteren.jsp");
+		rd = req.getRequestDispatcher("grafieken.jsp");
 		rd.forward(req, resp);
 	
 		
