@@ -43,11 +43,11 @@
 				<input list="leerlingen" name="leerlingen" placeholder="Naam van de leerling"><br/>
 				<%
 				LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
-				out.println("<datalist name='leerlingen' id='leerlingen'>");
+				out.println("<datalist id='leerlingen'>");
 				if (lod.getAllLeerlingen() != null) {
 					for (Leerling l : lod.getAllLeerlingen()) {
 						
-						out.println(" <option value='"+  l.getRoepnaam() + "'/>") ;
+						out.println(" <option value='"+  l.getRoepnaam() + "'>"+l.getRoepnaam()+"</option>") ;
 					}
 					out.println(" </datalist>");
 				}
@@ -58,7 +58,7 @@
 				<input list="begeleiders" name="begeleiders" placeholder="Naam begeleider"><br/>
 				<%
 				StageBegeleiderOfyDAOImpl sbod = new StageBegeleiderOfyDAOImpl();
-				out.println("<datalist name='begeleider' id='begeleiders'>");
+				out.println("<datalist id='begeleiders'>");
 				if (sbod.getAllBegeleiders() != null) {
 					for (StageBegeleider sb : sbod.getAllBegeleiders()) {
 						
@@ -76,11 +76,11 @@
 				<input list="bedrijf" name="bedrijf" placeholder="Naam bedrijf"><br/>
 				<%
 				StageBedrijfOfyDAOImpl bod = new StageBedrijfOfyDAOImpl();
-				out.println("<datalist name='bedrijf' id='bedrijf'>");
+				out.println("<datalist id='bedrijf'>");
 				if (bod.getAllStageBedrijven() != null) {
 					for (StageBedrijf sbe : bod.getAllStageBedrijven()) {
 						
-						out.println(" <option value='"+  sbe.getUsername() + "'/>") ;
+						out.println(" <option value='"+  sbe.getUsername() + "'>"+sbe.getUsername()+"</option>") ;
 					}
 					out.println(" </datalist>");
 				}
@@ -89,9 +89,9 @@
 				} %>
 				
 				Begin datum stage
-				<input type="date" name="begin" placeholder="Begin datum" required="required"><br/>
+				<input type="date" name="begin" required="required"><br/>
 				Eind datum stage
-				<input type="date" name="einde" placeholder="Einde datum" required="required"><br/>
+				<input type="date" name="einde" required="required"><br/>
 
 				<input type="submit" value="Maak stage aan" name="stage">
 			</form>	
