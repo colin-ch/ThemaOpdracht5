@@ -24,7 +24,7 @@ import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
 public class OverzichtServlet extends HttpServlet{
-	private static final Logger log = Logger.getLogger(OverzichtServlet.class.getName());
+	//private static final Logger log = Logger.getLogger(OverzichtServlet.class.getName());
 	private Objectify ofy;
 	
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp) 
@@ -39,6 +39,8 @@ public class OverzichtServlet extends HttpServlet{
 		StageOfyDAOImpl std = new StageOfyDAOImpl();
 		BeoordelingOfyDAOImpl bo = new BeoordelingOfyDAOImpl();
 		
+	
+		//log.info((String) getServletContext().getAttribute("geselecteerd"));
 		ArrayList<Stage>stages = new ArrayList<Stage>();
 		stages = (ArrayList<Stage>) std.getAllStages();
 		ArrayList<Stelling> stellingen = new ArrayList<Stelling>();
@@ -49,38 +51,47 @@ public class OverzichtServlet extends HttpServlet{
 		allebeoordelingen = (ArrayList<Beoordeling>) bo.getAllBeoordelingen();
 		
 		boolean succes = false;
+		String bericht = "";//dropdown worden gemaakt
 		
 		if(req.getParameter("geselecteerde") != null){
-		
+			
+			
+			
+			if(req.getParameter("radio") != null){
+				String geselecteerd = req.getParameter("radio");
+				getServletContext().setAttribute("geselecteerd", geselecteerd);
+			}	
+			
+			
 		for(Stage st : stages){//doorloopt alle stages
-			log.info("1");
+			
 			if(o instanceof Leerling ){//is ingelogde gebruiker een leerling?
-				log.info("1");
+			
 				if (st.getDeLeerling().equals(req.getParameter("geselecteerde"))){//zoekt stage dmv naam ingelogde te vergelijken met stage.getLeerling()
 			
 					
-						String bericht = "";//dropdown worden gemaakt
+					
 					   
 						
 						for(Beoordeling b : bo.getBeoordelingen(st.getId())){//alle beoordelingen worden doorlopen
 						
 							bericht = bericht + "<option value="+b.getDatum()+">"+b.getDatum()+"</option>";
-							log.info(bericht);//de options worden aan de select van de dropdown toegevoegd
+						//	log.info(bericht);//de options worden aan de select van de dropdown toegevoegd
 				
 							
 						}
 						
 						succes = true;
 						
-						req.setAttribute("msgs", bericht);
+						req.setAttribute("msgs2", bericht);
 					}
 					else{
-						req.setAttribute("msgs", "Er zijn nog geen beoordelingen gedaan");
+						req.setAttribute("msgs2", "Er zijn nog geen beoordelingen gedaan");
 					}
 				}
 			
 			else{
-				req.setAttribute("msgs", "U bent niet ingelogd als leerling");
+				req.setAttribute("msgs2", "U bent niet ingelogd als leerling");
 			}
 			
 			}
@@ -93,6 +104,10 @@ public class OverzichtServlet extends HttpServlet{
 			
 			succes = true;
 		}
+		else {
+			getServletContext().setAttribute("datum", "null");
+			
+		}
 		RequestDispatcher rd = null;
 		
 		
@@ -101,11 +116,11 @@ public class OverzichtServlet extends HttpServlet{
 		
 		if(succes){
 			rd = req.getRequestDispatcher("grafieken.jsp");
-			log.info("3");
+			
 		}
 		else{
 			rd = req.getRequestDispatcher("grafieken.jsp");
-			log.info("4");
+			
 		}
 		
 		
