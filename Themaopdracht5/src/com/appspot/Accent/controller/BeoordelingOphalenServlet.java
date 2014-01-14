@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class BeoordelingOphalenServlet extends HttpServlet{
  
-private static final Logger log = Logger.getLogger(OverzichtServlet.class.getName());
+//private static final Logger log = Logger.getLogger(OverzichtServlet.class.getName());
 	
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{

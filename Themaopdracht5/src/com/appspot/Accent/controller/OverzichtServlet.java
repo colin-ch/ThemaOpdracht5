@@ -31,7 +31,6 @@ public class OverzichtServlet extends HttpServlet{
 			throws ServletException, IOException{
 		
 		ofy = ObjectifyService.begin();
-		School s = new School("Accent", "Nijkerk", "Nijkerk", "0000AS");
 		Object o = req.getSession().getAttribute("userobject");//haalt ingelogde gebruiker op
 		
 		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
