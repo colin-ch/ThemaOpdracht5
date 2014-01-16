@@ -88,7 +88,8 @@
 					Object beoordelingopleider=request.getAttribute( "beoordelingopleider");
 					
 					if (beoordelingopleider ==null ) { 
-						
+						LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
+						ArrayList<Leerling> deLeerlingen = ((ArrayList<Leerling>)lod.getAllLeerlingen());
 						
 						
 						
