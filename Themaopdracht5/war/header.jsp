@@ -1,6 +1,6 @@
 
 <header id="header" style="min-width: 850px;">
-	
+	<h1 class="site_title"><a href="index.jsp">Accent Nijkerk</a></h1>
 </header>
 <!-- end of header bar -->
 
@@ -32,7 +32,7 @@
 </section>
 <!-- end of secondary bar -->
 
-<div style="width: 1410px;">
+<div class="mnn" style="max-width: 1410px;">
 	<aside id="sidebar" class="column"
 		style="min-width: 250px; width: 288px !important; height: 100% !important; min-height: 600px !important;">
 		<form class="quick_search">
@@ -44,7 +44,7 @@
 		<ul class="toggle">
 			<li class="icn_new_article"><a href="/BeoordelingAanmakenServlet.do?initLeerling=initLeerling">Nieuwe competentie
 					missing</a></li>
-			<li class="icn_edit_article"><a href="/BeoordeelStageBedrijfServlet.do">Beoordelen</a></li>
+			<li class="icn_edit_article"><a href="/BeoordeelServlet.do">Beoordelen</a></li>
 			<li class="icn_categories"><a href="CompetentieSelecteren.jsp">Competenties bekijken
 					</a></li>
 			

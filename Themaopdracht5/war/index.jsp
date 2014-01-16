@@ -5,6 +5,7 @@
 <meta charset="utf-8" />
 <title>Dashboard I Admin Panel</title>
 <%@ include file="imports.jsp"%>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 </head>
 
 <body>
