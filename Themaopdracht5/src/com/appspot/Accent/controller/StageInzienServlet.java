@@ -28,7 +28,7 @@ public class StageInzienServlet extends HttpServlet{
 	private String bericht;
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
-		
+		// niet af
 		ofy = ObjectifyService.begin();
 		
 	
