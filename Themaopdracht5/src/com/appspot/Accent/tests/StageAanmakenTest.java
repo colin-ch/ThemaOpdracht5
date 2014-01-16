@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 
-public class TestData {
+public class StageAanmakenTest {
 	private Selenium selenium;
 
 	@Before
@@ -17,30 +17,23 @@ public class TestData {
 	}
 
 	@Test
-	public void testTestdata() throws Exception {
+	public void testStageAanmaken() throws Exception {
 		selenium.open("/");
-		selenium.type("name=username", "123");
-		selenium.type("name=password", "123");
+		selenium.type("name=username", "stage");
+		selenium.type("name=password", "begeleider");
 		selenium.click("css=input.btn.btn-success");
 		selenium.waitForPageToLoad("30000");
 		selenium.click("link=Beheerders pagina");
 		selenium.waitForPageToLoad("30000");
-		selenium.click("css=button");
+		selenium.click("//button[@onclick=\"window.location.href='StageAanmaken.jsp';\"]");
 		selenium.waitForPageToLoad("30000");
-		selenium.type("name=username", "abc");
-		selenium.type("name=wachtwoord", "abc");
-		selenium.type("name=email", "123@gmail.com");
-		selenium.type("name=klas", "1");
+		selenium.type("name=leerlingen", "Rick");
 		selenium.type("name=begeleiders", "123@gmail.com");
-		selenium.type("name=gebdat", "11-11-13");
-		selenium.type("name=roepnaam", "1");
-		selenium.type("name=achternaam", "1");
-		selenium.click("name=leerling");
-		selenium.waitForPageToLoad("30000");
-		
-		
-		
-		selenium.click("link=Loguit");
+		selenium.type("name=opleider", "daan");
+		selenium.type("name=bedrijf", "bedrijf1");
+		selenium.type("name=begin", "11-01-14");
+		selenium.type("name=einde", "11-04-14");
+		selenium.click("name=stage");
 		selenium.waitForPageToLoad("30000");
 	}
 
