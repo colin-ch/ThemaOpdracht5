@@ -32,7 +32,7 @@ a:hover {
 /* Header */
 header#header {
 	height: 55px;
-	width: 1410px;
+	min-width: 1410px;
 	background: #bfd255; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background:

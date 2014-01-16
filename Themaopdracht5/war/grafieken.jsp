@@ -3,56 +3,8 @@
 
 <head>
 <meta charset="utf-8" />
-<title>Dashboard I Admin Panel</title>
+<title>Overzicht beoordelingen</title>
 
-<link rel="stylesheet" href="css/layout.css" type="text/css"
-	media="screen" />
-<!--[if lt IE 9]>
-	<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-<script src="js/jquery-1.5.2.min.js" type="text/javascript"></script>
-<script src="js/hideshow.js" type="text/javascript"></script>
-<script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
-<script src="js/add2home.js" type="text/javascript"></script>
-<link rel="stylesheet" href="js/add2home.css" type="text/css"
-	media="screen"></link>
-<link rel="apple-touch-icon" href="images/iphonee.png" />
-<link rel="apple-touch-icon" sizes="72x72" href="images/ipadd.png" />
-<link rel="apple-touch-icon" sizes="114x114" href="images/iphone4.png" />
-<script type="text/javascript" src="js/jquery.equalHeight.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() 
-    	{ 
-      	  $(".tablesorter").tablesorter(); 
-   	 } 
-	);
-	$(document).ready(function() {
-
-	//When page loads...
-	$(".tab_content").hide(); //Hide all content
-	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
-	$(".tab_content:first").show(); //Show first tab content
-
-	//On Click Event
-	$("ul.tabs li").click(function() {
-
-		$("ul.tabs li").removeClass("active"); //Remove any "active" class
-		$(this).addClass("active"); //Add "active" class to selected tab
-		$(".tab_content").hide(); //Hide all tab content
-
-		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-		$(activeTab).fadeIn(); //Fade in the active ID content
-		return false;
-	});
-
-});
-    </script>
-<script type="text/javascript">
-    $(function(){
-        $('.column').equalHeight();
-    });
-</script>
 <%@ page import="java.util.*"%>
 <%@ page import="javax.servlet.ServletContextEvent"%>
 <%@ page import="com.appspot.Accent.model.StellingBeoordeeld"%>
@@ -71,6 +23,7 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 <script>
+
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       //google chart wordt geïnitialiseerd
@@ -90,6 +43,7 @@
 		    StageOfyDAOImpl st = new StageOfyDAOImpl();
 		    StellingOfyDAOImpl stelling = new StellingOfyDAOImpl();
 		    BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
+		    
 		    
 		    
 		    for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
@@ -126,7 +80,7 @@
 		    		}
 		    	}
 		    }
-			
+		    
          %>  
         ['', 0, 0]
         ]);
@@ -143,7 +97,7 @@
         chart.draw(data, options);
       }
  </script>
-
+<%@ include file="imports.jsp"%>
 </head>
 
 
@@ -153,21 +107,36 @@
 
 	<section id="main" class="column"
 		style="min-width: 1110px; min-height: 600px !important;">
-		<h4 class='alert_info'>
-		<form action="/Overzicht.do">
+		
+		<form action="/Overzicht.do" method="get">
 		<select name="select" onchange="this.form.submit()">
+	
 		<% 
-		Object msgs=request.getAttribute("msgs"); 
-		if (msgs !=null) { 
-			out.println(""+msgs); 
-		} 
-		else{
-			out.println("null");
+		String geselecteerd = getServletContext().getAttribute("geselecteerd").toString();
+		BeoordelingOfyDAOImpl b = new BeoordelingOfyDAOImpl();
+		ArrayList < Beoordeling > beoordelingen = (ArrayList < Beoordeling > ) b.getAllBeoordelingen();
+		StageOfyDAOImpl s = new StageOfyDAOImpl();
+		for(Stage sta : s.getAllStages()){
+			if(sta.getDeLeerling().equals(geselecteerd)){
+				
+				for(Beoordeling be : b.getBeoordelingen(sta.getId())){
+					if(be.getDatum().equals(getServletContext().getAttribute("datum"))){
+					out.println("<option value='"+ be.getDatum() +"' selected>Stage ID: " + sta.getId() + " - Datum:"   + be.getDatum() + "</option>");
+				}
+				else{
+					out.println("<option value='"+ be.getDatum() +"'>Stage ID: " + sta.getId() + " - Datum:"   + be.getDatum() + "</option>");
+				}
+				}
+				
+			}
 		}
+		
 		%>
+		
 	    </select>
+	    <%out.println("<input type='hidden' name='geselecteerde' value='" + geselecteerd +"'/>"); %>
 		</form>
-		</h4>
+		
 		<article class="module width_full">
 			<header>
 				<h3>Home</h3>

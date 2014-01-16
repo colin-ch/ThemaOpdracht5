@@ -11,14 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 public class BeoordelingOphalenServlet extends HttpServlet{
  
-private static final Logger log = Logger.getLogger(OverzichtServlet.class.getName());
+//private static final Logger log = Logger.getLogger(OverzichtServlet.class.getName());
 	
 	protected void doGet( HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
 		// IS NOG ONDER CONSTRUCTIE
 		
-		String geselecteerd = req.getParameter("radio");
-		getServletContext().setAttribute("geselecteerd", geselecteerd);
+		
+		if(req.getParameter("radio") != null){
+			String geselecteerd = req.getParameter("radio");
+			getServletContext().setAttribute("geselecteerd", geselecteerd);
+		}	
 		
 		RequestDispatcher rd = null;
 		rd = req.getRequestDispatcher("beoordelingSelecteren.jsp");

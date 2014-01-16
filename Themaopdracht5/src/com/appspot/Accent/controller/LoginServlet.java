@@ -52,36 +52,39 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		// er wordt gecontroleerd of het een docent is 
-
-		for(Docent de : d.getAllDocenten()){
-			if(username.equals(de.getUsername()) && pass.equals(de.getPassword()) && loginsucces == false){
-				loginsucces = true;
-				System.out.println("Is een docent");
-				user = de;
-			}
-			else{
+		if(loginsucces == false){
+			for(Docent de : d.getAllDocenten()){
+				if(username.equals(de.getUsername()) && pass.equals(de.getPassword())){
+					loginsucces = true;
+					System.out.println("Is een docent");
+					user = de;
+				}
+				else{
+				}
 			}
 		}
 		// er wordt gecontroleerd of het een stagebedrijf/opleider is 
-
-		for(StageBedrijf sbe : sb.getAllStageBedrijven()){
-			if(username.equals(sbe.getUsername()) && pass.equals(sbe.getPassword()) && loginsucces == false){
-				loginsucces = true;
-				System.out.println("Is een stagebedrijf");
-				user = sbe;
-			}
-			else{
+		if(loginsucces == false){
+			for(StageBedrijf sbe : sb.getAllStageBedrijven()){
+				if(username.equals(sbe.getUsername()) && pass.equals(sbe.getPassword())){
+					loginsucces = true;
+					System.out.println("Is een stagebedrijf");
+					user = sbe;
+				}
+				else{
+				}
 			}
 		}
 		// er wordt gecontroleerd of het een begeleider is 
-
-		for(StageBegeleider sbge : sbg.getAllBegeleiders()){
-			if(username.equals(sbge.getUsername()) && pass.equals(sbge.getPassword()) && loginsucces == false){
-				loginsucces = true;
-				System.out.println("Is een stagebegeleider");
-				user = sbge;
-			}
-			else{
+		if(loginsucces == false){
+			for(StageBegeleider sbge : sbg.getAllBegeleiders()){
+				if(username.equals(sbge.getUsername()) && pass.equals(sbge.getPassword())){
+					loginsucces = true;
+					System.out.println("Is een stagebegeleider");
+					user = sbge;
+				}
+				else{
+				}
 			}
 		}
 		// als er een gebruiker is stuurt ie de pagina door
