@@ -16,9 +16,6 @@
 <link rel="apple-touch-icon" sizes="72x72" href="images/ipadd.png" />
 <link rel="apple-touch-icon" sizes="114x114" href="images/iphone4.png" />
 <script type="text/javascript" src="js/jquery.equalHeight.js"></script>
-<script type="text/javascript" src="js/responsivemobilemenu.js"></script>
-
-<link rel="stylesheet" href="css/responsivemobilemenu.css" type="text/css"/>
 <script type="text/javascript">
 	$(document).ready(function() 
     	{ 

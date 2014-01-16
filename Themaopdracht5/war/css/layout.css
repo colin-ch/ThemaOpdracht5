@@ -57,7 +57,6 @@ header#header {
 header#header h1.site_title,header#header h2.section_title {
 	float: left;
 	margin: 0;
-	min-width: 288px;
 	font-size: 22px;
 	display: block;
 	width: 15%;
