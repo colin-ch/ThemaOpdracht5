@@ -26,13 +26,13 @@ public class LoginFilterServlet implements Filter {
 		String schermX = "http://project-omega.appspot.com/#";
 		String schermY = "http://project-omega.appspot.com/#";
 
-
+// er word gekeken of je ingelogde bent of niet.
 		if (o == null) {
 			req.setAttribute("msgs", "U moet ingelogd zijn om deze site te gebruiken");
 			r2.getRequestDispatcher("/login.jsp").forward(req, resp);
 		} else {
 			String reqUrl =	r2.getRequestURL().toString();
-			
+			// er wordt gekeken  welke gerbuiker het is en of deze wel op de betreffende pagina mag.
 			if(o instanceof Leerling){
 				if(reqUrl.equals(schermX)||reqUrl.equals(schermY)){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
