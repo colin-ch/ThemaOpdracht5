@@ -88,9 +88,30 @@
 					Object beoordelingopleider=request.getAttribute( "beoordelingopleider");
 					
 					if (beoordelingopleider ==null ) { 
-						LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
-						ArrayList<Leerling> deLeerlingen = ((ArrayList<Leerling>)lod.getAllLeerlingen());
+						StageOfyDAOImpl sod = new StageOfyDAOImpl();
+						ArrayList<Stage> deStages = (ArrayList<Stage>)sod.getAllStages();
+LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
+ArrayList<Leerling> students =  (ArrayList<Leerling>)lod.getAllLeerlingen();
+						ArrayList<Leerling> deLeerlingen = new ArrayList<Leerling>();
+						Leerling fluf = null;
+						out.println("<h2> selecteer een leerling:</h2>");
+						out.println("<input list='leerlingen' name='leerlingen' required>");//lijst van leerlingen wordt aangemaakt
+						out.println("<datalist id='leerlingen'>");
+						if (deStages != null) {
+							for (Stage s : deStages) {
+if(s.getHetBedrijf().equals(session.getAttribute("userobject"))){
+	for(Leerling x : students){
+		if(s.getDeLeerling().equals(x.getEmail()))
+	fluf = x;
+	}
+	if(fluf != null){
+								out.println(" <option value='"+  fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "'>"+ fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "</option>") ;
+	}}
+							out.println(" </datalist>");
 						
+							}
+						out.println("<input type='submit' value='Verder' name='initStage'/>");
+						}
 						
 						
 					}
