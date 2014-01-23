@@ -25,28 +25,64 @@
 			<div class="module_content">
 			
 
-				<form action="WachtwoordWijzigen.do" method="GET">
-				<input type="hidden" value="1" name="hidden">
-				<input type="submit" name="leerling" value="Leerling">
-				<input type="submit" name="docent" value="Docent">
-				<input type="submit" name="sb" value="Stagebegeleider">
-				<input type="submit" name="opleider" value="Stageopleider"><br/>
+				<form action="WachtwoordWijzigen.do" method="POST">
 
 					<%@ page import="java.util.*"%>
 					<%@ page import="com.appspot.Accent.model.*"%>
 					<%@ page import="com.appspot.Accent.model.service.*"%>
 					<%
-					
-						Object s= request.getAttribute("selected");
-                    	StageOfyDAOImpl st = new StageOfyDAOImpl();
-                    	LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
-                		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
-                		StageBedrijfOfyDAOImpl sb = new StageBedrijfOfyDAOImpl();
-                		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl(); //Objectify klassen
-                		
-               			for(Leerling le : l.getAllLeerlingen()){//print alle leerlingen uit
-               				out.println("<input type='radio' name='radio' value='"+ le.getUsername() +"'>"+ le.getUsername() +" "+ le.getEmail() +" "+ le.getKlas() +" "+ le.getBegeleider()+"<br/>");
-               			}
+					Object s= request.getAttribute("selected");
+					if(s == null){
+						out.println("<input type='hidden' value='1' name='hidden'>");
+						out.println("<input type='submit' name='leerling' value='Leerling'>");
+						out.println("<input type='submit' name='docent' value='Docent'>");
+						out.println("<input type='submit' name='sb' value='Stagebegeleider'>");
+						out.println("<input type='submit' name='bedrijf' value='Stagebedrijf'><br/>");
+					}
+
+                	StageOfyDAOImpl st = new StageOfyDAOImpl();
+                	LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
+            		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
+            		StageBedrijfOfyDAOImpl sb = new StageBedrijfOfyDAOImpl();
+            		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl(); //Objectify klassen
+            		if(s != null){
+	            		if(s.equals("Leerling")){
+	            			for(Leerling le : l.getAllLeerlingen()){//print alle leerlingen uit
+	               				out.println("<input type='radio' name='radio' value='"+ le.getUsername() +"'>"+ le.getUsername() +" "+ le.getEmail() +" "+ le.getKlas() +" "+ le.getBegeleider()+"<br/>");
+	               			}
+	            		}
+	            		if(s.equals("Docent")){
+	            			for(Docent de : d.getAllDocenten()){//print alle docenten uit
+	               				out.println("<input type='radio' name='radio' value='"+ de.getUsername() +"'>"+ de.getUsername() +" "+ de.getEmail()+"<br/>");
+	               			}
+	            		}
+	            		if(s.equals("Stagebegeleider")){
+	            			for(StageBegeleider sbge : sbg.getAllBegeleiders()){//print alle leerlingen uit
+	               				out.println("<input type='radio' name='radio' value='"+ sbge.getUsername() +"'>"+ sbge.getUsername() +" "+ sbge.getEmail()+"<br/>");
+	               			}
+	            		}
+	            		if(s.equals("Stageopleider")){
+	            			for(StageBedrijf sbe : sb.getAllStageBedrijven()){//print alle leerlingen uit
+	               				out.println("<input type='radio' name='radio' value='"+ sbe.getUsername() +"'>"+ sbe.getUsername() +" "+ sbe.getEmail()+"<br/>");
+	               			}
+	            		}
+	            		out.println("<input type='hidden' value=2>");
+	            		out.println("<input type='submit' value='selecteer'>");
+            		}
+            		Object o = getServletContext().getAttribute("selected");
+            		if(o != null){
+            			out.println("<label>Oude wachtwoord</label>");
+            			out.println("<input type='text' name='oud'><br/>");
+            			out.println("<label>Nieuwe wachtwoord</label>");
+            			out.println("<input type='text' name='nieuw'><br/>");
+            			out.println("<label>Bevestiging wachtwoord</label>");
+            			out.println("<input type='text' name='nieuw2'><br/>");
+            			
+            			out.println("<input type='hidden' value=3>");
+	            		out.println("<input type='submit' value='Verander'>");
+            			
+            		}
+           			
 
                     		
                      %>
