@@ -17,6 +17,7 @@ import com.appspot.Accent.model.StageBegeleider;
 import com.appspot.Accent.model.StageOpleider;
 import com.appspot.Accent.model.Stelling;
 import com.appspot.Accent.model.StellingBeoordeeld;
+import com.appspot.Accent.model.User;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
@@ -43,6 +44,7 @@ public class UserContextListener implements ServletContextListener {
 		ofy = ObjectifyService.begin();
 		ObjectifyService.register(Stelling.class);
 		ObjectifyService.register(Competentie.class);
+		ObjectifyService.register(User.class);
 //		User u1 = new User("12345", "12345", "12345@gmail.com");
 		//er wordt een dummy objecten aangemaakt
 		Date date = new Date();
@@ -52,6 +54,9 @@ public class UserContextListener implements ServletContextListener {
 		StageOpleider opleider = new StageOpleider("jopie");
 		Stage stage = new Stage(1, u.getUsername(), stagebeg.getEmail(), opleider.getNaam(), bedrijf1.getUsername(), date, date);
 		Docent d = new Docent("docent", "pass", "email@gmail.com");
+		
+		User u1 = new User("beheerder", "wachtwoord", "123@gmail.com");
+		ofy.put(u1);
 		
 		
 		

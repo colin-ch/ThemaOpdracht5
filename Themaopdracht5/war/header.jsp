@@ -23,6 +23,9 @@
 	if(user instanceof StageBegeleider){
 		naam = ((StageBegeleider) user).getUsername();
 	}
+	if(user instanceof User){
+		naam = ((User) user).getUsername();
+	}
 	
 	out.println("<p>"+ naam +"</p>"); 
 	%>
@@ -40,27 +43,45 @@
 				onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
 		</form>
 		<hr />
-		<h3>Competenties</h3>
+		<h3>Menu</h3>
 		<ul class="toggle">
-			<li class="icn_new_article"><a href="/BeoordelingAanmakenServlet.do?initLeerling=initLeerling">Nieuwe competentie
-					missing</a></li>
-			<li class="icn_edit_article"><a href="/BeoordeelStageBedrijfServlet.do">Beoordelen</a></li>
-			<li class="icn_categories"><a href="CompetentieSelecteren.jsp">Competenties bekijken
-					</a></li>
-			
+		<% 
+		if(user instanceof Leerling){
+			out.println("<li class='icn_edit_article'><a href=''/BeoordeelServlet.do'>Beoordelen</a></li>");
+			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
+			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
+			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
+		}
+		if(user instanceof Docent){
+			out.println("<li class='icn_categories'><a href='CompetentieSelecteren.jsp'>Competenties bekijken</a></li>");
+			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
+			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
+			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
+		}
+		if(user instanceof StageBedrijf){
+			out.println("<li class='icn_edit_article'><a href=''/BeoordeelStageBedrijfServlet.do'>Beoordelen</a></li>");
+			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
+			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
+			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
+		}
+		if(user instanceof StageBegeleider){
+			out.println("<li class='icn_new_article'><a href=''/BeoordelingAanmakenServlet.do?initLeerling=initLeerling'>Beoordeling aanmaken</a></li>");
+			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
+			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
+			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
+		}
+		if(user instanceof User){
+			out.println("<li class='icn_new_article'><a href=''/BeoordelingAanmakenServlet.do?initLeerling=initLeerling'>Beoordeling aanmaken</a></li>");
+			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
+			out.println("<li class='icn_edit_article'><a href=''/BeoordeelStageBedrijfServlet.do'>Beoordelen</a></li>");
+			out.println("<li class='icn_view_users'><a href='StageOverzicht.jsp'>Stages overzicht</a></li>");
+			out.println("<li class='icn_add_user'><a href='Beheerder.jsp'>Beheerders pagina</a></li>");
+			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
+			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
+		}
+		%>
+		
 		</ul>
-		<h3>Stages</h3>
-		<ul class="toggle">
-			<li class="icn_view_users"><a href="StageOverzicht.jsp">Stages overzicht</a></li>
-		</ul>
-		<h3>Leerlingen</h3>
-		<ul class="toggle">
-			<li class="icn_add_user"><a href="Beheerder.jsp">Beheerders pagina</a></li>
-			<li class="icn_view_users"><a href="overzichtgebruikers.jsp">Beoordelingen bekijken</a></li>
-			<li class="icn_view_users"><a href="Profiel.jsp">Profiel gegevens</a></li>
-			<li class="icn_jump_back"><a href="/LogoutServlet.do">Loguit</a></li>
-		</ul>
-
 
 		<footer>
 			<hr />
