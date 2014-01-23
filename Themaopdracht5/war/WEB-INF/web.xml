@@ -5,6 +5,17 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee;http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 
+    
+    <servlet>
+		<servlet-name>WachtwoordWijzigenServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.WachtwoordWijzigenServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>WachtwoordWijzigenServlet</servlet-name>
+		<url-pattern>/WachtwoordWijzigen.do</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 	    <servlet-name>Export</servlet-name>
 	    <servlet-class>com.appspot.Accent.controller.ServletExport</servlet-class>	    
