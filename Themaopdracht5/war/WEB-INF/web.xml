@@ -5,17 +5,6 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee;http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 
-
-	<servlet>
-		<servlet-name>RegisterServlet</servlet-name>
-		<servlet-class>com.appspot.Accent.controller.RegisterServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>RegisterServlet</servlet-name>
-		<url-pattern>/RegisterServlet.do</url-pattern>
-	</servlet-mapping>
-	
 	<servlet>
 	    <servlet-name>Export</servlet-name>
 	    <servlet-class>com.appspot.Accent.controller.ServletExport</servlet-class>	    

@@ -51,6 +51,14 @@ public class LoginServlet extends HttpServlet {
 			else{
 			}
 		}
+		if(loginsucces == false){
+			if(username.equals("beheerder") && pass.equals("wachtwoord")){
+				loginsucces = true;
+				User u1 = new User(username, pass, "123@gmail.com");
+				user = u1;
+			}
+		}
+		
 		// er wordt gecontroleerd of het een docent is 
 		if(loginsucces == false){
 			for(Docent de : d.getAllDocenten()){

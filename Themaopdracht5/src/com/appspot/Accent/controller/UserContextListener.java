@@ -42,9 +42,9 @@ public class UserContextListener implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		ofy = ObjectifyService.begin();
-		ObjectifyService.register(Stelling.class);
-		ObjectifyService.register(Competentie.class);
-		ObjectifyService.register(User.class);
+		//ObjectifyService.register(Stelling.class);
+		//ObjectifyService.register(Competentie.class);
+		
 //		User u1 = new User("12345", "12345", "12345@gmail.com");
 		//er wordt een dummy objecten aangemaakt
 		Date date = new Date();
@@ -56,7 +56,6 @@ public class UserContextListener implements ServletContextListener {
 		Docent d = new Docent("docent", "pass", "email@gmail.com");
 		
 		User u1 = new User("beheerder", "wachtwoord", "123@gmail.com");
-		ofy.put(u1);
 		
 		
 		
@@ -174,6 +173,8 @@ public class UserContextListener implements ServletContextListener {
 		//ObjectifyService.register(Stelling.class);
 		ObjectifyService.register(StellingBeoordeeld.class);
 		ObjectifyService.register(Leerling.class);
+		ObjectifyService.register(User.class);
+		//ofy.put(u1);
 		
 		
 		// alle objecten worden in de datastore gezet

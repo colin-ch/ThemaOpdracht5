@@ -50,6 +50,8 @@
 				<button onclick="window.location.href='CompetentieSelecteren.jsp';">Pas een competentie aan</button>
 				<br/><p>Stage aanmaken</p>
 				<button onclick="window.location.href='StageAanmaken.jsp';">Stage aanmaken</button>
+				<p>Wachtwoord</p>
+				<button onclick="window.location.href='WachtwoordWijzigen.jsp';">Wachtwoord wijzigen</button>
 			</div>
 		</article>
 		<!-- end of styles article -->
