@@ -77,17 +77,17 @@ boolean nextS = false;
 				log.info("knop opslaan");
 				for (Stage s : allStages) {
 					if (o instanceof Leerling) {
-						log.info("ingelogd als leerling");
+						//log.info("ingelogd als leerling");
 		
 						if (s.getDeLeerling()
 								.equals(((Leerling) o).getUsername())) {
-							log.info("de juiste leerling");
+							//log.info("de juiste leerling");
 							
 							allBeoordelingen =  (ArrayList<Beoordeling>) bod.getAllBeoordelingen();
-								log.info("beoordelingen " + allBeoordelingen);
+								//log.info("beoordelingen " + allBeoordelingen);
 		
 								for(Beoordeling be : allBeoordelingen){
-									log.info("doorloop arraylist");
+									//log.info("doorloop arraylist");
 									if(be.getStage() == s.getId()){
 										if(be.getDatum() == null){
 											log.info("geen datum");
