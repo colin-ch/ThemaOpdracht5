@@ -99,9 +99,10 @@ ArrayList<Leerling> students =  (ArrayList<Leerling>)lod.getAllLeerlingen();
 						out.println("<datalist id='leerlingen'>");
 						if (deStages != null) {
 							for (Stage s : deStages) {
-if(s.getHetBedrijf().equals(session.getAttribute("userobject"))){
+								StageBedrijf sessionUser = (StageBedrijf)session.getAttribute("userobject");
+if(s.getHetBedrijf().equals(sessionUser.getUsername())){
 	for(Leerling x : students){
-		if(s.getDeLeerling().equals(x.getEmail()))
+		if(s.getDeLeerling().equals(x.getRoepnaam()))
 	fluf = x;
 	}
 	if(fluf != null){
@@ -110,13 +111,14 @@ if(s.getHetBedrijf().equals(session.getAttribute("userobject"))){
 							out.println(" </datalist>");
 						
 							}
-						out.println("<input type='submit' value='Verder' name='initStage'/>");
+						out.println("<input type='submit' value='Verder' name='Show'/>");
 						}
 						
 						
 					}
 
 					if (beoordelingopleider !=null) { 
+						
 						out.println(beoordelingopleider); 
 					
 				out.println("<br/>eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");

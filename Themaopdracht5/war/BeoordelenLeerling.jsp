@@ -98,13 +98,10 @@ ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordee
 				for (Stage s: allStages) { //alle stages worden door lopen
 				    if (o instanceof Leerling) {//kijkt of ingelogde gebruiker een leerling is
 
-
 				        if (s.getDeLeerling().equals(((Leerling) o).getUsername())) {//zoekt stage dmw van ingelogde gebruikersnaam te vergelijken met naam van leerling in stage
 				            for (Beoordeling be: beoordelingen) {//alle beoordelingen doorlopen
 				            	
-				            	
 				              if(be.getStage() == s.getId()){
-				            	
 				            	
 				            	
 				            	if (be.getDatum() == null) {
@@ -121,6 +118,7 @@ ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordee
 
 				                        ArrayList < Stelling > stellingen = (ArrayList < Stelling > ) sod.getAllStellingen();
 				                        ArrayList <StellingBeoordeeld> currentbeoordelen = new ArrayList<StellingBeoordeeld>();
+				                        ArrayList<Integer> controleArray = new ArrayList<Integer>();
 				                        for(StellingBeoordeeld sbfill : beoordeelStellingen){
 				                        	if(s.getId() == sbfill.getDeStage()){
 				                        		if(sbfill.getDeWaardeLeerling() == null){
@@ -128,18 +126,24 @@ ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordee
 				                        		}
 				                        	}
 				                        }
+				                        
 			                        	for(StellingBeoordeeld sb : currentbeoordelen){//alle stellingen door lopen
-System.out.println("stellingbeoordeeld");
 				                        for (Stelling st: stellingen) {
-				                        	System.out.println("stelling");
-
-				                            if (st.getEigenId() == c.getEigenId()) {
+					                       if (st.getEigenId() == c.getEigenId()) {
 				                            	if(st.getUniekID() == sb.getUniekID()){
-				                            		
+				                            		boolean check =true;
+				                            	for(int ctrl : controleArray){
+				                            		if(ctrl == st.getUniekID()){
+				                            			
+				                            			check = false;
+				                            		}
+
+				                            	}
 				                            	
-				                            	
+
+				                            	if(check == true){
+				                            		controleArray.add(sb.getUniekID());
 				                                System.out.println("teller =" + teller);
-				                                System.out.println(" " + st.getDeStelling());
 				                                teller++;
 				                                String waarde = st.getDeWaarde();
 
@@ -163,7 +167,7 @@ System.out.println("stellingbeoordeeld");
 				                                    out.println("1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>");
 				                                }
 				                               
-				                               
+				                            	}
 
 				                            }
 				                            }
