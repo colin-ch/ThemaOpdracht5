@@ -19,6 +19,7 @@ import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
 import com.appspot.Accent.model.service.StageBedrijfOfyDAOImpl;
 import com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
+import com.googlecode.objectify.ObjectifyService;
 
 public class WachtwoordWijzigenServlet extends HttpServlet {
 	
@@ -26,10 +27,11 @@ public class WachtwoordWijzigenServlet extends HttpServlet {
 	private static final Logger log = Logger.getLogger(BeoordeelServlet.class.getName());
 	private Objectify ofy;
 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		String geselecteerde = null;
+		ofy = ObjectifyService.begin();
 		
 		LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
 		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
@@ -38,7 +40,8 @@ public class WachtwoordWijzigenServlet extends HttpServlet {
 		
 		
 		String s = req.getParameter("hidden");
-		if(s.equals("1")){
+		String t = req.getParameter("hiddene");
+		if(s != null && s.equals("1")){
 			
 			if(!req.getParameter("leerling").equals("")){
 				geselecteerde = req.getParameter("leerling");
@@ -60,55 +63,89 @@ public class WachtwoordWijzigenServlet extends HttpServlet {
 			log.info(geselecteerde);
 			rd = req.getRequestDispatcher("WachtwoordWijzigen.jsp");
 		}
-		if(s.equals("2")){
-			String gebruiker = req.getParameter("radio");
-			boolean gevonden = false;
-			Object o = null;
+		if(s != null && s.equals("2")){
+			String gebruiker = req.getParameter("radio");			
+			getServletContext().setAttribute("select", gebruiker);
+			req.setAttribute("selected", "5");
+			rd = req.getRequestDispatcher("WachtwoordWijzigen.jsp");
+		}
+		if(t != null && t.equals("3")){
+			req.setAttribute("selected", "5");
+			String oud = req.getParameter("oud");
+			String nieuw = req.getParameter("nieuw");
+			String nieuw2 = req.getParameter("nieuw2");
+			String o = (String) getServletContext().getAttribute("select");
+			
+			boolean succes = false;	
 			
 			ArrayList<Leerling>leerlingen = (ArrayList<Leerling>) l.getAllLeerlingen();
 			ArrayList<Docent>docenten = (ArrayList<Docent>) d.getAllDocenten();
 			ArrayList<StageBedrijf>bedrijven = (ArrayList<StageBedrijf>) sb.getAllStageBedrijven();
 			ArrayList<StageBegeleider> begeleiders = (ArrayList<StageBegeleider>) sbg.getAllBegeleiders();
-			
-			loop:
-			for(Leerling le : leerlingen){
-				if(le.getUsername().equals(gebruiker)){
-					gevonden = true;
-					o = le;
-					break loop;
-					
+			if(nieuw.equals(nieuw2)){
+				loop:
+				for(Leerling le : leerlingen){
+					if(le.getUsername().equals(o)){
+						if(le.getPassword().equals(oud)){
+							succes = true;
+							Leerling l1 = le;
+							l1.setPassword(nieuw);
+							ofy.put(l1);
+						}
+						break loop;	
+					}
 				}
-			}
-			if(gevonden == false){
-				for(Docent de : docenten){
-					if(de.getUsername().equals("gebruiker")){
-						gevonden = true;
+				if(succes == false){
+					loop:
+					for(Docent de : docenten){
+						if(de.getUsername().equals(o)){
+							if(de.getPassword().equals(oud)){
+								succes = true;
+								Docent doc = de;
+								doc.setPassword(nieuw);
+								ofy.put(doc);
+							}				
+							break loop;
+						}
+					}
+				}
+				if(succes == false){
+					loop:
+					for(StageBedrijf de : bedrijven){
+						if(de.getUsername().equals(o)){
+							if(de.getPassword().equals(oud)){
+								succes = true;
+								StageBedrijf sbe = de;
+								sbe.setPassword(nieuw);
+								ofy.put(sbe);
+							}
+							break loop;
+						}
+					}
+				}
+				if(succes == false){
+					loop:
+					for(StageBegeleider de : begeleiders){
+						if(de.getUsername().equals(o)){
+							if(de.getPassword().equals(oud)){
+								succes = true;
+								StageBegeleider stb = de;
+								stb.setPassword(nieuw);
+								ofy.put(stb);
+							}
+							break loop;
+						}
 					}
 				}
 			}
-			if(gevonden == false){
-				for(StageBedrijf de : bedrijven){
-					if(de.getUsername().equals("gebruiker")){
-						gevonden = true;
-					}
-				}
+			if(succes){
+				rd = req.getRequestDispatcher("index.jsp");
+				req.setAttribute("msgs", "Wachtwoord is gewijzigd");
 			}
-			if(gevonden == false){
-				for(StageBegeleider de : begeleiders){
-					if(de.getUsername().equals("gebruiker")){
-						gevonden = true;
-					}
-				}
+			else{
+				rd = req.getRequestDispatcher("WachtwoordWijzigen.jsp");
+				req.setAttribute("msgs", "Oude wachtwoord klopt niet of de nieuwe wachtwoorden komen niet overeen");
 			}
-			
-			
-			getServletContext().setAttribute("selected", gebruiker);
-			rd = req.getRequestDispatcher("WachtwoordWijzigen.jsp");
-		}
-		if(s.equals("3")){
-			String oud = req.getParameter("oud");
-			String nieuw = req.getParameter("nieuw");
-			String nieuw2 = req.getParameter("nieuw2");
 		}
 
 		rd.forward(req, resp);

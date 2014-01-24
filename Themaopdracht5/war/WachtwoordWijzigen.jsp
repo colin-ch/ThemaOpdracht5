@@ -25,7 +25,7 @@
 			<div class="module_content">
 			
 
-				<form action="WachtwoordWijzigen.do" method="POST">
+				<form action="WachtwoordWijzigen.do" method="GET">
 
 					<%@ page import="java.util.*"%>
 					<%@ page import="com.appspot.Accent.model.*"%>
@@ -37,7 +37,7 @@
 						out.println("<input type='submit' name='leerling' value='Leerling'>");
 						out.println("<input type='submit' name='docent' value='Docent'>");
 						out.println("<input type='submit' name='sb' value='Stagebegeleider'>");
-						out.println("<input type='submit' name='bedrijf' value='Stagebedrijf'><br/>");
+						out.println("<input type='submit' name='bedrijf' value='Stagebedrijf'><br/><br/>");
 					}
 
                 	StageOfyDAOImpl st = new StageOfyDAOImpl();
@@ -50,26 +50,33 @@
 	            			for(Leerling le : l.getAllLeerlingen()){//print alle leerlingen uit
 	               				out.println("<input type='radio' name='radio' value='"+ le.getUsername() +"'>"+ le.getUsername() +" "+ le.getEmail() +" "+ le.getKlas() +" "+ le.getBegeleider()+"<br/>");
 	               			}
+	            			out.println("<input type='hidden' name='hidden' value='2'>");
+		            		out.println("<input type='submit' value='selecteer'>");
 	            		}
 	            		if(s.equals("Docent")){
 	            			for(Docent de : d.getAllDocenten()){//print alle docenten uit
 	               				out.println("<input type='radio' name='radio' value='"+ de.getUsername() +"'>"+ de.getUsername() +" "+ de.getEmail()+"<br/>");
 	               			}
+	            			out.println("<input type='hidden' name='hidden' value='2'>");
+		            		out.println("<input type='submit' value='selecteer'>");
 	            		}
 	            		if(s.equals("Stagebegeleider")){
 	            			for(StageBegeleider sbge : sbg.getAllBegeleiders()){//print alle leerlingen uit
 	               				out.println("<input type='radio' name='radio' value='"+ sbge.getUsername() +"'>"+ sbge.getUsername() +" "+ sbge.getEmail()+"<br/>");
 	               			}
+	            			out.println("<input type='hidden' name='hidden' value='2'>");
+		            		out.println("<input type='submit' value='selecteer'>");
 	            		}
 	            		if(s.equals("Stageopleider")){
 	            			for(StageBedrijf sbe : sb.getAllStageBedrijven()){//print alle leerlingen uit
 	               				out.println("<input type='radio' name='radio' value='"+ sbe.getUsername() +"'>"+ sbe.getUsername() +" "+ sbe.getEmail()+"<br/>");
 	               			}
+	            			out.println("<input type='hidden' name='hidden' value='2'>");
+		            		out.println("<input type='submit' value='selecteer'>");
 	            		}
-	            		out.println("<input type='hidden' value=2>");
-	            		out.println("<input type='submit' value='selecteer'>");
+	            		
             		}
-            		Object o = getServletContext().getAttribute("selected");
+            		Object o = getServletContext().getAttribute("select");
             		if(o != null){
             			out.println("<label>Oude wachtwoord</label>");
             			out.println("<input type='text' name='oud'><br/>");
@@ -78,7 +85,7 @@
             			out.println("<label>Bevestiging wachtwoord</label>");
             			out.println("<input type='text' name='nieuw2'><br/>");
             			
-            			out.println("<input type='hidden' value=3>");
+            			out.println("<input type='hidden' name='hiddene' value='3'>");
 	            		out.println("<input type='submit' value='Verander'>");
             			
             		}
