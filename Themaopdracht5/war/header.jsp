@@ -47,36 +47,36 @@
 		<ul class="toggle">
 		<% 
 		if(user instanceof Leerling){
-			out.println("<li class='icn_edit_article'><a href=''/BeoordeelServlet.do'>Beoordelen</a></li>");
+			out.println("<li class='icn_edit_article'><a href='/BeoordeelServlet.do'>Beoordelen</a></li>");
 			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
 			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
-			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
+			out.println("<li class='icn_jump_back'><a href='/LogoutServlet.do'>Loguit</a></li>");
 		}
 		if(user instanceof Docent){
 			out.println("<li class='icn_categories'><a href='CompetentieSelecteren.jsp'>Competenties bekijken</a></li>");
 			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
 			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
-			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
+			out.println("<li class='icn_jump_back'><a href='/LogoutServlet.do'>Loguit</a></li>");
 		}
 		if(user instanceof StageBedrijf){
 			out.println("<li class='icn_edit_article'><a href='beoordelenOpleider.jsp'>Beoordelen</a></li>");
 			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
 			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
-			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
+			out.println("<li class='icn_jump_back'><a href='/LogoutServlet.do'>Loguit</a></li>");
 		}
 		if(user instanceof StageBegeleider){
-			out.println("<li class='icn_new_article'><a href=''/BeoordelingAanmakenServlet.do?initLeerling=initLeerling'>Beoordeling aanmaken</a></li>");
+			out.println("<li class='icn_new_article'><a href='/BeoordelingAanmakenServlet.do?initLeerling=initLeerling'>Beoordeling aanmaken</a></li>");
 			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
 			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
-			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
+			out.println("<li class='icn_jump_back'><a href='/LogoutServlet.do'>Loguit</a></li>");
 		}
 		if(user instanceof User){
-			out.println("<li class='icn_new_article'><a href=''/BeoordelingAanmakenServlet.do?initLeerling=initLeerling'>Beoordeling aanmaken</a></li>");
+			out.println("<li class='icn_new_article'><a href='/BeoordelingAanmakenServlet.do?initLeerling=initLeerling'>Beoordeling aanmaken</a></li>");
 			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
 			out.println("<li class='icn_view_users'><a href='StageOverzicht.jsp'>Stages overzicht</a></li>");
 			out.println("<li class='icn_add_user'><a href='Beheerder.jsp'>Beheerders pagina</a></li>");
 			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
-			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
+			out.println("<li class='icn_jump_back'><a href='/LogoutServlet.do'>Loguit</a></li>");
 		}
 		%>
 		
