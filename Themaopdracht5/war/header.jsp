@@ -59,7 +59,7 @@
 			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
 		}
 		if(user instanceof StageBedrijf){
-			out.println("<li class='icn_edit_article'><a href=''/BeoordeelStageBedrijfServlet.do'>Beoordelen</a></li>");
+			out.println("<li class='icn_edit_article'><a href='beoordelenOpleider.jsp'>Beoordelen</a></li>");
 			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
 			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
 			out.println("<li class='icn_jump_back'><a href=''/LogoutServlet.do'>Loguit</a></li>");
