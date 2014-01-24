@@ -42,11 +42,13 @@ public class LoginServlet extends HttpServlet {
 		// er wrodt gekeken pof de gegevens overeenkomt met een van de users er is verschil in type users, namelijk leerlingen en docenten etc.
 		
 		// er wordt gecontroleerd of het een leerling is 
+		loop:
 		for(Leerling le : l.getAllLeerlingen()){
 			if(username.equals(le.getUsername()) && pass.equals(le.getPassword())){
 				loginsucces = true;
 				System.out.println("Is een leerling");
 				user = le;
+				break loop;
 			}
 			else{
 			}
@@ -61,11 +63,13 @@ public class LoginServlet extends HttpServlet {
 		
 		// er wordt gecontroleerd of het een docent is 
 		if(loginsucces == false){
+			loop:
 			for(Docent de : d.getAllDocenten()){
 				if(username.equals(de.getUsername()) && pass.equals(de.getPassword())){
 					loginsucces = true;
 					System.out.println("Is een docent");
 					user = de;
+					break loop;
 				}
 				else{
 				}
@@ -73,11 +77,13 @@ public class LoginServlet extends HttpServlet {
 		}
 		// er wordt gecontroleerd of het een stagebedrijf/opleider is 
 		if(loginsucces == false){
+			loop:
 			for(StageBedrijf sbe : sb.getAllStageBedrijven()){
 				if(username.equals(sbe.getUsername()) && pass.equals(sbe.getPassword())){
 					loginsucces = true;
 					System.out.println("Is een stagebedrijf");
 					user = sbe;
+					break loop;
 				}
 				else{
 				}
@@ -85,11 +91,13 @@ public class LoginServlet extends HttpServlet {
 		}
 		// er wordt gecontroleerd of het een begeleider is 
 		if(loginsucces == false){
+			loop:
 			for(StageBegeleider sbge : sbg.getAllBegeleiders()){
 				if(username.equals(sbge.getUsername()) && pass.equals(sbge.getPassword())){
 					loginsucces = true;
 					System.out.println("Is een stagebegeleider");
 					user = sbge;
+					break loop;
 				}
 				else{
 				}
