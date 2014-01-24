@@ -165,12 +165,12 @@ public class UserContextListener implements ServletContextListener {
 		
 		ObjectifyService.register(Docent.class);
 		ObjectifyService.register(Beoordeling.class);
-		//ObjectifyService.register(Competentie.class);
+		ObjectifyService.register(Competentie.class);
 		ObjectifyService.register(StageOpleider.class);
 		ObjectifyService.register(StageBegeleider.class);
 		ObjectifyService.register(StageBedrijf.class);
 		ObjectifyService.register(Stage.class);
-		//ObjectifyService.register(Stelling.class);
+		ObjectifyService.register(Stelling.class);
 		ObjectifyService.register(StellingBeoordeeld.class);
 		ObjectifyService.register(Leerling.class);
 		ObjectifyService.register(User.class);

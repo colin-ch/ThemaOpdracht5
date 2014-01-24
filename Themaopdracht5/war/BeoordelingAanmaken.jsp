@@ -98,7 +98,7 @@
 				}
 				
 				if(initStage != null){
-					out.println("<h2> selecteer een leerling: </h2>");
+					out.println("<h2> selecteer een stage: </h2>");
 
 					ArrayList<Stage> array = (ArrayList<Stage>) request.getAttribute("stages"); //alle stages worden opgehaald
 					out.println("<input list='stages' name='stages' required>");//lijst van stages wordt aangemaakt
@@ -123,11 +123,11 @@
 					ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
 					
 					for(Leerling l: array){
-						if(stage.getDeLeerling().equals(l.getUsername())){
+						if(stage.getDeLeerling().equals(l.getEmail())){
 							student = l;
 						}
 					}
-					 	 
+					 	 if(student != null){
 					out.print("<label class='nameclass'>De Leerling:</label><label class='inputclass'>" + student.getRoepnaam() + " " + student.getAchternaam()+ "</label><br/>"); 
 					out.print("<label class='nameclass'>Stage ID:</label><label class='inputclass'>" + stage.getId() +"</label><br/>"); 
 					out.print("<label class='nameclass'>Stage bedrijf:</label><label class='inputclass'>" + stage.getHetBedrijf() +"</label><br/>"); 
@@ -139,7 +139,8 @@
 						out.print("<input type='checkbox' name='"+ c.getEigenId() +"' value='"+ c.getEigenId() +"'/><label class='competentieclass'>"+ c.getTitel() +"</label><input type='radio' name='radio"+c.getEigenId()+"' value='1'/><input type='radio' name='radio"+c.getEigenId()+"' value='2'/><input type='radio' name='radio"+c.getEigenId()+"' value='3'/><br/> ");
 					}
 					out.println("<input type='submit' value='Beoordeling Opslaan' name='save'/>");
-
+					 	 }
+					 	 
 					
 				}
 				
