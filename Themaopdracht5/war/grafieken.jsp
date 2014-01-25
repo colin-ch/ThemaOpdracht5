@@ -14,6 +14,7 @@
 <%@ page import="com.appspot.Accent.model.Stelling"%>
 <%@ page import="com.appspot.Accent.model.service.BeoordelingOfyDAOImpl" %>
 <%@ page import="com.appspot.Accent.model.service.StellingOfyDAOImpl" %>
+<%@ page import="com.appspot.Accent.model.service.CompetentieOfyDAOImpl" %>
 <%@ page import="com.appspot.Accent.model.Stage"%>
 <%@ page import="com.appspot.Accent.model.Leerling"%>
 <%@ page import="com.appspot.Accent.model.Competentie"%>
@@ -30,7 +31,7 @@
       
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Beoordeling', 'Stage Opleider', 'Student'],
+          ['Beoordeling', 'Stage Opleider', 'Student', {role: 'annotation'}],
       	         
 		
        <% 
@@ -43,6 +44,7 @@
 		    StageOfyDAOImpl st = new StageOfyDAOImpl();
 		    StellingOfyDAOImpl stelling = new StellingOfyDAOImpl();
 		    BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
+		    CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		    
 		    
 		    
@@ -65,7 +67,7 @@
 				    						for(Stelling stel : stelling.getAllStellingen()){
 				    							if(stel.getUniekID() == s.getUniekID()){
 		    								
-		    										out.println("['"+stel.getDeStelling() +"', " + s.getDeWaardeStagebedrijf() + " , " + s.getDeWaardeLeerling() + "],"); 
+		    										out.println("['"+stel.getDeStelling() +"', " + s.getDeWaardeStagebedrijf() + " , " + s.getDeWaardeLeerling() + "], '"+ s.getDeWaardeLeerling() + "'"); 
 		    								
 		    									}
 		    					
@@ -143,6 +145,74 @@
 			</header>
 			<div class="module_content">
 				<div id="chart_div" style="width: 80%; height: 700px"></div>
+				
+				
+				
+				
+				
+				<div>
+				
+				<%
+				for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
+			    	
+			    	if (le.getUsername().equals(getServletContext().getAttribute("geselecteerd"))){ //als leerling gelijk is aan de eerder geselecteerde leerling
+			    		
+			    		for(Stage stage : st.getAllStages()){ //loop door alle stages
+			    			
+			    			if(le.getUsername().equals(stage.getDeLeerling())){
+			    			out.println("<div>Stages van deze leerling: " + stage.getId() +   "</div>");
+			    			
+			    		
+			    			for(Beoordeling beoordeling : bod.getBeoordelingen(stage.getId())){ //getAllBeoordelingen() test
+			    				
+			    				if(beoordeling.getDatum().equals(getServletContext().getAttribute("datum"))){
+			    			
+					    			for(Integer i : beoordeling.getCompetenties()){
+					    				for(Competentie c : cod.getAllCompetenties()){
+					    				if(i == c.getEigenId()){
+					    					
+					    					out.println("<div>Competenties uit deze beoordeling"+ c.getEigenId() + "</div>");
+					    					
+					    				}
+					    				
+					    				}
+					    			}
+			    				}
+			    			}
+			    			}
+			    		}
+			    	}
+			    }
+				
+for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
+			    	
+			    	if (le.getUsername().equals(getServletContext().getAttribute("geselecteerd"))){ //als leerling gelijk is aan de eerder geselecteerde leerling
+			    		
+			    		for(Stage stage : st.getAllStages()){ //loop door alle stages
+			    			
+			    			out.println("<div>Stage: " + stage.getId() +   "</div>");
+			    			
+			    			for(Beoordeling beoordeling : bod.getBeoordelingen(stage.getId())){ //getAllBeoordelingen() test
+			    				
+			    				if(beoordeling.getDatum().equals(getServletContext().getAttribute("datum"))){
+			    			
+					    			if(stage.getDeLeerling().equals(le.getUsername())){ //zoekt bijbehorende stage
+					    				
+					    				
+			    					}
+			    				}
+			    			}
+			    		}
+			    	}
+			    }
+				%>
+				
+				
+				</div>
+				
+				
+				
+				
 			</div>
 		</article>
 		<!-- end of styles article -->
