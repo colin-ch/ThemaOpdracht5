@@ -104,7 +104,7 @@ ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordee
 				              if(be.getStage() == s.getId()){
 				            	
 				            	
-				            	if (be.getDatum() == null) {
+				            	if (be.getDatumLeerling() == null) {
 				            		ArrayList<Integer> beoordelencomp = be.getCompetenties();
 
 				                    ArrayList < Competentie > competenties = (ArrayList < Competentie > ) cod.getAllCompetenties();

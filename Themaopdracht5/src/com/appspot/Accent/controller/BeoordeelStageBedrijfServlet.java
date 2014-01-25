@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tools.ant.types.CommandlineJava.SysProperties;
+
 import com.appspot.Accent.model.Beoordeling;
 import com.appspot.Accent.model.Competentie;
 import com.appspot.Accent.model.Leerling;
@@ -19,6 +21,7 @@ import com.appspot.Accent.model.Stelling;
 import com.appspot.Accent.model.StellingBeoordeeld;
 import com.appspot.Accent.model.service.BeoordelingOfyDAOImpl;
 import com.appspot.Accent.model.service.CompetentieOfyDAOImpl;
+import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
 import com.appspot.Accent.model.service.StageOfyDAOImpl;
 import com.appspot.Accent.model.service.StellingBeoordeeldOfyDAOImpl;
 import com.appspot.Accent.model.service.StellingOfyDAOImpl;
@@ -65,6 +68,8 @@ public class BeoordeelStageBedrijfServlet extends HttpServlet {
 		StageOfyDAOImpl stod = new StageOfyDAOImpl();
 boolean nextS = false;
 		BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
+		LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
+
 		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 		ArrayList<Integer> waardesl = new ArrayList<Integer>();
@@ -74,21 +79,31 @@ boolean nextS = false;
 		allBeoordelingen =  (ArrayList<Beoordeling>) bod.getAllBeoordelingen();
 		ArrayList<Stage> allStages = (ArrayList<Stage>) stod.getAllStages() ;
 		StellingBeoordeeldOfyDAOImpl sbod = new StellingBeoordeeldOfyDAOImpl();
-
+		ArrayList<Leerling> students = (ArrayList<Leerling>) lod.getAllLeerlingen();
 		ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordeeld>) sbod.getAllStellingenBeoordeeld();
 
-		
+		 String deStudent = null;
 		
 			if(req.getParameter("Show")!= null){
+				System.out.println("show");
 			for(Stage s : allStages){
-				if (s.getDeLeerling().equals(req.getParameter("deleerling"))) {
+				boolean gevondenLeerling = false;
+				for(Leerling stud : students){
+					String temp = "" + stud.getRoepnaam() + " " + stud.getAchternaam();
+					if(temp.equals(req.getParameter("leerlingen"))){
+						gevondenLeerling = true;
+						deStudent = stud.getUsername();
+					}
+				}
+				if (gevondenLeerling) {
 					//zoekt stage dmw van ingelogde gebruikersnaam te vergelijken met naam van leerling in stage
 		            for (Beoordeling be: allBeoordelingen) {//alle beoordelingen doorlopen
 		            	
 		            	
 		              if(be.getStage() == s.getId()){
 		            	
-		            	
+		            	 
+
 		            	
 		            	if (be.getDatumBedrijf() == null) {
 		            		ArrayList<Integer> beoordelencomp = be.getCompetenties();
@@ -106,24 +121,21 @@ boolean nextS = false;
 		                        ArrayList <StellingBeoordeeld> currentbeoordelen = new ArrayList<StellingBeoordeeld>();
 		                        for(StellingBeoordeeld sbfill : beoordeelStellingen){
 		                        	if(s.getId() == sbfill.getDeStage()){
-		                        		if(sbfill.getDeWaardeLeerling() == null){
+		                        		if(sbfill.getDeWaardeStagebedrijf() == null){
 		                        			currentbeoordelen.add(sbfill);
+		                        			
 		                        		}
 		                        	}
 		                        }
 	                        	for(StellingBeoordeeld sb : currentbeoordelen){//alle stellingen door lopen
-System.out.println("stellingbeoordeeld");
 		                        for (Stelling st: stellingen) {
-		                        	System.out.println("stelling");
 
 		                            if (st.getEigenId() == c.getEigenId()) {
-		                            	if(st.getUniekID() == sb.getUniekID()){
+		   		                            	if(st.getUniekID() == sb.getUniekID()){
 		                            		
 		                            	
 		                            	
-		                                System.out.println("teller =" + teller);
-		                                System.out.println(" " + st.getDeStelling());
-		                                teller++;
+		                               
 		                                String waarde = st.getDeWaarde();
 
 		                                content = content + "<br/><h4>" + st.getDeStelling() + "</h4>";
@@ -146,13 +158,12 @@ System.out.println("stellingbeoordeeld");
 		                                	content = content + "<br/>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>";
 		                                }
 		                               
-		                               
 
 		                            }
 		                            }
 		                        }}
 		                    }}}
-		                }break;
+		                }
 		             }
 		            }
 		        
@@ -160,6 +171,8 @@ System.out.println("stellingbeoordeeld");
 			}
 			rd = req.getRequestDispatcher("beoordelenOpleider.jsp");
 			req.setAttribute("beoordelingopleider", content);
+			System.out.println("meegegeven student:"+ deStudent);
+			req.setAttribute("deLeerling", deStudent);
 				
 			}
 			
@@ -167,23 +180,21 @@ System.out.println("stellingbeoordeeld");
 			
 			// inde volgende stuk wordt gekeken naar wie de leerling is en welke beoordeling hij meot doen (daar is nog geen datum van)
 			if (req.getParameter("Opslaan") != null){
-				log.info("knop opslaan");
+				System.out.println("opslaan");
+				deStudent = req.getParameter("deLeerling");
+				System.out.println("de gekregen leerling: "+ deStudent);
 				for (Stage s : allStages) {
-					if (o instanceof Leerling) {
-						log.info("ingelogd als leerling");
-		
+					
+
 						if (s.getDeLeerling()
-								.equals(((Leerling) o).getUsername())) {
-							log.info("de juiste leerling");
+								.equals(deStudent)) {
 							
 							
-								log.info("beoordelingen " + allBeoordelingen);
+
 		
 								for(Beoordeling be : allBeoordelingen){
-									log.info("doorloop arraylist");
 									if(be.getStage() == s.getId()){
 										if(be.getDatumBedrijf() == null){
-											log.info("geen datum");
 											rate = be;
 										ints = be.getCompetenties();
 										ArrayList<Competentie> competenties = new ArrayList<Competentie>();
@@ -195,7 +206,6 @@ System.out.println("stellingbeoordeeld");
 												}
 											}
 										}
-										log.info("competenite " + competenties);
 								
 										int teller = 0;
 										for(Competentie c : competenties){
@@ -226,22 +236,22 @@ System.out.println("stellingbeoordeeld");
 												beoordeeldeStelling = sb;
 												
 												if(req.getParameter("" +sb.getUniekID()).equals("1")){
-beoordeeldeStelling.setDeWaardeLeerling("1");
+beoordeeldeStelling.setDeWaardeStagebedrijf("1");
 													
 													ofy.put(beoordeeldeStelling);
 												}
 												if(req.getParameter("" +sb.getUniekID()).equals("2")){
-beoordeeldeStelling.setDeWaardeLeerling("2");
+beoordeeldeStelling.setDeWaardeStagebedrijf("2");
 													
 													ofy.put(beoordeeldeStelling);
 												}
 												if(req.getParameter("" +sb.getUniekID()).equals("3")){
-beoordeeldeStelling.setDeWaardeLeerling("3");
+beoordeeldeStelling.setDeWaardeStagebedrijf("3");
 													
 													ofy.put(beoordeeldeStelling);
 												}
 												if(req.getParameter("" +sb.getUniekID()).equals("4")){
-beoordeeldeStelling.setDeWaardeLeerling("4");
+beoordeeldeStelling.setDeWaardeStagebedrijf("4");
 													
 													ofy.put(beoordeeldeStelling);
 												}
@@ -272,7 +282,7 @@ beoordeeldeStelling.setDeWaardeLeerling("4");
 								rate.setStellingBeoordeeld(waardesIDs);
 								ofy.put(rate);
 							}	
-						}
+						
 					}
 					
 					// er wordt een message meegegeven
@@ -285,13 +295,9 @@ beoordeeldeStelling.setDeWaardeLeerling("4");
 				getServletContext().setAttribute("stages", allStages);
 				rd = req.getRequestDispatcher("index.jsp");
 			}
-			
-			
-		
-			
-			else{
-			rd = req.getRequestDispatcher("BeoordelenLeerling.jsp");
-			}
+//			else{
+//			rd = req.getRequestDispatcher("index.jsp");
+//			}
 			
 			rd.forward(req, resp);	
 		

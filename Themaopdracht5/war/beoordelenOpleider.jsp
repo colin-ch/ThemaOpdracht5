@@ -85,9 +85,9 @@
 				<form action="/BeoordeelStageBedrijfServlet.do" method="GET">
 					<%
 					
-					Object beoordelingopleider=request.getAttribute( "beoordelingopleider");
+					Object beoordelingopleider = request.getAttribute( "beoordelingopleider");
 					
-					if (beoordelingopleider ==null ) { 
+					if (beoordelingopleider == null ) { 
 						StageOfyDAOImpl sod = new StageOfyDAOImpl();
 						ArrayList<Stage> deStages = (ArrayList<Stage>)sod.getAllStages();
 LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
@@ -102,25 +102,30 @@ ArrayList<Leerling> students =  (ArrayList<Leerling>)lod.getAllLeerlingen();
 								StageBedrijf sessionUser = (StageBedrijf)session.getAttribute("userobject");
 if(s.getHetBedrijf().equals(sessionUser.getUsername())){
 	for(Leerling x : students){
-		if(s.getDeLeerling().equals(x.getUsername()))
+		if(s.getDeLeerling().equals(x.getUsername())){
 	fluf = x;
+
+		}
 	}
 	if(fluf != null){
 								out.println(" <option value='"+  fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "'>"+ fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "</option>") ;
 	}}
-							out.println(" </datalist>");
+							
 						
 							}
+							out.println(" </datalist>");
 						out.println("<input type='submit' value='Verder' name='Show'/>");
+			
 						}
 						
 						
 					}
 
-					if (beoordelingopleider !=null) { 
-						
-						out.println(beoordelingopleider); 
-					
+			if (beoordelingopleider !=null) { 
+				Object obj = request.getAttribute("deLeerling");
+				System.out.println("de doorgevoerde student: "+ obj);
+				out.println("<input type='hidden' name='deLeerling' value="+obj+" />");
+					out.println(beoordelingopleider);
 				out.println("<br/>eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
 				out.println("<input type='submit' value='Opslaan' name='Opslaan' />");
 					}
