@@ -26,8 +26,8 @@
 <%
 	Object o = request.getSession().getAttribute("userobject");
 	StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
-		ArrayList < Stelling > stellingen = (ArrayList <Stelling> ) sod.getAllStellingen();
-		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
+	ArrayList < Stelling > stellingen = (ArrayList <Stelling> ) sod.getAllStellingen();
+	CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 
 %>
 <title>Competenties</title>

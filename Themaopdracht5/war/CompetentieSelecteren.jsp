@@ -113,16 +113,37 @@
 		</footer>
 	</aside>
 	<!-- end of sidebar -->
+<%@ page import="com.appspot.Accent.model.Stage"%>
+<%@ page import="com.appspot.Accent.model.Beoordeling"%>
+<%@ page import="com.appspot.Accent.model.StageBegeleider"%>
+<%@ page import="com.appspot.Accent.model.Competentie"%>
+<%@ page import="com.appspot.Accent.model.Stelling"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="com.googlecode.objectify.Objectify"%>
+<%@ page import="com.googlecode.objectify.ObjectifyService"%>
+<%@ page import="com.appspot.Accent.model.service.*"%>
+
+<%
 
 
+
+
+CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
+ArrayList<Competentie> comps = (ArrayList<Competentie>) cod.getAllCompetenties();
+%>
 
 	<h2>Kies een Competentie</h2>
 	<form action="CompetentieOverzichtServlet.do" method="GET">
 		<select name='competentie'>
-<option  value='1'>1. Samenwerken en overleggen</option>
-
-<option  value='2'>2. Aandacht en begrip tonen</option>
-</select>
+		<%
+		int iterator = 0;
+		for(Competentie c : comps){
+			iterator++;
+			out.println("<option  value='"+ c.getEigenId() +"'>" + c.getTitel() +"</option>");
+		}
+		
+		%>
+		</select>
 
 		<br /> <input type='submit' value='overzicht'>
 	</form>
