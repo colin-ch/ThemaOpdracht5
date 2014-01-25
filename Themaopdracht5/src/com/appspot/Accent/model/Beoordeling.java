@@ -13,12 +13,16 @@ public class Beoordeling {
 	private ArrayList<Integer> stellingBeoordeeld = new ArrayList<Integer>();
 	@Id Long id;
 	private int stage;
-	private String datum;
-	private String opmerking;
+	private String datumLeerling;
+	private String datumBedrijf;
+	private String opmerkingBedrijf;
+	private String opmerkingLeerling;
 
-	public Beoordeling(String dt, String op,int sta,  ArrayList c, ArrayList w){
-		datum = dt;
-		opmerking = op;
+	public Beoordeling(String dtl , String dtb, String opl, String opb, int sta,  ArrayList c, ArrayList w){
+		datumLeerling = dtl;
+		datumBedrijf = dtb;
+		opmerkingLeerling = opl;
+		opmerkingBedrijf = opb;
 		setStage(sta);
 		deCompetenties = c;
 		stellingBeoordeeld = w;
@@ -34,20 +38,33 @@ public class Beoordeling {
 		this.deCompetenties = array;
 	}
 
-	public String getDatum() {
-		return datum;
+	public String getDatumLeerling() {
+		return datumLeerling;
 	}
 
-	public void setDatum(String datum) {
-		this.datum = datum;
+	public void setDatumLeerling(String datum) {
+		this.datumLeerling = datum;
 	}	
-
-	public String getOpmerking() {
-		return opmerking;
+	public String getDatumBedrijf() {
+		return datumBedrijf;
 	}
 
-	public void setOpmerking(String opmerking) {
-		this.opmerking = opmerking;
+	public void setDatumBedrijf(String datum) {
+		this.datumBedrijf = datum;
+	}	
+	public String getOpmerkingLeerling() {
+		return opmerkingLeerling;
+	}
+
+	public void setOpmerkingLeerling(String opmerking) {
+		this.opmerkingLeerling = opmerking;
+	}
+	public String getOpmerkingBedrijf() {
+		return opmerkingBedrijf;
+	}
+
+	public void setOpmerkingBedrijf(String opmerking) {
+		this.opmerkingBedrijf = opmerking;
 	}
 
 	public int getStage() {

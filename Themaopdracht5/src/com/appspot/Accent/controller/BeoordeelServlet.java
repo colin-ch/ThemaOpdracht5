@@ -89,7 +89,7 @@ boolean nextS = false;
 								for(Beoordeling be : allBeoordelingen){
 									//log.info("doorloop arraylist");
 									if(be.getStage() == s.getId()){
-										if(be.getDatum() == null){
+										if(be.getDatumLeerling() == null){
 											log.info("geen datum");
 											rate = be;
 										ints = be.getCompetenties();
@@ -170,15 +170,15 @@ beoordeeldeStelling.setDeWaardeLeerling("4");
 										}
 										
 								}}
-								rate.setOpmerking(req.getParameter("opmerking"));
+								rate.setOpmerkingLeerling(req.getParameter("opmerking"));
 								if(req.getParameter("opmerking").equals("")){
-									rate.setOpmerking("geen opmerking");
+									rate.setOpmerkingLeerling("geen opmerking");
 								}
 								// alles wordt buiten de arraylist gewijzigd
-								log.info(rate.getOpmerking());
+								log.info(rate.getOpmerkingLeerling());
 								Date d = new Date();
 								String datum = d.toString();
-								rate.setDatum(datum);
+								rate.setDatumLeerling(datum);
 								rate.setStellingBeoordeeld(waardesIDs);
 								ofy.put(rate);
 							}	

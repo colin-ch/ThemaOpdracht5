@@ -32,7 +32,7 @@ public class BeoordelingOfyDAOImpl implements BeoordelingOfyDAO {
 		  Beoordeling result = null;
 		  ArrayList<Beoordeling> beoordelingen = (ArrayList<Beoordeling>) getAllBeoordelingen();
 	      for (Beoordeling b : beoordelingen){
-	    	  if (b.getDatum().equals(datum)){
+	    	  if (b.getDatumBedrijf().equals(datum)){
 	    		  result = b;
 	    	  }
 	      }
@@ -55,15 +55,15 @@ public class BeoordelingOfyDAOImpl implements BeoordelingOfyDAO {
 	@Override
 	public void updateBeoordeling(Beoordeling b) {
 		// TODO Auto-generated method stub
-		System.out.println("Beoordeling: " + b.getDatum() +", geupdate");
+		System.out.println("Beoordeling: " + b.getDatumBedrijf() +", geupdate");
 	}
 	@Override
 	public void deleteBeoordeling(Beoordeling b) {
 		ofy.delete(b);
 	}
 	@Override
-	public void createBeoordeling(String dt, String opm,int sta, ArrayList c, ArrayList l) {
-		ofy.put(new Beoordeling(dt, opm, sta, c, l));
+	public void createBeoordeling(String dt, String dtb, String opm, String opmb,int sta, ArrayList c, ArrayList l) {
+		ofy.put(new Beoordeling(dt,dtb, opm,opmb, sta, c, l));
 	}
 
 

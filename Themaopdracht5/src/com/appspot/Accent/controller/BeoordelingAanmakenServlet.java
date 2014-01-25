@@ -204,7 +204,7 @@ int destage = currentstage.getId();
 				}
 			}
 			rd = req.getRequestDispatcher("index.jsp");
-			Beoordeling be = new Beoordeling(null, "nog niet gedaan",destage, beoordeelCompetenties, stellingBeoordeeld);
+			Beoordeling be = new Beoordeling(null, null, "nog niet gedaan","nog niet gedaan",destage, beoordeelCompetenties, stellingBeoordeeld);
 ofy.put(be);
 		}
 		
