@@ -102,7 +102,7 @@ ArrayList<Leerling> students =  (ArrayList<Leerling>)lod.getAllLeerlingen();
 								StageBedrijf sessionUser = (StageBedrijf)session.getAttribute("userobject");
 if(s.getHetBedrijf().equals(sessionUser.getUsername())){
 	for(Leerling x : students){
-		if(s.getDeLeerling().equals(x.getRoepnaam()))
+		if(s.getDeLeerling().equals(x.getUsername()))
 	fluf = x;
 	}
 	if(fluf != null){
