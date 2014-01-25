@@ -56,7 +56,7 @@
 		    			
 		    			for(Beoordeling beoordeling : bod.getAllBeoordelingen()){
 		    				
-		    				if(beoordeling.getDatum().equals(getServletContext().getAttribute("datum"))){
+		    				if(beoordeling.getDatumLeerling().equals(getServletContext().getAttribute("datum"))){
 		    			
 				    			if(stage.getDeLeerling().equals(le.getUsername())){ //zoekt bijbehorende stage
 				    				
@@ -123,10 +123,10 @@
 				
 				for(Beoordeling be : b.getBeoordelingen(sta.getId())){
 					if(be.getDatum().equals(getServletContext().getAttribute("datum"))){
-					out.println("<option value='"+ be.getDatum() +"' selected>Stage ID: " + sta.getId() + " - Datum:"   + be.getDatum() + "</option>");
+					out.println("<option value='"+ be.getDatumLeerling() +"' selected>Stage ID: " + sta.getId() + " - Datum:"   + be.getDatumLeerling() + "</option>");
 				}
 				else{
-					out.println("<option value='"+ be.getDatum() +"'>Stage ID: " + sta.getId() + " - Datum:"   + be.getDatum() + "</option>");
+					out.println("<option value='"+ be.getDatumLeerling() +"'>Stage ID: " + sta.getId() + " - Datum:"   + be.getDatumLeerling() + "</option>");
 				}
 				}
 				
@@ -194,7 +194,7 @@ for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
 			    			
 			    			for(Beoordeling beoordeling : bod.getBeoordelingen(stage.getId())){ //getAllBeoordelingen() test
 			    				
-			    				if(beoordeling.getDatum().equals(getServletContext().getAttribute("datum"))){
+			    				if(beoordeling.getDatumLeerling().equals(getServletContext().getAttribute("datum"))){
 			    			
 					    			if(stage.getDeLeerling().equals(le.getUsername())){ //zoekt bijbehorende stage
 					    				

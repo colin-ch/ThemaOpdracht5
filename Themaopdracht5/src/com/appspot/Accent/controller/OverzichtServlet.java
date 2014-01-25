@@ -70,7 +70,7 @@ public class OverzichtServlet extends HttpServlet{
 						
 						for(Beoordeling b : bo.getBeoordelingen(st.getId())){//alle beoordelingen worden doorlopen
 						
-							bericht = bericht + "<option value="+b.getDatum()+">"+b.getDatum()+"</option>";
+							bericht = bericht + "<option value="+b.getDatumLeerling()+">"+b.getDatumLeerling()+"</option>";
 						//	log.info(bericht);//de options worden aan de select van de dropdown toegevoegd
 				
 							
