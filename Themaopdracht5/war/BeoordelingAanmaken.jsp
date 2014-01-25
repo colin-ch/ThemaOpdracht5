@@ -123,7 +123,7 @@
 					ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
 					
 					for(Leerling l: array){
-						if(stage.getDeLeerling().equals(l.getRoepnaam())){
+						if(stage.getDeLeerling().equals(l.getUsername())){
 							student = l;
 						}
 					}

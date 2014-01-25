@@ -98,7 +98,7 @@ ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordee
 				for (Stage s: allStages) { //alle stages worden door lopen
 				    if (o instanceof Leerling) {//kijkt of ingelogde gebruiker een leerling is
 
-				        if (s.getDeLeerling().equals(((Leerling) o).getRoepnaam())) {//zoekt stage dmw van ingelogde gebruikersnaam te vergelijken met naam van leerling in stage
+				        if (s.getDeLeerling().equals(((Leerling) o).getUsername())) {//zoekt stage dmw van ingelogde gebruikersnaam te vergelijken met naam van leerling in stage
 				            for (Beoordeling be: beoordelingen) {//alle beoordelingen doorlopen
 				            	
 				              if(be.getStage() == s.getId()){
@@ -144,7 +144,6 @@ ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordee
 
 				                            	if(check == true){
 				                            		controleArray.add(sb.getUniekID());
-				                                System.out.println("teller =" + teller);
 				                                teller++;
 				                                String waarde = st.getDeWaarde();
 
