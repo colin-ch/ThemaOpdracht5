@@ -46,12 +46,12 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>WachtwoordWijzigenServlet</servlet-name>
-		<servlet-class>com.appspot.Accent.controller.WachtwoordWijzigenServlet</servlet-class>
+		<servlet-name>WwWijzigenServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.WwWijzigenServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>WachtwoordWijzigenServlet</servlet-name>
+		<servlet-name>WwWijzigenServlet</servlet-name>
 		<url-pattern>/WachtwoordWijzigen.do</url-pattern>
 	</servlet-mapping>
 	

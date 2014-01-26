@@ -21,7 +21,7 @@ import com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
-public class WachtwoordWijzigenServlet extends HttpServlet {
+public class WwWijzigenServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static final Logger log = Logger.getLogger(BeoordeelServlet.class.getName());
