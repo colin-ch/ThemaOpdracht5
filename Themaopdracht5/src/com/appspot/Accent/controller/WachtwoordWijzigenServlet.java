@@ -1,4 +1,4 @@
-/*package com.appspot.Accent.controller;
+package com.appspot.Accent.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -151,4 +151,4 @@ public class WachtwoordWijzigenServlet extends HttpServlet {
 		rd.forward(req, resp);
 	}
 
-}*/
+}

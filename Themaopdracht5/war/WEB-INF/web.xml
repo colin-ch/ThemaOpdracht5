@@ -46,6 +46,17 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>WachtwoordWijzigenServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.WachtwoordWijzigenServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>WachtwoordWijzigenServlet</servlet-name>
+		<url-pattern>/WachtwoordWijzigen.do</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
 		<servlet-name>GebruikerAanmakenServlet</servlet-name>
 		<servlet-class>com.appspot.Accent.controller.GebruikerAanmakenServlet</servlet-class>
 	</servlet>
