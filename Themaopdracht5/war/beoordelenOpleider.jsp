@@ -38,6 +38,7 @@
 				<%@ page import="com.googlecode.objectify.ObjectifyService"%>
 				<%@ page import="com.appspot.Accent.model.service.*"%>
 
+
 				<form action="/BeoordeelStageBedrijfServlet.do" method="GET">
 					<%
 					
@@ -79,10 +80,10 @@ if(s.getHetBedrijf().equals(sessionUser.getUsername())){
 
 			if (beoordelingopleider !=null) { 
 				Object obj = request.getAttribute("deLeerling");
-				System.out.println("de doorgevoerde student: "+ obj);
+				out.println("<h4>Stage Opleider: &nbsp; <input type='text' name='opleider' placeholder='naam stage opleider' /></h4>");
 				out.println("<input type='hidden' name='deLeerling' value="+obj+" />");
 					out.println(beoordelingopleider);
-				out.println("<br/>eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
+				out.println("<br/>eventuele Opmerkingen:<textarea name='opmerking' value=''>geen opmerking</textarea> ");
 				out.println("<input type='submit' value='Opslaan' name='Opslaan' />");
 					}
 				%>

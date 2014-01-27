@@ -54,7 +54,7 @@ public class LoginFilterServlet implements Filter {
 			String reqUrl =	r2.getRequestURL().toString();
 			// er wordt gekeken  welke gerbuiker het is en of deze wel op de betreffende pagina mag.
 			if(o instanceof Leerling){
-				if(reqUrl.equals("#")||reqUrl.equals("#")){
+				if(reqUrl.equals(beheer)||reqUrl.equals(beoordelenopleider) ||reqUrl.equals(aanmakenbeoordeling) ||reqUrl.equals(stageaanmaken) ||reqUrl.equals("#") ||reqUrl.equals("#")){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 					
@@ -64,7 +64,7 @@ public class LoginFilterServlet implements Filter {
 			}
 			
 			if(o instanceof Docent){
-				if(reqUrl.equals("#")||reqUrl.equals("#")){
+				if(reqUrl.equals(beheer)||reqUrl.equals(beoordelenleerling )|| reqUrl.equals(beoordelenopleider) || reqUrl.equals(aanmakenbeoordeling) || reqUrl.equals(stageaanmaken)){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 					
@@ -73,7 +73,7 @@ public class LoginFilterServlet implements Filter {
 				
 			}
 			if(o instanceof StageBedrijf){
-				if(reqUrl.equals("#")||reqUrl.equals("#")){
+				if(reqUrl.equals(beheer)||reqUrl.equals(beoordelenleerling) ||reqUrl.equals(aanmakenbeoordeling) ||reqUrl.equals(stageaanmaken) ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#")){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 					
@@ -82,7 +82,7 @@ public class LoginFilterServlet implements Filter {
 				
 			}
 			if(o instanceof StageBegeleider){
-				if(reqUrl.equals("#")|| reqUrl.equals("#")){
+				if(reqUrl.equals(beheer)|| reqUrl.equals(beoordelenleerling) ||reqUrl.equals(beoordelenopleider) ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#")){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 				}
