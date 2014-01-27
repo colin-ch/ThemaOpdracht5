@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8" />
-<title>Dashboard I Admin Panel</title>
+<title>Stage aanmaken</title>
 <%@ include file="imports.jsp"%>
 </head>
 

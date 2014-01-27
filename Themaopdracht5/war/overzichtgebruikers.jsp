@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8" />
-<title>Dashboard I Admin Panel</title>
+<title>Overzicht gebruikers</title>
 <%@ include file="imports.jsp"%>
 </head>
 
@@ -20,7 +20,7 @@
 		
 		<article class="module width_full">
 			<header>
-				<h3>Selecteren gebruiker</h3>
+				<h3>Selecteer een gebruiker</h3>
 			</header>
 			<div class="module_content">
 
