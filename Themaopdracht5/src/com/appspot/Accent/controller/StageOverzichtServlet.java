@@ -53,14 +53,10 @@ public class StageOverzichtServlet extends HttpServlet{
 			bericht = bericht+ "['"+st.getDeLeerling()+"',  "+st.getHetBedrijf()+", "+st.getDeBegeleider()+", "+st.getBegindatum()+", "+st.getEinddatum()+"],";
 			log.info(bericht);
 			}
-			if(stages == null){
-				break;
-			}
-			else{
 				succes = true;
 				start = false;
 				req.setAttribute("msgs", bericht);
-			}
+			
 		}
 		else{
 			req.setAttribute("msgs", "Er is nog geen stage bekend");

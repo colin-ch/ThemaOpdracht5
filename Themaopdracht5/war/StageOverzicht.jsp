@@ -27,6 +27,7 @@
 					<%@ page import="com.appspot.Accent.model.*"%>
 					<%@ page import="com.appspot.Accent.model.service.*"%>
 					<%
+								Object initStage = request.getAttribute( "initStage");
 								
 							    Object user2 = session.getAttribute("userobject");//haalt huidige ingelogde gebruiker op
                             	StageOfyDAOImpl st = new StageOfyDAOImpl();
@@ -37,42 +38,78 @@
                         		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl();//Objectify klassen
                         		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
                         	%>
+                        	<form action="/BeoordelingAanmakenServlet.do" method="GET">
+				<%
+                        	if(initStage != null){
+					out.println("<h2> selecteer een stage: </h2>");
+
+					ArrayList<Stage> array = (ArrayList<Stage>) request.getAttribute("stages"); //alle stages worden opgehaald
+					out.println("<input list='stages' name='stages' required>");//lijst van stages wordt aangemaakt
+					out.println("<datalist id='stages'>");
+					if (array != null) {
+						for (int i = 0; i < array.size(); i++) {
+
+							Stage fluf = array.get(i);
+							out.println(" <option value='"+  fluf.getId() + "'>"+ fluf.getId() +"</option>") ;
+						}
+						out.println(" </datalist>");
+							
+						}
+					out.println("<input type='submit' value='Verder' name='create'/>");
+					}%>
                         		 <script type="text/javascript" src="//www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load('visualization', '1', {packages: ['table']});
     </script>
+    
     <script type="text/javascript">
     function drawVisualization() {
       // Create and populate the data table.
        var data = google.visualization.arrayToDataTable([
         ['Naam', 'Stage bedrijf', 'Begin datum', 'Eind datum'],
         <% for(Stage stl : alleStages) {
-       //	 out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+stl.getBegindatum()+"','"+stl.getEinddatum()+"'],");
-       	 out.println("['"+stl.getDeLeerling()+"', \""+stl.getHetBedrijf()+"\", '"+simpleDateFormat.format(stl.getBegindatum())+"','"+simpleDateFormat.format(stl.getEinddatum())+"'],");
-      	//System.out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+simpleDateFormat.format(stl.getBegindatum())+"','"+simpleDateFormat.format(stl.getEinddatum())+"'],");
-      //	System.out.println("['"+stl.getDeLeerling()+"', '"+stl.getHetBedrijf()+"', '"+stl.getDeBegeleider()+"', '"+stl.getBegindatum()+"','"+stl.getEinddatum()+"'],");   
-        }
-        System.out.println("End of Stage loop");
+             	 out.println("['"+stl.getDeLeerling()+"', \""+stl.getHetBedrijf()+"\", '"+simpleDateFormat.format(stl.getBegindatum())+"','"+simpleDateFormat.format(stl.getEinddatum())+"'],");
+             }
+     
        		      %>
       ]);
        
     
       // Create and draw the visualization.
       visualization = new google.visualization.Table(document.getElementById('table-div'));
+     
+      function selectHandler(e) {
+    	  var selection = visualization.getSelection();
+    	  var message = '';
+    	  for (var i = 0; i < selection.length; i++) {
+    	    var item = selection[i];
+    	    if (item.row != null && item.column != null) {
+    	      var str = data.getFormattedValue(item.row, item.column);
+    	      message += 'row:' + item.row + ',  ' + str ;2
+    	    } else if (item.row != null) {
+    	      var str = data.getFormattedValue(item.row, 0);
+    	      message += 'row:' + item.row + ',  ' + str ;
+    	    } else if (item.column != null) {
+    	      var str = data.getFormattedValue(0, item.column);
+    	      message += 'row:' + item.row + ',  ' + str ;
+    	    }
+    	  }
+    	  if (message == '') {
+    	    message = 'nothing';
+    	  }
+    	  alert('You selected ' + message);
+         //var row = visualization.getSelection()[1].row;
+         //alert('You selected ' + data.getValue(row, 1));
+       }
+      google.visualization.events.addListener(visualization, 'select', selectHandler);
       visualization.draw(data, null);
-      
-      google.visualization.events.addListener(visualization, 'select', function() {
-          var row = table.getSelection()[1].row;
-          alert('You selected ' + data.getValue(row, 1));
-        });
+    
 
     }
-   
-    google.setOnLoadCallback(drawVisualization);
+    	 
+       google.setOnLoadCallback(drawVisualization);
     </script>
-
-					
-				
+   				
 				<div id="table-div"></div>
 			</div>
 		</article>
