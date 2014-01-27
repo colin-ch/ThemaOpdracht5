@@ -45,7 +45,7 @@
 		<url-pattern>/StageAanmaken.do</url-pattern>
 	</servlet-mapping>
 	
-	<servlet>
+<!--  	<servlet>
 		<servlet-name>WachtwoordWijzigenServlet</servlet-name>
 		<servlet-class>com.appspot.Accent.controller.WachtwoordWijzigenServlet.java</servlet-class>
 	</servlet>
@@ -54,6 +54,7 @@
 		<servlet-name>WachtwoordWijzigenServlet</servlet-name>
 		<url-pattern>/WachtwoordWijzigen.do</url-pattern>
 	</servlet-mapping>
+-->
 	
 	
 	<servlet>
