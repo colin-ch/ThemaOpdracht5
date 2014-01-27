@@ -40,7 +40,7 @@
 			<input type="submit" value="opslaan"><br><br>
 </form>
 
-	<form action="StellingAanpassenServlet.do" methode="GET">
+	<form action="StellingAanpassenServlet.do" method="GET">
 		<%
 		int iterator=0;
 			for (Stelling s : stellingen) {
