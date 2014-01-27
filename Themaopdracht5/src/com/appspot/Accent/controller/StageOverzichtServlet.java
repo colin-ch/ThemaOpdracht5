@@ -38,7 +38,7 @@ public class StageOverzichtServlet extends HttpServlet{
 	StageOfyDAOImpl std = new StageOfyDAOImpl();
 	
 	ArrayList<Stage>stages = new ArrayList<Stage>();
-	
+	boolean start = true;
 	boolean succes = false;
 	
 	
@@ -46,20 +46,22 @@ public class StageOverzichtServlet extends HttpServlet{
 		stages = (ArrayList<Stage>) std.getAllStages();
 		
 		
-		/*if(pagina wordt geladen){
+		if(start ==true){
 			for(Stage st : stages){//doorloopt alle stages
 			log.info("1");
 			//Haalt alle gegevens op per stage en schrijft deze terug naar de pagina.
 			bericht = bericht+ "['"+st.getDeLeerling()+"',  "+st.getHetBedrijf()+", "+st.getDeBegeleider()+", "+st.getBegindatum()+", "+st.getEinddatum()+"],";
 			log.info(bericht);
 			}
-		succes = true;
-		req.setAttribute("msgs", bericht);
+				succes = true;
+				start = false;
+				req.setAttribute("msgs", bericht);
+			
 		}
 		else{
 			req.setAttribute("msgs", "Er is nog geen stage bekend");
 		}
-		*/
+		
 	
 	RequestDispatcher rd = null;
 	

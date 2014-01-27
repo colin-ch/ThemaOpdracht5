@@ -3,52 +3,8 @@
 
 <head>
 <meta charset="utf-8" />
-<title>Dashboard I Admin Panel</title>
-
-<link rel="stylesheet" href="css/layout.css" type="text/css"
-	media="screen" />
-<!--[if lt IE 9]>
-	<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-<script src="js/jquery-1.5.2.min.js" type="text/javascript"></script>
-<script src="js/hideshow.js" type="text/javascript"></script>
-<script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/jquery.equalHeight.js"></script>
-<script type="text/javascript">
-	
-	$(document).ready(function() 
-    	{ 
-      	  $(".tablesorter").tablesorter(); 
-   	 } 
-	);
-	$(document).ready(function() {
-
-	//When page loads...
-	$(".tab_content").hide(); //Hide all content
-	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
-	$(".tab_content:first").show(); //Show first tab content
-
-	//On Click Event
-	$("ul.tabs li").click(function() {
-
-		$("ul.tabs li").removeClass("active"); //Remove any "active" class
-		$(this).addClass("active"); //Add "active" class to selected tab
-		$(".tab_content").hide(); //Hide all tab content
-
-		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-		$(activeTab).fadeIn(); //Fade in the active ID content
-		return false;
-	});
-
-});
-    </script>
-<script type="text/javascript">
-    $(function(){
-        $('.column').equalHeight();
-    });
-</script>
-
+<title>Beoordelen</title>
+<%@ include file="imports.jsp"%>
 </head>
 
 
@@ -81,6 +37,7 @@
 				<%@ page import="com.googlecode.objectify.Objectify"%>
 				<%@ page import="com.googlecode.objectify.ObjectifyService"%>
 				<%@ page import="com.appspot.Accent.model.service.*"%>
+
 
 				<form action="/BeoordeelStageBedrijfServlet.do" method="GET">
 					<%
@@ -123,10 +80,10 @@ if(s.getHetBedrijf().equals(sessionUser.getUsername())){
 
 			if (beoordelingopleider !=null) { 
 				Object obj = request.getAttribute("deLeerling");
-				System.out.println("de doorgevoerde student: "+ obj);
+				out.println("<h4>Stage Opleider: &nbsp; <input type='text' name='opleider' placeholder='naam stage opleider' /></h4>");
 				out.println("<input type='hidden' name='deLeerling' value="+obj+" />");
 					out.println(beoordelingopleider);
-				out.println("<br/>eventuele Opmerkingen:<input type='text' name='opmerking' value=''> ");
+				out.println("<br/>eventuele Opmerkingen:<textarea name='opmerking' value=''>geen opmerking</textarea> ");
 				out.println("<input type='submit' value='Opslaan' name='Opslaan' />");
 					}
 				%>

@@ -13,14 +13,16 @@ public class Beoordeling {
 	private ArrayList<Integer> stellingBeoordeeld = new ArrayList<Integer>();
 	@Id Long id;
 	private int stage;
+	private String stageOpleider;
 	private String datumLeerling;
 	private String datumBedrijf;
 	private String opmerkingBedrijf;
 	private String opmerkingLeerling;
 
-	public Beoordeling(String dtl , String dtb, String opl, String opb, int sta,  ArrayList c, ArrayList w){
+	public Beoordeling(String dtl , String dtb, String sopl, String opl, String opb, int sta,  ArrayList c, ArrayList w){
 		datumLeerling = dtl;
 		datumBedrijf = dtb;
+		setStageOpleider(sopl);
 		opmerkingLeerling = opl;
 		opmerkingBedrijf = opb;
 		setStage(sta);
@@ -79,6 +81,12 @@ public class Beoordeling {
 	}
 	public void setStellingBeoordeeld(ArrayList<Integer> stellingBeoordeeld) {
 		this.stellingBeoordeeld = stellingBeoordeeld;
+	}
+	public String getStageOpleider() {
+		return stageOpleider;
+	}
+	public void setStageOpleider(String stageOpleider) {
+		this.stageOpleider = stageOpleider;
 	}
 
 

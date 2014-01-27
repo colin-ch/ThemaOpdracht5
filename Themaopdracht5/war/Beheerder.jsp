@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8" />
-<title>Dashboard I Admin Panel</title>
+<title>Beheerder's pagina</title>
 <%@ include file="imports.jsp"%>
 </head>
 
@@ -12,8 +12,6 @@
 	<%@ include file="header.jsp"%>
 	<section id="main" class="column"
 		style="min-width: 1110px; min-height: 600px !important;">
-		<h4 class="alert_info">Welkom, dit is het competentie
-			beoordelings systeem van Accent Nijkerk. Je hebt nog geen afspraken.</h4>
 		
 		<% 
 		Object msgs=request.getAttribute( "msgs");

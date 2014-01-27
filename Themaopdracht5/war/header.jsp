@@ -39,8 +39,7 @@
 	<aside id="sidebar" class="column"
 		style="min-width: 250px; width: 288px !important; height: 100% !important; min-height: 600px !important;">
 		<form class="quick_search">
-			<input type="text" value="Zoeken"
-				onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+			
 		</form>
 		<hr />
 		<h3>Menu</h3>
@@ -67,6 +66,7 @@
 		if(user instanceof StageBegeleider){
 			out.println("<li class='icn_new_article'><a href='/BeoordelingAanmakenServlet.do?initLeerling=initLeerling'>Beoordeling aanmaken</a></li>");
 			out.println("<li class='icn_view_users'><a href='overzichtgebruikers.jsp'>Beoordelingen bekijken</a></li>");
+			out.println("<li class='icn_view_users'><a href='StageOverzicht.jsp'>Stages overzicht</a></li>");
 			out.println("<li class='icn_view_users'><a href='Profiel.jsp'>Profiel gegevens</a></li>");
 			out.println("<li class='icn_jump_back'><a href='/LogoutServlet.do'>Loguit</a></li>");
 		}
