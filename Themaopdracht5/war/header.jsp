@@ -39,8 +39,7 @@
 	<aside id="sidebar" class="column"
 		style="min-width: 250px; width: 288px !important; height: 100% !important; min-height: 600px !important;">
 		<form class="quick_search">
-			<input type="text" value="Zoeken"
-				onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+			
 		</form>
 		<hr />
 		<h3>Menu</h3>
