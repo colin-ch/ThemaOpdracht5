@@ -46,8 +46,8 @@ public class CompetentieOverzichtServlet extends HttpServlet {
 				rd = req.getRequestDispatcher("CompetentieOverzicht.jsp");
 				}
 
-			rd.forward(req, resp);
+			
 		}
-	
+		rd.forward(req, resp);
 	}
 }
