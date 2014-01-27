@@ -35,6 +35,16 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
+	
+	<section id="main" class="column"
+		style="min-width: 1110px; min-height: 600px !important;">
+
+
+		<article class="module width_full">
+			<header>
+				<h3>Competentie Overzicht</h3>
+			</header>
+			<div class="module_content">
 <form action="CompetentieAanpassenServlet.do" method="GET">
 
 			<input type="submit" value="opslaan"><br><br>
@@ -75,9 +85,14 @@
 
 		%>
 	</form>
+			</div>
+		
+			</div>
 
 
-
-
+		</article>
+		<!-- end of styles article -->
+		<div class="spacer"></div>
+	</section>
 </body>
 </html>
