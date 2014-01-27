@@ -23,26 +23,26 @@ public class LoginFilterServlet implements Filter {
 		HttpServletRequest r2 = (HttpServletRequest) req;
 		Object o = r2.getSession().getAttribute("userobject");
 		
-		String scherm1 = "http://project-omega.appspot.com/Beheerder.jsp";
-		String scherm2 = "http://project-omega.appspot.com/BeoordelenLeerling.jsp";
-		String scherm3 = "http://project-omega.appspot.com/beoordelenOpleider.jsp";
-		String scherm4 = "http://project-omega.appspot.com/BeoordelingAanmaken.jsp";
-		String scherm5 = "http://project-omega.appspot.com/beoordelingSelecteren.jsp";
-		String scherm6 = "http://project-omega.appspot.com/CompetentieOverzicht.jsp";
-		String scherm7 = "http://project-omega.appspot.com/CompetentieSelecteren.jsp";
-		String scherm8 = "http://project-omega.appspot.com/DocentAanmaken.jsp";
-		String scherm9 = "http://project-omega.appspot.com/grafieken.jsp";
-		String scherm10 = "http://project-omega.appspot.com/header.jsp";
-		String scherm11 = "http://project-omega.appspot.com/imports.jsp";
-		String scherm12 = "http://project-omega.appspot.com/index.jsp";
-		String scherm13 = "http://project-omega.appspot.com/LeerlingAanmaken.jsp";
-		String scherm14 = "http://project-omega.appspot.com/overzichtgebruikers.jsp";
-		String scherm15 = "http://project-omega.appspot.com/Profiel.jsp";
-		String scherm16 = "http://project-omega.appspot.com/StageAanmaken.jsp";
-		String scherm17 = "http://project-omega.appspot.com/StageBedrijfAanmaken.jsp";
-		String scherm18 = "http://project-omega.appspot.com/StageBegeleiderAanmaken.jsp";
-		String scherm19 = "http://project-omega.appspot.com/StageOverzicht.jsp";
-		String scherm20 = "http://project-omega.appspot.com/WachtwoordWijzigen.jsp";
+		String beheer = "http://project-omega.appspot.com/Beheerder.jsp";
+		String beoordelenleerling = "http://project-omega.appspot.com/BeoordelenLeerling.jsp";
+		String beoordelenopleider = "http://project-omega.appspot.com/beoordelenOpleider.jsp";
+		String aanmakenbeoordeling = "http://project-omega.appspot.com/BeoordelingAanmaken.jsp";
+		String selecterenbeoordeling = "http://project-omega.appspot.com/beoordelingSelecteren.jsp";
+		String competentieoverzicht = "http://project-omega.appspot.com/CompetentieOverzicht.jsp";
+		String selecterencompetentie = "http://project-omega.appspot.com/CompetentieSelecteren.jsp";
+		String docentaanmaken = "http://project-omega.appspot.com/DocentAanmaken.jsp";
+		String grafieken = "http://project-omega.appspot.com/grafieken.jsp";
+		String header = "http://project-omega.appspot.com/header.jsp";
+		String imports = "http://project-omega.appspot.com/imports.jsp";
+		String index = "http://project-omega.appspot.com/index.jsp";
+		String leerlingaanmaken = "http://project-omega.appspot.com/LeerlingAanmaken.jsp";
+		String overzichtgebruikers = "http://project-omega.appspot.com/overzichtgebruikers.jsp";
+		String profiel = "http://project-omega.appspot.com/Profiel.jsp";
+		String stageaanmaken = "http://project-omega.appspot.com/StageAanmaken.jsp";
+		String stagebedrijfaanmaken = "http://project-omega.appspot.com/StageBedrijfAanmaken.jsp";
+		String stagebegeleideraanmaken = "http://project-omega.appspot.com/StageBegeleiderAanmaken.jsp";
+		String stageoverzicht = "http://project-omega.appspot.com/StageOverzicht.jsp";
+		String wachtwoordwijzigen = "http://project-omega.appspot.com/WachtwoordWijzigen.jsp";
 		
 		
 
@@ -54,7 +54,7 @@ public class LoginFilterServlet implements Filter {
 			String reqUrl =	r2.getRequestURL().toString();
 			// er wordt gekeken  welke gerbuiker het is en of deze wel op de betreffende pagina mag.
 			if(o instanceof Leerling){
-				if(reqUrl.equals(scherm1)||reqUrl.equals(scherm2)){
+				if(reqUrl.equals("#")||reqUrl.equals("#")){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 					
@@ -64,7 +64,7 @@ public class LoginFilterServlet implements Filter {
 			}
 			
 			if(o instanceof Docent){
-				if(reqUrl.equals(scherm1)||reqUrl.equals(scherm2)){
+				if(reqUrl.equals("#")||reqUrl.equals("#")){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 					
@@ -73,7 +73,7 @@ public class LoginFilterServlet implements Filter {
 				
 			}
 			if(o instanceof StageBedrijf){
-				if(reqUrl.equals(scherm1)||reqUrl.equals(scherm2)){
+				if(reqUrl.equals("#")||reqUrl.equals("#")){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 					
@@ -82,7 +82,7 @@ public class LoginFilterServlet implements Filter {
 				
 			}
 			if(o instanceof StageBegeleider){
-				if(reqUrl.equals(scherm1)|| reqUrl.equals(scherm2)){
+				if(reqUrl.equals("#")|| reqUrl.equals("#")){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 				}
