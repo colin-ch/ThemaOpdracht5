@@ -15,15 +15,6 @@
 
 
 <%
-	Object msgs=request.getAttribute( "msgs"); 
-		if (msgs !=null) { 
-	out.println("<h2 class='alert_info'>"+msgs+"</h2>"); 
-	
-	Object competentie =request.getAttribute("competentie");
-	
-		}
-%>
-<%
 	Object o = request.getSession().getAttribute("userobject");
 	StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 	ArrayList < Stelling > stellingen = (ArrayList <Stelling> ) sod.getAllStellingen();
