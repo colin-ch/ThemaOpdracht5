@@ -15,10 +15,6 @@
 
 
 <%
-	Object msgs=request.getAttribute( "msgs"); 
-
-%>
-<%
 	Object o = request.getSession().getAttribute("userobject");
 	StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 	ArrayList < Stelling > stellingen = (ArrayList <Stelling> ) sod.getAllStellingen();
@@ -40,6 +36,13 @@
 				<h3>Competentie Overzicht</h3>
 			</header>
 			<div class="module_content">
+			<%		Object msgs=request.getAttribute( "msgs"); 
+			if (msgs !=null) { 
+				out.println("<h2 class='alert_info'>"+msgs+"</h2>"); 
+				
+				Object competentie =request.getAttribute("competentie");
+				
+					} %>
 <form action="CompetentieAanpassenServlet.do" method="GET">
 
 			<input type="submit" value="opslaan"><br><br>
@@ -47,6 +50,7 @@
 
 	<form action="StellingAanpassenServlet.do" method="GET">
 		<%
+
 		int iterator=0;
 			for (Stelling s : stellingen) {
 				
