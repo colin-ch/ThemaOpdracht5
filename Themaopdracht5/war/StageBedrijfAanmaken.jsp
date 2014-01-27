@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8" />
-<title>Dashboard I Admin Panel</title>
+<title>Stage bedrijf aanmaken</title>
 <%@ include file="imports.jsp"%>
 </head>
 
@@ -19,7 +19,7 @@
 		%>
 		<article class="module width_full">
 			<header>
-				<h3>StageBedrijf aanmaken</h3>
+				<h3>Stage bedrijf aanmaken</h3>
 			</header>
 			<div class="module_content">
 			<%@ page import="com.appspot.Accent.model.StageBegeleider" %>

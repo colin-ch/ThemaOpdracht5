@@ -46,10 +46,10 @@
 							StageBegeleider fluf = array.get(i);
 							out.println(" <option value='"+  fluf.getEmail() + "'>"+ fluf.getEmail() +"</option>") ;
 						}
-						out.println(" </datalist>");
+						out.println(" </datalist><br/>");
 							
 						}
-					}
+					
 					
 					%>
 
