@@ -21,10 +21,10 @@ import com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyService;
 
-public class WwWijzigenServlet extends HttpServlet {
+public class WachtwoordWijzigenServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	private static final Logger log = Logger.getLogger(BeoordeelServlet.class.getName());
+	private static final Logger log = Logger.getLogger(WachtwoordWijzigenServlet.class.getName());
 	private Objectify ofy;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
