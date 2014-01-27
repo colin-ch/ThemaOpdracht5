@@ -35,7 +35,7 @@
 </section>
 <!-- end of secondary bar -->
 
-<div style="width: 1410px;">
+<div style="min-width: 1410px; width: auto;">
 	<aside id="sidebar" class="column"
 		style="min-width: 250px; width: 288px !important; height: 100% !important; min-height: 600px !important;">
 		<form class="quick_search">
