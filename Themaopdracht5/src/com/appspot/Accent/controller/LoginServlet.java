@@ -56,11 +56,12 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		if(loginsucces == false){
+			loop:
 			for(User us : u.getAllUsers()){
 				if(username.equals(us.getUsername()) && pass.equals(us.getPassword())){
 					loginsucces = true;
 					user = us;
-
+					break loop;
 				}
 			}
 		}
