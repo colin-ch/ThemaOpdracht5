@@ -271,6 +271,7 @@ beoordeeldeStelling.setDeWaardeStagebedrijf("4");
 										
 								}}
 								rate.setOpmerkingBedrijf(req.getParameter("opmerking"));
+								rate.setStageOpleider(req.getParameter("opleider"));
 								if(req.getParameter("opmerking").equals("")){
 									rate.setOpmerkingBedrijf("geen opmerking");
 								}
