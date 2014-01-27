@@ -12,7 +12,7 @@
 <%@ page import="com.googlecode.objectify.Objectify"%>
 <%@ page import="com.googlecode.objectify.ObjectifyService"%>
 <%@ page import="com.appspot.Accent.model.service.*"%>
-<%@ include file="header.jsp"%>
+
 
 <%
 	Object msgs=request.getAttribute( "msgs"); 
@@ -34,7 +34,7 @@
 <%@ include file="imports.jsp"%>
 </head>
 <body>
-	
+	<%@ include file="header.jsp"%>
 <form action="CompetentieAanpassenServlet.do" method="GET">
 
 			<input type="submit" value="opslaan"><br><br>
