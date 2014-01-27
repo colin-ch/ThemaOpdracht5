@@ -15,6 +15,10 @@
 
 
 <%
+	Object msgs=request.getAttribute( "msgs"); 
+
+%>
+<%
 	Object o = request.getSession().getAttribute("userobject");
 	StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
 	ArrayList < Stelling > stellingen = (ArrayList <Stelling> ) sod.getAllStellingen();
