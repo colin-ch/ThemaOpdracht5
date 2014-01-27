@@ -19,6 +19,7 @@ import com.appspot.Accent.model.service.DocentOfyDAOImpl;
 import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
 import com.appspot.Accent.model.service.StageBedrijfOfyDAOImpl;
 import com.appspot.Accent.model.service.StageBegeleiderOfyDAOImpl;
+import com.appspot.Accent.model.service.UserOfyDAOImpl;
 
 
 @SuppressWarnings("serial")
@@ -39,6 +40,7 @@ public class LoginServlet extends HttpServlet {
 		DocentOfyDAOImpl d = new DocentOfyDAOImpl();
 		StageBedrijfOfyDAOImpl sb = new StageBedrijfOfyDAOImpl();
 		StageBegeleiderOfyDAOImpl sbg = new StageBegeleiderOfyDAOImpl();
+		UserOfyDAOImpl u = new UserOfyDAOImpl();
 		// er wrodt gekeken pof de gegevens overeenkomt met een van de users er is verschil in type users, namelijk leerlingen en docenten etc.
 		
 		// er wordt gecontroleerd of het een leerling is 
@@ -54,10 +56,12 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		if(loginsucces == false){
-			if(username.equals("beheerder") && pass.equals("wachtwoord")){
-				loginsucces = true;
-				User u1 = new User(username, pass, "123@gmail.com");
-				user = u1;
+			for(User us : u.getAllUsers()){
+				if(username.equals(us.getUsername()) && pass.equals(us.getPassword())){
+					loginsucces = true;
+					user = us;
+
+				}
 			}
 		}
 		
