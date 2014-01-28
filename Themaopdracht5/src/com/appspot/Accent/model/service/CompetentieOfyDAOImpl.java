@@ -1,6 +1,7 @@
 package com.appspot.Accent.model.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.appspot.Accent.model.Competentie;
@@ -18,11 +19,18 @@ public class CompetentieOfyDAOImpl implements CompetentieOfyDAO {
 	@Override
 	public List<Competentie> getAllCompetenties() {
 		ArrayList<Competentie> result = new ArrayList<Competentie>();
+		for(int t = 0; t <10 ; t++){
+			result.add(null);
+		}
 	      Iterable<Key<Competentie>> allKeys= ofy.query(Competentie.class).fetchKeys();
 	      for (Key k : allKeys){
 	    	  Competentie c = ofy.get(Competentie.class, k.getId());
-	    	  result.add(c);
+	    	  int i = c.getEigenId();
+	    	  i--;
+	    	  result.add(i, c);
 	      }
+	      
+	      result.removeAll(Collections.singleton(null));
 		   return result;
 	}
 	@Override
