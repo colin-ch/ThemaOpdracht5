@@ -162,6 +162,16 @@
 		<url-pattern>/CompetentieAanpassenServlet.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>StellingAanpassenServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.StellingAanpassenServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>StellingAanpassenServlet</servlet-name>
+		<url-pattern>/StellingAanpassenServlet.do</url-pattern>
+	</servlet-mapping>
+	
 	
 	
 	

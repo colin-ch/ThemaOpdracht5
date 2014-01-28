@@ -23,17 +23,24 @@
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
-<script>
+<script type="text/javascript">
 
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
+      google.load("visualization", "1.0", {packages:["controls"]});
+      google.setOnLoadCallback(drawDashboard);
       //google chart wordt geïnitialiseerd
       
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Beoordeling', 'Stage Opleider', 'Student', {role: 'annotation'}],
-      	         
-		
+      
+      function drawDashboard() {
+        var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Beoordeling');
+          data.addColumn('number', 'Stage Opleider');
+          data.addColumn({type:'string', role: 'annotation'});
+          data.addColumn('number', 'Student');
+          data.addColumn({type:'string', role: 'annotation'});
+          data.addColumn({type:'string', label:'competentiestelling', role: 'annotationText'});
+          
+                
+		  data.addRows([
        <% 
        	//Hier worden de stellingen opgehaald voor de beoordeling
 	      
@@ -66,9 +73,11 @@
 				    						
 				    						for(Stelling stel : stelling.getAllStellingen()){
 				    							if(stel.getUniekID() == s.getUniekID()){
-		    								
-		    										out.println("['"+stel.getDeStelling() +"', " + s.getDeWaardeStagebedrijf() + " , " + s.getDeWaardeLeerling() + "], '"+ s.getDeWaardeLeerling() + "'"); 
-		    								
+				    								for(Competentie c : cod.getAllCompetenties()){
+				    	        	    				if(stel.getEigenId() == c.getEigenId()){
+		    										out.println("['"+stel.getDeStelling() +"', " + s.getDeWaardeStagebedrijf() + " , '" + s.getDeWaardeStagebedrijf() + "'," + s.getDeWaardeLeerling() + ", '"+ s.getDeWaardeLeerling() + "','" + c.getTitel() + "'],"); 
+				    	        	    				}
+				    	        	    				}
 		    									}
 		    					
 		    								}
@@ -84,19 +93,102 @@
 		    }
 		    
          %>  
-        ['', 0, 0]
+        ['', 0, '' , 0,'', '']
+        
         ]);
         //opties voor de google chart
-        var options = {
+        var chart = new google.visualization.ChartWrapper({
+        	'chartType' : 'BarChart',
+        	'containerId' : 'chart_div',
+        'options' : {
+          'width':1400, 'chartArea':{left:600,top:10,width:"30%"},
           title: 'Laatste competenties',
-          hAxis: {title: 'Score', titleTextStyle: {color: 'green'}},
+          bar: {groupWidth: '100%'},
+          hAxis: {title: 'Score', titleTextStyle: {color: '#52A512'}},
+          
          
           // Allow multiple simultaneous selections.
           selectionMode: 'multiple',
-          colors: ['#BEF781','green']		
-        };
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+          colors: ['#BEF781','#52A512']		
+        }
+        });
+        
+        
+        var dashboard = new google.visualization.Dashboard(
+                document.getElementById('dashboard_div'));
+        google.visualization.events.addListener(dashboard, 'ready', function() {
+        	  // Dashboard redraw, have a look at how many rows the barChart is displaying
+        	  var numRows = chart.getDataTable().getNumberOfRows();
+        	  var expectedHeight = numRows * 60;
+        	  if (parseInt(chart.getOption('height'), 10) != expectedHeight) {
+        	    // Update the chart options and redraw just it
+        	    chart.setOption('height', expectedHeight);
+        	    chart.draw();
+        	  }
+        	});
+        
+        var initState= {selectedValues: []};
+        <%
+        for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
+        	
+        	if (le.getUsername().equals(getServletContext().getAttribute("geselecteerd"))){ //als leerling gelijk is aan de eerder geselecteerde leerling
+        		
+        		for(Stage stage : st.getAllStages()){ //loop door alle stages
+        			
+        			if(le.getUsername().equals(stage.getDeLeerling())){
+        			
+        			
+        		
+        			for(Beoordeling beoordeling : bod.getBeoordelingen(stage.getId())){ //getAllBeoordelingen() test
+        				
+        				if(beoordeling.getDatumLeerling().equals(getServletContext().getAttribute("datum"))){
+        			
+        	    			for(Integer i : beoordeling.getCompetenties()){
+        	    				for(Competentie c : cod.getAllCompetenties()){
+        	    				if(i == c.getEigenId()){
+        	    					%>
+        	    					initState.selectedValues.push(
+        	    							
+        	    						<% out.println("'"+ c.getTitel() +"'"); %>
+        	    						
+        	    					);
+        	    					
+        	    					
+        	    					<%
+        	    					
+        	    					
+        	    				}
+        	    				
+        	    				}
+        	    			}
+        				}
+        			}
+        			}
+        		}
+        	}
+        }
+        %>
+        
+        
+        var donutRangeSlider = new google.visualization.ControlWrapper({
+            'controlType': 'CategoryFilter',
+            'containerId': 'filter_div',
+            'options': {
+              'filterColumnLabel': 'competentiestelling',
+              'ui': {
+            	  'allowTyping': true,
+                  'allowMultiple': true,
+                  'selectedValuesLayout': 'belowStacked'
+            	  
+              }
+            },
+            state: initState
+          });
+        
+
+        dashboard.bind(donutRangeSlider, chart);
+        
+        dashboard.draw(data);
       }
  </script>
 <%@ include file="imports.jsp"%>
@@ -144,15 +236,16 @@
 				<h3>Home</h3>
 			</header>
 			<div class="module_content">
-				<div id="chart_div" style="width: 80%; height: 700px"></div>
+				
 				
 				
 				
 				
 				
 				<div>
-				
+				<script>
 				<%
+				
 				for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
 			    	
 			    	if (le.getUsername().equals(getServletContext().getAttribute("geselecteerd"))){ //als leerling gelijk is aan de eerder geselecteerde leerling
@@ -171,7 +264,7 @@
 					    				for(Competentie c : cod.getAllCompetenties()){
 					    				if(i == c.getEigenId()){
 					    					
-					    					out.println("<div>Competenties uit deze beoordeling"+ c.getEigenId() + "</div>");
+					    					out.println("<div><h3>Competenties uit deze beoordeling: "+ c.getTitel() + "</h3></div>");
 					    					
 					    				}
 					    				
@@ -182,22 +275,22 @@
 			    			}
 			    		}
 			    	}
-			    }
-				
+			    }%>
+				</script><%
 for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
 			    	
 			    	if (le.getUsername().equals(getServletContext().getAttribute("geselecteerd"))){ //als leerling gelijk is aan de eerder geselecteerde leerling
 			    		
 			    		for(Stage stage : st.getAllStages()){ //loop door alle stages
 			    			
-			    			out.println("<div>Stage: " + stage.getId() +   "</div>");
+			    			
 			    			
 			    			for(Beoordeling beoordeling : bod.getBeoordelingen(stage.getId())){ //getAllBeoordelingen() test
 			    				
 			    				if(beoordeling.getDatumLeerling().equals(getServletContext().getAttribute("datum"))){
 			    			
 					    			if(stage.getDeLeerling().equals(le.getUsername())){ //zoekt bijbehorende stage
-					    				
+					    				out.println("<div>Stage: " + stage.getId() +   "</div>");
 					    				
 			    					}
 			    				}
@@ -213,6 +306,11 @@ for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
 				
 				
 				
+			</div>
+			
+			<div id="dashboard_div" style="width: 90%; height: 700px">
+			 <div id="filter_div"></div>
+      <div id="chart_div"style="width: 100%; height: 100%"></div>
 			</div>
 		</article>
 		<!-- end of styles article -->

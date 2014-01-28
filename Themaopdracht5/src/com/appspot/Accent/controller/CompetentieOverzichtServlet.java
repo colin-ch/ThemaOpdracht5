@@ -31,19 +31,20 @@ public class CompetentieOverzichtServlet extends HttpServlet {
 		ArrayList<Competentie> competenties = new ArrayList<Competentie>();
 		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		competenties = (ArrayList<Competentie>) cod.getAllCompetenties();
-
+		loop:
 		for (Competentie c : competenties) {
-			System.out.println(c);
-			if (req.getParameter("competentie").equals(c.getEigenId())) {
+			String id = ""+c.getEigenId();
+			if (req.getParameter("competentie").equals(id)) {
 
 				String msgs = c.getTitel();
 				req.setAttribute("msgs", msgs);
 				
-				rd = req.getRequestDispatcher("CompetentieOverzicht.jsp");
+				rd = req.getRequestDispatcher("StellingOverzicht.jsp");
+				break loop;
 			}else{
 				String msgs = "geen competenties gevonden";
 				req.setAttribute("msgs", msgs);
-				rd = req.getRequestDispatcher("CompetentieOverzicht.jsp");
+				rd = req.getRequestDispatcher("StellingOverzicht.jsp");
 				}
 
 			
