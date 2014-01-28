@@ -91,11 +91,12 @@
 					out.print("<label class='nameclass'>Stage opleider:</label><label class='inputclass'>" + stage.getDeOpleider() +"</label><br/><br/>"); 
 					
 					ArrayList<Competentie> competenties = (ArrayList<Competentie>) request.getAttribute("competenties");
-					
+					out.println("<table>");
+
 					for(Competentie c : competenties){
-						out.print("<input type='checkbox' name='"+ c.getEigenId() +"' value='"+ c.getEigenId() +"'/><label class='competentieclass'>"+ c.getTitel() +"</label><input type='radio' name='radio"+c.getEigenId()+"' value='1'/><input type='radio' name='radio"+c.getEigenId()+"' value='2'/><input type='radio' name='radio"+c.getEigenId()+"' value='3'/><br/> ");
+						out.print("<h4><tr><td><h4><input type='checkbox' name='"+ c.getEigenId() +"' value='"+ c.getEigenId() +"'/></h4></td><td><h4><label class='competentieclass'>"+ c.getTitel() +"</label><label class='radiobuttons'></h4></td><td><h4>1<input type='radio' name='radio"+c.getEigenId()+"' value='1'/></h4></td><td><h4>2<input type='radio' name='radio"+c.getEigenId()+"' value='2'/></h4></td><td><h4>3<input type='radio' name='radio"+c.getEigenId()+"' value='3'/></h4></td></label></tr></h4> ");
 					}
-					out.println("<input type='submit' value='Beoordeling Opslaan' name='save'/>");
+					out.println("</table><input type='submit' value='Beoordeling Opslaan' name='save'/>");
 					 	 }
 					 	 
 					
