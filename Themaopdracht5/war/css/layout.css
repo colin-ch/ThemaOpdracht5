@@ -915,3 +915,7 @@ fieldset textarea:focus {
 table.tableopmaak td{
 	padding-right: 50px;
 }
+
+table.beoordelentabbel td{
+	padding-right: 50px;
+}

@@ -83,7 +83,7 @@ if(s.getHetBedrijf().equals(sessionUser.getUsername())){
 				out.println("<h4>Stage Opleider: &nbsp; <input type='text' name='opleider' placeholder='naam stage opleider' /></h4>");
 				out.println("<input type='hidden' name='deLeerling' value="+obj+" />");
 					out.println(beoordelingopleider);
-				out.println("<br/>eventuele Opmerkingen:<textarea name='opmerking' value=''>geen opmerking</textarea> ");
+				out.println("<tr><td>&nbsp; </td><td> &nbsp;</td></tr><tr><td>eventuele Opmerkingen:</td><td><textarea name='opmerking' value=''>geen opmerking</textarea></td></tr></table> ");
 				out.println("<input type='submit' value='Opslaan' name='Opslaan' />");
 					}
 				%>

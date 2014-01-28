@@ -115,7 +115,7 @@ boolean nextS = false;
 		                    for(Integer inter : beoordelencomp){//alle competenties doorlopen
 		                        //System.out.println(" "  + c.getTitel());
 							if(inter == c.getEigenId()){
-		                       content = content + "<br/><h2>" + c.getTitel() + "</h2><br/>";
+		                       content = content + "<h2>" + c.getTitel() + "</h2><table class='beoordelentabbel'>";
 
 		                        ArrayList < Stelling > stellingen = (ArrayList < Stelling > ) sod.getAllStellingen();
 		                        ArrayList <StellingBeoordeeld> currentbeoordelen = new ArrayList<StellingBeoordeeld>();
@@ -138,24 +138,24 @@ boolean nextS = false;
 		                               
 		                                String waarde = st.getDeWaarde();
 
-		                                content = content + "<br/><h4>" + st.getDeStelling() + "</h4>";
+		                                content = content + "<tr><td><h4>" + st.getDeStelling() + "</h4></td>";
 										//voor iedere stelling radio buttons maken
 		                                if (waarde == null || waarde.equals("")) {
-		                                	content = content + "<br/>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>";
+		                                	content = content + "<td>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></td></tr>";
 		                                }
 
 		                                if (waarde.equals("1")) {
-		                                	content = content + "<br/>1<input type='radio' name='" + st.getUniekID() + "' checked='checked' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>";
+		                                	content = content + "<td>1<input type='radio' name='" + st.getUniekID() + "' checked='checked' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></td></tr>";
 		                                }
 
 		                                if (waarde.equals("2")) {
-		                                	content = content + "<br/>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>";
+		                                	content = content + "<td>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='2'>3<input type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></td></tr>";
 		                                }
 		                                if (waarde.equals("3")) {
-		                                	content = content + "<br/>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input  type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'><br/>";
+		                                	content = content + "<td>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input  type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></td></tr>";
 		                                }
 		                                if (waarde.equals("4")) {
-		                                	content = content + "<br/>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></br>";
+		                                	content = content + "<td>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></td></tr>";
 		                                }
 		                               
 
