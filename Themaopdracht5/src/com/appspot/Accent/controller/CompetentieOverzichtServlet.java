@@ -39,12 +39,12 @@ public class CompetentieOverzichtServlet extends HttpServlet {
 				String msgs = c.getTitel();
 				req.setAttribute("msgs", msgs);
 				
-				rd = req.getRequestDispatcher("CompetentieOverzicht.jsp");
+				rd = req.getRequestDispatcher("StellingOverzicht.jsp");
 				break loop;
 			}else{
 				String msgs = "geen competenties gevonden";
 				req.setAttribute("msgs", msgs);
-				rd = req.getRequestDispatcher("CompetentieOverzicht.jsp");
+				rd = req.getRequestDispatcher("StellingOverzicht.jsp");
 				}
 
 			

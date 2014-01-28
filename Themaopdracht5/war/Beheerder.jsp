@@ -44,8 +44,8 @@
 				<button onclick="window.location.href='DocentAanmaken.jsp';">Maak een docent aan</button>
 				<button onclick="window.location.href='StagebedrijfAanmaken.jsp';">Maak een bedrijf aan</button>
 				<button onclick="window.location.href='StageBegeleiderAanmaken.jsp';">Maak een begeleider aan</button>
-				<br/><p>Competenties wijzigen</p>
-				<button onclick="window.location.href='CompetentieSelecteren.jsp';">Pas een competentie aan</button>
+				<br/><p>Stelling/Competentie wijzigen</p>
+				<button onclick="window.location.href='CompetentieSelecteren.jsp';">Pas een stelling aan</button>
 				<br/><p>Stage aanmaken</p>
 				<button onclick="window.location.href='StageAanmaken.jsp';">Stage aanmaken</button>
 				<p>Wachtwoord</p>
