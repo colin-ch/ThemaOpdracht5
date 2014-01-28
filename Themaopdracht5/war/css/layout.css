@@ -907,3 +907,11 @@ fieldset textarea:focus {
 	text-indent: 40px;
 	font-size: 14px;
 }
+
+#titel{
+	font-size: 18px;
+	font-weight: bold;
+}
+table.tableopmaak td{
+	padding-right: 50px;
+}

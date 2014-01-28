@@ -43,7 +43,7 @@ public class BeoordelingAanmakenServlet extends HttpServlet {
 		ArrayList<Integer> beoordeelCompetenties = new ArrayList<Integer>();
 ArrayList<Integer>deStellingen = new ArrayList<Integer>();
 		ArrayList<Integer> stellingBeoordeeld = new ArrayList<Integer>();
-
+String msgs = null;
 		ofy = ObjectifyService.begin();
 		boolean checkstudent = false;
 		boolean checkstage = false;
@@ -52,18 +52,6 @@ ArrayList<Integer>deStellingen = new ArrayList<Integer>();
 
 		StageBegeleider begeleider = (StageBegeleider) req.getSession().getAttribute("userobject");
 				// alles wordt globaal aangemaakt
-		// hieronder staat de stuk om een leerling te selecteren
-		if(req.getParameter("initLeerling") != null){
-			req.setAttribute("initLeerling", "yolo");
-
-			ArrayList<Leerling> leerlingen = new ArrayList<Leerling>();
-			Objectify ofy = ObjectifyService.begin();
-			LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
-			leerlingen = (ArrayList < Leerling > ) lod.getAllLeerlingen();
-			req.setAttribute("studenten", leerlingen);
-			rd = req.getRequestDispatcher("BeoordelingAanmaken.jsp");
-
-		}
 		
 		
 		
@@ -104,7 +92,7 @@ ArrayList<Integer>deStellingen = new ArrayList<Integer>();
 			req.setAttribute("stages", studentStages);
 			}
 			else{
-				String msgs = "<h4 class='alert_error'>U heeft een niet bestaande leerling ingevuld.</h4>";
+				msgs = "<h4 class='alert_error'>U heeft een niet bestaande leerling ingevuld.</h4>";
 				req.setAttribute("initLeerling", "yolo");
 
 				req.setAttribute("msgs", msgs);
@@ -150,7 +138,7 @@ ArrayList<Integer>deStellingen = new ArrayList<Integer>();
 			rd = req.getRequestDispatcher("BeoordelingAanmaken.jsp");
 					}
 			else{
-String msgs = "<h4 class='alert_error'>U heeft een niet bestaande stage ingevuld.</h4>";
+msgs = "<h4 class='alert_error'>U heeft een niet bestaande stage ingevuld.</h4>";
 
 req.setAttribute("initStage", "yolo");
 
@@ -176,11 +164,11 @@ rd = req.getRequestDispatcher("BeoordelingAanmaken.jsp");
 		
 		
 		if(req.getParameter("save") != null){
-			String msgs = "<h4 class='alert_success'>U heeft succesvol een beoordeling gemaakt.</h4>";
+			msgs = "<h4 class='alert_success'>U heeft succesvol een beoordeling gemaakt.</h4>";
 			
-			req.setAttribute("msgs", msgs);
+			
 		Stage currentstage = (Stage) req.getSession().getAttribute("destage");
-		System.out.println(currentstage);
+		
 			ArrayList<StellingBeoordeeld> stelbeoordelen = new ArrayList<StellingBeoordeeld>();
 int destage = currentstage.getId();
 			CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
@@ -189,10 +177,12 @@ int destage = currentstage.getId();
 			ArrayList<Stelling> stellingen = (ArrayList < Stelling > ) stod.getAllStellingen() ;
 			for(Competentie c : competenties){
 				if(req.getParameter("" + c.getEigenId()) != null){
+					checkcompetentie = true;
 					beoordeelCompetenties.add(c.getEigenId());
 					String s2 = req.getParameter("radio"+ c.getEigenId());
+					if(s2 != null){
+						checkvalue = checkvalue && true;
 					for(Stelling s : stellingen){
-						System.out.println("s2=: " + s.getDeWaarde());
 						if(s.getEigenId() == c.getEigenId()){
 						if(s.getDeWaarde().equals(s2)){
 							stellingBeoordeeld.add(s.getUniekID());
@@ -202,10 +192,27 @@ int destage = currentstage.getId();
 					}
 					}
 				}
+					else{
+						checkvalue = false;
+					}
+				}
 			}
+			if(checkcompetentie && checkvalue){
 			rd = req.getRequestDispatcher("index.jsp");
 			Beoordeling be = new Beoordeling(null, null,"nog niet bekend", "nog niet gedaan","nog niet gedaan",destage, beoordeelCompetenties, stellingBeoordeeld);
 ofy.put(be);
+			}else{
+				rd = req.getRequestDispatcher("/BeoordelingAanmaken.jsp");
+
+				if(!checkcompetentie){
+				msgs = "<h4 class='alert_error'>u heeft geen competenties aangevinkt</h4>";
+				}
+				if(!checkvalue){
+					msgs = "<h4 class='alert_error'>u heeft geen niveau bij een geselcteerde competentie aangevinkt</h4>";
+
+				}
+			}
+			req.setAttribute("msgs", msgs);
 		}
 		
 		
