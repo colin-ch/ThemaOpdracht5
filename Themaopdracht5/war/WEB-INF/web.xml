@@ -178,8 +178,12 @@
 		<url-pattern>/BeoordelingOphalenServlet.do</url-pattern>
 		<url-pattern>/index.jsp</url-pattern>
 		<url-pattern>/BeoordelenLeerling.jsp</url-pattern>
-		<url-pattern>/BeerdelingAanmaken.jsp</url-pattern>
+		<url-pattern>/BeoordelingAanmaken.jsp</url-pattern>
 		<url-pattern>/grafieken.jsp</url-pattern>
+		<url-pattern>/Beheerder.jsp</url-pattern>
+		<url-pattern>/header.jsp</url-pattern>
+		<url-pattern>/imports.jsp</url-pattern>
+	
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>

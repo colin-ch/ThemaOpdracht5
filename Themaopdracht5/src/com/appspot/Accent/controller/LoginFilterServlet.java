@@ -14,6 +14,7 @@ import com.appspot.Accent.model.Docent;
 import com.appspot.Accent.model.Leerling;
 import com.appspot.Accent.model.StageBedrijf;
 import com.appspot.Accent.model.StageBegeleider;
+import com.appspot.Accent.model.User;
 
 
 public class LoginFilterServlet implements Filter {
@@ -34,10 +35,8 @@ public class LoginFilterServlet implements Filter {
 		String grafieken = "http://project-omega.appspot.com/grafieken.jsp";
 		String header = "http://project-omega.appspot.com/header.jsp";
 		String imports = "http://project-omega.appspot.com/imports.jsp";
-		String index = "http://project-omega.appspot.com/index.jsp";
 		String leerlingaanmaken = "http://project-omega.appspot.com/LeerlingAanmaken.jsp";
 		String overzichtgebruikers = "http://project-omega.appspot.com/overzichtgebruikers.jsp";
-		String profiel = "http://project-omega.appspot.com/Profiel.jsp";
 		String stageaanmaken = "http://project-omega.appspot.com/StageAanmaken.jsp";
 		String stagebedrijfaanmaken = "http://project-omega.appspot.com/StageBedrijfAanmaken.jsp";
 		String stagebegeleideraanmaken = "http://project-omega.appspot.com/StageBegeleiderAanmaken.jsp";
@@ -54,7 +53,7 @@ public class LoginFilterServlet implements Filter {
 			String reqUrl =	r2.getRequestURL().toString();
 			// er wordt gekeken  welke gerbuiker het is en of deze wel op de betreffende pagina mag.
 			if(o instanceof Leerling){
-				if(reqUrl.equals(beheer)||reqUrl.equals(beoordelenopleider) ||reqUrl.equals(aanmakenbeoordeling) ||reqUrl.equals(stageaanmaken) ||reqUrl.equals("#") ||reqUrl.equals("#")){
+				if(reqUrl.equals(beheer)||reqUrl.equals(beoordelenopleider) ||reqUrl.equals(aanmakenbeoordeling) ||reqUrl.equals(stageaanmaken) ||reqUrl.equals(header) ||reqUrl.equals(imports)  ||reqUrl.equals(leerlingaanmaken) ||reqUrl.equals(stagebedrijfaanmaken) ||reqUrl.equals(stagebegeleideraanmaken) ||reqUrl.equals(docentaanmaken) ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#")){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 					
@@ -64,7 +63,7 @@ public class LoginFilterServlet implements Filter {
 			}
 			
 			if(o instanceof Docent){
-				if(reqUrl.equals(beheer)||reqUrl.equals(beoordelenleerling )|| reqUrl.equals(beoordelenopleider) || reqUrl.equals(aanmakenbeoordeling) || reqUrl.equals(stageaanmaken)){
+				if(reqUrl.equals(beheer)||reqUrl.equals(beoordelenleerling )|| reqUrl.equals(beoordelenopleider) || reqUrl.equals(aanmakenbeoordeling) || reqUrl.equals(stageaanmaken) ||reqUrl.equals(header) ||reqUrl.equals(imports) ||reqUrl.equals(leerlingaanmaken) ||reqUrl.equals(stagebedrijfaanmaken) ||reqUrl.equals(stagebegeleideraanmaken) ||reqUrl.equals(docentaanmaken) ||reqUrl.equals("#") ||reqUrl.equals("#") ){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 					
@@ -73,7 +72,7 @@ public class LoginFilterServlet implements Filter {
 				
 			}
 			if(o instanceof StageBedrijf){
-				if(reqUrl.equals(beheer)||reqUrl.equals(beoordelenleerling) ||reqUrl.equals(aanmakenbeoordeling) ||reqUrl.equals(stageaanmaken) ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#")){
+				if(reqUrl.equals(beheer)||reqUrl.equals(beoordelenleerling) ||reqUrl.equals(aanmakenbeoordeling) ||reqUrl.equals(stageaanmaken) ||reqUrl.equals(header) ||reqUrl.equals(imports) ||reqUrl.equals(leerlingaanmaken) ||reqUrl.equals(stagebedrijfaanmaken) ||reqUrl.equals(stagebegeleideraanmaken) ||reqUrl.equals(docentaanmaken) ||reqUrl.equals("#") ||reqUrl.equals("#")){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 					
@@ -82,14 +81,21 @@ public class LoginFilterServlet implements Filter {
 				
 			}
 			if(o instanceof StageBegeleider){
-				if(reqUrl.equals(beheer)|| reqUrl.equals(beoordelenleerling) ||reqUrl.equals(beoordelenopleider) ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#")){
+				if(reqUrl.equals(beheer)|| reqUrl.equals(beoordelenleerling) ||reqUrl.equals(beoordelenopleider) ||reqUrl.equals(header) ||reqUrl.equals(imports) ||reqUrl.equals(leerlingaanmaken) ||reqUrl.equals(stagebedrijfaanmaken) ||reqUrl.equals(stagebegeleideraanmaken) ||reqUrl.equals(docentaanmaken) ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#")){
 					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
 					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
 				}
 				
 			}
+			
+			if(o instanceof User){
+				if(reqUrl.equals(beoordelenleerling )|| reqUrl.equals(beoordelenopleider) ||reqUrl.equals(header) ||reqUrl.equals(imports) ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#") ||reqUrl.equals("#")){
+					req.setAttribute("msgs", "U bent niet bevoegd dit gedeelte van de site te betreden");
+					r2.getRequestDispatcher("/index.jsp").forward(req, resp);
+				}
+				}
 			chain.doFilter(req, resp);
-		}
+			}
 	}
 		
 	
