@@ -280,7 +280,6 @@ beoordeeldeStelling.setDeWaardeStagebedrijf("4");
 								Date d = new Date();
 								String datum = d.toString();
 								rate.setDatumBedrijf(datum);
-								rate.setStellingBeoordeeld(waardesIDs);
 								ofy.put(rate);
 							}	
 						

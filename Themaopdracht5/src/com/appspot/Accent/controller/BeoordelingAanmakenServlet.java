@@ -43,7 +43,7 @@ public class BeoordelingAanmakenServlet extends HttpServlet {
 		ArrayList<Stage> studentStages = new ArrayList<Stage>();
 		ArrayList<Integer> beoordeelCompetenties = new ArrayList<Integer>();
 ArrayList<Integer>deStellingen = new ArrayList<Integer>();
-		ArrayList<Integer> stellingBeoordeeld = new ArrayList<Integer>();
+		ArrayList<Integer> beoordeeldeStellingen = new ArrayList<Integer>();
 String msgs = null;
 		ofy = ObjectifyService.begin();
 		boolean checkstudent = false;
@@ -200,7 +200,8 @@ if(checkbeoordeling){
 					for(Stelling s : stellingen){
 						if(s.getEigenId() == c.getEigenId()){
 						if(s.getDeWaarde().equals(s2)){
-							stellingBeoordeeld.add(s.getUniekID());
+							System.out.println("het werkt");
+							beoordeeldeStellingen.add(s.getUniekID());
 							StellingBeoordeeld x = new StellingBeoordeeld(null, null, s.getUniekID(),ID,  destage);
 							ofy.put(x);
 						}
@@ -215,7 +216,7 @@ if(checkbeoordeling){
 }
 			if(checkcompetentie && checkvalue && checkbeoordeling){
 			rd = req.getRequestDispatcher("index.jsp");
-			Beoordeling be = new Beoordeling(ID, null, null,"nog niet bekend", "nog niet gedaan","nog niet gedaan",destage, beoordeelCompetenties, stellingBeoordeeld);
+			Beoordeling be = new Beoordeling(ID, null, null,"nog niet bekend", "nog niet gedaan","nog niet gedaan",destage, beoordeelCompetenties, beoordeeldeStellingen);
 ofy.put(be);
 			}else{
 				rd = req.getRequestDispatcher("/BeoordelingAanmaken.jsp");

@@ -179,7 +179,6 @@ beoordeeldeStelling.setDeWaardeLeerling("4");
 								Date d = new Date();
 								String datum = d.toString();
 								rate.setDatumLeerling(datum);
-								rate.setStellingBeoordeeld(waardesIDs);
 								ofy.put(rate);
 							}	
 						}
