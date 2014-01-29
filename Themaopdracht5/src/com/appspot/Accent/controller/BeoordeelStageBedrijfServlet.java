@@ -287,7 +287,7 @@ beoordeeldeStelling.setDeWaardeStagebedrijf("4");
 					
 					// er wordt een message meegegeven
 					
-					String msgs = "<h4 class='alert_success'>U heeft de beoordeling successvol ingevuld.</h4>";
+					String msgs = "U heeft de beoordeling successvol ingevuld.";
 		
 				req.setAttribute("msgs", msgs);
 				

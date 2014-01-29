@@ -166,7 +166,7 @@ rd = req.getRequestDispatcher("BeoordelingAanmaken.jsp");
 		
 		
 		if(req.getParameter("save") != null){
-			msgs = "<h4 class='alert_success'>U heeft succesvol een beoordeling gemaakt.</h4>";
+			msgs = "U heeft succesvol een beoordeling gemaakt.";
 			SessionIdentifierGenerator sig = new SessionIdentifierGenerator();
 			
 			String ID = sig.nextSessionId();
