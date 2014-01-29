@@ -93,7 +93,7 @@
 
                     		
                      %>
-				
+				<input type="submit" name="cancel" value="Cancel">
 				</form>
 			</div>
 		</article>
