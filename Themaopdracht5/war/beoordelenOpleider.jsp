@@ -53,15 +53,30 @@ LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
 ArrayList<Leerling> students =  (ArrayList<Leerling>)lod.getAllLeerlingen();
 						ArrayList<Leerling> deLeerlingen = new ArrayList<Leerling>();
 						Leerling fluf = null;
-						out.println("<h2> selecteer een leerling:</h2>");
-						out.println("<input list='leerlingen' name='leerlingen' required>");//lijst van leerlingen wordt aangemaakt
-						out.println("<datalist id='leerlingen'>");
+						boolean check = false;
+
 						if (deStages != null) {
 							for (Stage s : deStages) {
 								for(Beoordeling be : beoordelingen){
 									if(be.getStage() == s.getId()){
 										if(be.getDatumBedrijf() == null){
-									
+											check = true;
+
+										}}}}
+							
+							if(!check){
+								out.println("<h4 class='alert_error'>er zijn geen openstaande beoordelingen</h4>");
+							}
+							if(check){
+							
+							out.println("<h2> selecteer een leerling:</h2>");
+							out.println("<input list='leerlingen' name='leerlingen' required>");//lijst van leerlingen wordt aangemaakt
+							out.println("<datalist id='leerlingen'>");
+							for (Stage s : deStages) {
+								for(Beoordeling be : beoordelingen){
+									if(be.getStage() == s.getId()){
+										if(be.getDatumBedrijf() == null){
+
 								
 								StageBedrijf sessionUser = (StageBedrijf)session.getAttribute("userobject");
 if(s.getHetBedrijf().equals(sessionUser.getUsername())){
@@ -77,11 +92,12 @@ if(s.getHetBedrijf().equals(sessionUser.getUsername())){
 										}
 						
 							}}}
+							
 							out.println(" </datalist>");
 						out.println("<input type='submit' value='Verder' name='Show'/>");
 							
 						}
-						
+						}
 						
 					}
 

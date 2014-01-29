@@ -50,7 +50,26 @@
 				StellingBeoordeeldOfyDAOImpl sbod = new StellingBeoordeeldOfyDAOImpl();
 ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordeeld>) sbod.getAllStellingenBeoordeeld();
 				ArrayList < Stage > allStages = (ArrayList < Stage > ) stod.getAllStages();//alle stages worden opgehaald
-				ArrayList < Beoordeling > beoordelingen = (ArrayList < Beoordeling > ) bod.getAllBeoordelingen(); //alle beoordelingen worden opgehaald
+				ArrayList < Beoordeling > beoordelingen = (ArrayList < Beoordeling > ) bod.getAllBeoordelingen();
+				boolean becheck = false;
+
+				if(allStages != null){
+					for (Stage s: allStages) { //alle stages worden door lopen
+					    if (o instanceof Leerling) {//kijkt of ingelogde gebruiker een leerling is
+					        if (s.getDeLeerling().equals(((Leerling) o).getUsername())) {//
+						for(Beoordeling be : beoordelingen){
+							if(be.getStage() == s.getId()){
+								if(be.getDatumLeerling() == null){
+									becheck = true;
+
+								}}}}}}}
+					
+					if(!becheck){
+						out.println("<h4 class='alert_error'>er zijn geen openstaande beoordelingen</h4>");
+					}
+					if(becheck){
+				
+				//alle beoordelingen worden opgehaald
 out.println("<table class='beoordelentabbel'>");
 				for (Stage s: allStages) { //alle stages worden door lopen
 				    if (o instanceof Leerling) {//kijkt of ingelogde gebruiker een leerling is
@@ -139,6 +158,7 @@ out.println("<table class='beoordelentabbel'>");
 				}
 				out.println("<tr><td>&nbsp; </td><td> &nbsp;</td></tr><tr><td><h4>eventuele Opmerkingen:</h4></td><td><textarea name='opmerking' value=''>geen opmerking</textarea></tr></table><br/> ");
 				out.println("<input type='submit' value='Opslaan' name='Opslaan' />");
+					}
 				%>
 
 				</form>
