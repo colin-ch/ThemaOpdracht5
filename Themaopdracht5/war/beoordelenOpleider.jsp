@@ -46,6 +46,8 @@
 					
 					if (beoordelingopleider == null ) { 
 						StageOfyDAOImpl sod = new StageOfyDAOImpl();
+						BeoordelingOfyDAOImpl bodi = new BeoordelingOfyDAOImpl();
+						ArrayList<Beoordeling> beoordelingen = (ArrayList<Beoordeling>)bodi.getAllBeoordelingen();
 						ArrayList<Stage> deStages = (ArrayList<Stage>)sod.getAllStages();
 LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
 ArrayList<Leerling> students =  (ArrayList<Leerling>)lod.getAllLeerlingen();
@@ -56,6 +58,11 @@ ArrayList<Leerling> students =  (ArrayList<Leerling>)lod.getAllLeerlingen();
 						out.println("<datalist id='leerlingen'>");
 						if (deStages != null) {
 							for (Stage s : deStages) {
+								for(Beoordeling be : beoordelingen){
+									if(be.getStage() == s.getId()){
+										if(be.getDatumBedrijf() == null){
+									
+								
 								StageBedrijf sessionUser = (StageBedrijf)session.getAttribute("userobject");
 if(s.getHetBedrijf().equals(sessionUser.getUsername())){
 	for(Leerling x : students){
@@ -67,12 +74,12 @@ if(s.getHetBedrijf().equals(sessionUser.getUsername())){
 	if(fluf != null){
 								out.println(" <option value='"+  fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "'>"+ fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "</option>") ;
 	}}
-							
+										}
 						
-							}
+							}}}
 							out.println(" </datalist>");
 						out.println("<input type='submit' value='Verder' name='Show'/>");
-			
+							
 						}
 						
 						
