@@ -63,7 +63,7 @@
 		    		
 		    		for(Stage stage : st.getAllStages()){ //loop door alle stages
 		    			
-		    			for(Beoordeling beoordeling : bod.getAllBeoordelingen()){
+		    			for(Beoordeling beoordeling : bod.getBeoordelingen(stage.getId())){
 		    				
 		    				//if(beoordeling.getDatumLeerling().equals(getServletContext().getAttribute("datum"))){
 		    			
@@ -203,7 +203,8 @@
               'ui': {
             	  'allowTyping': true,
                   'allowMultiple': true,
-                  'selectedValuesLayout': 'belowStacked'
+                  'selectedValuesLayout': 'belowStacked',
+                  'caption' : 'Selecteer competenties'
             	  
               }
             },
@@ -218,7 +219,7 @@
               'filterColumnLabel': 'Selecteer een stage',
               
               'ui': {
-                  'labelStacking': 'vertical',
+            	  'selectedValuesLayout': 'belowStacked',
                   'allowTyping': true,
                   'allowMultiple': true,
                   'caption' : 'Selecteer stage'
@@ -402,10 +403,11 @@
 			</div>
 			
 			<div id="dashboard_div" style="width: 90%; height: 700px">
-			 <div id="filter_div"></div>
-			 <div id="filter_div2"></div>
-			 <div id="filter_div3"></div>
-      <div id="chart_div"style="width: 100%; height: 100%"></div>
+			 <div id="filter_div" class="fd"></div>
+			 <div id="filter_div2" class="fd"></div>
+			 <div id="filter_div3" class="fd"></div>
+			 <br class="clear" />
+      <div id="chart_div" class="cd"></div>
 			</div>
 		</article>
 		<!-- end of styles article -->

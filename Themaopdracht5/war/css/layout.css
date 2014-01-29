@@ -13,6 +13,20 @@ html,body {
 	font-size: 12px;
 }
 
+.fd{
+	
+	position: relative;
+	width: 300px;
+	margin-left: 20px;
+	float: left;
+	margin-bottom: auto;
+}
+
+.cd{
+	width: 100%; height: 100%; float: left;
+	
+}
+
 .beoordeling {
 	margin-left: 15px;
 	width: 200px;
@@ -464,7 +478,7 @@ section#main {
 }
 /* Module Widths */
 .width_full {
-	width: 95%;
+	width: 99%;
 }
 
 .width_half {

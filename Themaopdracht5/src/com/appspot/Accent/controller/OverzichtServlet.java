@@ -103,20 +103,14 @@ public class OverzichtServlet extends HttpServlet{
 			getServletContext().setAttribute("datum", "null");
 			
 		}
-		RequestDispatcher rd = null;
+		RequestDispatcher rd = req.getRequestDispatcher("grafieken.jsp");
 		
 		
 	
 	
+		 
+			
 		
-		if(succes){
-			rd = req.getRequestDispatcher("grafieken.jsp");
-			
-		}
-		else{
-			rd = req.getRequestDispatcher("grafieken.jsp");
-			
-		}
 		
 		
 	
