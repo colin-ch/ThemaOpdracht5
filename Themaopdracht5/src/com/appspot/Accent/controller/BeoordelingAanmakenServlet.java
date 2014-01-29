@@ -18,6 +18,7 @@ import com.appspot.Accent.model.StageBedrijf;
 import com.appspot.Accent.model.StageBegeleider;
 import com.appspot.Accent.model.Stelling;
 import com.appspot.Accent.model.StellingBeoordeeld;
+import com.appspot.Accent.model.service.BeoordelingOfyDAOImpl;
 import com.appspot.Accent.model.service.CompetentieOfyDAOImpl;
 import com.appspot.Accent.model.service.LeerlingOfyDAOImpl;
 import com.appspot.Accent.model.service.StageOfyDAOImpl;
@@ -49,6 +50,7 @@ String msgs = null;
 		boolean checkstage = false;
 		boolean checkcompetentie = false;
 		boolean checkvalue = true;
+		boolean checkbeoordeling = true;
 
 		StageBegeleider begeleider = (StageBegeleider) req.getSession().getAttribute("userobject");
 				// alles wordt globaal aangemaakt
@@ -173,6 +175,17 @@ rd = req.getRequestDispatcher("BeoordelingAanmaken.jsp");
 		
 			ArrayList<StellingBeoordeeld> stelbeoordelen = new ArrayList<StellingBeoordeeld>();
 int destage = currentstage.getId();
+
+BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
+ArrayList<Beoordeling> beoordelingen = (ArrayList < Beoordeling > ) bod.getAllBeoordelingen();
+for(Beoordeling be : beoordelingen){
+	if(be.getStage() == destage){
+		if(be.getDatumBedrijf() == null || be.getDatumLeerling() == null){
+		checkbeoordeling = false;
+		}
+	}
+}
+if(checkbeoordeling){
 			CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 			ArrayList<Competentie> competenties = (ArrayList < Competentie > ) cod.getAllCompetenties();
 			StellingOfyDAOImpl stod = new StellingOfyDAOImpl();
@@ -199,7 +212,8 @@ int destage = currentstage.getId();
 					}
 				}
 			}
-			if(checkcompetentie && checkvalue){
+}
+			if(checkcompetentie && checkvalue && checkbeoordeling){
 			rd = req.getRequestDispatcher("index.jsp");
 			Beoordeling be = new Beoordeling(ID, null, null,"nog niet bekend", "nog niet gedaan","nog niet gedaan",destage, beoordeelCompetenties, stellingBeoordeeld);
 ofy.put(be);
@@ -211,7 +225,9 @@ ofy.put(be);
 				}
 				if(!checkvalue){
 					msgs = "<h4 class='alert_error'>u heeft geen niveau bij een geselcteerde competentie aangevinkt</h4>";
-
+				}
+				if(!checkbeoordeling){
+					msgs = "<h4 class='alert_error'>de vorgie beoordeling van deze stage is nog niet voltooid</h4>";
 				}
 			}
 			req.setAttribute("msgs", msgs);
