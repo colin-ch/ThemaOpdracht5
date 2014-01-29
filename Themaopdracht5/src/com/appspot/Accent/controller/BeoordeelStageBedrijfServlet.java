@@ -216,7 +216,7 @@ boolean nextS = false;
 						                        for(StellingBeoordeeld sbfill : beoordeelStellingen){
 						                        	if(s.getId() == sbfill.getDeStage()){
 						                        		
-						                        		if(sbfill.getDeWaardeLeerling() == null){
+						                        		if(sbfill.getDeWaardeStagebedrijf() == null){
 						                        			currentbeoordelen.add(sbfill);
 						                        		}
 						                        	}
@@ -224,14 +224,12 @@ boolean nextS = false;
 											
 											for(Stelling stel : stellingen){
 												for(StellingBeoordeeld sb : currentbeoordelen){
-
 												if(c.getEigenId() == stel.getEigenId()){
 												teller++;
 												
 												
 												String s2 = req.getParameter("" +stel.getUniekID());
 												int id = stel.getUniekID();
-											
 			                            	if(sb.getIDBeoordeling().equals(be.getIDBeoordeling())){
 
 												
