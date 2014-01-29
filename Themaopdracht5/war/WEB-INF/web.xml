@@ -171,7 +171,15 @@
 		<url-pattern>/StellingAanpassenServlet.do</url-pattern>
 	</servlet-mapping>
 	
+		<servlet>
+		<servlet-name>StageInzienServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.StageInzienServlet</servlet-class>
+	</servlet>
 	
+	<servlet-mapping>
+		<servlet-name>StageInzienServlet</servlet-name>
+		<url-pattern>/StageInzien.do</url-pattern>
+	</servlet-mapping>
 	
 	
 
@@ -193,6 +201,7 @@
 		<url-pattern>/CompetentieOverzichtServlet.do</url-pattern>
 		<url-pattern>/CompetentieAanpassenServlet.do</url-pattern>
 		<url-pattern>/StellingAanpassenServlet.do</url-pattern>
+		<url-pattern>/StageInzien.do</url-pattern>
 		
 		<url-pattern>/Overzicht.do</url-pattern>
 		<url-pattern>/BeoordeelServlet.do</url-pattern>

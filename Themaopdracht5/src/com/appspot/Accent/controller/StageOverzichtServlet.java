@@ -68,9 +68,9 @@ public class StageOverzichtServlet extends HttpServlet{
 	getServletContext().setAttribute("Stages", stages);
 	System.out.println(stages);
 	
-	if(succes){
+	if(succes==true){
 		req.setAttribute("msgs", bericht);
-		rd = req.getRequestDispatcher("StageOverzicht.jsp");
+		rd = req.getRequestDispatcher("Stageinzien.jsp");
 		log.info("3");
 	}
 	else{
