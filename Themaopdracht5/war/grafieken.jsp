@@ -68,6 +68,8 @@
 				    			if(stage.getDeLeerling().equals(le.getUsername())){ //zoekt bijbehorende stage
 				    				
 				    				for (StellingBeoordeeld s : sb.getAllStellingenBeoordeeld()) { //loop door alle stellingenbeoordeeld
+				    					for(int i : beoordeling.getStellingBeoordeeld()){
+				    						if(i == s.getUniekID()){
 				    					
 				    					if(s.getDeStage() == stage.getId()){
 				    						
@@ -81,9 +83,9 @@
 		    									}
 		    					
 		    								}
-				        		      
+				    					}
 				         				}
-		    				
+				    					}
 		    						}
 		    					}
 		    				}
