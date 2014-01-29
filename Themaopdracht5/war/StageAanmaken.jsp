@@ -50,7 +50,7 @@
 				if (lod.getAllLeerlingen() != null) {
 					for (Leerling l : lod.getAllLeerlingen()) {
 						
-						out.println(" <option value='"+  l.getRoepnaam() + "'>"+l.getRoepnaam()+"</option>") ;
+						out.println(" <option value='"+  l.getUsername() + "'>"+l.getRoepnaam()+ " " + l.getAchternaam() +"</option>") ;
 					}
 					out.println(" </datalist>");
 				}
