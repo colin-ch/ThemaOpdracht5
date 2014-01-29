@@ -183,9 +183,21 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>LoginFilterServlet</filter-name>
+		<url-pattern>/Userlijst.zip</url-pattern>
+		<url-pattern>/Importeer.do</url-pattern>
+		<url-pattern>/Importeers.do</url-pattern>
+		<url-pattern>/StageAanmaken.do</url-pattern>
+		<url-pattern>/WachtwoordWijzigen.do</url-pattern>
+		<url-pattern>/GebruikerAanmaken.do</url-pattern>
+		<url-pattern>/BeoordeelStageBedrijfServlet.do</url-pattern>
+		<url-pattern>/BeoordelingAanmakenServlet.do</url-pattern>
+		<url-pattern>/CompetentieOverzichtServlet.do</url-pattern>
+		<url-pattern>/CompetentieAanpassenServlet.do</url-pattern>
+		<url-pattern>/StellingAanpassenServlet.do</url-pattern>
 		<url-pattern>/Overzicht.do</url-pattern>
 		<url-pattern>/BeoordeelServlet.do</url-pattern>
 		<url-pattern>/BeoordelingOphalenServlet.do</url-pattern>
+		
 		<url-pattern>/index.jsp</url-pattern>
 		<url-pattern>/BeoordelenLeerling.jsp</url-pattern>
 		<url-pattern>/BeoordelingAanmaken.jsp</url-pattern>
