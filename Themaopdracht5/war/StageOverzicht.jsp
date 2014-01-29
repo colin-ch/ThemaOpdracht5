@@ -99,7 +99,7 @@
     	    message = 'nothing';
     	  }
     	  
-    	 window.location.href = 'http://localhost:8888/StageInzien.do?string='+str;
+    	 window.location.href = 'http://project-omega.appspot.com/StageInzien.do?string='+str;
     	 
        }
       google.visualization.events.addListener(visualization, 'select', selectHandler);

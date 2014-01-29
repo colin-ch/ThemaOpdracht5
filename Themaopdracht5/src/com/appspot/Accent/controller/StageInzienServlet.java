@@ -35,7 +35,7 @@ public class StageInzienServlet extends HttpServlet{
 		
 		StageOfyDAOImpl std = new StageOfyDAOImpl();
 		ArrayList<Stage>stages = new ArrayList<Stage>();
-		
+		stages = (ArrayList<Stage>)std.getAllStages();
 		boolean succes = false;
 		
 	
@@ -48,19 +48,18 @@ public class StageInzienServlet extends HttpServlet{
 		  
 		 
 			Stage inzage = null ;
-			
       	if(out != null){
 	
       		for(Stage s :stages){
-      			if(s.getDeLeerling()==out){
-      				inzage = s;
+      			if(s.getDeLeerling().equals(out)){
+      				req.setAttribute("destage", s);
       				succes=true;
       				break;
       			}
       		}
       		
       	}
-      		String msg = "out.println('Leerling naam: '+inzage.getDeLeerling()+',<br/>\n Stagebedrijf: '+inzage.getHetBedrijf()+' <br/>\n Begin datum: '+simpleDateFormat.format(inzage.getBegindatum())+'<br/>\n Eind datum: '+simpleDateFormat.format(inzage.getEinddatum())+'<br/>\n')";
+      		
 	
 
 	
@@ -75,14 +74,11 @@ public class StageInzienServlet extends HttpServlet{
 	
 	
 	if(succes){
-		req.setAttribute("msg", msg);
 		rd = req.getRequestDispatcher("StageInzien.jsp");
-		log.info("1");
 	}
 	else{
 		req.setAttribute("msgs", "De stages is niet beschikbaar.");
 		rd = req.getRequestDispatcher("StageOverzicht.jsp");
-		log.info("2");
 	}
 	
 	
