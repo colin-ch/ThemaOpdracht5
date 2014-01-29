@@ -940,12 +940,11 @@ table.tableopmaak td{
 table.beoordelentabbel td{
 	padding-right: 50px;
 }
-#welkom{
-	font-size: 50px;
-}
-#rol{
-	font-size: 30px;
-}
 
 
+#logo{
+	position:relative!important;
+	float: right;
+	margin-top: -103px;
+}
 

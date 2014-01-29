@@ -25,7 +25,7 @@
 			<div class="module_content">
 			
 
-				<form action="WachtwoordWijzigen.do" method="GET">
+				<form action="WachtwoordWijzigen.do" method="POST">
 
 					<%@ page import="java.util.*"%>
 					<%@ page import="com.appspot.Accent.model.*"%>

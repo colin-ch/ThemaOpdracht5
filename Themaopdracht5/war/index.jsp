@@ -25,8 +25,11 @@
 			</header>
 			<div class="module_content">
 				<h1 id="welkom" style="">Welkom <% out.println(naam); %></h1>
-				<h3 id="rol"><% out.println(rol); %></h3>
-
+				<h3 id="rol"><% out.println("functie: "+ rol); %></h3>
+				<h4 id="welkomtekst">Dit is het beoordelings-systeem van Accent Nijkerk. </br> 
+									 Aan de linker kant van het scherm vindt u het menu.</br>
+				</h4>
+			<div id="logo"><img src="images/logo.png"></div>
 			</div>
 		</article>
 		<!-- end of styles article -->
