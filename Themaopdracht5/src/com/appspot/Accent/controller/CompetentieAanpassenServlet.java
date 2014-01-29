@@ -27,7 +27,7 @@ public class CompetentieAanpassenServlet extends HttpServlet {
 
 		ofy = ObjectifyService.begin();
 		
-		ObjectifyService.register(Competentie.class);
+		
 		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		for (Competentie c : cod.getAllCompetenties()) {
 			if (req.getParameter("" + c.getEigenId()) != null) {
