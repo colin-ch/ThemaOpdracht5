@@ -27,7 +27,7 @@ public class WachtwoordWijzigenServlet extends HttpServlet {
 	private static final Logger log = Logger.getLogger(WachtwoordWijzigenServlet.class.getName());
 	private Objectify ofy;
 
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		String geselecteerde = null;
