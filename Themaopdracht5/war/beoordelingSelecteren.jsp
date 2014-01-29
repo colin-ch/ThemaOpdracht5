@@ -27,10 +27,10 @@
 				<%@ page import="com.appspot.Accent.model.*"%>
 				<%@ page import="com.appspot.Accent.model.service.*"%>
 				
-				<form action='/Overzicht.do' method='GET' >
+				<form action='/Overzicht.do' method='GET' id="form">
 				
 				<%
-				out.println("<select name='select'>");
+				out.println("<select name='select' id='select'>");
 				String geselecteerd = getServletContext().getAttribute("geselecteerd").toString();
 				BeoordelingOfyDAOImpl b = new BeoordelingOfyDAOImpl();
 				ArrayList < Beoordeling > beoordelingen = (ArrayList < Beoordeling > ) b.getAllBeoordelingen();
@@ -39,9 +39,12 @@
 					if(st.getDeLeerling().equals(geselecteerd)){
 						
 						for(Beoordeling be : b.getBeoordelingen(st.getId())){
-						
-							out.println("<option value='"+ be.getDatumLeerling() +"'>" + be.getDatumLeerling() + "</option>");
-							
+						if(be.getDatumLeerling() != null && be.getDatumBedrijf() != null){
+							out.println("<option class='wel' value='"+ be.getDatumLeerling() +"'>" + be.getDatumLeerling() + "</option>");
+						}
+						else{
+			            	out.println("<option class='niet' disabled>Beoordeling nog niet gedaan door zowel bedrijf als leerling</option>");
+			            }
 						}
 					}
 				}
@@ -53,10 +56,31 @@
 				
 				
 				%>
-				
+			
 				<br/>
 				
-				</form>
+				
+				
+				<script type="text/javascript">	
+				$(document).ready(function () {
+
+				    $('#select .niet').each(function () {
+				        if ($(this).is(':selected')) {
+				            $('#form input[type="submit"]').attr('disabled', 'disabled');
+				        }
+				        
+				    });
+				    
+				    $('#select .wel').each(function () {
+				        if ($(this).is(':selected')) {
+				            $('#form input[type="submit"]').removeAttr('disabled');
+				        }
+				        
+				    });
+				    
+				    });
+				</script>
+				
 			</div>
 		</article>
 		<!-- end of styles article -->
