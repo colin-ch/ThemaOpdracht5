@@ -130,7 +130,7 @@ ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordee
 				                            }
 				                        }}
 				                    }}}
-				                }break;
+				                }
 				             }
 				            }
 				        }
