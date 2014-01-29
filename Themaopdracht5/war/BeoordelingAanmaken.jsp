@@ -85,7 +85,10 @@
 					Leerling student = null;
 					Stage stage =(Stage) request.getSession().getAttribute("destage");
 					ArrayList<Leerling> array = (ArrayList<Leerling>) request.getAttribute("studenten"); //alle leerlingen worden opgehaald
-					
+					if(stage == null){
+						out.println("stage is null");
+					}
+					out.println(stage.getDeLeerling());
 					for(Leerling l: array){
 						if(stage.getDeLeerling().equals(l.getUsername())){
 							student = l;

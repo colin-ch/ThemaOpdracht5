@@ -78,9 +78,9 @@ boolean nextS = false;
 				for (Stage s : allStages) {
 					if (o instanceof Leerling) {
 						//log.info("ingelogd als leerling");
-		
 						if (s.getDeLeerling()
 								.equals(((Leerling) o).getUsername())) {
+
 							//log.info("de juiste leerling");
 							
 							allBeoordelingen =  (ArrayList<Beoordeling>) bod.getAllBeoordelingen();
@@ -167,9 +167,9 @@ beoordeeldeStelling.setDeWaardeLeerling("4");
 											}
 											}
 										rate = be;
-										}
 										
-								}}
+										
+								
 								rate.setOpmerkingLeerling(req.getParameter("opmerking"));
 								if(req.getParameter("opmerking").equals("")){
 									rate.setOpmerkingLeerling("geen opmerking");
@@ -180,9 +180,9 @@ beoordeeldeStelling.setDeWaardeLeerling("4");
 								String datum = d.toString();
 								rate.setDatumLeerling(datum);
 								ofy.put(rate);
-							}	
+							}	}
 						}
-					}
+					}}}
 					
 					// er wordt een message meegegeven
 					

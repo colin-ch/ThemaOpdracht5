@@ -267,9 +267,9 @@ beoordeeldeStelling.setDeWaardeStagebedrijf("4");
 											}
 											}
 										rate = be;
-										}
 										
-								}}
+										
+								
 								rate.setOpmerkingBedrijf(req.getParameter("opmerking"));
 								rate.setStageOpleider(req.getParameter("opleider"));
 								if(req.getParameter("opmerking").equals("")){
@@ -282,7 +282,7 @@ beoordeeldeStelling.setDeWaardeStagebedrijf("4");
 								rate.setDatumBedrijf(datum);
 								ofy.put(rate);
 							}	
-						
+								}}}
 					}
 					
 					// er wordt een message meegegeven
