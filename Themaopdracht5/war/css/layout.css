@@ -13,6 +13,27 @@ html,body {
 	font-size: 12px;
 }
 
+.beoordeling {
+	margin-left: 15px;
+	width: 200px;
+	float: left;
+	outline: whitesmoke 3px solid;
+	padding: 5px 5px;
+	margin-bottom: 20px;
+}
+
+.beoordeling:first-child{
+	
+	margin-left: 0!important;
+}
+
+.selected {
+	
+	outline: #8B8B8B 3px solid;
+	
+	
+}
+
 .clear {
 	clear: both;
 }
