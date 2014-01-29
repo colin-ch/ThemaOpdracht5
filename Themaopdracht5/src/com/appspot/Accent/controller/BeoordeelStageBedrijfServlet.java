@@ -132,7 +132,7 @@ boolean nextS = false;
 
 		                            if (st.getEigenId() == c.getEigenId()) {
 		   		                            	if(st.getUniekID() == sb.getUniekID()){
-		                            		
+		                            		if(sb.getIDBeoordeling().equals(be.getIDBeoordeling())){
 		                            	
 		                            	
 		                               
@@ -159,7 +159,7 @@ boolean nextS = false;
 		                                }
 		                               
 
-		                            }
+		                            }}
 		                            }
 		                        }}
 		                    }}}
@@ -215,6 +215,7 @@ boolean nextS = false;
 											  ArrayList <StellingBeoordeeld> currentbeoordelen = new ArrayList<StellingBeoordeeld>();
 						                        for(StellingBeoordeeld sbfill : beoordeelStellingen){
 						                        	if(s.getId() == sbfill.getDeStage()){
+						                        		
 						                        		if(sbfill.getDeWaardeLeerling() == null){
 						                        			currentbeoordelen.add(sbfill);
 						                        		}
@@ -231,7 +232,8 @@ boolean nextS = false;
 												String s2 = req.getParameter("" +stel.getUniekID());
 												int id = stel.getUniekID();
 											
-												
+			                            	if(sb.getIDBeoordeling().equals(be.getIDBeoordeling())){
+
 												
 												beoordeeldeStelling = sb;
 												
@@ -260,7 +262,7 @@ beoordeeldeStelling.setDeWaardeStagebedrijf("4");
 												
 
 												}
-												
+												}
 											}
 												
 												

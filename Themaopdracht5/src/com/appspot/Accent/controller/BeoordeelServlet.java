@@ -126,7 +126,7 @@ boolean nextS = false;
 
 												if(c.getEigenId() == stel.getEigenId()){
 												teller++;
-												
+												if(be.getIDBeoordeling().equals(sb.getIDBeoordeling())){
 												
 												String s2 = req.getParameter("" +stel.getUniekID());
 												int id = stel.getUniekID();
@@ -159,7 +159,7 @@ beoordeeldeStelling.setDeWaardeLeerling("4");
 												
 												
 
-												}
+												}}
 												
 											}
 												
