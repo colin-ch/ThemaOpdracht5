@@ -28,6 +28,7 @@
 			<form action="/StageAanmaken.do" method="get">
 			<%
 			double id = (Math.random() * 101); 
+			
 			StageOfyDAOImpl sod = new StageOfyDAOImpl();
 			boolean x = false;
 			for(Stage st : sod.getAllStages()){
@@ -35,8 +36,10 @@
 					x = true;
 				}
 			}
-			if(x == false){			
-				out.println("<input type='hidden' name='"+id+"' value='"+id+"'>");
+			if(x == false){		
+				
+				
+				out.println("<input type='hidden' name='id' value='"+id+"'>");
 			}
 			%>
 				Username van de deelnemende leerling

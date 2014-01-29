@@ -111,7 +111,7 @@ public class GebruikerAanmakenServlet extends HttpServlet {
 		
 		
 		else{
-			req.setAttribute("msgs", "<h4 class='alert_error'>Error</h4>");
+			req.setAttribute("msgs", "<h4 class='alert_error'>Stagebedrijf bestaat niet</h4>");
 			rd = req.getRequestDispatcher("index.jsp");
 		}
 		

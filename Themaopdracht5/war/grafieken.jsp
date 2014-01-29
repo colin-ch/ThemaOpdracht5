@@ -38,6 +38,8 @@
           data.addColumn('number', 'Student');
           data.addColumn({type:'string', role: 'annotation'});
           data.addColumn({type:'string', label:'Selecteer een competentie', role: 'annotationText'});
+          data.addColumn({type:'string', label:'Selecteer een stage', role: 'annotationText'});
+          data.addColumn({type:'string', label:'Selecteer een beoordeling', role: 'annotationText'});
           
                 
 		  data.addRows([
@@ -63,7 +65,7 @@
 		    			
 		    			for(Beoordeling beoordeling : bod.getAllBeoordelingen()){
 		    				
-		    				if(beoordeling.getDatumLeerling().equals(getServletContext().getAttribute("datum"))){
+		    				//if(beoordeling.getDatumLeerling().equals(getServletContext().getAttribute("datum"))){
 		    			
 				    			if(stage.getDeLeerling().equals(le.getUsername())){ //zoekt bijbehorende stage
 				    				
@@ -77,7 +79,7 @@
 				    							if(stel.getUniekID() == s.getUniekID()){
 				    								for(Competentie c : cod.getAllCompetenties()){
 				    	        	    				if(stel.getEigenId() == c.getEigenId()){
-		    										out.println("['"+stel.getDeStelling() +"', " + s.getDeWaardeStagebedrijf() + " , '" + s.getDeWaardeStagebedrijf() + "'," + s.getDeWaardeLeerling() + ", '"+ s.getDeWaardeLeerling() + "','" + c.getTitel() + "'],"); 
+		    										out.println("['"+stel.getDeStelling() +"', " + s.getDeWaardeStagebedrijf() + " , '" + s.getDeWaardeStagebedrijf() + "'," + s.getDeWaardeLeerling() + ", '"+ s.getDeWaardeLeerling() + "','" + c.getTitel() + "','"+ stage.getId()+"','"+beoordeling.getDatumLeerling()+"'],"); 
 				    	        	    				}
 				    	        	    				}
 		    									}
@@ -88,14 +90,14 @@
 				    					}
 		    						}
 		    					}
-		    				}
+		    				//}
 		    			}
 		    		}
 		    	}
 		    }
 		    
          %>  
-        ['', 0, '' , 0,'', '']
+        ['', 0, '' , 0,'', '','','']
         
         ]);
         //opties voor de google chart
@@ -106,7 +108,7 @@
           'width':1400, 'chartArea':{left:600,top:10,width:"30%"},
           title: 'Laatste competenties',
           bar: {groupWidth: '70%'},
-          hAxis: {title: 'Score', gridlines: {count: 4},  ticks: [1,2,3,4], titleTextStyle: {color: '#52A512'}},
+          hAxis: {title: 'Score', gridlines: {count: 5},  ticks: [0,1,2,3,4], titleTextStyle: {color: '#52A512'}},
           
          
           // Allow multiple simultaneous selections.
@@ -130,6 +132,8 @@
         	});
         
         var initState= {selectedValues: []};
+        var initStateStage= {selectedValues: []};
+        var initStateBeoordeling= {selectedValues: []};
         <%
         for (Leerling le : l.getAllLeerlingen()) { //loop door alle leerlingen
         	
@@ -138,13 +142,31 @@
         		for(Stage stage : st.getAllStages()){ //loop door alle stages
         			
         			if(le.getUsername().equals(stage.getDeLeerling())){
-        			
+        				%>
+    					initStateStage.selectedValues.push(
+    							
+    						<% out.println("'"+ stage.getId() +"'"); %>
+    						
+    					);
+    					
+    					
+    					<%
         			
         		
-        			for(Beoordeling beoordeling : bod.getBeoordelingen(stage.getId())){ //getAllBeoordelingen() test
+        			for(Beoordeling beoordeling : bod.getAllBeoordelingen()){ //getAllBeoordelingen() test
         				
         				if(beoordeling.getDatumLeerling().equals(getServletContext().getAttribute("datum"))){
-        			
+        					%>
+        					initStateBeoordeling.selectedValues.push(
+        							
+        						<% out.println("'"+ beoordeling.getDatumLeerling() +"'"); %>
+        						
+        					);
+        				
+        					
+        					
+        					<%
+        				}
         	    			for(Integer i : beoordeling.getCompetenties()){
         	    				for(Competentie c : cod.getAllCompetenties()){
         	    				if(i == c.getEigenId()){
@@ -163,7 +185,7 @@
         	    				
         	    				}
         	    			}
-        				}
+        				
         			}
         			}
         		}
@@ -172,7 +194,7 @@
         %>
         
         
-        var donutRangeSlider = new google.visualization.ControlWrapper({
+        var compRangeSlider = new google.visualization.ControlWrapper({
             'controlType': 'CategoryFilter',
             'containerId': 'filter_div',
             'options': {
@@ -188,8 +210,42 @@
             state: initState
           });
         
+        var stageRangeSlider = new google.visualization.ControlWrapper({
+            'controlType': 'CategoryFilter',
+            'containerId': 'filter_div2',
+     
+            'options': {
+              'filterColumnLabel': 'Selecteer een stage',
+              
+              'ui': {
+                  'labelStacking': 'vertical',
+                  'allowTyping': true,
+                  'allowMultiple': true,
+                  'caption' : 'Selecteer stage'
+                }
+            },
+            state: initStateStage
+          });
+        
+        var BeoordelingRangeSlider = new google.visualization.ControlWrapper({
+            'controlType': 'CategoryFilter',
+            'containerId': 'filter_div3',
+            'options': {
+              'filterColumnLabel': 'Selecteer een beoordeling',
+              
+              'ui': {
+                  'labelStacking': 'vertical',
+                  'allowTyping': false,
+                  'allowMultiple': false,
+                  'caption' : 'Selecteer beoordeling'
+                }
+        
+            },
+            state: initStateBeoordeling
+          });
+        
 
-        dashboard.bind(donutRangeSlider, chart);
+        dashboard.bind([compRangeSlider, stageRangeSlider, BeoordelingRangeSlider],[chart]);
         
         dashboard.draw(data);
       }
@@ -286,10 +342,10 @@
 
 				                              out.println("<div class='beoordeling selected'>" + be.getDatumLeerling() + "");
 				                          } else {
-				                              out.println("<div class='beoordeling'>" + be.getDatumLeerling() + "</div>");
+				                              out.println("<div class='beoordeling'>" + be.getDatumLeerling() + "");
 				                          }
 				                      } else {
-				                          out.println("<div class='beoordeling niet'>Beoordeling nog niet gedaan door zowel bedrijf als leerling</div>");
+				                          out.println("<div class='beoordeling niet'>Beoordeling nog niet gedaan door zowel bedrijf als leerling");
 				                      }
 				                      if (sta.getDeLeerling().equals(le2.getUsername())) { //zoekt bijbehorende stage
 				                    	  if (be.getDatumLeerling() != null && be.getDatumBedrijf() != null) { 
@@ -347,6 +403,8 @@
 			
 			<div id="dashboard_div" style="width: 90%; height: 700px">
 			 <div id="filter_div"></div>
+			 <div id="filter_div2"></div>
+			 <div id="filter_div3"></div>
       <div id="chart_div"style="width: 100%; height: 100%"></div>
 			</div>
 		</article>

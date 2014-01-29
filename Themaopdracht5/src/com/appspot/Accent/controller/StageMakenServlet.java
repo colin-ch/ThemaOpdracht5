@@ -19,7 +19,11 @@ public class StageMakenServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		// niet af
-		int id = Integer.parseInt(req.getParameter("id"));
+		String st = req.getParameter("id");
+		String string = st;
+		String [] parts = string.split(".");
+		String part1 = parts[0];
+		int id = Integer.parseInt(part1);
 		String leerling = req.getParameter("leerlingen");
 		String begeleider = req.getParameter("begeleiders");
 		String opleider = req.getParameter("opleider");
