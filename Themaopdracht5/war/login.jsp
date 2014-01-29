@@ -56,7 +56,6 @@ $(document).ready(function() {
 				<div class="roww">
 
 					<input type="submit" class="btn btn-success" value="Login">
-					<a href="register.jsp">Register</a>
 				</div>
 
 			</fieldset>
