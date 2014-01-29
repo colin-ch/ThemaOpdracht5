@@ -51,7 +51,7 @@
 ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordeeld>) sbod.getAllStellingenBeoordeeld();
 				ArrayList < Stage > allStages = (ArrayList < Stage > ) stod.getAllStages();//alle stages worden opgehaald
 				ArrayList < Beoordeling > beoordelingen = (ArrayList < Beoordeling > ) bod.getAllBeoordelingen(); //alle beoordelingen worden opgehaald
-
+out.println("<table class='beoordelentabbel'>");
 				for (Stage s: allStages) { //alle stages worden door lopen
 				    if (o instanceof Leerling) {//kijkt of ingelogde gebruiker een leerling is
 
@@ -71,7 +71,7 @@ ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordee
 				                    for(Integer inter : beoordelencomp){//alle competenties doorlopen
 				                        //System.out.println(" "  + c.getTitel());
 									if(inter == c.getEigenId()){
-				                        out.println("<h2>" + c.getTitel() + "</h2><br/><table class='beoordelentabbel'>");
+				                        out.println("<tr><td><h2>" + c.getTitel() + "</h2></td></tr>");
 
 				                        ArrayList < Stelling > stellingen = (ArrayList < Stelling > ) sod.getAllStellingen();
 				                        ArrayList <StellingBeoordeeld> currentbeoordelen = new ArrayList<StellingBeoordeeld>();

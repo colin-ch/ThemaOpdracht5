@@ -40,7 +40,7 @@ public class BeoordeelStageBedrijfServlet extends HttpServlet {
 			throws ServletException, IOException {
 		//		boolean succes = false;
 		RequestDispatcher rd = null;
-		String content ="";
+		String content ="<table class='beoordelentabbel'>";
 		Object o = req.getSession().getAttribute("userobject");
 		ofy = ObjectifyService.begin();
 		Beoordeling rate =null;
@@ -115,7 +115,7 @@ boolean nextS = false;
 		                    for(Integer inter : beoordelencomp){//alle competenties doorlopen
 		                        //System.out.println(" "  + c.getTitel());
 							if(inter == c.getEigenId()){
-		                       content = content + "<h2>" + c.getTitel() + "</h2><table class='beoordelentabbel'>";
+		                       content = content + "<tr><td><h2>" + c.getTitel() + "</h2></td></tr>";
 
 		                        ArrayList < Stelling > stellingen = (ArrayList < Stelling > ) sod.getAllStellingen();
 		                        ArrayList <StellingBeoordeeld> currentbeoordelen = new ArrayList<StellingBeoordeeld>();
