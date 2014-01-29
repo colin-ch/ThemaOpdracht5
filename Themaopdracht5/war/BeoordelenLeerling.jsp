@@ -96,7 +96,8 @@ ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordee
 				                            		}
 
 				                            	}
-				                            	
+			                            		if(sb.getIDBeoordeling().equals(be.getIDBeoordeling())){
+
 				                   
 
 				                            	if(check == true){
@@ -127,10 +128,10 @@ ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordee
 				                            	}
 
 				                            }
-				                            }
+				                            }}
 				                        }}
 				                    }}}
-				                }break;
+				                }
 				             }
 				            }
 				        }

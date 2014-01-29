@@ -12,6 +12,7 @@ public class Beoordeling {
 	private ArrayList<Integer> deCompetenties = new ArrayList<Integer>();
 	private ArrayList<Integer> stellingBeoordeeld = new ArrayList<Integer>();
 	@Id Long id;
+	private String IDBeoordeling;
 	private int stage;
 	private String stageOpleider;
 	private String datumLeerling;
@@ -19,7 +20,8 @@ public class Beoordeling {
 	private String opmerkingBedrijf;
 	private String opmerkingLeerling;
 
-	public Beoordeling(String dtl , String dtb, String sopl, String opl, String opb, int sta,  ArrayList c, ArrayList w){
+	public Beoordeling(String id,String dtl , String dtb, String sopl, String opl, String opb, int sta,  ArrayList c, ArrayList w){
+		setIDBeoordeling(id);
 		datumLeerling = dtl;
 		datumBedrijf = dtb;
 		setStageOpleider(sopl);
@@ -87,6 +89,12 @@ public class Beoordeling {
 	}
 	public void setStageOpleider(String stageOpleider) {
 		this.stageOpleider = stageOpleider;
+	}
+	public String getIDBeoordeling() {
+		return IDBeoordeling;
+	}
+	public void setIDBeoordeling(String iDBeoordeling) {
+		IDBeoordeling = iDBeoordeling;
 	}
 
 

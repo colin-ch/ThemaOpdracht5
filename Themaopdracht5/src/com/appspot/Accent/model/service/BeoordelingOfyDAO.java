@@ -12,7 +12,7 @@ public interface BeoordelingOfyDAO {
 	   public Beoordeling getBeoordeling(String datum);
 	   public void updateBeoordeling(Beoordeling b);
 	   public void deleteBeoordeling(Beoordeling b);
-	   public void createBeoordeling(String dt, String dtb, String sopl, String opm, String opmb,int sta, ArrayList c, ArrayList l);
+	   public void createBeoordeling(String id, String dt, String dtb, String sopl, String opm, String opmb,int sta, ArrayList c, ArrayList l);
 	}
 
 

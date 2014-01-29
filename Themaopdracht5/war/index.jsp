@@ -24,8 +24,8 @@
 				<h3>Home</h3>
 			</header>
 			<div class="module_content">
-				<h1 style="font-size: 50px;">Welkom <% out.println(naam); %>
-				</h1>
+				<h1 id="welkom" style="">Welkom <% out.println(naam); %></h1>
+				<h3 id="rol"><% out.println(rol); %></h3>
 
 			</div>
 		</article>

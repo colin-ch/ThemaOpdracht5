@@ -8,10 +8,11 @@ private String deWaardeStagebedrijf;
 private int uniekID;
 private int deStage;
 private String deWaardeLeerling;
+private String IDBeoordeling;
 
 
-public StellingBeoordeeld(String val, String vall,  int uniq, int destage){
-	
+public StellingBeoordeeld(String val, String vall,  int uniq,String id, int destage){
+	setIDBeoordeling(id);
 	deWaardeStagebedrijf = val;
 	deWaardeLeerling = vall;
 	uniekID = uniq;
@@ -52,6 +53,12 @@ public int getDeStage() {
 }
 public void setDeStage(int deStage) {
 	this.deStage = deStage;
+}
+public String getIDBeoordeling() {
+	return IDBeoordeling;
+}
+public void setIDBeoordeling(String iDBeoordeling) {
+	IDBeoordeling = iDBeoordeling;
 }
 
 }

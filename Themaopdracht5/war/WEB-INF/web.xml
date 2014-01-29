@@ -44,18 +44,17 @@
 		<servlet-name>StageAanmakenServlet</servlet-name>
 		<url-pattern>/StageAanmaken.do</url-pattern>
 	</servlet-mapping>
-	
-<!--  	<servlet>
+
+  	<servlet>
 		<servlet-name>WachtwoordWijzigenServlet</servlet-name>
-		<servlet-class>com.appspot.Accent.controller.WachtwoordWijzigenServlet.java</servlet-class>
+		<servlet-class>com.appspot.Accent.controller.WachtwoordWijzigenServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>WachtwoordWijzigenServlet</servlet-name>
 		<url-pattern>/WachtwoordWijzigen.do</url-pattern>
 	</servlet-mapping>
--->
-	
+
 	
 	<servlet>
 		<servlet-name>GebruikerAanmakenServlet</servlet-name>
@@ -183,6 +182,18 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>LoginFilterServlet</filter-name>
+		<url-pattern>/Userlijst.zip</url-pattern>
+		<url-pattern>/Importeer.do</url-pattern>
+		<url-pattern>/Importeers.do</url-pattern>
+		<url-pattern>/StageAanmaken.do</url-pattern>
+		<url-pattern>/WachtwoordWijzigen.do</url-pattern>
+		<url-pattern>/GebruikerAanmaken.do</url-pattern>
+		<url-pattern>/BeoordeelStageBedrijfServlet.do</url-pattern>
+		<url-pattern>/BeoordelingAanmakenServlet.do</url-pattern>
+		<url-pattern>/CompetentieOverzichtServlet.do</url-pattern>
+		<url-pattern>/CompetentieAanpassenServlet.do</url-pattern>
+		<url-pattern>/StellingAanpassenServlet.do</url-pattern>
+		
 		<url-pattern>/Overzicht.do</url-pattern>
 		<url-pattern>/BeoordeelServlet.do</url-pattern>
 		<url-pattern>/BeoordelingOphalenServlet.do</url-pattern>

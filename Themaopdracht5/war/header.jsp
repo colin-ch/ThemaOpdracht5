@@ -11,20 +11,26 @@
 	
 	Object user = session.getAttribute("userobject");
 	String naam = "";
+	String rol = "";
 	if(user instanceof Leerling){
 		naam = ((Leerling) user).getRoepnaam() +" " + ((Leerling) user).getAchternaam();
+		rol = "leerling";
 	}
 	if(user instanceof Docent){
 		naam = ((Docent) user).getUsername();
+		rol = "Docent";
 	}
 	if(user instanceof StageBedrijf){
 		naam = ((StageBedrijf) user).getUsername();
+		rol = "Stage bedrijf";
 	}
 	if(user instanceof StageBegeleider){
 		naam = ((StageBegeleider) user).getUsername();
+		rol = "Stagebegeleider";
 	}
 	if(user instanceof User){
 		naam = ((User) user).getUsername();
+		rol = "beheerder";
 	}
 	
 	out.println("<p>"+ naam +"</p>"); 

@@ -43,6 +43,24 @@ public class LoginFilterServlet implements Filter {
 		String stageoverzicht = "http://project-omega.appspot.com/StageOverzicht.jsp";
 		String wachtwoordwijzigen = "http://project-omega.appspot.com/WachtwoordWijzigen.jsp";
 		
+		//Servlets
+		String export = "/Userlijst.zip";
+		String importleerlingen = "/Importeer.do";
+		String importstages = "/Importeers.do";
+		String servletstageaanmaken = "/StageAanmaken.do";
+		String servletwachtwoordwijzigen = "/WachtwoordWijzigen.do";
+		String gebruikeraanmaken = "/GebruikerAanmaken.do";
+		String overzicht = "/Overzicht.do";
+		String beoordelen = "/BeoordeelServlet.do";
+		String beoordelenbedrijf = "/BeoordeelStageBedrijfServlet.do";
+		String beoordelingophalen = "/BeoordelingOphalenServlet.do";
+		String beoordelingaanmaken = "/BeoordelingAanmakenServlet.do";
+		String servletcompetentieoverzicht = "/CompetentieOverzichtServlet.do";
+		String competentieaanpassen = "/CompetentieAanpassenServlet.do";
+		String stellingaanpassen = "/StellingAanpassenServlet.do";
+		
+		
+		
 		
 
 // er word gekeken of je ingelogt bent of niet.
