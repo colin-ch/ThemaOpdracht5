@@ -1,6 +1,8 @@
 package com.appspot.Accent.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
@@ -31,32 +33,41 @@ public class StageInzienServlet extends HttpServlet{
 		// niet af
 		ofy = ObjectifyService.begin();
 		
-	
-	
-	StellingOfyDAOImpl sod = new StellingOfyDAOImpl();
-	StellingBeoordeeldOfyDAOImpl sbd = new StellingBeoordeeldOfyDAOImpl();
-	StageOfyDAOImpl std = new StageOfyDAOImpl();
-	boolean succes = false;
+		StageOfyDAOImpl std = new StageOfyDAOImpl();
+		ArrayList<Stage>stages = new ArrayList<Stage>();
+		
+		boolean succes = false;
 		
 	
 		Object o = req.getSession().getAttribute("userobject");//haalt ingelogde gebruiker op
+		String leerling = req.getParameter("selection");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		  resp.setContentType("text/html");
+
+		  String out = req.getParameter("string");
+		  
+		 
+			Stage inzage = null ;
+			
+      	if(out != null){
+	
+      		for(Stage s :stages){
+      			if(s.getDeLeerling()==out){
+      				inzage = s;
+      				succes=true;
+      				break;
+      			}
+      		}
+      		
+      	}
+      		String msg = "out.println('Leerling naam: '+inzage.getDeLeerling()+',<br/>\n Stagebedrijf: '+inzage.getHetBedrijf()+' <br/>\n Begin datum: '+simpleDateFormat.format(inzage.getBegindatum())+'<br/>\n Eind datum: '+simpleDateFormat.format(inzage.getEinddatum())+'<br/>\n')";
+	
+
+	
 		
-		
-		
-		/*if(pagina wordt geladen){
-			for(Stage st : stages){//doorloopt alle stages
-			log.info("1");
-			//Haalt alle gegevens op per stage en schrijft deze terug naar de pagina.
-			bericht = bericht+ "['"+st.getDeLeerling()+"',  "+st.getHetBedrijf()+", "+st.getDeBegeleider()+", "+st.getBegindatum()+", "+st.getEinddatum()+"],";
-			log.info(bericht);
-			}
-		succes = true;
-		req.setAttribute("msgs", bericht);
-		}
-		else{
-			req.setAttribute("msgs", "Er is nog geen stage bekend");
-		}
-		*/
+		 
+	    
+
 	
 	RequestDispatcher rd = null;
 	
@@ -64,14 +75,14 @@ public class StageInzienServlet extends HttpServlet{
 	
 	
 	if(succes){
-		req.setAttribute("msgs", bericht);
-		rd = req.getRequestDispatcher("StageOverzicht.jsp");
-		log.info("3");
+		req.setAttribute("msg", msg);
+		rd = req.getRequestDispatcher("StageInzien.jsp");
+		log.info("1");
 	}
 	else{
-		req.setAttribute("msgs", "Er zijn geen stages beschikbaar.");
+		req.setAttribute("msgs", "De stages is niet beschikbaar.");
 		rd = req.getRequestDispatcher("StageOverzicht.jsp");
-		log.info("4");
+		log.info("2");
 	}
 	
 	

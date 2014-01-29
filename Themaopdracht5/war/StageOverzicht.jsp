@@ -81,25 +81,26 @@
       function selectHandler(e) {
     	  var selection = visualization.getSelection();
     	  var message = '';
+    	 var str = 'niks';
     	  for (var i = 0; i < selection.length; i++) {
     	    var item = selection[i];
     	    if (item.row != null && item.column != null) {
-    	      var str = data.getFormattedValue(item.row, item.column);
-    	      message += 'row:' + item.row + ',  ' + str ;2
+    	       str = data.getFormattedValue(item.row, item.column);
+    	      message +=str;
     	    } else if (item.row != null) {
-    	      var str = data.getFormattedValue(item.row, 0);
-    	      message += 'row:' + item.row + ',  ' + str ;
+    	      str = data.getFormattedValue(item.row, 0);
+    	      message +=str;
     	    } else if (item.column != null) {
-    	      var str = data.getFormattedValue(0, item.column);
-    	      message += 'row:' + item.row + ',  ' + str ;
+    	       str = data.getFormattedValue(0, item.column);
+    	      message += str;
     	    }
     	  }
-    	  if (message == '') {
+    	  if (message == 'niks') {
     	    message = 'nothing';
     	  }
-    	  alert('You selected ' + message);
-         //var row = visualization.getSelection()[1].row;
-         //alert('You selected ' + data.getValue(row, 1));
+    	  
+    	 window.location.href = 'http://localhost:8888/StageInzien.do?string='+str;
+    	 
        }
       google.visualization.events.addListener(visualization, 'select', selectHandler);
       visualization.draw(data, null);
@@ -107,10 +108,14 @@
 
     }
     	 
-       google.setOnLoadCallback(drawVisualization);
-    </script>
-   				
-				<div id="table-div"></div>
+       
+   
+    
+    google.setOnLoadCallback(drawVisualization);
+    
+</script>
+				<div id="table-div">
+				</div>
 			</div>
 		</article>
 		<!-- end of styles article -->
