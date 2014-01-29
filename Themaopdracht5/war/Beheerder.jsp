@@ -46,6 +46,7 @@
 				<button onclick="window.location.href='StageBegeleiderAanmaken.jsp';">Maak een begeleider aan</button>
 				<br/><p>Stelling/Competentie wijzigen</p>
 				<button onclick="window.location.href='CompetentieSelecteren.jsp';">Pas een stelling aan</button>
+				<button onclick="window.location.href='CompetentieOverzicht.jsp';">Pas een competentie aan</button>
 				<br/><p>Stage aanmaken</p>
 				<button onclick="window.location.href='StageAanmaken.jsp';">Stage aanmaken</button>
 				<p>Wachtwoord</p>

@@ -26,12 +26,14 @@ public class CompetentieAanpassenServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		ofy = ObjectifyService.begin();
-		ObjectifyService.register(Stelling.class);
+		
 		ObjectifyService.register(Competentie.class);
 		CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		for (Competentie c : cod.getAllCompetenties()) {
 			if (req.getParameter("" + c.getEigenId()) != null) {
 				c.setTitel(req.getParameter("" + c.getEigenId()));
+				System.out.println("parameter: " + req.getParameter("" + c.getEigenId()));
+				System.out.println("titel: " + c.getTitel());
 				ofy.put(c);
 				String msgs = "Opslaan Gelukt!";
 				req.setAttribute("msgs", msgs);
