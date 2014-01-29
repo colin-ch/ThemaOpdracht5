@@ -165,7 +165,9 @@ rd = req.getRequestDispatcher("BeoordelingAanmaken.jsp");
 		
 		if(req.getParameter("save") != null){
 			msgs = "<h4 class='alert_success'>U heeft succesvol een beoordeling gemaakt.</h4>";
+			SessionIdentifierGenerator sig = new SessionIdentifierGenerator();
 			
+			String ID = sig.nextSessionId();
 			
 		Stage currentstage = (Stage) req.getSession().getAttribute("destage");
 		
@@ -186,7 +188,7 @@ int destage = currentstage.getId();
 						if(s.getEigenId() == c.getEigenId()){
 						if(s.getDeWaarde().equals(s2)){
 							stellingBeoordeeld.add(s.getUniekID());
-							StellingBeoordeeld x = new StellingBeoordeeld(null, null, s.getUniekID(), destage);
+							StellingBeoordeeld x = new StellingBeoordeeld(null, null, s.getUniekID(),ID,  destage);
 							ofy.put(x);
 						}
 					}
@@ -199,7 +201,7 @@ int destage = currentstage.getId();
 			}
 			if(checkcompetentie && checkvalue){
 			rd = req.getRequestDispatcher("index.jsp");
-			Beoordeling be = new Beoordeling(null, null,"nog niet bekend", "nog niet gedaan","nog niet gedaan",destage, beoordeelCompetenties, stellingBeoordeeld);
+			Beoordeling be = new Beoordeling(ID, null, null,"nog niet bekend", "nog niet gedaan","nog niet gedaan",destage, beoordeelCompetenties, stellingBeoordeeld);
 ofy.put(be);
 			}else{
 				rd = req.getRequestDispatcher("/BeoordelingAanmaken.jsp");
