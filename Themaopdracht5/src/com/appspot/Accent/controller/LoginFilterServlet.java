@@ -29,8 +29,7 @@ public class LoginFilterServlet implements Filter {
 		String beoordelenleerling = "http://project-omega.appspot.com/BeoordelenLeerling.jsp";
 		String beoordelenopleider = "http://project-omega.appspot.com/beoordelenOpleider.jsp";
 		String aanmakenbeoordeling = "http://project-omega.appspot.com/BeoordelingAanmaken.jsp";
-		// String selecterenbeoordeling =
-		// "http://project-omega.appspot.com/beoordelingSelecteren.jsp";
+		// String selecterenbeoordeling = "http://project-omega.appspot.com/beoordelingSelecteren.jsp";
 		String competentieoverzicht = "http://project-omega.appspot.com/CompetentieOverzicht.jsp";
 		String selecterencompetentie = "http://project-omega.appspot.com/CompetentieSelecteren.jsp";
 		String docentaanmaken = "http://project-omega.appspot.com/DocentAanmaken.jsp";
@@ -38,8 +37,7 @@ public class LoginFilterServlet implements Filter {
 		String header = "http://project-omega.appspot.com/header.jsp";
 		String imports = "http://project-omega.appspot.com/imports.jsp";
 		String leerlingaanmaken = "http://project-omega.appspot.com/LeerlingAanmaken.jsp";
-		// String overzichtgebruikers =
-		// "http://project-omega.appspot.com/overzichtgebruikers.jsp";
+		// String overzichtgebruikers = "http://project-omega.appspot.com/overzichtgebruikers.jsp";
 		String stageaanmaken = "http://project-omega.appspot.com/StageAanmaken.jsp";
 		String stagebedrijfaanmaken = "http://project-omega.appspot.com/StageBedrijfAanmaken.jsp";
 		String stagebegeleideraanmaken = "http://project-omega.appspot.com/StageBegeleiderAanmaken.jsp";
@@ -48,20 +46,21 @@ public class LoginFilterServlet implements Filter {
 		String wachtwoordwijzigen = "http://project-omega.appspot.com/WachtwoordWijzigen.jsp";
 
 		// Servlets
-		String export = "/Userlijst.zip";
-		String importleerlingen = "/Importeer.do";
-		String importstages = "/Importeers.do";
-		String servletstageaanmaken = "/StageAanmaken.do";
-		String servletwachtwoordwijzigen = "/WachtwoordWijzigen.do";
-		String gebruikeraanmaken = "/GebruikerAanmaken.do";
-		String overzicht = "/Overzicht.do";
-		String beoordelen = "/BeoordeelServlet.do";
-		String beoordelenbedrijf = "/BeoordeelStageBedrijfServlet.do";
-		String beoordelingophalen = "/BeoordelingOphalenServlet.do";
-		String beoordelingaanmaken = "/BeoordelingAanmakenServlet.do";
-		String servletcompetentieoverzicht = "/CompetentieOverzichtServlet.do";
-		String competentieaanpassen = "/CompetentieAanpassenServlet.do";
-		String stellingaanpassen = "/StellingAanpassenServlet.do";
+		String export = "http://project-omega.appspot.com/Userlijst.zip";
+		String importleerlingen = "http://project-omega.appspot.com/Importeer.do";
+		String importstages = "http://project-omega.appspot.com/Importeers.do";
+		String servletstageaanmaken = "http://project-omega.appspot.com/StageAanmaken.do";
+		String servletwachtwoordwijzigen = "http://project-omega.appspot.com/WachtwoordWijzigen.do";
+		String gebruikeraanmaken = "http://project-omega.appspot.com/GebruikerAanmaken.do";
+		//String overzicht = "http://project-omega.appspot.com/Overzicht.do";
+		String beoordelen = "http://project-omega.appspot.com/BeoordeelServlet.do";
+		String beoordelenbedrijf = "http://project-omega.appspot.com/BeoordeelStageBedrijfServlet.do";
+		//String beoordelingophalen = "http://project-omega.appspot.com/BeoordelingOphalenServlet.do";
+		String beoordelingaanmaken = "http://project-omega.appspot.com/BeoordelingAanmakenServlet.do";
+		String servletcompetentieoverzicht = "http://project-omega.appspot.com/CompetentieOverzichtServlet.do";
+		String competentieaanpassen = "http://project-omega.appspot.com/CompetentieAanpassenServlet.do";
+		String stellingaanpassen = "http://project-omega.appspot.com/StellingAanpassenServlet.do";
+		String stageinzien = "http://project-omega.appspot.com/StageInzien.do";
 
 		// er word gekeken of je ingelogt bent of niet.
 		if (o == null) {
@@ -89,12 +88,15 @@ public class LoginFilterServlet implements Filter {
 						|| reqUrl.equals(export) 
 						|| reqUrl.equals(importleerlingen)
 						|| reqUrl.equals(importstages)
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
+						|| reqUrl.equals(servletstageaanmaken)
+						|| reqUrl.equals(servletwachtwoordwijzigen)
+						|| reqUrl.equals(gebruikeraanmaken)
+						|| reqUrl.equals(beoordelenbedrijf)
+						|| reqUrl.equals(beoordelingaanmaken)
+						|| reqUrl.equals(servletcompetentieoverzicht)
+						|| reqUrl.equals(competentieaanpassen)
+						|| reqUrl.equals(stellingaanpassen)
+						|| reqUrl.equals(stageinzien)
 						|| reqUrl.equals("#")
 						|| reqUrl.equals("#")) {
 					req.setAttribute("msgs",
@@ -123,12 +125,16 @@ public class LoginFilterServlet implements Filter {
 						|| reqUrl.equals(export)
 						|| reqUrl.equals(importleerlingen)
 						|| reqUrl.equals(importstages)
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
+						|| reqUrl.equals(servletstageaanmaken)
+						|| reqUrl.equals(servletwachtwoordwijzigen)
+						|| reqUrl.equals(gebruikeraanmaken)
+						|| reqUrl.equals(beoordelen)
+						|| reqUrl.equals(beoordelenbedrijf)
+						|| reqUrl.equals(beoordelingaanmaken)
+						|| reqUrl.equals(servletcompetentieoverzicht)
+						|| reqUrl.equals(competentieaanpassen)
+						|| reqUrl.equals(stellingaanpassen)
+						|| reqUrl.equals(stageinzien)
 						|| reqUrl.equals("#")
 						|| reqUrl.equals("#")) {
 					req.setAttribute("msgs",
@@ -155,13 +161,15 @@ public class LoginFilterServlet implements Filter {
 						|| reqUrl.equals(export)
 						|| reqUrl.equals(importleerlingen)
 						|| reqUrl.equals(importstages)
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
+						|| reqUrl.equals(servletstageaanmaken)
+						|| reqUrl.equals(servletwachtwoordwijzigen)
+						|| reqUrl.equals(gebruikeraanmaken)
+						|| reqUrl.equals(beoordelen)
+						|| reqUrl.equals(beoordelingaanmaken)
+						|| reqUrl.equals(servletcompetentieoverzicht)
+						|| reqUrl.equals(competentieaanpassen)
+						|| reqUrl.equals(stellingaanpassen)
+						|| reqUrl.equals(stageinzien)
 						|| reqUrl.equals("#")) {
 					req.setAttribute("msgs",
 							"U bent niet bevoegd dit gedeelte van de site te betreden");
@@ -185,11 +193,13 @@ public class LoginFilterServlet implements Filter {
 						|| reqUrl.equals(export)
 						|| reqUrl.equals(importleerlingen)
 						|| reqUrl.equals(importstages)
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
-						|| reqUrl.equals("#")
+						|| reqUrl.equals(servletwachtwoordwijzigen)
+						|| reqUrl.equals(gebruikeraanmaken)
+						|| reqUrl.equals(beoordelen)
+						|| reqUrl.equals(beoordelenbedrijf)
+						|| reqUrl.equals(servletcompetentieoverzicht)
+						|| reqUrl.equals(competentieaanpassen)
+						|| reqUrl.equals(stellingaanpassen)
 						|| reqUrl.equals("#")
 						|| reqUrl.equals("#")) {
 					req.setAttribute("msgs",
@@ -202,9 +212,10 @@ public class LoginFilterServlet implements Filter {
 			if (o instanceof User) {
 				if (reqUrl.equals(beoordelenleerling)
 						|| reqUrl.equals(beoordelenopleider)
-						|| reqUrl.equals(header) || reqUrl.equals(imports)
-						|| reqUrl.equals("#") 
-						|| reqUrl.equals("#")
+						|| reqUrl.equals(header) 
+						|| reqUrl.equals(imports)
+						|| reqUrl.equals(beoordelen) 
+						|| reqUrl.equals(beoordelenbedrijf)
 						|| reqUrl.equals("#") 
 						|| reqUrl.equals("#")
 						|| reqUrl.equals("#") 
