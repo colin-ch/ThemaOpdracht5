@@ -12,7 +12,7 @@ public interface StellingBeoordeeldOfyDAO {
 	   public StellingBeoordeeld getStelling(int idee);
 	   public void updateStellingBeoordeeld(StellingBeoordeeld s);
 	   public void deleteStellingBeoordeeld(StellingBeoordeeld s);
-	   public void createStellingBeoordeeld(String wd,String wdl, int uniek, int stage);
+	   public void createStellingBeoordeeld(String wd,String wdl, int uniek, String id, int stage);
 	}
 
 
