@@ -81,7 +81,7 @@ boolean nextS = false;
 		StellingBeoordeeldOfyDAOImpl sbod = new StellingBeoordeeldOfyDAOImpl();
 		ArrayList<Leerling> students = (ArrayList<Leerling>) lod.getAllLeerlingen();
 		ArrayList<StellingBeoordeeld> beoordeelStellingen = (ArrayList <StellingBeoordeeld>) sbod.getAllStellingenBeoordeeld();
-
+ 
 		 String deStudent = null;
 		
 			if(req.getParameter("Show")!= null){
