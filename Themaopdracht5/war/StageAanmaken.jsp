@@ -27,19 +27,38 @@
 			<%@ page import="java.util.ArrayList" %>
 			<form action="/StageAanmaken.do" method="get">
 			<%
-			double id = (Math.random() * 101); 
-			
 			StageOfyDAOImpl sod = new StageOfyDAOImpl();
-			boolean x = false;
-			for(Stage st : sod.getAllStages()){
-				if(st.getId() == id){
-					x = true;
+			ArrayList<Stage>stages = (ArrayList<Stage>) sod.getAllStages();
+			
+			int i = 0;
+
+			boolean x = true;
+
+			while(x){
+				boolean f = true;
+				double id = (Math.random() * 101); 
+				i = (int) id;
+				System.out.println("de i die getest wordt:" +i);
+
+				for(Stage st : stages){
+					if(st.getId() == i){
+						System.out.println(st.getId());
+
+							f = false;
+					}
+				}
+				
+				if(f){
+					x = false;
 				}
 			}
+			System.out.println("i is uiteiendelijk:" +i);
+
+
 			if(x == false){		
 				
 				
-				out.println("<input type='hidden' name='id' value='"+id+"'>");
+				out.println("<input type='hidden' name='id' value='"+i+"'>");
 			}
 			%>
 				Username van de deelnemende leerling
