@@ -28,8 +28,8 @@
 				
 				<%@ page import="com.appspot.Accent.model.Competentie" %>
 	<%@ page import="com.appspot.Accent.model.Stelling" %>
-	<%@ page import="com.appspot.Accent.model.Leerling" %>
-		<%@ page import="com.appspot.Accent.model.service.LeerlingOfyDAOImpl" %>
+	<%@ page import="com.appspot.Accent.model.*" %>
+		<%@ page import="com.appspot.Accent.model.service.*" %>
 		<%@ page import="com.googlecode.objectify.*" %>
 
 	<%@ page import="java.util.ArrayList" %>
@@ -38,23 +38,36 @@
 				<%
 				Object initStage = request.getAttribute( "initStage");
 				Object save = request.getAttribute("save");
-
+Object x = session.getAttribute("userobject");
+StageBegeleider sb = (StageBegeleider)x;
 				if(save == null && initStage == null){
 					ArrayList<Leerling> array = new ArrayList<Leerling>();
 					Objectify ofy = ObjectifyService.begin();
 					LeerlingOfyDAOImpl lod = new LeerlingOfyDAOImpl();
 					array = (ArrayList < Leerling > ) lod.getAllLeerlingen();
+					StageOfyDAOImpl sod = new StageOfyDAOImpl();
+					ArrayList<Stage> stages = (ArrayList<Stage>)sod.getAllStages();
 					out.println("<h2> selecteer een leerling:</h2>");
 					out.println("<input list='leerlingen' name='leerlingen' required>");//lijst van leerlingen wordt aangemaakt
 					out.println("<datalist id='leerlingen'>");
 					if (array != null) {
+						
 						for (int i = 0; i < array.size(); i++) {
-
+							boolean checked = false;
 							Leerling fluf = array.get(i);
+					for(Stage s : stages){
+							
+							
+							if(s.getDeBegeleider().equals(sb.getEmail())){
+								if(fluf.getUsername().equals(s.getDeLeerling())){
+							checked = true;	
+							}
+					}}
+if(checked){
 							out.println(" <option value='"+  fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "'>"+ fluf.getRoepnaam() + " " + fluf.getAchternaam()+  "</option>") ;
 						}
-						out.println(" </datalist>");
-					
+						
+						}out.println(" </datalist>");
 						}
 					out.println("<input type='submit' value='Verder' name='initStage'/>");
 					}
