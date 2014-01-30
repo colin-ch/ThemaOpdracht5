@@ -108,7 +108,7 @@ Objectify ofy = ObjectifyService.begin();
 		ObjectifyService.register(Leerling.class);
 		ObjectifyService.register(User.class);
 		
-		ofy.put(l1);
+		/*ofy.put(l1);
 		ofy.put(l2);
 		ofy.put(l3);
 		ofy.put(l4);
@@ -129,7 +129,7 @@ Objectify ofy = ObjectifyService.begin();
 		ofy.put(opleider4);
 		ofy.put(d1);
 		ofy.put(d2);
-		ofy.put(d3);
+		ofy.put(d3);*/
 
 
 // END DUMMY DATA

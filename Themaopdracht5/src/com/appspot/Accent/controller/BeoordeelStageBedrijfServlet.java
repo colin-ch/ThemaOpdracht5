@@ -96,13 +96,15 @@ boolean nextS = false;
 					}
 				}
 				if (gevondenLeerling) {
+
 					//zoekt stage dmw van ingelogde gebruikersnaam te vergelijken met naam van leerling in stage
 		            for (Beoordeling be: allBeoordelingen) {//alle beoordelingen doorlopen
 		            	
 		            	
 		              if(be.getStage() == s.getId()){
 		            	
-		            	 
+							System.out.println("tesyt");
+
 
 		            	
 		            	if (be.getDatumBedrijf() == null) {
@@ -119,6 +121,8 @@ boolean nextS = false;
 
 		                        ArrayList < Stelling > stellingen = (ArrayList < Stelling > ) sod.getAllStellingen();
 		                        ArrayList <StellingBeoordeeld> currentbeoordelen = new ArrayList<StellingBeoordeeld>();
+		                        ArrayList<Integer> controleArray = new ArrayList<Integer>();
+
 		                        for(StellingBeoordeeld sbfill : beoordeelStellingen){
 		                        	if(s.getId() == sbfill.getDeStage()){
 		                        		if(sbfill.getDeWaardeStagebedrijf() == null){
@@ -132,12 +136,21 @@ boolean nextS = false;
 
 		                            if (st.getEigenId() == c.getEigenId()) {
 		   		                            	if(st.getUniekID() == sb.getUniekID()){
+		   		                            		boolean check =true;
+					                            	for(int ctrl : controleArray){
+					                            		if(ctrl == st.getUniekID()){
+					                            			
+					                            			check = false;
+					                            		}
+
+					                            	}
 		                            		if(sb.getIDBeoordeling().equals(be.getIDBeoordeling())){
 		                            	
 		                            	
-		                               
+		                            			if(check == true){
+		                            				
+				                            		controleArray.add(st.getUniekID());
 		                                String waarde = st.getDeWaarde();
-
 		                                content = content + "<tr><td><h4>" + st.getDeStelling() + "</h4></td>";
 										//voor iedere stelling radio buttons maken
 		                                if (waarde == null || waarde.equals("")) {
@@ -157,7 +170,7 @@ boolean nextS = false;
 		                                if (waarde.equals("4")) {
 		                                	content = content + "<td>1<input type='radio' name='" + st.getUniekID() + "' value='1'>2<input type='radio' name='" + st.getUniekID() + "' value='2'>3<input checked='checked' type='radio' name='" + st.getUniekID() + "' value='3'>4<input type='radio' name='" + st.getUniekID() + "' value='4'></td></tr>";
 		                                }
-		                               
+		                            		}
 
 		                            }}
 		                            }
@@ -166,7 +179,7 @@ boolean nextS = false;
 		                }
 		             }
 		            }
-		        
+		            gevondenLeerling = false;
 				}
 			}
 			rd = req.getRequestDispatcher("beoordelenOpleider.jsp");
