@@ -50,12 +50,91 @@ public class UserContextListener implements ServletContextListener {
 		Date date = new Date();
 		StageBegeleider stagebeg = new StageBegeleider("stage", "begeleider", "yahoo@gmail.com");
 		Leerling u = new Leerling("123", "123", "123@gmail.com", "leerling1", "Student", date, "V1IE", stagebeg.getEmail() );	
-		StageBedrijf bedrijf1 = new StageBedrijf("bedrijf1", "123","bedrijf@gmail.com", "utrecht", "123456");
+		StageBedrijf bedrijf = new StageBedrijf("bedrijf1", "123","bedrijf@gmail.com", "utrecht", "123456");
 		StageOpleider opleider = new StageOpleider("jopie");
-		Stage stage = new Stage(1, u.getUsername(), stagebeg.getEmail(), opleider.getNaam(), bedrijf1.getUsername(), date, date);
+		Stage stage = new Stage(1, u.getUsername(), stagebeg.getEmail(), opleider.getNaam(), bedrijf.getUsername(), date, date);
 		Docent d = new Docent("docent", "pass", "email@gmail.com");
 		
+		
+		
+		// DUMMY DATA
+		StageBegeleider stagebeg1 = new StageBegeleider("Frans", "123", "stagebeg1@gmail.com");
+		StageBegeleider stagebeg2 = new StageBegeleider("Leon", "123", "stagebeg2@gmail.com");
+		StageBegeleider stagebeg3 = new StageBegeleider("Gerard", "123", "stagebeg3@gmail.com");
+		StageBegeleider stagebeg4 = new StageBegeleider("Ton", "123", "stagebeg4@gmail.com");
+
+		
+		
+		Leerling l1 = new Leerling("l1@gmail.com", "123", "l1@gmail.com", "Thomas", "de Jong", date, "V1IE", stagebeg1.getEmail() );
+		Leerling l2 = new Leerling("l2@gmail.com", "123", "l2@gmail.com", "Gijs", "de Boer", date, "V1IE", stagebeg1.getEmail() );
+		Leerling l3 = new Leerling("l3@gmail.com", "123", "l3@gmail.com", "Ahmed", "Ali", date, "V1IE", stagebeg1.getEmail() );
+		Leerling l4 = new Leerling("l4@gmail.com", "123", "l4@gmail.com", "Tjan", "Man", date, "V1IE", stagebeg2.getEmail() );
+		Leerling l5 = new Leerling("l5@gmail.com", "123", "l5@gmail.com", "Frank", "Bakker", date, "V1IE", stagebeg2.getEmail() );
+		Leerling l6 = new Leerling("l6@gmail.com", "123", "l6@gmail.com", "Willem", "de Jong", date, "V1IE", stagebeg3.getEmail() );
+		Leerling l7 = new Leerling("l7@gmail.com", "123", "l7@gmail.com", "Phiel", "Bruinsma", date, "V1IE", stagebeg3.getEmail() );
+		Leerling l8 = new Leerling("l8@gmail.com", "123", "l8@gmail.com", "Brian", "Github", date, "V1IE", stagebeg4.getEmail() );
+
+		
+		StageBedrijf bedrijf1 = new StageBedrijf("bedrijf1", "123","bedrijf1@gmail.com", "utrecht", "543646");
+		StageBedrijf bedrijf2 = new StageBedrijf("bedrijf2", "123","bedrijf2@gmail.com", "utrecht", "453533");
+		StageBedrijf bedrijf3 = new StageBedrijf("bedrijf3", "123","bedrijf3@gmail.com", "utrecht", "123456");
+
+		
+		
+		StageOpleider opleider1 = new StageOpleider("Fred");
+		StageOpleider opleider2 = new StageOpleider("Bruce");
+		StageOpleider opleider3 = new StageOpleider("Bert");
+		StageOpleider opleider4 = new StageOpleider("Guus");
+
+		Docent d1 = new Docent("Petra", "123", "d1@gmail.com");
+		Docent d2 = new Docent("Alex", "123", "d2@gmail.com");
+		Docent d3 = new Docent("Patrick", "123", "d3@gmail.com");
+
 		User u1 = new User("beheerder", "wachtwoord", "123@gmail.com");
+		
+		
+		
+Objectify ofy = ObjectifyService.begin();
+		
+		ObjectifyService.register(Docent.class);
+		ObjectifyService.register(Beoordeling.class);
+		ObjectifyService.register(Competentie.class);
+		ObjectifyService.register(StageOpleider.class);
+		ObjectifyService.register(StageBegeleider.class);
+		ObjectifyService.register(StageBedrijf.class);
+		ObjectifyService.register(Stage.class);
+		ObjectifyService.register(Stelling.class);
+		ObjectifyService.register(StellingBeoordeeld.class);
+		ObjectifyService.register(Leerling.class);
+		ObjectifyService.register(User.class);
+		
+		ofy.put(l1);
+		ofy.put(l2);
+		ofy.put(l3);
+		ofy.put(l4);
+		ofy.put(l5);
+		ofy.put(l6);
+		ofy.put(l7);
+		ofy.put(l8);
+		ofy.put(stagebeg1);
+		ofy.put(stagebeg2);
+		ofy.put(stagebeg3);
+		ofy.put(stagebeg4);
+		ofy.put(bedrijf1);
+		ofy.put(bedrijf2);
+		ofy.put(bedrijf3);
+		ofy.put(opleider1);
+		ofy.put(opleider2);
+		ofy.put(opleider3);
+		ofy.put(opleider4);
+		ofy.put(d1);
+		ofy.put(d2);
+		ofy.put(d3);
+
+
+// END DUMMY DATA
+		
+		
 		
 		
 		
@@ -161,19 +240,7 @@ public class UserContextListener implements ServletContextListener {
 		allStages.add(stage);
 		sce.getServletContext().setAttribute("stages", allStages);*/
 		// alle classes worden geregistreerd
-		Objectify ofy = ObjectifyService.begin();
 		
-		ObjectifyService.register(Docent.class);
-		ObjectifyService.register(Beoordeling.class);
-		ObjectifyService.register(Competentie.class);
-		ObjectifyService.register(StageOpleider.class);
-		ObjectifyService.register(StageBegeleider.class);
-		ObjectifyService.register(StageBedrijf.class);
-		ObjectifyService.register(Stage.class);
-		ObjectifyService.register(Stelling.class);
-		ObjectifyService.register(StellingBeoordeeld.class);
-		ObjectifyService.register(Leerling.class);
-		ObjectifyService.register(User.class);
 		//ofy.put(u1);
 		
 		

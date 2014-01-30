@@ -74,7 +74,7 @@
 				    						if(i == s.getUniekID()){
 				    					
 				    					if(s.getDeStage() == stage.getId()){
-				    						
+				    						if(s.getIDBeoordeling().equals(beoordeling.getIDBeoordeling())){
 				    						for(Stelling stel : stelling.getAllStellingen()){
 				    							if(stel.getUniekID() == s.getUniekID()){
 				    								for(Competentie c : cod.getAllCompetenties()){
@@ -82,7 +82,7 @@
 		    										out.println("['"+stel.getDeStelling() +"', " + s.getDeWaardeStagebedrijf() + " , '" + s.getDeWaardeStagebedrijf() + "'," + s.getDeWaardeLeerling() + ", '"+ s.getDeWaardeLeerling() + "','" + c.getTitel() + "','"+ stage.getId()+"','"+beoordeling.getDatumLeerling()+"'],"); 
 				    	        	    				}
 				    	        	    				}
-		    									}
+		    									}}
 		    					
 		    								}
 				    					}
@@ -350,26 +350,27 @@
 				                      }
 				                      if (sta.getDeLeerling().equals(le2.getUsername())) { //zoekt bijbehorende stage
 				                    	  if (be.getDatumLeerling() != null && be.getDatumBedrijf() != null) { 
+
 					                          for (StellingBeoordeeld stelb: sb.getAllStellingenBeoordeeld()) { //loop door alle stellingenbeoordeeld
-											  
+
 					                              if (stelb.getDeStage() == sta.getId()) {
-					                            	  if (be.getDatumLeerling() != null && be.getDatumBedrijf() != null) {
 					                                  for (Stelling stel: stelling.getAllStellingen()) {
 					                                      if (stel.getUniekID() == stelb.getUniekID()) {
 					                                          for (Competentie c: cod.getAllCompetenties()) {
 					                                              if (stel.getEigenId() == c.getEigenId()) {
-					                                            	  
+					                                            	  if(stelb.getIDBeoordeling().equals(be.getIDBeoordeling())){
 					                                            	  stellingen.add(stelb.getDeWaardeLeerling());
 					                                                  StellingBeoordeeldTotaalLeerling = StellingBeoordeeldTotaalLeerling + Integer.parseInt(stelb.getDeWaardeLeerling());
 					                                                  StellingBeoordeeldTotaalBedrijf = StellingBeoordeeldTotaalBedrijf + Integer.parseInt(stelb.getDeWaardeStagebedrijf());
-					                                                  
+					                                            	  System.out.println(StellingBeoordeeldTotaalLeerling);
+					                                            	  }
 					                                              }
 					                                          }
 					                                      }
 	
 					                                  }
 	
-					                              }
+					                              
 				                              }
 
 				                          }
@@ -381,7 +382,7 @@
 				                  out.println("<h2> Totaal Bedrijf " +  StellingBeoordeeldTotaalBedrijf +"</h2>");
 				                  out.println("<h2>Totaal Leerling " + StellingBeoordeeldTotaalLeerling +"</h2>");
 				                  out.println("<h1>Gemiddelde "+ GemiddeldBeoordeling +"</h1>");
-				                  
+
 								  out.println("</div>");
 				                  }
 				              }
