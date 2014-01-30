@@ -29,7 +29,7 @@
 				<h4 id="welkomtekst">Dit is het beoordelings-systeem van Accent Nijkerk. </br> 
 									 Aan de linker kant van het scherm vindt u het menu.</br>
 				</h4>
-			<div id="logo"><img src="http://www.accentnijkerk.nl/images/site9/logo.jpg" alt=""></div>
+			<div id="logo"><img src="../images/logo.png"></div>
 			</div>
 		</article>
 		<!-- end of styles article -->
