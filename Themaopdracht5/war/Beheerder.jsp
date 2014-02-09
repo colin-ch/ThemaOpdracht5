@@ -51,7 +51,8 @@
 				<button onclick="window.location.href='StageAanmaken.jsp';">Stage aanmaken</button>
 				<p>Wachtwoord</p>
 				<button onclick="window.location.href='WachtwoordWijzigen.jsp';">Wachtwoord wijzigen</button>
-			</div>
+				<%@ include file="uptime.html"%></div>
+			</div><div>
 		</article>
 		<!-- end of styles article -->
 		<div class="spacer"></div>
