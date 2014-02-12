@@ -54,6 +54,16 @@
 		<servlet-name>WachtwoordWijzigenServlet</servlet-name>
 		<url-pattern>/WachtwoordWijzigen.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>KPIStagebegeleiderServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.KPIStagebegeleiderServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>KPIStagebegeleiderServlet</servlet-name>
+		<url-pattern>/KPIStagebegeleider.do</url-pattern>
+	</servlet-mapping>
 
 	
 	<servlet>
