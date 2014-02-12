@@ -35,7 +35,7 @@
       
       function drawVisualization() {
         var data = google.visualization.arrayToDataTable([
-          ['Stagebegeleider', 'competentieWaarde1','competentieWaarde2',  'competentieWaarde3', 'competentieWaarde4',  'competentieWaarde5',  'competentieWaarde6',  'competentieWaarde7', 'competentieWaarde8', 'competentieWaarde9', 'competentieWaarde10'],
+          ['Stagebegeleider', 'Samenwerken en overleggen','Aandacht en begrip tonen',  'Klantvriendelijk en dienstverlenend', 'Instructies en procedures opvolgen',  'Plannen en organiseren',  'Kwaliteit en vakdeskundigheid',  'Veilig werken', 'Met druk en tegenslag omgaan', 'Omgaan met verandering en aanpassen', 'Leren'],
           <% 
          
 		    Objectify ofy;
