@@ -19,27 +19,12 @@
 
       google.load("visualization", "1.0", {packages:["controls"]});
       google.setOnLoadCallback(drawDashboard);
-      //google chart wordt geïnitialiseerd
       
       
       function drawDashboard() {
         var data = new google.visualization.DataTable();
           data.addColumn('string', 'Stage bedrijf');
-          data.addColumn('number', 'Gemiddelde competentie1');
-          data.addColumn('number', 'Gemiddelde competentie2');
-          data.addColumn('number', 'Gemiddelde competentie3');
-          data.addColumn('number', 'Gemiddelde competentie4');
-          data.addColumn('number', 'Gemiddelde competentie5');
-          data.addColumn('number', 'Gemiddelde competentie6');
-          data.addColumn('number', 'Gemiddelde competentie7');
-          data.addColumn('number', 'Gemiddelde competentie8');
-          data.addColumn('number', 'Gemiddelde competentie9');
-          data.addColumn('number', 'Gemiddelde competentie10');
-          
-                
-		  data.addRows([
-       <% 
-	      
+          <% 
           Objectify ofy;
 		    ofy = ObjectifyService.begin();
 		    StellingBeoordeeldOfyDAOImpl sb = new StellingBeoordeeldOfyDAOImpl();
@@ -49,7 +34,14 @@
 		    BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
 		    CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		    StageBedrijfOfyDAOImpl sbod = new StageBedrijfOfyDAOImpl();
-		  
+		    
+		    for(Competentie co : cod.getAllCompetenties()){
+		    	out.println("data.addColumn('number', '"+co.getTitel()+"');");
+		    }
+          %>
+                
+		  data.addRows([
+       <% 	  
 		    
 		    for (StageBedrijf sbe : sbod.getAllStageBedrijven()) {
 		    	int competentie1 = 0;
@@ -84,43 +76,46 @@
 	    									if(ste.getEigenId() == co.getEigenId()){
 	    										int i = Integer.parseInt(s.getDeWaardeStagebedrijf());
 	    										if(co.getEigenId() == 1){
-	    											competentie1 =+ i;
+	    											competentie1 = competentie1 + i;
 	    											teller1++;
 	    										}
 	    										if(co.getEigenId() == 2){
-	    											competentie2 =+ i;
+	    											competentie2 = competentie2 + i;
 	    											teller2++;
+	    											
 	    										}
 	    										if(co.getEigenId() == 3){
-	    											competentie3 =+ i;
+	    											competentie3 = competentie3 + i;
 	    											teller3++;
 	    										}
+	    										System.out.println(teller3 + " " + competentie3);
+
 	    										if(co.getEigenId() == 4){
-	    											competentie4 =+ i;
+	    											competentie4 = competentie4 + i;
 	    											teller4++;
 	    										}
 	    										if(co.getEigenId() == 5){
-	    											competentie5 =+ i;
+	    											competentie5 = competentie5 + i;
 	    											teller5++;
 	    										}
 	    										if(co.getEigenId() == 6){
-	    											competentie6 =+ i;
+	    											competentie6 = competentie6 + i;
 	    											teller6++;
 	    										}
 	    										if(co.getEigenId() == 7){
-	    											competentie7 =+ i;
+	    											competentie7 = competentie7 + i;
 	    											teller7++;
 	    										}
 	    										if(co.getEigenId() == 8){
-	    											competentie8 =+ i;
+	    											competentie8 = competentie8 + i;
 	    											teller8++;
 	    										}
 	    										if(co.getEigenId() == 9){
-	    											competentie9 =+ i;
+	    											competentie9 = competentie9 + i;
 	    											teller9++;
 	    										}
 	    										if(co.getEigenId() == 10){
-	    											competentie10 =+ i;
+	    											competentie10 = competentie10 + i;
 	    											teller10++;
 	    										}
 	    									}
@@ -131,67 +126,81 @@
 	    				}
 	    			}
     			}
-	    		int gemiddelde1 = 0;
-	    		int gemiddelde2 = 0;
-	    		int gemiddelde3 = 0;
-	    		int gemiddelde4 = 0;
-	    		int gemiddelde5 = 0;
-	    		int gemiddelde6 = 0;
-	    		int gemiddelde7 = 0;
-	    		int gemiddelde8 = 0;
-	    		int gemiddelde9 = 0;
-	    		int gemiddelde10 = 0;
+	    		int gemiddelde1 = 3;
+	    		int gemiddelde2 = 2;
+	    		int gemiddelde3 = 4;
+	    		int gemiddelde4 = 1;
+	    		int gemiddelde5 = 2;
+	    		int gemiddelde6 = 4;
+	    		int gemiddelde7 = 2;
+	    		int gemiddelde8 = 3;
+	    		int gemiddelde9 = 1;
+	    		int gemiddelde10 = 4;
 	    		
-	    		if(teller1 == 0){}
+	    		if(teller1 == 0){
+	    			gemiddelde1 = 0;
+	    		}
 	    		else{
 	    			gemiddelde1 = competentie1/teller1;
 	    		}
-	    		if(teller2 == 0){}
+	    		if(teller2 == 0){
+	    			gemiddelde2 = 0;
+	    		}
 	    		else{
 	    			gemiddelde2 = competentie2/teller2;
 	    		}
-	    		if(teller2 == 0){}
-	    		else{
-	    			gemiddelde2 = competentie2/teller2;
+	    		if(teller3 == 0){
+	    			gemiddelde3 = 0;
 	    		}
-	    		if(teller3 == 0){}
 	    		else{
 	    			gemiddelde3 = competentie3/teller3;
 	    		}
-	    		if(teller4 == 0){}
+	    		System.out.println(gemiddelde3 +" " + teller3 + " " + competentie3);
+
+	    		if(teller4 == 0){
+	    			gemiddelde4 = 0;
+	    		}
 	    		else{
 	    			gemiddelde4 = competentie4/teller4;
 	    		}
-	    		if(teller5 == 0){}
+	    		if(teller5 == 0){
+	    			gemiddelde5 = 0;
+	    		}
 	    		else{
 	    			gemiddelde5 = competentie5/teller5;
 	    		}
-	    		if(teller6 == 0){}
-	    		else{
-	    			gemiddelde6 = competentie1/teller6;
+	    		if(teller6 == 0){
+	    			gemiddelde6 = 0;
 	    		}
-	    		if(teller7 == 0){}
 	    		else{
-	    			gemiddelde7 = competentie1/teller7;
+	    			gemiddelde6 = competentie6/teller6;
 	    		}
-	    		if(teller8 == 0){}
+	    		if(teller7 == 0){
+	    			gemiddelde7 = 0;
+	    		}
+	    		else{
+	    			gemiddelde7 = competentie7/teller7;
+	    		}
+	    		if(teller8 == 0){
+	    			gemiddelde8 = 0;
+	    		}
 	    		else{
 	    			gemiddelde8 = competentie8/teller8;
 	    		}
-	    		if(teller9 == 0){}
+	    		if(teller9 == 0){
+	    			gemiddelde9 = 0;
+	    		}
 	    		else{
 	    			gemiddelde9 = competentie9/teller9;
 	    		}
-	    		if(teller10 == 0){}
+	    		if(teller10 == 0){
+	    			gemiddelde10 = 0;
+	    		}
 	    		else{
 	    			gemiddelde10 = competentie10/teller10;
 	    		}
 	    		
 	    		out.println("['"+sbe.getUsername()+"', "+gemiddelde1+", "+gemiddelde2+", "+gemiddelde3+", "+gemiddelde4+", "+gemiddelde5+", "+gemiddelde6+", "+gemiddelde7+", "+gemiddelde8+", "+gemiddelde9+", "+gemiddelde10+"],");
-
-	    		out.println();
-	    		
-	    		
     		}
 	    
 		    
@@ -199,7 +208,6 @@
         ['', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         
         ]);
-        //opties voor de google chart
         var chart = new google.visualization.ChartWrapper({
         	'chartType' : 'BarChart',
         	'containerId' : 'chart1',
@@ -211,6 +219,7 @@
               'allowMultiple': false
             }
           }
+          
         });
         
         var categoryPicker = new google.visualization.ControlWrapper({
@@ -221,7 +230,7 @@
             'ui': {
             'labelStacking': 'vertical',
               'allowTyping': true,
-              'allowMultiple': false
+              'allowMultiple': true
             }
           }
         });
@@ -231,4 +240,5 @@
         </head>
         <div id="dashboard"></div>
         <div id="control1"></div>
+        <div id="chart1" style="height: 1400px;" ></div>
         </html>
