@@ -24,21 +24,7 @@
       function drawDashboard() {
         var data = new google.visualization.DataTable();
           data.addColumn('string', 'Stage bedrijf');
-          data.addColumn('number', 'Gemiddelde competentie1');
-          data.addColumn('number', 'Gemiddelde competentie2');
-          data.addColumn('number', 'Gemiddelde competentie3');
-          data.addColumn('number', 'Gemiddelde competentie4');
-          data.addColumn('number', 'Gemiddelde competentie5');
-          data.addColumn('number', 'Gemiddelde competentie6');
-          data.addColumn('number', 'Gemiddelde competentie7');
-          data.addColumn('number', 'Gemiddelde competentie8');
-          data.addColumn('number', 'Gemiddelde competentie9');
-          data.addColumn('number', 'Gemiddelde competentie10');
-          
-                
-		  data.addRows([
-       <% 
-	      
+          <% 
           Objectify ofy;
 		    ofy = ObjectifyService.begin();
 		    StellingBeoordeeldOfyDAOImpl sb = new StellingBeoordeeldOfyDAOImpl();
@@ -48,7 +34,14 @@
 		    BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
 		    CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		    StageBedrijfOfyDAOImpl sbod = new StageBedrijfOfyDAOImpl();
-		  
+		    
+		    for(Competentie co : cod.getAllCompetenties()){
+		    	out.println("data.addColumn('number', '"+co.getTitel()+"');");
+		    }
+          %>
+                
+		  data.addRows([
+       <% 	  
 		    
 		    for (StageBedrijf sbe : sbod.getAllStageBedrijven()) {
 		    	int competentie1 = 0;
@@ -92,7 +85,7 @@
 	    											
 	    										}
 	    										if(co.getEigenId() == 3){
-	    											competentie3 = competentie3 + i+ i;
+	    											competentie3 = competentie3 + i;
 	    											teller3++;
 	    										}
 	    										System.out.println(teller3 + " " + competentie3);
@@ -208,10 +201,6 @@
 	    		}
 	    		
 	    		out.println("['"+sbe.getUsername()+"', "+gemiddelde1+", "+gemiddelde2+", "+gemiddelde3+", "+gemiddelde4+", "+gemiddelde5+", "+gemiddelde6+", "+gemiddelde7+", "+gemiddelde8+", "+gemiddelde9+", "+gemiddelde10+"],");
-
-	    		out.println();
-	    		
-	    		
     		}
 	    
 		    
@@ -220,7 +209,7 @@
         
         ]);
         var chart = new google.visualization.ChartWrapper({
-        	'chartType' : 'ColumnChart',
+        	'chartType' : 'BarChart',
         	'containerId' : 'chart1',
           'options': {
             'filterColumnLabel': 'Stagebedrijven',
@@ -241,7 +230,7 @@
             'ui': {
             'labelStacking': 'vertical',
               'allowTyping': true,
-              'allowMultiple': false
+              'allowMultiple': true
             }
           }
         });
@@ -251,5 +240,5 @@
         </head>
         <div id="dashboard"></div>
         <div id="control1"></div>
-        <div id="chart1"></div>
+        <div id="chart1" style="height: 1400px;" ></div>
         </html>
