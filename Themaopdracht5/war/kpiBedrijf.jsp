@@ -88,7 +88,6 @@
 	    											competentie3 = competentie3 + i;
 	    											teller3++;
 	    										}
-	    										System.out.println(teller3 + " " + competentie3);
 
 	    										if(co.getEigenId() == 4){
 	    											competentie4 = competentie4 + i;
@@ -155,8 +154,6 @@
 	    		else{
 	    			gemiddelde3 = competentie3/teller3;
 	    		}
-	    		System.out.println(gemiddelde3 +" " + teller3 + " " + competentie3);
-
 	    		if(teller4 == 0){
 	    			gemiddelde4 = 0;
 	    		}
