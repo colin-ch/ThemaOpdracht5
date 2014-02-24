@@ -2,10 +2,29 @@
 <html lang="en">
 
 <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8" />
-<title>Overzicht competenties stagebedrijven</title>
+<title>KPI stagebdrijven</title>
+<%@ include file="imports.jsp"%>
+</head>
 
-<%@ page import="java.util.*"%>
+<body>
+	<%@ include file="header.jsp"%>
+	<section id="main" class="column"
+		style="min-width: 1110px; min-height: 600px !important;">
+		
+		<% 
+		Object msgs=request.getAttribute( "msgs");
+		if (msgs !=null) { 
+			out.println("<h4 class='alert_success'>"+msgs+"</h4>"); 
+			}			
+			%>
+		<article class="module width_full">
+			<header>
+				<h3>Beheerders pagina</h3>
+			</header>
+			<div class="module_content">
+			<%@ page import="java.util.*"%>
 <%@ page import="javax.servlet.ServletContextEvent"%>
 <%@ page import="com.appspot.Accent.model.*"%>
 <%@ page import="com.appspot.Accent.model.service.*"%>
@@ -234,8 +253,17 @@
         new google.visualization.Dashboard(document.getElementById('dashboard')).bind([categoryPicker], [chart]).draw(data);
       }
         </script>
-        </head>
         <div id="dashboard"></div>
         <div id="control1"></div>
         <div id="chart1" style="height: 1400px;" ></div>
-        </html>
+			
+			
+			</div>
+		</article>
+		<!-- end of styles article -->
+		<div class="spacer"></div>
+	</section>
+	</div>
+</body>
+
+</html>
