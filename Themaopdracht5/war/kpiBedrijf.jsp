@@ -4,27 +4,10 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8" />
-<title>KPI stagebdrijven</title>
+<title>KPI stagebedrijven</title>
 <%@ include file="imports.jsp"%>
-</head>
 
-<body>
-	<%@ include file="header.jsp"%>
-	<section id="main" class="column"
-		style="min-width: 1110px; min-height: 600px !important;">
-		
-		<% 
-		Object msgs=request.getAttribute( "msgs");
-		if (msgs !=null) { 
-			out.println("<h4 class='alert_success'>"+msgs+"</h4>"); 
-			}			
-			%>
-		<article class="module width_full">
-			<header>
-				<h3>Beheerders pagina</h3>
-			</header>
-			<div class="module_content">
-			<%@ page import="java.util.*"%>
+
 <%@ page import="javax.servlet.ServletContextEvent"%>
 <%@ page import="com.appspot.Accent.model.*"%>
 <%@ page import="com.appspot.Accent.model.service.*"%>
@@ -35,6 +18,11 @@
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
+<% String selectie = "all";
+ if(request.getAttribute("competentie") != null){
+   selectie = ""+ request.getAttribute("competentie");
+     }
+ %>
 
       google.load("visualization", "1.0", {packages:["controls"]});
       google.setOnLoadCallback(drawDashboard);
@@ -53,8 +41,12 @@
 		    BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
 		    CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
 		    StageBedrijfOfyDAOImpl sbod = new StageBedrijfOfyDAOImpl();
+		    ArrayList<Competentie>competenties = new ArrayList<Competentie>();
+		    for(Competentie c : cod.getAllCompetenties()){
+		    	competenties.add(c);
+		    }
 		    
-		    for(Competentie co : cod.getAllCompetenties()){
+		    for(Competentie co : competenties){
 		    	out.println("data.addColumn('number', '"+co.getTitel()+"');");
 		    }
           %>
@@ -91,7 +83,7 @@
 	    					if(s.getDeStage() == stage.getId()){
 	    						for(Stelling ste : stelling.getAllStellingen()){
 	    							if(s.getUniekID() == ste.getUniekID()){
-	    								for(Competentie co : cod.getAllCompetenties()){
+	    								for(Competentie co : competenties){
 	    									if(ste.getEigenId() == co.getEigenId()){
 	    										int i = Integer.parseInt(s.getDeWaardeStagebedrijf());
 	    										if(co.getEigenId() == 1){
@@ -238,6 +230,7 @@
           
         });
         
+        
         var categoryPicker = new google.visualization.ControlWrapper({
           'controlType': 'CategoryFilter',
           'containerId': 'control1',
@@ -250,12 +243,55 @@
             }
           }
         });
-        new google.visualization.Dashboard(document.getElementById('dashboard')).bind([categoryPicker], [chart]).draw(data);
+        
+               var view = new google.visualization.DataView(data);
+       view.setColumns([ <%if(selectie.equals("all")){out.println("0,1, 2,3,4,5,6,7,8,9,10");}if(selectie.equals("1")){out.println("0,1");}if(selectie.equals("2")){out.println("0, 2");}if(selectie.equals("3")){out.println("0,3");} if(selectie.equals("4")){out.println("0,4");} if(selectie.equals("5")){out.println("0,5");} if(selectie.equals("6")){out.println("0,6");}if(selectie.equals("7")){out.println("0,7");} if(selectie.equals("9")){out.println("0,8");} if(selectie.equals("9")){out.println("0,9");}if(selectie.equals("10")){out.println("0,10");} %>]
+  );
+        
+        new google.visualization.Dashboard(document.getElementById('dashboard')).bind([categoryPicker], [chart]).draw(view, data);
       }
         </script>
+
+
+
+
+</head>
+
+<body>
+	<%@ include file="header.jsp"%>
+	<section id="main" class="column"
+		style="min-width: 1110px; min-height: 600px !important;">
+		
+		<% 
+		Object msgs=request.getAttribute( "msgs");
+		if (msgs !=null) { 
+			out.println("<h4 class='alert_success'>"+msgs+"</h4>"); 
+			}			
+			%>
+		<article class="module width_full">
+			<header>
+			<form action="kpibedrijf.do" method="get">
+				<select name="select" onChange="this.form.submit()" id="select">
+				<option value="all">Alle competenties</option>
+				<%
+				int teller = 0;
+				for(Competentie c : competenties){
+					teller++;
+					out.println("<option value="+ teller+">"+ c.getTitel() +"</option>");
+				}
+				%>
+				
+				</select>
+				</form>
+			</header>
+			<div class="module_content">
+			<div id="control1"></div>
+			
+			<%@ page import="java.util.*"%>
+
         <div id="dashboard"></div>
-        <div id="control1"></div>
-        <div id="chart1" style="height: 1400px;" ></div>
+        
+        <div id="chart1" style="height: 1000px;" ></div>
 			
 			
 			</div>
