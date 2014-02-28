@@ -102,46 +102,54 @@
 							if(comp.getEigenId() ==  unid){
 								if(comp.getEigenId() == stel.getEigenId()){
 									
+									int bedrijf = 0;
+									int leerling = 0;
 									
+									if(sb.getDeWaardeStagebedrijf()!= null){
+										bedrijf = Integer.parseInt(sb.getDeWaardeStagebedrijf());
+									}
+									if(sb.getDeWaardeLeerling() != null){
+										leerling = Integer.parseInt(sb.getDeWaardeLeerling());
+									}
 									
 									if(comp.getEigenId() == 1){
 										teller1 = teller1 +  1;
-										competentieWaarde1 = competentieWaarde1 + (Integer.parseInt(sb.getDeWaardeStagebedrijf()) + Integer.parseInt(sb.getDeWaardeLeerling())) ;
+										competentieWaarde1 = competentieWaarde1 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 2){
 										teller2 = teller2 +  1;
-										competentieWaarde2 =competentieWaarde2 + (Integer.parseInt(sb.getDeWaardeStagebedrijf()) + Integer.parseInt(sb.getDeWaardeLeerling())) ;
+										competentieWaarde2 =competentieWaarde2 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 3){
 										teller3 =+  1;
-										competentieWaarde3 = competentieWaarde3 + (Integer.parseInt(sb.getDeWaardeStagebedrijf()) + Integer.parseInt(sb.getDeWaardeLeerling())) ;
+										competentieWaarde3 = competentieWaarde3 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 4){
 										teller4 =+  1;
-										competentieWaarde4 = competentieWaarde4 + (Integer.parseInt(sb.getDeWaardeStagebedrijf()) + Integer.parseInt(sb.getDeWaardeLeerling())) ;
+										competentieWaarde4 = competentieWaarde4 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 5){
 										teller5 =+  1;
-										competentieWaarde5 =competentieWaarde5 + (Integer.parseInt(sb.getDeWaardeStagebedrijf()) + Integer.parseInt(sb.getDeWaardeLeerling())) ;
+										competentieWaarde5 =competentieWaarde5 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 6){
 										teller6 =+  1;
-										competentieWaarde6 =competentieWaarde6 + (Integer.parseInt(sb.getDeWaardeStagebedrijf()) + Integer.parseInt(sb.getDeWaardeLeerling())) ;
+										competentieWaarde6 =competentieWaarde6 + (bedrijf + leerling) ;
 									}if(comp.getEigenId() == 7){
 										teller7 =+  1;
-										competentieWaarde7 =competentieWaarde7 + (Integer.parseInt(sb.getDeWaardeStagebedrijf()) + Integer.parseInt(sb.getDeWaardeLeerling())) ;
+										competentieWaarde7 =competentieWaarde7 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 8){
 										teller8 =+  1;
-										competentieWaarde8 =competentieWaarde8 + (Integer.parseInt(sb.getDeWaardeStagebedrijf()) + Integer.parseInt(sb.getDeWaardeLeerling())) ;
+										competentieWaarde8 =competentieWaarde8 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 9){
 										teller9 =+  1;
-										competentieWaarde9 =competentieWaarde9 + (Integer.parseInt(sb.getDeWaardeStagebedrijf()) + Integer.parseInt(sb.getDeWaardeLeerling())) ;
+										competentieWaarde9 =competentieWaarde9 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 10){
 										teller10 =+  1;
-										competentieWaarde10 =competentieWaarde10 + (Integer.parseInt(sb.getDeWaardeStagebedrijf()) + Integer.parseInt(sb.getDeWaardeLeerling())) ;
+										competentieWaarde10 =competentieWaarde10 + (bedrijf + leerling) ;
 									}
 									
 							}

@@ -85,7 +85,10 @@
 	    							if(s.getUniekID() == ste.getUniekID()){
 	    								for(Competentie co : competenties){
 	    									if(ste.getEigenId() == co.getEigenId()){
-	    										int i = Integer.parseInt(s.getDeWaardeStagebedrijf());
+	    										int i = 0;
+	    										if(s.getDeWaardeStagebedrijf() != null){
+	    											i = Integer.parseInt(s.getDeWaardeStagebedrijf());
+	    										}
 	    										if(co.getEigenId() == 1){
 	    											competentie1 = competentie1 + i;
 	    											teller1++;
@@ -272,7 +275,7 @@
 			<header>
 			<form action="kpibedrijf.do" method="get">
 				<select name="select" onChange="this.form.submit()" id="select">
-				<option value="all">Alle competenties</option>
+				<option value="all" selected>Alle competenties</option>
 				<%
 				int teller = 0;
 				for(Competentie c : competenties){

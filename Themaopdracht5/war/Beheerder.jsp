@@ -51,6 +51,10 @@
 				<button onclick="window.location.href='StageAanmaken.jsp';">Stage aanmaken</button>
 				<p>Wachtwoord</p>
 				<button onclick="window.location.href='WachtwoordWijzigen.jsp';">Wachtwoord wijzigen</button>
+				
+				<p>KPI's</p>
+				<button onclick="window.location.href='KPIStagebegeleider.jsp';">kpi stagebegeleiders</button><br/>
+				<button onclick="window.location.href='kpiBedrijf.jsp';">kpi stage bedrijven</button>
 				<%@ include file="uptime.html"%></div>
 			</div><div>
 		</article>
