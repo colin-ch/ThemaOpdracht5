@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 
 <%@page import="com.appspot.Accent.model.service.CompetentieOfyDAOImpl"%>
@@ -14,7 +12,6 @@
 <meta charset="utf-8" />
 <%@ include file="imports.jsp"%>
 <title>KPI Stagebegeleider</title>
-<link rel="stylesheet" type="text/css" href="Themaopdracht4.css">
 
              <%@ page import="com.googlecode.objectify.Objectify"%>
           <%@ page import="com.googlecode.objectify.ObjectifyService"%>  
