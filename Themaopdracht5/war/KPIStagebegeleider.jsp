@@ -85,8 +85,10 @@
 				
 				
 				for(Stage stage : stages){
+	
 					if(stage.getDeBegeleider().equals(begeleider.getEmail())){
 				for(Beoordeling be : beoordelingen){
+					
 					if(be.getStage() == stage.getId()){
 						for(StellingBeoordeeld sb : stellingenbeoordeeld){
 						if(be.getIDBeoordeling().equals(sb.getIDBeoordeling())){
@@ -117,34 +119,34 @@
 										competentieWaarde2 =competentieWaarde2 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 3){
-										teller3 =+  1;
+										teller3 =teller3+  1;
 										competentieWaarde3 = competentieWaarde3 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 4){
-										teller4 =+  1;
+										teller4 =teller4+  1;
 										competentieWaarde4 = competentieWaarde4 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 5){
-										teller5 =+  1;
+										teller5 = teller5 +  1;
 										competentieWaarde5 =competentieWaarde5 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 6){
-										teller6 =+  1;
+										teller6 = teller6 +  1;
 										competentieWaarde6 =competentieWaarde6 + (bedrijf + leerling) ;
 									}if(comp.getEigenId() == 7){
-										teller7 =+  1;
+										teller7 = teller7 +  1;
 										competentieWaarde7 =competentieWaarde7 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 8){
-										teller8 =+  1;
+										teller8 = teller8 +  1;
 										competentieWaarde8 =competentieWaarde8 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 9){
-										teller9 =+  1;
+										teller9 = teller9 +  1;
 										competentieWaarde9 =competentieWaarde9 + (bedrijf + leerling) ;
 									}
 									if(comp.getEigenId() == 10){
-										teller10 =+  1;
+										teller10 = teller10 +  1;
 										competentieWaarde10 =competentieWaarde10 + (bedrijf + leerling) ;
 									}
 									
