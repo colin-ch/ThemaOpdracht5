@@ -26,7 +26,6 @@
    selectie = ""+ request.getAttribute("competentie");
      }
  %>
-    google.load('visualization', '1.1', {packages: ['controls']});
     google.load("visualization", "1", {packages:["corechart"]});
     
       
