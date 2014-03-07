@@ -74,6 +74,19 @@
 		<servlet-name>kpiBedrijfServlet</servlet-name>
 		<url-pattern>/kpibedrijf.do</url-pattern>
 	</servlet-mapping>
+	
+	
+		<servlet>
+		<servlet-name>kpiAccentServlet</servlet-name>
+		<servlet-class>com.appspot.Accent.controller.kpiAccentServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>kpiAccentServlet</servlet-name>
+		<url-pattern>/kpiaccent.do</url-pattern>
+	</servlet-mapping>
+	
+	
 
 	
 	<servlet>
