@@ -54,7 +54,9 @@
 				
 				<p>KPI's</p>
 				<button onclick="window.location.href='KPIStagebegeleider.jsp';">kpi stagebegeleiders</button><br/>
-				<button onclick="window.location.href='kpiBedrijf.jsp';">kpi stage bedrijven</button>
+				<button onclick="window.location.href='kpiBedrijf.jsp';">kpi stage bedrijven</button><br/>
+				<button onclick="window.location.href='kpiAccent.jsp';">kpi Accent</button><br/>
+				<button onclick="window.location.href='kpiAccent-test.jsp';">kpi Accent test</button><br/>
 				<%@ include file="uptime.html"%></div>
 			</div><div>
 		</article>

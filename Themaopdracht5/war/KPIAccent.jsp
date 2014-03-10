@@ -7,269 +7,101 @@
 <title>KPI Accent Nijkerk</title>
 <%@ include file="imports.jsp"%>
 
-<%@ page import="java.util.*"%>
-<%@ page import="javax.servlet.ServletContextEvent"%>
-<%@ page import="com.appspot.Accent.model.*"%>
-<%@ page import="com.appspot.Accent.model.service.*"%>
-<%@ page import="com.appspot.Accent.model.service.StageOfyDAOImpl"%>
 
-<%@ page import="com.googlecode.objectify.Objectify"%>
-          <%@ page import="com.googlecode.objectify.ObjectifyService"%>  
-
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
-<% String selectie = "all";
- if(request.getAttribute("competentie") != null){
-   selectie = ""+ request.getAttribute("competentie");
-     }
- %>
-
-      google.load("visualization", "1.0", {packages:["controls"]});
-      google.setOnLoadCallback(drawDashboard);
-      
-      
-      function drawDashboard() {
-        var data = new google.visualization.DataTable();
-          data.addColumn('string', 'Stage bedrijf');
-          <% 
-          Objectify ofy;
-		    ofy = ObjectifyService.begin();
-		    StellingBeoordeeldOfyDAOImpl sb = new StellingBeoordeeldOfyDAOImpl();
-		    LeerlingOfyDAOImpl l = new LeerlingOfyDAOImpl();
-		    StageOfyDAOImpl st = new StageOfyDAOImpl();
-		    StellingOfyDAOImpl stelling = new StellingOfyDAOImpl();
-		    BeoordelingOfyDAOImpl bod = new BeoordelingOfyDAOImpl();
-		    CompetentieOfyDAOImpl cod = new CompetentieOfyDAOImpl();
-		    StageBedrijfOfyDAOImpl sbod = new StageBedrijfOfyDAOImpl();
-		    ArrayList<Competentie>competenties = new ArrayList<Competentie>();
-		    for(Competentie c : cod.getAllCompetenties()){
-		    	competenties.add(c);
-		    }
-		    
-		    for(Competentie co : competenties){
-		    	out.println("data.addColumn('"+co.getTitel()+"' + 'number');");
-		    }
-          %>
-                
-		  data.addRows([
-       <% 	  
-		    
-       	
-		    for (StageBedrijf sbe : sbod.getAllStageBedrijven()) {
-		    	
-		    	String titel1 = "";
-		    	String titel2 = "";
-		    	String titel3 = "";
-		    	String titel4 = "";
-		    	String titel5 = "";
-		    	String titel6 = "";
-		    	String titel7 = "";
-		    	String titel8 = "";
-		    	String titel9 = "";
-		    	String titel10 = "";
-		    	
-		    	int competentie1 = 0;
-			    int competentie2 = 0;
-			    int competentie3 = 0;
-			    int competentie4 = 0;
-			    int competentie5 = 0;
-			    int competentie6 = 0;
-			    int competentie7 = 0;
-			    int competentie8 = 0;
-			    int competentie9 = 0;
-			    int competentie10 = 0;
-			    
-			    int teller1 = 0;
-			    int teller2 = 0;
-			    int teller3 = 0;
-			    int teller4 = 0;
-			    int teller5 = 0;
-			    int teller6 = 0;
-			    int teller7 = 0;
-			    int teller8 = 0;
-			    int teller9 = 0;
-			    int teller10 = 0;
-	    	
-			    /*Loop voor alle waardes
-			   for(Stage stage : st.getAllStages()){ 
-				   
-			   }
-				   */
-			  
-			    
-	    		for(Stage stage : st.getAllStages()){ //loop door alle stages
-	    				for (StellingBeoordeeld s : sb.getAllStellingenBeoordeeld()) {
-	    					if(s.getDeStage() == stage.getId()){
-	    						for(Stelling ste : stelling.getAllStellingen()){
-	    							if(s.getUniekID() == ste.getUniekID()){
-	    								for(Competentie co : competenties){
-	    									if(ste.getEigenId() == co.getEigenId()){
-	    										int i = 0;
-	    										if(s.getDeWaardeStagebedrijf() != null){
-	    											i = Integer.parseInt(s.getDeWaardeStagebedrijf());
-	    										}
-	    										if(co.getEigenId() == 1){
-	    											competentie1 = competentie1 + i;
-	    											titel1 = co.getTitel();
-	    											teller1++;
-	    										}
-	    										if(co.getEigenId() == 2){
-	    											competentie2 = competentie2 + i;
-	    											titel2 = co.getTitel();
-	    											teller2++;
-	    											
-	    										}
-	    										if(co.getEigenId() == 3){
-	    											competentie3 = competentie3 + i;
-	    											titel3 = co.getTitel();
-	    											teller3++;
-	    										}
-
-	    										if(co.getEigenId() == 4){
-	    											competentie4 = competentie4 + i;
-	    											titel4 = co.getTitel();
-	    											teller4++;
-	    										}
-	    										if(co.getEigenId() == 5){
-	    											competentie5 = competentie5 + i;
-	    											titel5 = co.getTitel();
-	    											teller5++;
-	    										}
-	    										if(co.getEigenId() == 6){
-	    											competentie6 = competentie6 + i;
-	    											titel6 = co.getTitel();
-	    											teller6++;
-	    										}
-	    										if(co.getEigenId() == 7){
-	    											competentie7 = competentie7 + i;
-	    											titel7 = co.getTitel();
-	    											teller7++;
-	    										}
-	    										if(co.getEigenId() == 8){
-	    											competentie8 = competentie8 + i;
-	    											titel8 = co.getTitel();
-	    											teller8++;
-	    										}
-	    										if(co.getEigenId() == 9){
-	    											competentie9 = competentie9 + i;
-	    											titel9 = co.getTitel();
-	    											teller9++;
-	    										}
-	    										if(co.getEigenId() == 10){
-	    											competentie10 = competentie10 + i;
-	    											titel10 = co.getTitel();
-	    											teller10++;
-	    										}
-	    									}
-	    								}
-	    							}
-	    						}
-	    					}
-	    				}
-	    			}
-		   		
-	    		int gemiddelde1 = 3;
-	    		int gemiddelde2 = 2;
-	    		int gemiddelde3 = 4;
-	    		int gemiddelde4 = 1;
-	    		int gemiddelde5 = 2;
-	    		int gemiddelde6 = 4;
-	    		int gemiddelde7 = 2;
-	    		int gemiddelde8 = 3;
-	    		int gemiddelde9 = 1;
-	    		int gemiddelde10 = 4;
-	    		
-	    		if(teller1 == 0){
-	    			gemiddelde1 = 0;
-	    		}
-	    		else{
-	    			gemiddelde1 = competentie1/teller1;
-	    		}
-	    		if(teller2 == 0){
-	    			gemiddelde2 = 0;
-	    		}
-	    		else{
-	    			gemiddelde2 = competentie2/teller2;
-	    		}
-	    		if(teller3 == 0){
-	    			gemiddelde3 = 0;
-	    		}
-	    		else{
-	    			gemiddelde3 = competentie3/teller3;
-	    		}
-	    		if(teller4 == 0){
-	    			gemiddelde4 = 0;
-	    		}
-	    		else{
-	    			gemiddelde4 = competentie4/teller4;
-	    		}
-	    		if(teller5 == 0){
-	    			gemiddelde5 = 0;
-	    		}
-	    		else{
-	    			gemiddelde5 = competentie5/teller5;
-	    		}
-	    		if(teller6 == 0){
-	    			gemiddelde6 = 0;
-	    		}
-	    		else{
-	    			gemiddelde6 = competentie6/teller6;
-	    		}
-	    		if(teller7 == 0){
-	    			gemiddelde7 = 0;
-	    		}
-	    		else{
-	    			gemiddelde7 = competentie7/teller7;
-	    		}
-	    		if(teller8 == 0){
-	    			gemiddelde8 = 0;
-	    		}
-	    		else{
-	    			gemiddelde8 = competentie8/teller8;
-	    		}
-	    		if(teller9 == 0){
-	    			gemiddelde9 = 0;
-	    		}
-	    		else{
-	    			gemiddelde9 = competentie9/teller9;
-	    		}
-	    		if(teller10 == 0){
-	    			gemiddelde10 = 0;
-	    		}
-	    		else{
-	    			gemiddelde10 = competentie10/teller10;
-	    		}
-	    		
-	    		out.println("['"+titel1+"', "+gemiddelde1+"],");
-	    		out.println("['"+titel2+"', "+gemiddelde2+"],");
-	    		out.println("['"+titel3+"', "+gemiddelde3+"],");
-	    		out.println("['"+titel4+"', "+gemiddelde4+"],");
-	    		out.println("['"+titel5+"', "+gemiddelde5+"],");
-	    		
-	    		out.println("['"+titel6+"', "+gemiddelde6+"],");
-	    		out.println("['"+titel7+"', "+gemiddelde7+"],");
-	    		out.println("['"+titel8+"', "+gemiddelde8+"],");
-	    		out.println("['"+titel9+"', "+gemiddelde9+"],");
-	    		out.println("['"+titel10+"', "+gemiddelde10+"],");
-     			}
-      
-	    
-		    
-         %>  
-        ['', 0]
-        
+ <script type="text/javascript" src="//www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1.1', {packages: ['controls']});
+    </script>
+    <script type="text/javascript">
+      function drawVisualization() {
+        // Prepare the data
+       var data = google.visualization.arrayToDataTable([
+          ['Competentie', 'Score', 'Aantal beoordelingen', 'Aantal leerlingen'],
+          ['Samenwerken en Overleggen' , 3.9 , 12, 5],
+          ['Aandacht en begrip tonen', 1.5, 20, 7],
+          ['Klantvriendelijk en dienstverlenend', 2.4, 7, 3],
+          ['Instructies en procedures opvolgen', 2.8, 54, 2],
+          ['Plannen en organiseren', 3.4, 22, 6],
+          ['Kwaliteit en vakdeskundigheid', 4.0, 3, 1],
+          ['Veilig werken', 3.7, 42, 8],
+          ['Met druk en tegenslag omgaan', 2.0, 3, 1],
+          ['Omgaan met verandering en aanpassen', 1.7, 42, 8],
+          ['Leren', 2.2, 33, 6]
         ]);
-		  new google.visualization.ColumnChart(document.getElementById('dashboard')).
-	      draw(data,
-	           {title:"Competenties gemiddelde van Accent Nijkerk",
-	            width:600, height:400,
-	            hAxis: {title: "Competentie"}});
-	    }
-        </script>
+      
+        // Define a slider control for the Age column.
+        var slider = new google.visualization.ControlWrapper({
+          'controlType': 'NumberRangeFilter',
+          'containerId': 'control1',
+          'options': {
+            'filterColumnLabel': 'Score',
+          'ui': {'labelStacking': 'vertical'}
+          }
+        });
+      
+        // Define a category picker control for the Gender column
+        var categoryPicker = new google.visualization.ControlWrapper({
+          'controlType': 'CategoryFilter',
+          'containerId': 'control2',
+          'options': {
+            'filterColumnLabel': 'Competentie',
+            'ui': {
+            'labelStacking': 'vertical',
+              'allowTyping': false,
+              'allowMultiple': false
+            }
+          }
+        });
+      
+        // Define a Pie chart
+        var pie = new google.visualization.ChartWrapper({
+          'chartType': 'ColumnChart',
+          'containerId': 'chart1',
+          'options': {
+            'width': 800,
+            'height': 300,
+            'legend': 'none',
+            'title': 'Score gemiddeld per competentie',
+            'chartArea': {'left': 15, 'top': 15, 'right': 0, 'bottom': 0},
+            'pieSliceText': 'label'
+          },
+          // Instruct the piechart to use colums 0 (Name) and 3 (Donuts Eaten)
+          // from the 'data' DataTable.
+          'view': {'columns': [0, 1]}
+        });
+      
+        // Define a table
+        var table = new google.visualization.ChartWrapper({
+          'chartType': 'Table',
+          'containerId': 'chart2',
+          'options': {
+            'width': '500px'
+          }
+        });
+	// var table1 = new google.visualization.Table({'chartType': 'Table', 'containerId': 'chart2'});
+        
+     
+        var formatter = new google.visualization.ColorFormat();
+        formatter.addRange(2, 4, 'white', 'green');
+        formatter.addRange(0, 2, 'white', 'red');
+        formatter.format(data, 1); // Apply formatter to second column
+        // Create a dashboard
+        new google.visualization.Dashboard(document.getElementById('dashboard')).
+            // Establish bindings, declaring the both the slider and the category
+            // picker will drive both charts.
+            bind([slider, categoryPicker], [pie, table]).
+            // Draw the entire dashboard.
+            draw(data, {allowHtml: true, showRowNumber: true});
+        
+       
+      
+      // table1.draw(data, {allowHtml: true, showRowNumber: true});
+        
+      }
+      
 
-
-
-
+      google.setOnLoadCallback(drawVisualization);
+    </script>
 </head>
 
 <body>
@@ -277,40 +109,32 @@
 	<section id="main" class="column"
 		style="min-width: 1110px; min-height: 600px !important;">
 		
-		<% 
-		Object msgs=request.getAttribute( "msgs");
-		if (msgs !=null) { 
-			out.println("<h4 class='alert_success'>"+msgs+"</h4>"); 
-			}			
-			%>
+	
 		<article class="module width_full">
+		<div id="dashboard">
 			<header>
-			<form action="kpiaccent.do" method="get">
-				<select name="select" onChange="this.form.submit()" id="select">
-				<option value="all">Alle competenties</option>
-				
-				<%
-				int teller = 0;
-				for(Competentie c: competenties){
-					teller++;
-					out.println("<option value="+teller+">"+c.getTitel() + "</option>");
-				}
-				
-				%>
-				
-				
-				</select>
-				</form>
+			 <div id="control1"></div>
+            <div id="control2"></div>
 			</header>
-			<div class="module_content">
-			<div id="control1"></div>
-
-        <div id="dashboard"></div>
-        
-        <div id="chart1" style="height: 1000px;" ></div>
 			
 			
-			</div>
+      <table>
+        <tr style='vertical-align: top'>
+          <td style='width: 300px; font-size: 0.9em;'>
+           
+            <div id="control3"></div>
+          </td>
+          <td style='width: 600px'>
+            <div style="float: left;" id="chart1"></div>
+            <div style="float: left;" id="chart2"></div>
+            <div style="float: left;" id="chart3"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+			
+			
+			
 		</article>
 		<!-- end of styles article -->
 		<div class="spacer"></div>
